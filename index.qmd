@@ -1,28 +1,47 @@
 ---
-title: La Palma Earthquake Mechanisms
+title: Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain
 author:
-  - name: Steve Purves
-    orcid: 0000-0002-0760-5497
+  - name: Ryan Crawford
+    # orcid: 0000-0002-0760-5497
     corresponding: true
-    email: steve@curvenote.com
-    roles:
-      - Investigation
-      - Project administration
-      - Software
-      - Visualization
+    email: rvc3@cornell.edu
+    # roles:
+    #   - Investigation
+    #   - Project administration
+    #   - Software
+    #   - Visualization
     affiliations:
-      - Curvenote
-  - name: Rowan Cockett
-    orcid: 0000-0002-7859-8394
+      - name: Cornell University
+        address: 126 Medicago Drive
+        city: Ithaca
+        state: NY
+        postal-code: 14853
+  - name: Lawrence B. Smart
+    # orcid: 0000-0002-7859-8394
     corresponding: false
     roles: []
     affiliations:
+      - name: Cornell AgriTech
+        address: 102 Hedrick Hall
+        city: Geneva
+        state: NY
+        postal-code: 14456
       - Curvenote
+  - name: Virginia Moore
+    # orcid: 0000-0002-7859-8394
+    corresponding: false
+    roles: []
+    affiliations:
+      - name: Cornell University
+        address: 162 Emerson Hall
+        city: Ithaca
+        state: NY
+        postal-code: 14853    
 keywords:
   - La Palma
   - Earthquakes
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 plain-language-summary: |
   Earthquake data for the island of La Palma from the September 2021 eruption is found ...
 key-points:
@@ -30,12 +49,91 @@ key-points:
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
 date: last-modified
 bibliography: references.bib
+csl: apa.csl
 citation:
   container-title: Earth and Space Science
 number-sections: true
 ---
 
-## Introduction
+```{r}
+#| include: false
+
+library(tidyverse)
+library(data.table)
+```
+
+## ABSTRACT
+
+## INTRODUCTION
+
+Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes.
+
+Percentage crude protein (CP) of grain is an important consideration for researchers, producers, and consumers.
+
+Protein is important because of its nutrition
+
+Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap. Within the context of plant breeding, a sample of undamaged grain may subsequently be planted. NIRS technology has been used since the 1970's to assess oil seeds [@reeves_potential_2012, @williams_application_1975]
+
+A calibration set typically consists of samples from many environments encompassing the range of expected values from the analyte [@chadalavada_nir_2022]. For this study, a benchtop NIR spectrometer was used to develop a model to predict crude protein content based on a data set representing multiple years, locations, and cultivars.
+
+## MATERIALS AND METHODS
+
+```{r }
+#| echo: false
+
+bckgrnd <- read_rds("./input_data/sample_background/simplified_background/background_data_set.Rds") |> setDT()
+
+ bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
+ 
+bg2 <- bckgrnd[loc!="kentucky"]
+ 
+tab <-  table(bckgrnd$in_ny)
+
+```
+
+### Hemp Grain Sample Background
+
+Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017 - 2021 from `r nrow(distinct(bckgrnd |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[2]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. In total, `r bg2$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material.
+
+All cultivar trials were planted in randomized complete block design with each cultivar replicated four times. The 2017 data were comprised of samples from the same thirteen cultivars sampled from six NY locations. For those trials, grain was harvested from each plot individually and aggregated by cultivar. Four subsamples were drawn from each aggregated sample and scanned separately. These spectra were averaged at each 2 nm increment. All remaining samples from 2018 - 2021 were collected on a per-plot basis. All possible cultivars and possible locations were represented in 2017, but only a selected subset of cultivars and locations were represented in 2018-2021.
+
+### Spectral Data Collection
+
+A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded.
+
+
+
+WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for crude protein laboratory assay from 2018-2021. Samples were selected for assay according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo2019]. For selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
+
+### Software used:
+
+Additional analysis was performed
+
+### Preprocessing
+
+Multiplicative scatter correction (MSC)
+
+standard normal variate (SNV) transformation
+
+The calibration set consisted of
+
+The validation set consisted of
+
+Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
+
+Prior to In 2017, an in
+
+## RESULTS AND DISCUSSION
+
+## ACKNOWLEDGMENTS
+
+## SUPPLEMENTAL MATERIAL
+
+## OPTIONAL SECTIONS
+
+## REFERENCES
+
+## FIGURES AND TABLES
 
 ```{r}
 eruptions <- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
@@ -77,16 +175,16 @@ $$ {#eq-poisson}
 
 where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
 
-| Name                 | Year   |
-| -------------------- | ------ |
-| Current              | 2021   |
-| Teneguía             | 1971   |
-| Nambroque            | 1949   |
-| El Charco            | 1712   |
-| Volcán San Antonio   | 1677   |
-| Volcán San Martin    | 1646   |
-| Tajuya near El Paso  | 1585   |
-| Montaña Quemada      | 1492   |
+| Name                | Year |
+|---------------------|------|
+| Current             | 2021 |
+| Teneguía            | 1971 |
+| Nambroque           | 1949 |
+| El Charco           | 1712 |
+| Volcán San Antonio  | 1677 |
+| Volcán San Martin   | 1646 |
+| Tajuya near El Paso | 1585 |
+| Montaña Quemada     | 1492 |
 
 : Recent historic eruptions on La Palma {#tbl-history}
 
@@ -94,7 +192,7 @@ where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probab
 
 ![Map of La Palma](images/la-palma-map.png){#fig-map}
 
-La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map). 
+La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map).
 
 {{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}}
 
@@ -106,6 +204,5 @@ La Palma is one of the west most islands in the Volcanic Archipelago of the Cana
 
 ## References {.unnumbered}
 
-:::{#refs}
-
+::: {#refs}
 :::
