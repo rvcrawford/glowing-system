@@ -11,24 +11,37 @@ author:
     #   - Software
     #   - Visualization
     affiliations:
-      - Cornell University
-  - name: Rowan Cockett
-    orcid: 0000-0002-7859-8394
+      - name: Cornell University
+        address: 126 Medicago Drive
+        city: Ithaca
+        state: NY
+        postal-code: 14853
+  - name: Lawrence B. Smart
+    # orcid: 0000-0002-7859-8394
     corresponding: false
     roles: []
     affiliations:
+      - name: Cornell AgriTech
+        address: 102 Hedrick Hall
+        city: Geneva
+        state: NY
+        postal-code: 14456
       - Curvenote
   - name: Virginia Moore
-    orcid: 0000-0002-7859-8394
+    # orcid: 0000-0002-7859-8394
     corresponding: false
-    roles: 
+    roles: []
     affiliations:
-      - Cornell University    
+      - name: Cornell University
+        address: 162 Emerson Hall
+        city: Ithaca
+        state: NY
+        postal-code: 14853    
 keywords:
   - La Palma
   - Earthquakes
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 plain-language-summary: |
   Earthquake data for the island of La Palma from the September 2021 eruption is found ...
 key-points:
@@ -53,15 +66,15 @@ library(data.table)
 
 ## INTRODUCTION
 
-Hemp is an annual crop with potential uses for food and fiber. Hemp may consist of types grown for grain, fiber, or dual purpose types.
+Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes.
+
+Percentage crude protein (CP) of grain is an important consideration for researchers, producers, and consumers.
 
 Protein is important because of its nutrition
 
 Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap. Within the context of plant breeding, a sample of undamaged grain may subsequently be planted. NIRS technology has been used since the 1970's to assess oil seeds [@reeves_potential_2012, @williams_application_1975]
 
-Here
-
-For this study, a benchtop NIR spectrometer was used to develop a model to predict crude protein content based on a data set representing multiple years, locations, and cultivars.
+A calibration set typically consists of samples from many environments encompassing the range of expected values from the analyte [@chadalavada_nir_2022]. For this study, a benchtop NIR spectrometer was used to develop a model to predict crude protein content based on a data set representing multiple years, locations, and cultivars.
 
 ## MATERIALS AND METHODS
 
@@ -80,13 +93,17 @@ tab <-  table(bckgrnd$in_ny)
 
 ### Hemp Grain Sample Background
 
-Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017 - 2021 from `r nrow(distinct(bckgrnd |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[2]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. In total, at least `r bckgrnd$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types.
+Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017 - 2021 from `r nrow(distinct(bckgrnd |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[2]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. In total, `r bg2$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material.
 
-All NY cultivar trials were planted in randomized complete block design with each cultivar replicated four times. The 2017 data were comprised of samples from the same thirteen cultivars sampled from six NY locations. For those trials, grain was harvested from each plot individually and aggregated by cultivar. Four subsamples were drawn from each aggregated sample and scanned separately. All remaining samples from 2018 - 2021 were collected on a per-plot basis. All cultivars and possible locations were represented in 2017, but only a selected subset of cultivars and locations were represented in 2018-2021.
+All cultivar trials were planted in randomized complete block design with each cultivar replicated four times. The 2017 data were comprised of samples from the same thirteen cultivars sampled from six NY locations. For those trials, grain was harvested from each plot individually and aggregated by cultivar. Four subsamples were drawn from each aggregated sample and scanned separately. These spectra were averaged at each 2 nm increment. All remaining samples from 2018 - 2021 were collected on a per-plot basis. All possible cultivars and possible locations were represented in 2017, but only a selected subset of cultivars and locations were represented in 2018-2021.
 
-### Spectral Data Collection and Preprocessing
+### Spectral Data Collection
 
-A FOSS/ NIR FOSS/NIR Systems model 5000 instrument was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm. For 2017, spectra were collected from each subsample; these spectra were averaged at each 2 nm increment. WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for crude protein laboratory assay from 2018-2021. Samples were selected for assay according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo2019]. For selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively. 
+A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded.
+
+
+
+WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for crude protein laboratory assay from 2018-2021. Samples were selected for assay according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo2019]. For selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
 
 ### Software used:
 
