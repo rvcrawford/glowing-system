@@ -1,0 +1,25 @@
+temp_id,harv_year,cultivar,loc,type
+126,2019,Grandi,free,grain
+127,2019,X-59,free,grain
+128,2019,Canda,free,grain
+129,2019,Joey,free,grain
+130,2019,Helena,free,dual
+131,2019,NWG-Elite,free,dual
+132,2019,Han-FN-H,mcg,grain
+133,2019,USO-31,mcg,grain
+134,2019,Han-NW,mcg,dual
+135,2019,Grandi,rn041_gen,grain
+136,2019,Earlina 8,rn041_gen,grain
+137,2019,Katani,rn041_gen,grain
+138,2019,Joey,rn041_gen,grain
+139,2019,Futura 75,rn041_gen,dual
+140,2019,Wojko,rn041_gen,dual
+141,2019,H-51,rn041_gen,dual
+142,2019,Hliana,rn041_gen,dual
+143,2019,Anka,willsboro,dual
+144,2019,Anka,willsboro,dual
+145,2019,Bialobrzeskie,willsboro,dual
+146,2019,Anka,rn028_gen,dual
+147,2019,Bialobrzeskie,rn028_gen,dual
+148,2019,Hliana,mcg,multistate
+149,2019,HL-51,mcg,multistate

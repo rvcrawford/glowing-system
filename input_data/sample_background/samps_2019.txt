@@ -1,0 +1,26 @@
+sample_number	date	time	sample_type	original_sample_number	sample_identification_string_one	sample_identification_string_two	field_no	plot	rep	entry	type	loc
+10	1/14/2020	10:30:08	selected	27	ORG6	<none>	ORG6-27	111	1	Grandi	grain	free
+13	1/14/2020	10:41:31	selected	29	ORG6	<none>	ORG6-29	202	2	X-59	grain	free
+22	1/14/2020	10:48:57	selected	38	ORG6	<none>	ORG6-38	211	2	Canda	grain	free
+28	1/14/2020	11:01:01	selected	44	ORG6	<none>	ORG6-44	306	3	Joey	grain	free
+61	1/14/2020	11:54:08	selected	78	ORG6	<none>	ORG6-78	205	2	Helena	dual	free
+93	1/14/2020	13:57:06	selected	110	ORG6	<none>	ORG6-110	411	4	NWG-Elite	dual	free
+103	1/14/2020	14:13:52	selected	29	MG3	<none>	MG3-29	109	1	Han-FN-H	grain	mcg
+122	1/14/2020	14:43:13	selected	50	MG3	<none>	MG3-50	304	3	USO-31	grain	mcg
+185	1/14/2020	16:27:39	selected	132	MG3	<none>	MG3-132	403	4	Han-NW	dual	mcg
+198	1/15/2020	13:50:22	selected	22	RN041	<none>	RN041-22	102	1	Grandi	grain	rn041_gen
+206	1/15/2020	14:00:20	selected	32	RN041	<none>	RN041-32	112	1	Earlina 8	grain	rn041_gen
+209	1/15/2020	15:47:15	selected	35	RN041	<none>	RN041-35	201	2	Katani	grain	rn041_gen
+214	1/15/2020	15:52:38	selected	41	RN041	<none>	RN041-41	207	2	Canda	grain	rn041_gen
+234	1/15/2020	16:19:12	selected	63_2	RN041	<none>	RN041-63	401	4	Joey	grain	rn041_gen
+246	1/16/2020	10:01:37	selected	77	RN041	<none>	RN041-77	101	1	Futura 75	dual	rn041_gen
+259	1/16/2020	10:18:50	selected	96	RN041	<none>	RN041-96	201	2	Wojko	dual	rn041_gen
+260	1/16/2020	10:19:39	selected	97	RN041	<none>	RN041-97	202	2	H-51	dual	rn041_gen
+287	1/16/2020	10:53:19	selected	136	RN041	<none>	RN041-136	403	4	Hliana	dual	rn041_gen
+310	1/16/2020	11:36:27	selected	1_Anka	Willsboro	<none>	NA	NA	NA	Anka	dual	willsboro
+312	1/16/2020	11:38:16	selected	3_Anka	Willsboro	<none>	NA	NA	NA	Anka	dual	willsboro
+313	1/16/2020	11:39:27	selected	1_Bial.	Willsboro	<none>	NA	NA	NA	Bialobrzeskie	dual	willsboro
+324	1/16/2020	12:02:23	selected	S_9	RN028	<none>	RN028	2	2	Anka	dual	rn028_gen
+335	1/16/2020	12:14:56	selected	S_20	RN028	<none>	RN028	6	6	Bialobrzeskie	dual	rn028_gen
+346	2/24/2020	10:34:50	selected	107	Multistate Hemp	A	MS-7	107	1	Hliana	multistate	mcg
+357	2/24/2020	10:50:35	selected	208	Multistate Hemp	A	MS-18	208	2	HL-51	multistate	mcg

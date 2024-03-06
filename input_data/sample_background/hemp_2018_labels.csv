@@ -1,0 +1,176 @@
+loc,me,Plot,Rep,Lot.,Entry
+Freeville,grain,101,1,17-514,Picolo
+Freeville,grain,102,1,17-516,Grandi
+Freeville,grain,103,1,17-515,CRS-1
+Freeville,grain,104,1,18-532,X-59
+Freeville,grain,105,1,17-512,CFX-1
+Freeville,grain,106,1,17-511,CFX-2
+Freeville,grain,107,1,16-503,USO-31
+Freeville,grain,108,1,18-525,Swift
+Freeville,grain,109,1,18-523,Pewter River
+Freeville,grain,110,1,18-524,Portugal
+Freeville,grain,111,1,17-513,Katani
+Freeville,grain,201,2,17-512,CFX-1
+Freeville,grain,202,2,17-515,CRS-1
+Freeville,grain,203,2,17-511,CFX-2
+Freeville,grain,204,2,18-524,Portugal
+Freeville,grain,205,2,18-525,Swift
+Freeville,grain,206,2,18-523,Pewter River
+Freeville,grain,207,2,18-532,X-59
+Freeville,grain,208,2,17-516,Grandi
+Freeville,grain,209,2,17-514,Picolo
+Freeville,grain,210,2,17-513,Katani
+Freeville,grain,211,2,16-503,USO-31
+Freeville,grain,401,4,17-511,CFX-2
+Freeville,grain,402,4,18-523,Pewter River
+Freeville,grain,403,4,18-524,Portugal
+Freeville,grain,404,4,17-512,CFX-1
+Freeville,grain,405,4,18-525,Swift
+Freeville,grain,406,4,17-515,CRS-1
+Freeville,grain,407,4,16-503,USO-31
+Freeville,grain,408,4,17-513,Katani
+Freeville,grain,409,4,18-532,X-59
+Freeville,grain,410,4,17-514,Picolo
+Freeville,grain,411,4,17-516,Grandi
+McG 7,grain,101,1,17-511,CFX-2
+McG 7,grain,102,1,18-525,Swift
+McG 7,grain,103,1,18-523,Pewter River
+McG 7,grain,104,1,17-513,Katani
+McG 7,grain,105,1,17-514,Picolo
+McG 7,grain,106,1,16-503,USO-31
+McG 7,grain,107,1,17-516,Grandi
+McG 7,grain,108,1,18-532,X-59
+McG 7,grain,109,1,18-524,Portugal
+McG 7,grain,110,1,17-512,CFX-1
+McG 7,grain,111,1,17-515,CRS-1
+McG 7,grain,201,2,17-514,Picolo
+McG 7,grain,202,2,18-523,Pewter River
+McG 7,grain,203,2,17-516,Grandi
+McG 7,grain,204,2,18-525,Swift
+McG 7,grain,205,2,18-524,Portugal
+McG 7,grain,206,2,17-512,CFX-1
+McG 7,grain,207,2,17-511,CFX-2
+McG 7,grain,208,2,16-503,USO-31
+McG 7,grain,209,2,17-513,Katani
+McG 7,grain,210,2,17-515,CRS-1
+McG 7,grain,211,2,18-532,X-59
+McG 7,grain,301,3,17-514,Picolo
+McG 7,grain,302,3,18-525,Swift
+McG 7,grain,303,3,18-532,X-59
+McG 7,grain,304,3,18-523,Pewter River
+McG 7,grain,305,3,17-511,CFX-2
+McG 7,grain,306,3,17-516,Grandi
+McG 7,grain,307,3,16-503,USO-31
+McG 7,grain,308,3,18-524,Portugal
+McG 7,grain,309,3,17-513,Katani
+McG 7,grain,310,3,17-512,CFX-1
+McG 7,grain,311,3,17-515,CRS-1
+Freeville,dual,101,1,16-508,Bialobrzeskie
+Freeville,dual,102,1,17-517,Anka
+Freeville,dual,103,1,18-540,Hele
+Freeville,dual,104,1,18-522,Sterling Gold
+Freeville,dual,105,1,16-509,Tygra
+Freeville,dual,106,1,18-538,Tygra
+Freeville,dual,107,1,18-539,NWG-Elite
+Freeville,dual,108,1,18-535,Canda
+Freeville,dual,109,1,18-541,NWG-331
+Freeville,dual,110,1,16-510,Wojko
+Freeville,dual,111,1,18-534,Joey
+Freeville,dual,112,1,16-502,Feli 32
+Freeville,dual,113,1,18-555,Ferimon
+Freeville,dual,114,1,18-521,Nebraska (feral)
+Freeville,dual,115,1,16-501,Futura 75
+Freeville,dual,201,2,16-501,Futura 75
+Freeville,dual,202,2,18-555,Ferimon
+Freeville,dual,203,2,18-538,Tygra
+Freeville,dual,204,2,17-517,Anka
+Freeville,dual,205,2,18-541,NWG-331
+Freeville,dual,206,2,18-540,Hele
+Freeville,dual,207,2,18-521,Nebraska (feral)
+Freeville,dual,208,2,16-508,Bialobrzeskie
+Freeville,dual,209,2,16-510,Wojko
+Freeville,dual,210,2,16-509,Tygra
+Freeville,dual,211,2,18-539,NWG-Elite
+Freeville,dual,212,2,18-522,Sterling Gold
+Freeville,dual,213,2,16-502,Feli 32
+Freeville,dual,214,2,18-534,Joey
+Freeville,dual,215,2,18-535,Canda
+Freeville,dual,401,4,16-510,Wojko
+Freeville,dual,402,4,18-541,NWG-331
+Freeville,dual,403,4,16-508,Bialobrzeskie
+Freeville,dual,404,4,18-522,Sterling Gold
+Freeville,dual,405,4,18-521,Nebraska (feral)
+Freeville,dual,406,4,17-517,Anka
+Freeville,dual,407,4,18-540,Hele
+Freeville,dual,408,4,18-539,NWG-Elite
+Freeville,dual,409,4,16-501,Futura 75
+Freeville,dual,410,4,18-538,Tygra
+Freeville,dual,411,4,16-502,Feli 32
+Freeville,dual,412,4,18-534,Joey
+Freeville,dual,413,4,18-555,Ferimon
+Freeville,dual,414,4,16-509,Tygra
+Freeville,dual,415,4,18-535,Canda
+McG 7,dual,101,1,18-534,Joey
+McG 7,dual,102,1,17-517,Anka
+McG 7,dual,103,1,16-510,Wojko
+McG 7,dual,104,1,18-538,Tygra
+McG 7,dual,105,1,18-535,Canda
+McG 7,dual,106,1,16-501,Futura 75
+McG 7,dual,107,1,18-555,Ferimon
+McG 7,dual,108,1,16-502,Feli 32
+McG 7,dual,109,1,18-540,Hele
+McG 7,dual,110,1,18-541,NWG-331
+McG 7,dual,111,1,16-508,Bialobrzeskie
+McG 7,dual,112,1,18-522,Sterling Gold
+McG 7,dual,113,1,18-539,NWG-Elite
+McG 7,dual,114,1,18-520,Rocky Hemp
+McG 7,dual,115,1,18-521,Nebraska (feral)
+McG 7,dual,116,1,16-509,Tygra
+McG 7,dual,201,2,16-508,Bialobrzeskie
+McG 7,dual,202,2,18-541,NWG-331
+McG 7,dual,203,2,18-522,Sterling Gold
+McG 7,dual,204,2,16-509,Tygra
+McG 7,dual,205,2,17-517,Anka
+McG 7,dual,206,2,18-521,Nebraska (feral)
+McG 7,dual,207,2,16-501,Futura 75
+McG 7,dual,208,2,18-540,Hele
+McG 7,dual,209,2,18-539,NWG-Elite
+McG 7,dual,210,2,16-510,Wojko
+McG 7,dual,211,2,18-535,Canda
+McG 7,dual,212,2,18-538,Tygra
+McG 7,dual,213,2,18-555,Ferimon
+McG 7,dual,214,2,18-520,Rocky Hemp
+McG 7,dual,215,2,18-534,Joey
+McG 7,dual,216,2,16-502,Feli 32
+McG 7,dual,301,3,16-502,Feli 32
+McG 7,dual,302,3,18-520,Rocky Hemp
+McG 7,dual,303,3,18-534,Joey
+McG 7,dual,304,3,18-521,Nebraska (feral)
+McG 7,dual,305,3,18-538,Tygra
+McG 7,dual,306,3,16-509,Tygra
+McG 7,dual,307,3,18-541,NWG-331
+McG 7,dual,308,3,17-517,Anka
+McG 7,dual,309,3,18-535,Canda
+McG 7,dual,310,3,18-555,Ferimon
+McG 7,dual,311,3,18-539,NWG-Elite
+McG 7,dual,312,3,16-501,Futura 75
+McG 7,dual,313,3,18-522,Sterling Gold
+McG 7,dual,314,3,16-508,Bialobrzeskie
+McG 7,dual,315,3,18-540,Hele
+McG 7,dual,316,3,16-510,Wojko
+McG 7,dual,401,4,18-535,Canda
+McG 7,dual,402,4,18-541,NWG-331
+McG 7,dual,403,4,16-508,Bialobrzeskie
+McG 7,dual,404,4,16-509,Tygra
+McG 7,dual,405,4,16-510,Wojko
+McG 7,dual,406,4,18-540,Hele
+McG 7,dual,407,4,17-517,Anka
+McG 7,dual,408,4,18-539,NWG-Elite
+McG 7,dual,409,4,18-555,Ferimon
+McG 7,dual,410,4,18-538,Tygra
+McG 7,dual,411,4,16-502,Feli 32
+McG 7,dual,412,4,18-522,Sterling Gold
+McG 7,dual,413,4,18-534,Joey
+McG 7,dual,414,4,18-521,Nebraska (feral)
+McG 7,dual,415,4,18-520,Rocky Hemp
+McG 7,dual,416,4,16-501,Futura 75

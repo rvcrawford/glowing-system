@@ -1,0 +1,165 @@
+plot,rep,entry,loc,trial
+101,1,CS,ithaca,fiber
+102,1,MS77,ithaca,fiber
+103,1,CS,ithaca,fiber
+104,1,F83,ithaca,fiber
+105,1,CARMAGNOLA,ithaca,fiber
+106,1,EC,ithaca,fiber
+107,1,PUMA,ithaca,fiber
+108,1,FIBRANOVA,ithaca,fiber
+109,1,F79,ithaca,fiber
+201,2,F83,ithaca,fiber
+202,2,MS77,ithaca,fiber
+203,2,PUMA,ithaca,fiber
+204,2,F79,ithaca,fiber
+205,2,FIBRANOVA,ithaca,fiber
+206,2,CARMAGNOLA,ithaca,fiber
+207,2,EC,ithaca,fiber
+208,2,PUMA SELECT,ithaca,fiber
+209,2,CS,ithaca,fiber
+301,3,MS77,ithaca,fiber
+302,3,F83,ithaca,fiber
+303,3,FIBRANOVA,ithaca,fiber
+304,3,EC,ithaca,fiber
+305,3,PUMA SELECT,ithaca,fiber
+306,3,CS,ithaca,fiber
+307,3,F79,ithaca,fiber
+308,3,PUMA,ithaca,fiber
+309,3,CARMAGNOLA,ithaca,fiber
+401,4,F79,ithaca,fiber
+402,4,F79,ithaca,fiber
+403,4,FIBRANOVA,ithaca,fiber
+404,4,PUMA,ithaca,fiber
+405,4,EC,ithaca,fiber
+406,4,MS77,ithaca,fiber
+407,4,CS,ithaca,fiber
+408,4,F83,ithaca,fiber
+409,4,CARMAGNOLA,ithaca,fiber
+101,1,Katani,ithaca,grain_dual
+102,1,CRS-1,ithaca,grain_dual
+103,1,CFX-1,ithaca,grain_dual
+104,1,Grandi,ithaca,grain_dual
+105,1,Picolo,ithaca,grain_dual
+106,1,X-59,ithaca,grain_dual
+107,1,CFX-2,ithaca,grain_dual
+108,1,Joey,ithaca,grain_dual
+109,1,Canda,ithaca,grain_dual
+110,1,Earlina 08,ithaca,grain_dual
+111,1,USO-31,ithaca,grain_dual
+112,1,Anka,ithaca,grain_dual
+113,1,Vega,ithaca,grain_dual
+114,1,Fedora 17_NY-18,ithaca,grain_dual
+115,1,Henola,ithaca,grain_dual
+116,1,Tygra,ithaca,grain_dual
+117,1,Rigel,ithaca,grain_dual
+118,1,Altair,ithaca,grain_dual
+119,1,Fedora 17_NY-21,ithaca,grain_dual
+120,1,Bialobrzeskie,ithaca,grain_dual
+121,1,Felina 32,ithaca,grain_dual
+122,1,Wojko,ithaca,grain_dual
+123,1,Helena,ithaca,grain_dual
+124,1,Ferimon,ithaca,grain_dual
+125,1,Futura 75,ithaca,grain_dual
+201,2,CFX-1,ithaca,grain_dual
+202,2,CFX-2,ithaca,grain_dual
+203,2,Katani,ithaca,grain_dual
+204,2,Picolo,ithaca,grain_dual
+205,2,Grandi,ithaca,grain_dual
+206,2,X-59,ithaca,grain_dual
+207,2,Joey,ithaca,grain_dual
+208,2,CRS-1,ithaca,grain_dual
+209,2,Canda,ithaca,grain_dual
+210,2,Earlina 08,ithaca,grain_dual
+211,2,Henola,ithaca,grain_dual
+212,2,Rigel,ithaca,grain_dual
+213,2,Vega,ithaca,grain_dual
+214,2,Tygra,ithaca,grain_dual
+215,2,Fedora 17_NY-18,ithaca,grain_dual
+216,2,Altair,ithaca,grain_dual
+217,2,USO-31,ithaca,grain_dual
+218,2,Anka,ithaca,grain_dual
+219,2,Futura 75,ithaca,grain_dual
+220,2,Fedora 17_NY-21,ithaca,grain_dual
+221,2,Wojko,ithaca,grain_dual
+222,2,Helena,ithaca,grain_dual
+223,2,Bialobrzeskie,ithaca,grain_dual
+224,2,Ferimon,ithaca,grain_dual
+225,2,Felina 32,ithaca,grain_dual
+301,3,Joey,ithaca,grain_dual
+302,3,CRS-1,ithaca,grain_dual
+303,3,Picolo,ithaca,grain_dual
+304,3,Earlina 08,ithaca,grain_dual
+305,3,Canda,ithaca,grain_dual
+306,3,Grandi,ithaca,grain_dual
+307,3,CFX-2,ithaca,grain_dual
+308,3,CFX-1,ithaca,grain_dual
+309,3,X-59,ithaca,grain_dual
+310,3,Katani,ithaca,grain_dual
+311,3,USO-31,ithaca,grain_dual
+312,3,Anka,ithaca,grain_dual
+313,3,Altair,ithaca,grain_dual
+314,3,Vega,ithaca,grain_dual
+315,3,Henola,ithaca,grain_dual
+316,3,Tygra,ithaca,grain_dual
+317,3,Rigel,ithaca,grain_dual
+318,3,Fedora 17_NY-18,ithaca,grain_dual
+319,3,Wojko,ithaca,grain_dual
+320,3,Felina 32,ithaca,grain_dual
+321,3,Fedora 17_NY-21,ithaca,grain_dual
+322,3,Helena,ithaca,grain_dual
+323,3,Futura 75,ithaca,grain_dual
+324,3,Ferimon,ithaca,grain_dual
+325,3,Bialobrzeskie,ithaca,grain_dual
+401,4,X-59,ithaca,grain_dual
+402,4,Grandi,ithaca,grain_dual
+403,4,CRS-1,ithaca,grain_dual
+404,4,Earlina 08,ithaca,grain_dual
+405,4,CFX-1,ithaca,grain_dual
+406,4,Canda,ithaca,grain_dual
+407,4,CFX-2,ithaca,grain_dual
+408,4,Joey,ithaca,grain_dual
+409,4,Picolo,ithaca,grain_dual
+410,4,Katani,ithaca,grain_dual
+411,4,Tygra,ithaca,grain_dual
+412,4,Altair,ithaca,grain_dual
+413,4,Rigel,ithaca,grain_dual
+414,4,Anka,ithaca,grain_dual
+415,4,Fedora 17_NY-18,ithaca,grain_dual
+416,4,USO-31,ithaca,grain_dual
+417,4,Henola,ithaca,grain_dual
+418,4,Vega,ithaca,grain_dual
+419,4,Helena,ithaca,grain_dual
+420,4,Fedora 17_NY-21,ithaca,grain_dual
+421,4,Felina 32,ithaca,grain_dual
+422,4,Wojko,ithaca,grain_dual
+423,4,Futura 75,ithaca,grain_dual
+424,4,Ferimon,ithaca,grain_dual
+425,4,Bialobrzeskie,ithaca,grain_dual
+101,1,Picolo,ithaca,exp.
+102,1,Logan x Anka C2,ithaca,exp.
+103,1,Han NW select,ithaca,exp.
+104,1,Yuma Crossbow,ithaca,exp.
+105,1,Anka,ithaca,exp.
+106,1,Logan C2,ithaca,exp.
+107,1,Futura 75,ithaca,exp.
+201,2,Anka,ithaca,exp.
+202,2,Logan C2,ithaca,exp.
+203,2,Futura 75,ithaca,exp.
+204,2,Han NW select,ithaca,exp.
+205,2,Yuma Crossbow,ithaca,exp.
+206,2,Logan x Anka C2,ithaca,exp.
+207,2,Picolo,ithaca,exp.
+301,3,Futura 75,ithaca,exp.
+302,3,Yuma Crossbow,ithaca,exp.
+303,3,Han NW select,ithaca,exp.
+304,3,Anka,ithaca,exp.
+305,3,Logan x Anka C2,ithaca,exp.
+306,3,Logan C2,ithaca,exp.
+307,3,Picolo,ithaca,exp.
+401,4,Picolo,ithaca,exp.
+402,4,Han NW select,ithaca,exp.
+403,4,Futura 75,ithaca,exp.
+404,4,Logan C2,ithaca,exp.
+405,4,Logan x Anka C2,ithaca,exp.
+406,4,Anka,ithaca,exp.
+407,4,Yuma Crossbow,ithaca,exp.

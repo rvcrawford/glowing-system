@@ -1,0 +1,32 @@
+position	cu_no	black_label	X8	sample_id	date	time	type	sample_identification_string_one	sample_identification_string_two
+2	18	ITH EXP 404	18 ITH EXP 404	2838844	3/8/2022	1899-12-31 14:39:05	outlier	ithaca exp	rerun
+3	13	ITH EXP 106	13 ITH EXP 106	2838839	3/8/2022	1899-12-31 14:34:36	outlier	ithaca exp	rerun
+5	15	ITH EXP 202	15 ITH EXP 202	2838841	3/8/2022	1899-12-31 14:37:12	outlier	ithaca exp	rerun
+1	20	ITH GD 221	20 ITH GD 221	2838846	1/13/2022	1899-12-31 11:40:21	selected	ithaca grain_dual	<none>
+2	21	ITH GD 301	21 ITH GD 301	2838847	1/13/2022	1899-12-31 11:54:40	selected	ithaca grain_dual	<none>
+3	22	ITH GD 313	22 ITH GD 313	2838848	1/13/2022	1899-12-31 13:52:40	selected	ithaca grain_dual	<none>
+4	23	ITH GD 316	23 ITH GD 316	2838849	1/13/2022	1899-12-31 13:55:17	selected	ithaca grain_dual	<none>
+5	24	ITH GD 403	24 ITH GD 403	2838850	1/13/2022	1899-12-31 14:20:36	selected	ithaca grain_dual	<none>
+6	25	ITH GD 405	25 ITH GD 405	2838851	1/13/2022	1899-12-31 14:22:57	selected	ithaca grain_dual	<none>
+7	14	ITH EXP 201	14 ITH EXP 201	2838840	1/13/2022	1899-12-31 14:45:34	selected	ithaca exp	<none>
+8	16	ITH EXP 207	16 ITH EXP 207	2838842	1/13/2022	1899-12-31 14:58:10	selected	ithaca exp	<none>
+9	17	ITH EXP 306	17 ITH EXP 306	2838843	1/13/2022	1899-12-31 15:02:34	selected	ithaca exp	<none>
+10	19	ITH EXP 405	19 ITH EXP 405	2838845	1/13/2022	1899-12-31 15:08:17	selected	ithaca exp	<none>
+12	6	ITHMS 107A	6 ITHMS 107A	2838832	1/21/2022	1899-12-31 11:38:40	selected	ith_multistate	subsample A
+13	7	ITHMS 109A	7 ITHMS 109A	2838833	1/21/2022	1899-12-31 11:40:28	selected	ith_multistate	subsample A
+14	8	ITHMS 201B	8 ITHMS 201B	2838834	1/21/2022	1899-12-31 12:20:10	selected	ith_multistate	subsample B
+15	11	ITHMS 313A	11 ITHMS 313A	2838837	1/21/2022	1899-12-31 12:41:29	selected	ith_multistate	subsample A
+16	9	ITHMS 306B	9 ITHMS 306B	2838835	1/21/2022	1899-12-31 12:56:42	selected	ith_multistate	subsample B
+17	10	ITHMS 309B	10 ITHMS 309B	2838836	1/21/2022	1899-12-31 13:03:25	selected	ith_multistate	subsample B
+18	12	ITHMS 403A	12 ITHMS 403A	2838838	1/21/2022	1899-12-31 13:14:21	selected	ith_multistate	subsample A
+21	5	HF20 003	5 HF20 003	2838831	3/3/2022	1899-12-31 13:18:26	selected	HF20	Kentucky
+22	4	HF21 014	4 HF21 014	2838830	3/3/2022	1899-12-31 13:48:31	selected	HF20	Kentucky
+26	27	PDD 1026	27 PDD 1026	2838853	3/3/2022	1899-12-31 15:09:32	selected	Kentucky	<none>
+29	28	PDD 1041	28 PDD 1041	2838854	3/3/2022	1899-12-31 15:40:00	selected	Kentucky	<none>
+31	29	PDD 1056	29 PDD 1056	2838855	3/3/2022	1899-12-31 16:04:46	selected	Kentucky	<none>
+32	30	PDD 1071	30 PDD 1071	2838856	3/4/2022	1899-12-31 11:21:47	selected	Kentucky	<none>
+33	31	PDD 1076	31 PDD 1076	2838857	3/4/2022	1899-12-31 11:39:21	selected	Kentucky	<none>
+34	1	DP20 108	1 DP20 108	2838827	3/4/2022	1899-12-31 12:24:25	selected	DP20	Kentucky
+38	2	DP20 118	2 DP20 118	2838828	3/4/2022	1899-12-31 12:32:12	selected	DP20	Kentucky
+39	3	DP20 125	3 DP20 125	2838829	3/4/2022	1899-12-31 12:50:55	selected	DP20	Kentucky
+42	26	PDD 251	26 PDD 251	2838852	3/7/2022	1899-12-31 11:32:44	selected	Kentucky	<none>

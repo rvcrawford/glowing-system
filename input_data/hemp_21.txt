@@ -1,0 +1,53 @@
+type		sample_identification_string_one	sample_identification_string_two	sample_number	Sample.number
+selected		DP20	Kentucky	108	1
+selected		DP20	Kentucky	109	
+selected		DP20	Kentucky	112	
+selected		DP20	Kentucky	117	
+selected		DP20	Kentucky	118	2
+selected		DP20	Kentucky	125	3
+selected		HF20	Kentucky	3	5
+selected		HF20	Kentucky	"HF	4
+outlier		ith_fiber	rerun	302	
+selected		ith_fiber	<none>	303	
+selected		ith_multistate	subsample A	106	
+selected		ith_multistate	subsample A	107	6
+selected		ith_multistate	subsample A	109	7
+selected		ith_multistate	subsample B	201	8
+selected		ith_multistate	subsample B	306	9
+selected		ith_multistate	subsample B	309	10
+selected		ith_multistate	subsample A	313	11
+selected		ith_multistate	subsample A	403	12
+selected		ith_multistate	subsample B	412	
+selected		ith_multistate	subsample A	412	
+outlier		ithaca exp	rerun	106	13
+selected		ithaca exp	<none>	201	14
+outlier		ithaca exp	rerun	202	15
+selected		ithaca exp	<none>	207	16
+outlier		ithaca exp	<none>	306	
+selected		ithaca exp	<none>	306	17
+outlier		ithaca exp	rerun	404	18
+selected		ithaca exp	<none>	405	19
+selected		ithaca grain_dual	<none>	221	20
+selected		ithaca grain_dual	<none>	301	21
+selected		ithaca grain_dual	<none>	313	22
+selected		ithaca grain_dual	<none>	316	23
+selected		ithaca grain_dual	<none>	403	24
+selected		ithaca grain_dual	<none>	405	25
+outlier		Kentucky	<none>	213	
+selected		Kentucky	<none>	214	
+selected		Kentucky	<none>	230	
+selected		Kentucky	<none>	251	26
+selected		Kentucky	<none>	255	
+selected		Kentucky	<none>	266	
+selected		Kentucky	<none>	1005	
+selected		Kentucky	<none>	1015	
+selected		Kentucky	<none>	1025	
+selected		Kentucky	<none>	1026	27
+selected		Kentucky	<none>	1038	
+selected		Kentucky	<none>	1039	
+selected		Kentucky	<none>	1041	28
+selected		Kentucky	<none>	1047	
+selected		Kentucky	<none>	1056	29
+selected		Kentucky	<none>	1071	30
+selected		Kentucky	<none>	1076	31
+selected		Logan C3	<none>	mod_branch_1	

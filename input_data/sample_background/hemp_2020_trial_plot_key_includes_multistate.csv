@@ -1,0 +1,193 @@
+Field No.,Plot,Rep,Entry,trial
+SNY01-109,101,1,Picolo,grain_replant
+SNY01-110,102,1,CRS-1,grain_replant
+SNY01-111,103,1,Joey,grain_replant
+SNY01-112,104,1,USO-31,grain_replant
+SNY01-113,105,1,CFX-2,grain_replant
+SNY01-114,106,1,Canda,grain_replant
+SNY01-115,107,1,Henola,grain_replant
+SNY01-116,108,1,X-59,grain_replant
+SNY01-117,201,2,X-59,grain_replant
+SNY01-118,202,2,CRS-1,grain_replant
+SNY01-119,203,2,Canda,grain_replant
+SNY01-120,204,2,USO-31,grain_replant
+SNY01-121,205,2,Henola,grain_replant
+SNY01-122,206,2,Picolo,grain_replant
+SNY01-123,207,2,Joey,grain_replant
+SNY01-124,208,2,CFX-2,grain_replant
+SNY01-125,301,3,Henola,grain_replant
+SNY01-126,302,3,Picolo,grain_replant
+SNY01-127,303,3,Canda,grain_replant
+SNY01-128,304,3,USO-31,grain_replant
+SNY01-129,305,3,Joey,grain_replant
+SNY01-130,306,3,CRS-1,grain_replant
+SNY01-131,307,3,CFX-2,grain_replant
+SNY01-132,308,3,X-59,grain_replant
+SNY01-133,401,4,X-59,grain_replant
+SNY01-134,402,4,CFX-2,grain_replant
+SNY01-135,403,4,USO-31,grain_replant
+SNY01-136,404,4,Canda,grain_replant
+SNY01-137,405,4,CRS-1,grain_replant
+SNY01-138,406,4,Henola,grain_replant
+SNY01-139,407,4,Picolo,grain_replant
+SNY01-140,408,4,Joey,grain_replant
+SNY01-141,101,1,NWG-Elite,dual_replant
+SNY01-142,102,1,NWG-Abound,dual_replant
+SNY01-143,103,1,Rigel,dual_replant
+SNY01-144,104,1,Altair,dual_replant
+SNY01-145,105,1,Hlukhivskii-51,dual_replant
+SNY01-146,106,1,Vega,dual_replant
+SNY01-147,107,1,Fedora 17,dual_replant
+SNY01-148,108,1,Hlesia,dual_replant
+SNY01-149,109,1,Anka,dual_replant
+SNY01-150,110,1,Felina 32,dual_replant
+SNY01-151,111,1,Bialobrzeskie,dual_replant
+SNY01-152,112,1,Futura 75,dual_replant
+SNY01-153,113,1,Ferimon,dual_replant
+SNY01-154,114,1,Wojko,dual_replant
+SNY01-155,115,1,Hliana,dual_replant
+SNY01-156,201,2,NWG-Elite,dual_replant
+SNY01-157,202,2,NWG-Abound,dual_replant
+SNY01-158,203,2,Felina 32,dual_replant
+SNY01-159,204,2,Fedora 17,dual_replant
+SNY01-160,205,2,Vega,dual_replant
+SNY01-161,206,2,Anka,dual_replant
+SNY01-162,207,2,Futura 75,dual_replant
+SNY01-163,208,2,Hlesia,dual_replant
+SNY01-164,209,2,Bialobrzeskie,dual_replant
+SNY01-165,210,2,Hlukhivskii-51,dual_replant
+SNY01-166,211,2,Hliana,dual_replant
+SNY01-167,212,2,Rigel,dual_replant
+SNY01-168,213,2,Altair,dual_replant
+SNY01-169,214,2,Ferimon,dual_replant
+SNY01-170,215,2,Wojko,dual_replant
+SNY01-171,301,3,Futura 75,dual_replant
+SNY01-172,302,3,Fedora 17,dual_replant
+SNY01-173,303,3,Altair,dual_replant
+SNY01-174,304,3,Felina 32,dual_replant
+SNY01-175,305,3,Anka,dual_replant
+SNY01-176,306,3,NWG-Abound,dual_replant
+SNY01-177,307,3,NWG-Elite,dual_replant
+SNY01-178,308,3,Bialobrzeskie,dual_replant
+SNY01-179,309,3,Rigel,dual_replant
+SNY01-180,310,3,Hlesia,dual_replant
+SNY01-181,311,3,Ferimon,dual_replant
+SNY01-182,312,3,Hlukhivskii-51,dual_replant
+SNY01-183,313,3,Vega,dual_replant
+SNY01-184,314,3,Wojko,dual_replant
+SNY01-185,315,3,Hliana,dual_replant
+SNY01-186,401,4,Wojko,dual_replant
+SNY01-187,402,4,Ferimon,dual_replant
+SNY01-188,403,4,Hlukhivskii-51,dual_replant
+SNY01-189,404,4,Altair,dual_replant
+SNY01-190,405,4,Futura 75,dual_replant
+SNY01-191,406,4,NWG-Elite,dual_replant
+SNY01-192,407,4,Hlesia,dual_replant
+SNY01-193,408,4,Vega,dual_replant
+SNY01-194,409,4,Felina 32,dual_replant
+SNY01-195,410,4,NWG-Abound,dual_replant
+SNY01-196,411,4,Rigel,dual_replant
+SNY01-197,412,4,Fedora 17,dual_replant
+SNY01-198,413,4,Anka,dual_replant
+SNY01-199,414,4,Hliana,dual_replant
+SNY01-200,415,4,Bialobrzeskie,dual_replant
+SNY01-17,101,1,Picolo,grain_original
+SNY01-18,102,1,CFX-2,grain_original
+SNY01-19,103,1,Joey,grain_original
+SNY01-20,104,1,Henola,grain_original
+SNY01-21,105,1,X-59,grain_original
+SNY01-22,106,1,Canda,grain_original
+SNY01-23,107,1,CRS-1,grain_original
+SNY01-24,108,1,USO-31,grain_original
+SNY01-25,201,2,CRS-1,grain_original
+SNY01-26,202,2,Picolo,grain_original
+SNY01-27,203,2,Henola,grain_original
+SNY01-28,204,2,CFX-2,grain_original
+SNY01-29,205,2,X-59,grain_original
+SNY01-30,206,2,Joey,grain_original
+SNY01-31,207,2,Canda,grain_original
+SNY01-32,208,2,USO-31,grain_original
+SNY01-33,301,3,CRS-1,grain_original
+SNY01-34,302,3,USO-31,grain_original
+SNY01-35,303,3,Canda,grain_original
+SNY01-36,304,3,Henola,grain_original
+SNY01-37,305,3,CFX-2,grain_original
+SNY01-38,306,3,X-59,grain_original
+SNY01-39,307,3,Picolo,grain_original
+SNY01-40,308,3,Joey,grain_original
+SNY01-41,401,4,Canda,grain_original
+SNY01-42,402,4,USO-31,grain_original
+SNY01-43,403,4,CFX-2,grain_original
+SNY01-44,404,4,Picolo,grain_original
+SNY01-45,405,4,Joey,grain_original
+SNY01-46,406,4,Henola,grain_original
+SNY01-47,407,4,CRS-1,grain_original
+SNY01-48,408,4,X-59,grain_original
+MS20-1,101,1,Hlesia,multistate
+MS20-2,102,1,Katani,multistate
+MS20-3,103,1,CFX-1,multistate
+MS20-4,104,1,Bialobrzeskie,multistate
+MS20-5,105,1,Hlukhovskii 51,multistate
+MS20-6,106,1,Henola,multistate
+MS20-7,107,1,Altair,multistate
+MS20-8,108,1,Anka,multistate
+MS20-9,109,1,X-59,multistate
+MS20-10,110,1,CRS-1,multistate
+MS20-11,111,1,NWG-2730,multistate
+MS20-12,112,1,Hliana,multistate
+MS20-13,113,1,NWG-452,multistate
+MS20-14,201,2,Hlesia,multistate
+MS20-15,202,2,NWG-452,multistate
+MS20-16,203,2,X-59,multistate
+MS20-17,204,2,CFX-1,multistate
+MS20-18,205,2,NWG-2730,multistate
+MS20-19,206,2,Anka,multistate
+MS20-20,207,2,Hliana,multistate
+MS20-21,208,2,Bialobrzeskie,multistate
+MS20-22,209,2,Henola,multistate
+MS20-23,210,2,CRS-1,multistate
+MS20-24,211,2,Katani,multistate
+MS20-25,212,2,Altair,multistate
+MS20-26,213,2,Hlukhovskii 51,multistate
+MS20-27,301,3,X-59,multistate
+MS20-28,302,3,Hlesia,multistate
+MS20-29,303,3,Henola,multistate
+MS20-30,304,3,Bialobrzeskie,multistate
+MS20-31,305,3,NWG-452,multistate
+MS20-32,306,3,CRS-1,multistate
+MS20-33,307,3,Hliana,multistate
+MS20-34,308,3,NWG-2730,multistate
+MS20-35,309,3,Hlukhovskii 51,multistate
+MS20-36,310,3,Altair,multistate
+MS20-37,311,3,Katani,multistate
+MS20-38,312,3,Anka,multistate
+MS20-39,313,3,CFX-1,multistate
+MS20-40,401,4,NWG-2730,multistate
+MS20-41,402,4,Henola,multistate
+MS20-42,403,4,NWG-452,multistate
+MS20-43,404,4,Hlukhovskii 51,multistate
+MS20-44,405,4,X-59,multistate
+MS20-45,406,4,Katani,multistate
+MS20-46,407,4,CRS-1,multistate
+MS20-47,408,4,Bialobrzeskie,multistate
+MS20-48,409,4,Hliana,multistate
+MS20-49,410,4,CFX-1,multistate
+MS20-50,411,4,Altair,multistate
+MS20-51,412,4,Hlesia,multistate
+MS20-52,413,4,Anka,multistate
+SNY01-1,101,1,Yuma Crossbow,fiber
+SNY01-2,102,1,Carmagnola Selezionata,fiber
+SNY01-3,103,1,Jinma,fiber
+SNY01-4,104,1,Carmagnola,fiber
+SNY01-5,201,2,Yuma Crossbow,fiber
+SNY01-6,202,2,Carmagnola,fiber
+SNY01-7,203,2,Jinma,fiber
+SNY01-8,204,2,Carmagnola Selezionata,fiber
+SNY01-9,301,3,Carmagnola Selezionata,fiber
+SNY01-10,302,3,Carmagnola,fiber
+SNY01-11,303,3,Jinma,fiber
+SNY01-12,304,3,Yuma Crossbow,fiber
+SNY01-13,401,4,Carmagnola,fiber
+SNY01-14,402,4,Yuma Crossbow,fiber
+SNY01-15,403,4,Jinma,fiber
+SNY01-16,404,4,Carmagnola Selezionata,fiber
