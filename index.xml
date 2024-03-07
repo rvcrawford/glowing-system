@@ -41,6 +41,15 @@ Hemp Grain</article-title>
 </contrib>
 <contrib contrib-type="author">
 <name>
+<surname>Crawford</surname>
+<given-names>Jamie</given-names>
+</name>
+<string-name>Jamie Crawford</string-name>
+
+<xref ref-type="aff" rid="aff-1">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
 <surname>Smart</surname>
 <given-names>Lawrence B.</given-names>
 </name>
@@ -111,10 +120,10 @@ Hemp Grain</article-title>
 <corresp id="cor-1">rvc3@cornell.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-06">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-07">
 <year>2024</year>
 <month>3</month>
-<day>6</day>
+<day>7</day>
 </pub-date>
 
 
@@ -136,8 +145,9 @@ sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
 mollit anim id est laborum.</p>
 </abstract>
 <kwd-group kwd-group-type="author">
-<kwd>La Palma</kwd>
-<kwd>Earthquakes</kwd>
+<kwd>Hemp</kwd>
+<kwd>Grain</kwd>
+<kwd>Spectroscopy</kwd>
 </kwd-group>
 
 
@@ -155,15 +165,20 @@ mollit anim id est laborum.</p>
   <title>2 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
   a source of food or feed from grain, and bast fiber or hurd from the
-  stalk. Hemp cultivars are commonly grown for one or both purposes.</p>
-  <p>Percentage crude protein (CP) of grain is an important
-  consideration for researchers, producers, and consumers.</p>
-  <p>Protein is important because of its nutrition</p>
-  <p>Near-infrared spectroscopy (NIRS) technology is rapid,
-  non-destructive, and cheap. Within the context of plant breeding, a
-  sample of undamaged grain may subsequently be planted. NIRS technology
-  has been used since the 1970’s to assess oil seeds Williams
-  (<xref alt="1975" rid="ref-williams_application_1975" ref-type="bibr">1975</xref>)</p>
+  stalk. Hemp cultivars are commonly grown for one or both purposes.
+  Here, researchers are concerned with the assessment of percent crude
+  protein (CP) in hemp grain using near-infrared spectroscopy
+  (NIRS).</p>
+  <p>Hemp grain with higher percent CP is of interest to researchers,
+  producers, and consumers because of protein’s nutritional value. The
+  protein content of whole hemp seed approximately 25-30 % dry matter
+  (<xref alt="Bárta et al., 2024" rid="ref-barta_proteomic_2024" ref-type="bibr">Bárta
+  et al., 2024</xref>).</p>
+  <p>NIRS technology is rapid, non-destructive, and cheap. Within the
+  context of plant breeding, a sample of undamaged grain may
+  subsequently be planted. NIRS technology has been used since the
+  1970’s to assess oil seeds Williams
+  (<xref alt="1975" rid="ref-williams_application_1975" ref-type="bibr">1975</xref>).</p>
   <p>A calibration set typically consists of samples from many
   environments encompassing the range of expected values from the
   analyte
@@ -204,16 +219,16 @@ mollit anim id est laborum.</p>
     nm and the logarithm of reciprocal reflectance was recorded.</p>
     <p>WINISI software version 1.02A (Infrasoft International, Port
     Matilda, PA, USA) was used to average the spectra in 2017, as well
-    as to select samples for crude protein laboratory assay from
-    2018-2021. Samples were selected for assay according to their
-    spectral distance from their nearest neighbor within the calibration
-    data set with a cutoff of a distance of 0.6 H, where H is
-    approximately equal to the squared Mahalanobis distance divided by
-    the number of principal components used in the calculation
-    (<xref alt="garrido-varo2019?" rid="ref-garrido-varo2019" ref-type="bibr"><bold>garrido-varo2019?</bold></xref>).
-    For selection, spectra were preprocessed using SNV-detrend with
-    settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2
-    settings respectively.</p>
+    as to select samples for laboratory assay from 2018-2021. Samples
+    were selected for assay according to their spectral distance from
+    their nearest neighbor within the calibration data set with a cutoff
+    of a distance of 0.6 H, where H is approximately equal to the
+    squared Mahalanobis distance divided by the number of principal
+    components used in the calculation
+    (<xref alt="Garrido-Varo et al., 2019" rid="ref-garrido-varo_note_2019" ref-type="bibr">Garrido-Varo
+    et al., 2019</xref>). For selection, spectra were preprocessed using
+    SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth,
+    and smooth 2 settings respectively.</p>
   </sec>
   <sec id="software-used">
     <title>3.3 Software used:</title>
@@ -225,6 +240,9 @@ mollit anim id est laborum.</p>
     <p>standard normal variate (SNV) transformation</p>
     <p>The calibration set consisted of</p>
     <p>The validation set consisted of</p>
+  </sec>
+  <sec id="laboratory-validation">
+    <title>3.5 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.</p>
@@ -233,6 +251,9 @@ mollit anim id est laborum.</p>
 </sec>
 <sec id="results-and-discussion">
   <title>4 RESULTS AND DISCUSSION</title>
+  <p>In wheat, heritability of grain protein content has an estimated
+  range of values from 0.4 - 0.7 Geyer et al.
+  (<xref alt="2022" rid="ref-geyer_genetics_2022" ref-type="bibr">2022</xref>)</p>
 </sec>
 <sec id="acknowledgments">
   <title>5 ACKNOWLEDGMENTS</title>
@@ -255,9 +276,8 @@ mollit anim id est laborum.</p>
   </fig>
   <p>Based on data up to and including 1971, eruptions on La Palma
   happen every 79.8 years on average.</p>
-  <p>Studies of the magma systems feeding the volcano, such as Marrero
-  et al.
-  (<xref alt="2019" rid="ref-marrero2019" ref-type="bibr">2019</xref>),
+  <p>Studies of the magma systems feeding the volcano, such as
+  (<xref alt="marrero2019?" rid="ref-marrero2019" ref-type="bibr"><bold>marrero2019?</bold></xref>),
   have proposed that there are two main magma reservoirs feeding the
   Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
   and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
@@ -364,25 +384,6 @@ mollit anim id est laborum.</p>
 <back>
 <ref-list>
   <title>References</title>
-  <ref id="ref-marrero2019">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Marrero</surname><given-names>José</given-names></name>
-        <name><surname>García</surname><given-names>Alicia</given-names></name>
-        <name><surname>Berrocoso</surname><given-names>Manuel</given-names></name>
-        <name><surname>Llinares</surname><given-names>Ángeles</given-names></name>
-        <name><surname>Rodríguez-Losada</surname><given-names>Antonio</given-names></name>
-        <name><surname>Ortiz</surname><given-names>R.</given-names></name>
-      </person-group>
-      <article-title>Strategies for the development of volcanic hazard maps in monogenetic volcanic fields: The example of La Palma (Canary Islands)</article-title>
-      <source>Journal of Applied Volcanology</source>
-      <year iso-8601-date="2019-07">2019</year><month>07</month>
-      <volume>8</volume>
-      <pub-id pub-id-type="doi">10.1186/s13617-019-0085-5</pub-id>
-      <fpage></fpage>
-      <lpage></lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-chadalavada_nir_2022">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
@@ -426,6 +427,26 @@ mollit anim id est laborum.</p>
       <lpage>495</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-garrido-varo_note_2019">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Garrido-Varo</surname><given-names>A</given-names></name>
+        <name><surname>Garcia-Olmo</surname><given-names>J</given-names></name>
+        <name><surname>Fearn</surname><given-names>T</given-names></name>
+      </person-group>
+      <article-title>A note on Mahalanobis and related distance measures in WinISI and The Unscrambler</article-title>
+      <source>Journal of Near Infrared Spectroscopy</source>
+      <year iso-8601-date="2019-08">2019</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2023-04-26">2023</year><month>04</month><day>26</day></date-in-citation>
+      <volume>27</volume>
+      <issue>4</issue>
+      <issn>0967-0335</issn>
+      <uri>https://doi.org/10.1177/0967033519848296</uri>
+      <pub-id pub-id-type="doi">10.1177/0967033519848296</pub-id>
+      <fpage>253</fpage>
+      <lpage>258</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-williams_application_1975">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
@@ -439,6 +460,75 @@ mollit anim id est laborum.</p>
       <issn>0009-0352</issn>
       <fpage>576</fpage>
       <lpage>561</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-barta_proteomic_2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Bárta</surname><given-names>Jan</given-names></name>
+        <name><surname>Roudnický</surname><given-names>Pavel</given-names></name>
+        <name><surname>Jarošová</surname><given-names>Markéta</given-names></name>
+        <name><surname>Zdráhal</surname><given-names>Zbyněk</given-names></name>
+        <name><surname>Stupková</surname><given-names>Adéla</given-names></name>
+        <name><surname>Bártová</surname><given-names>Veronika</given-names></name>
+        <name><surname>Krejčová</surname><given-names>Zlatuše</given-names></name>
+        <name><surname>Kyselka</surname><given-names>Jan</given-names></name>
+        <name><surname>Filip</surname><given-names>Vladimír</given-names></name>
+        <name><surname>Říha</surname><given-names>Václav</given-names></name>
+        <name><surname>Lorenc</surname><given-names>František</given-names></name>
+        <name><surname>Bedrníček</surname><given-names>Jan</given-names></name>
+        <name><surname>Smetana</surname><given-names>Pavel</given-names></name>
+      </person-group>
+      <article-title>Proteomic Profiles of Whole Seeds, Hulls, and Dehulled Seeds of Two Industrial Hemp (Cannabis sativa L.) Cultivars</article-title>
+      <source>Plants</source>
+      <year iso-8601-date="2024-01">2024</year><month>01</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>13</volume>
+      <issue>1</issue>
+      <issn>2223-7747</issn>
+      <uri>https://www.mdpi.com/2223-7747/13/1/111</uri>
+      <pub-id pub-id-type="doi">10.3390/plants13010111</pub-id>
+      <fpage>111</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-geyer_genetics_2022">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Geyer</surname><given-names>Manuel</given-names></name>
+        <name><surname>Mohler</surname><given-names>Volker</given-names></name>
+        <name><surname>Hartl</surname><given-names>Lorenz</given-names></name>
+      </person-group>
+      <article-title>Genetics of the Inverse Relationship between Grain Yield and Grain Protein Content in Common Wheat</article-title>
+      <source>Plants</source>
+      <year iso-8601-date="2022-08">2022</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>11</volume>
+      <issue>16</issue>
+      <issn>2223-7747</issn>
+      <uri>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9413592/</uri>
+      <pub-id pub-id-type="doi">10.3390/plants11162146</pub-id>
+      <pub-id pub-id-type="pmid">36015449</pub-id>
+      <fpage>2146</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-giancaspro_genetic_2019">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Giancaspro</surname><given-names>Angelica</given-names></name>
+        <name><surname>Giove</surname><given-names>Stefania L.</given-names></name>
+        <name><surname>Blanco</surname><given-names>Antonio</given-names></name>
+        <name><surname>Gadaleta</surname><given-names>Agata</given-names></name>
+      </person-group>
+      <article-title>Genetic Variation for Protein Content and Yield-Related Traits in a Durum Population Derived From an Inter-Specific Cross Between Hexaploid and Tetraploid Wheat Cultivars</article-title>
+      <source>Frontiers in Plant Science</source>
+      <year iso-8601-date="2019-11">2019</year><month>11</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>10</volume>
+      <issn>1664-462X</issn>
+      <uri>https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.01509/full</uri>
+      <pub-id pub-id-type="doi">10.3389/fpls.2019.01509</pub-id>
     </element-citation>
   </ref>
 </ref-list>
@@ -461,6 +551,15 @@ Hemp Grain</article-title>
 <email>rvc3@cornell.edu</email>
 <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
 <xref ref-type="corresp" rid="cor-1-nb-article">&#x002A;</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Crawford</surname>
+<given-names>Jamie</given-names>
+</name>
+<string-name>Jamie Crawford</string-name>
+
+<xref ref-type="aff" rid="aff-1-nb-article">a</xref>
 </contrib>
 <contrib contrib-type="author">
 <name>
@@ -585,15 +684,20 @@ The following object is masked from 'package:purrr':
   <title>2 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
   a source of food or feed from grain, and bast fiber or hurd from the
-  stalk. Hemp cultivars are commonly grown for one or both purposes.</p>
-  <p>Percentage crude protein (CP) of grain is an important
-  consideration for researchers, producers, and consumers.</p>
-  <p>Protein is important because of its nutrition</p>
-  <p>Near-infrared spectroscopy (NIRS) technology is rapid,
-  non-destructive, and cheap. Within the context of plant breeding, a
-  sample of undamaged grain may subsequently be planted. NIRS technology
-  has been used since the 1970’s to assess oil seeds Williams
-  (<xref alt="1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">1975</xref>)</p>
+  stalk. Hemp cultivars are commonly grown for one or both purposes.
+  Here, researchers are concerned with the assessment of percent crude
+  protein (CP) in hemp grain using near-infrared spectroscopy
+  (NIRS).</p>
+  <p>Hemp grain with higher percent CP is of interest to researchers,
+  producers, and consumers because of protein’s nutritional value. The
+  protein content of whole hemp seed approximately 25-30 % dry matter
+  (<xref alt="Bárta et al., 2024" rid="ref-barta_proteomic_2024-nb-article" ref-type="bibr">Bárta
+  et al., 2024</xref>).</p>
+  <p>NIRS technology is rapid, non-destructive, and cheap. Within the
+  context of plant breeding, a sample of undamaged grain may
+  subsequently be planted. NIRS technology has been used since the
+  1970’s to assess oil seeds Williams
+  (<xref alt="1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">1975</xref>).</p>
   <p>A calibration set typically consists of samples from many
   environments encompassing the range of expected values from the
   analyte
@@ -643,16 +747,16 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
     nm and the logarithm of reciprocal reflectance was recorded.</p>
     <p>WINISI software version 1.02A (Infrasoft International, Port
     Matilda, PA, USA) was used to average the spectra in 2017, as well
-    as to select samples for crude protein laboratory assay from
-    2018-2021. Samples were selected for assay according to their
-    spectral distance from their nearest neighbor within the calibration
-    data set with a cutoff of a distance of 0.6 H, where H is
-    approximately equal to the squared Mahalanobis distance divided by
-    the number of principal components used in the calculation
-    (<xref alt="garrido-varo2019?" rid="ref-garrido-varo2019-nb-article" ref-type="bibr"><bold>garrido-varo2019?</bold></xref>).
-    For selection, spectra were preprocessed using SNV-detrend with
-    settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2
-    settings respectively.</p>
+    as to select samples for laboratory assay from 2018-2021. Samples
+    were selected for assay according to their spectral distance from
+    their nearest neighbor within the calibration data set with a cutoff
+    of a distance of 0.6 H, where H is approximately equal to the
+    squared Mahalanobis distance divided by the number of principal
+    components used in the calculation
+    (<xref alt="Garrido-Varo et al., 2019" rid="ref-garrido-varo_note_2019-nb-article" ref-type="bibr">Garrido-Varo
+    et al., 2019</xref>). For selection, spectra were preprocessed using
+    SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth,
+    and smooth 2 settings respectively.</p>
   </sec>
   <sec id="software-used-nb-article">
     <title>3.3 Software used:</title>
@@ -664,6 +768,9 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
     <p>standard normal variate (SNV) transformation</p>
     <p>The calibration set consisted of</p>
     <p>The validation set consisted of</p>
+  </sec>
+  <sec id="laboratory-validation-nb-article">
+    <title>3.5 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.</p>
@@ -672,6 +779,9 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
 </sec>
 <sec id="results-and-discussion-nb-article">
   <title>4 RESULTS AND DISCUSSION</title>
+  <p>In wheat, heritability of grain protein content has an estimated
+  range of values from 0.4 - 0.7 Geyer et al.
+  (<xref alt="2022" rid="ref-geyer_genetics_2022-nb-article" ref-type="bibr">2022</xref>)</p>
 </sec>
 <sec id="acknowledgments-nb-article">
   <title>5 ACKNOWLEDGMENTS</title>
@@ -712,9 +822,8 @@ avg_years_between_eruptions</code>
   </sec>
   <p>Based on data up to and including 1971, eruptions on La Palma
   happen every 79.8 years on average.</p>
-  <p>Studies of the magma systems feeding the volcano, such as Marrero
-  et al.
-  (<xref alt="2019" rid="ref-marrero2019-nb-article" ref-type="bibr">2019</xref>),
+  <p>Studies of the magma systems feeding the volcano, such as
+  (<xref alt="marrero2019?" rid="ref-marrero2019-nb-article" ref-type="bibr"><bold>marrero2019?</bold></xref>),
   have proposed that there are two main magma reservoirs feeding the
   Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
   and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
@@ -833,25 +942,6 @@ avg_years_between_eruptions</code>
 <back>
 <ref-list>
   <title>References</title>
-  <ref id="ref-marrero2019-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Marrero</surname><given-names>José</given-names></name>
-        <name><surname>García</surname><given-names>Alicia</given-names></name>
-        <name><surname>Berrocoso</surname><given-names>Manuel</given-names></name>
-        <name><surname>Llinares</surname><given-names>Ángeles</given-names></name>
-        <name><surname>Rodríguez-Losada</surname><given-names>Antonio</given-names></name>
-        <name><surname>Ortiz</surname><given-names>R.</given-names></name>
-      </person-group>
-      <article-title>Strategies for the development of volcanic hazard maps in monogenetic volcanic fields: The example of La Palma (Canary Islands)</article-title>
-      <source>Journal of Applied Volcanology</source>
-      <year iso-8601-date="2019-07">2019</year><month>07</month>
-      <volume>8</volume>
-      <pub-id pub-id-type="doi">10.1186/s13617-019-0085-5</pub-id>
-      <fpage></fpage>
-      <lpage></lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-chadalavada_nir_2022-nb-article">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
@@ -895,6 +985,26 @@ avg_years_between_eruptions</code>
       <lpage>495</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-garrido-varo_note_2019-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Garrido-Varo</surname><given-names>A</given-names></name>
+        <name><surname>Garcia-Olmo</surname><given-names>J</given-names></name>
+        <name><surname>Fearn</surname><given-names>T</given-names></name>
+      </person-group>
+      <article-title>A note on Mahalanobis and related distance measures in WinISI and The Unscrambler</article-title>
+      <source>Journal of Near Infrared Spectroscopy</source>
+      <year iso-8601-date="2019-08">2019</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2023-04-26">2023</year><month>04</month><day>26</day></date-in-citation>
+      <volume>27</volume>
+      <issue>4</issue>
+      <issn>0967-0335</issn>
+      <uri>https://doi.org/10.1177/0967033519848296</uri>
+      <pub-id pub-id-type="doi">10.1177/0967033519848296</pub-id>
+      <fpage>253</fpage>
+      <lpage>258</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-williams_application_1975-nb-article">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
@@ -908,6 +1018,75 @@ avg_years_between_eruptions</code>
       <issn>0009-0352</issn>
       <fpage>576</fpage>
       <lpage>561</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-barta_proteomic_2024-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Bárta</surname><given-names>Jan</given-names></name>
+        <name><surname>Roudnický</surname><given-names>Pavel</given-names></name>
+        <name><surname>Jarošová</surname><given-names>Markéta</given-names></name>
+        <name><surname>Zdráhal</surname><given-names>Zbyněk</given-names></name>
+        <name><surname>Stupková</surname><given-names>Adéla</given-names></name>
+        <name><surname>Bártová</surname><given-names>Veronika</given-names></name>
+        <name><surname>Krejčová</surname><given-names>Zlatuše</given-names></name>
+        <name><surname>Kyselka</surname><given-names>Jan</given-names></name>
+        <name><surname>Filip</surname><given-names>Vladimír</given-names></name>
+        <name><surname>Říha</surname><given-names>Václav</given-names></name>
+        <name><surname>Lorenc</surname><given-names>František</given-names></name>
+        <name><surname>Bedrníček</surname><given-names>Jan</given-names></name>
+        <name><surname>Smetana</surname><given-names>Pavel</given-names></name>
+      </person-group>
+      <article-title>Proteomic Profiles of Whole Seeds, Hulls, and Dehulled Seeds of Two Industrial Hemp (Cannabis sativa L.) Cultivars</article-title>
+      <source>Plants</source>
+      <year iso-8601-date="2024-01">2024</year><month>01</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>13</volume>
+      <issue>1</issue>
+      <issn>2223-7747</issn>
+      <uri>https://www.mdpi.com/2223-7747/13/1/111</uri>
+      <pub-id pub-id-type="doi">10.3390/plants13010111</pub-id>
+      <fpage>111</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-geyer_genetics_2022-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Geyer</surname><given-names>Manuel</given-names></name>
+        <name><surname>Mohler</surname><given-names>Volker</given-names></name>
+        <name><surname>Hartl</surname><given-names>Lorenz</given-names></name>
+      </person-group>
+      <article-title>Genetics of the Inverse Relationship between Grain Yield and Grain Protein Content in Common Wheat</article-title>
+      <source>Plants</source>
+      <year iso-8601-date="2022-08">2022</year><month>08</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>11</volume>
+      <issue>16</issue>
+      <issn>2223-7747</issn>
+      <uri>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9413592/</uri>
+      <pub-id pub-id-type="doi">10.3390/plants11162146</pub-id>
+      <pub-id pub-id-type="pmid">36015449</pub-id>
+      <fpage>2146</fpage>
+      <lpage></lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-giancaspro_genetic_2019-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Giancaspro</surname><given-names>Angelica</given-names></name>
+        <name><surname>Giove</surname><given-names>Stefania L.</given-names></name>
+        <name><surname>Blanco</surname><given-names>Antonio</given-names></name>
+        <name><surname>Gadaleta</surname><given-names>Agata</given-names></name>
+      </person-group>
+      <article-title>Genetic Variation for Protein Content and Yield-Related Traits in a Durum Population Derived From an Inter-Specific Cross Between Hexaploid and Tetraploid Wheat Cultivars</article-title>
+      <source>Frontiers in Plant Science</source>
+      <year iso-8601-date="2019-11">2019</year><month>11</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-03-07">2024</year><month>03</month><day>07</day></date-in-citation>
+      <volume>10</volume>
+      <issn>1664-462X</issn>
+      <uri>https://www.frontiersin.org/journals/plant-science/articles/10.3389/fpls.2019.01509/full</uri>
+      <pub-id pub-id-type="doi">10.3389/fpls.2019.01509</pub-id>
     </element-citation>
   </ref>
 </ref-list>

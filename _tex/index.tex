@@ -164,8 +164,8 @@
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
   pdftitle={Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain},
-  pdfauthor={Ryan Crawford; Lawrence B. Smart; Virginia Moore},
-  pdfkeywords={La Palma, Earthquakes},
+  pdfauthor={Ryan Crawford; Jamie Crawford; Lawrence B. Smart; Virginia Moore},
+  pdfkeywords={Hemp, Grain, Spectroscopy},
   colorlinks=true,
   linkcolor={blue},
   filecolor={Maroon},
@@ -180,8 +180,8 @@
 \begin{document}
 \title{Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain}
 
-\authors{Ryan Crawford\affil{1}, Lawrence B. Smart\affil{2,3}, Virginia
-Moore\affil{4}}
+\authors{Ryan Crawford\affil{1}, Jamie Crawford\affil{1}, Lawrence B.
+Smart\affil{2,3}, Virginia Moore\affil{4}}
 \affiliation{1}{Cornell University, Ithaca, NY, }\affiliation{2}{Cornell
 AgriTech, Geneva, NY, }\affiliation{3}{Curvenote, }\affiliation{4}{Cornell
 University, Ithaca, NY, }
@@ -210,17 +210,19 @@ eruption is found \ldots{}
 
 Hemp (Cannabis sativa L.) is an annual crop with potential uses as a
 source of food or feed from grain, and bast fiber or hurd from the
-stalk. Hemp cultivars are commonly grown for one or both purposes.
+stalk. Hemp cultivars are commonly grown for one or both purposes. Here,
+researchers are concerned with the assessment of percent crude protein
+(CP) in hemp grain using near-infrared spectroscopy (NIRS).
 
-Percentage crude protein (CP) of grain is an important consideration for
-researchers, producers, and consumers.
+Hemp grain with higher percent CP is of interest to researchers,
+producers, and consumers because of protein's nutritional value. The
+protein content of whole hemp seed approximately 25-30 \% dry matter
+(Bárta et al., 2024).
 
-Protein is important because of its nutrition
-
-Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive,
-and cheap. Within the context of plant breeding, a sample of undamaged
-grain may subsequently be planted. NIRS technology has been used since
-the 1970's to assess oil seeds Williams (1975)
+NIRS technology is rapid, non-destructive, and cheap. Within the context
+of plant breeding, a sample of undamaged grain may subsequently be
+planted. NIRS technology has been used since the 1970's to assess oil
+seeds Williams (1975).
 
 A calibration set typically consists of samples from many environments
 encompassing the range of expected values from the analyte (Chadalavada
@@ -265,14 +267,14 @@ reciprocal reflectance was recorded.
 
 WINISI software version 1.02A (Infrasoft International, Port Matilda,
 PA, USA) was used to average the spectra in 2017, as well as to select
-samples for crude protein laboratory assay from 2018-2021. Samples were
-selected for assay according to their spectral distance from their
-nearest neighbor within the calibration data set with a cutoff of a
-distance of 0.6 H, where H is approximately equal to the squared
-Mahalanobis distance divided by the number of principal components used
-in the calculation (\textbf{garrido-varo2019?}). For selection, spectra
-were preprocessed using SNV-detrend with settings 1,4,4,1 for the
-derivative, gap, smooth, and smooth 2 settings respectively.
+samples for laboratory assay from 2018-2021. Samples were selected for
+assay according to their spectral distance from their nearest neighbor
+within the calibration data set with a cutoff of a distance of 0.6 H,
+where H is approximately equal to the squared Mahalanobis distance
+divided by the number of principal components used in the calculation
+(Garrido-Varo et al., 2019). For selection, spectra were preprocessed
+using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth,
+and smooth 2 settings respectively.
 
 \subsection{Software used:}\label{software-used}
 
@@ -288,6 +290,8 @@ The calibration set consisted of
 
 The validation set consisted of
 
+\subsection{Laboratory Validation}\label{laboratory-validation}
+
 Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca,
 NY). For those assays, 1mm ground samples were analyzed by combustion
 using a CN628 or CN928 Carbon/Nitrogen Determinator.
@@ -295,6 +299,9 @@ using a CN628 or CN928 Carbon/Nitrogen Determinator.
 Prior to In 2017, an in
 
 \section{RESULTS AND DISCUSSION}\label{results-and-discussion}
+
+In wheat, heritability of grain protein content has an estimated range
+of values from 0.4 - 0.7 Geyer et al. (2022)
 
 \section{ACKNOWLEDGMENTS}\label{acknowledgments}
 
@@ -334,10 +341,11 @@ Notebook}}
 Based on data up to and including 1971, eruptions on La Palma happen
 every 79.8 years on average.
 
-Studies of the magma systems feeding the volcano, such as Marrero et al.
-(2019), have proposed that there are two main magma reservoirs feeding
-the Cumbre Vieja volcano; one in the mantle (30-40km depth) which
-charges and in turn feeds a shallower crustal reservoir (10-20km depth).
+Studies of the magma systems feeding the volcano, such as
+(\textbf{marrero2019?}), have proposed that there are two main magma
+reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km
+depth) which charges and in turn feeds a shallower crustal reservoir
+(10-20km depth).
 
 Eight eruptions have been recorded since the late 1400s
 (Figure~\ref{fig-timeline}).
@@ -427,6 +435,14 @@ on La Palma.
 \begin{CSLReferences}{1}{0}
 \vspace{1em}
 
+\bibitem[\citeproctext]{ref-barta_proteomic_2024}
+Bárta, J., Roudnický, P., Jarošová, M., Zdráhal, Z., Stupková, A.,
+Bártová, V., Krejčová, Z., Kyselka, J., Filip, V., Říha, V., Lorenc, F.,
+Bedrníček, J., \& Smetana, P. (2024). Proteomic {Profiles} of {Whole}
+{Seeds}, {Hulls}, and {Dehulled} {Seeds} of {Two} {Industrial} {Hemp}
+({Cannabis} sativa {L}.) {Cultivars}. \emph{Plants}, \emph{13}(1), 111.
+\url{https://doi.org/10.3390/plants13010111}
+
 \bibitem[\citeproctext]{ref-chadalavada_nir_2022}
 Chadalavada, K., Anbazhagan, K., Ndour, A., Choudhary, S., Palmer, W.,
 Flynn, J. R., Mallayee, S., Pothu, S., Prasad, K. V. S. V.,
@@ -435,12 +451,25 @@ Varijakshapanikar, P., Jones, C. S., \& Kholová, J. (2022). {NIR}
 {Protein} {Content} in {Multiple} {Cereals}. \emph{Sensors (Basel,
 Switzerland)}, \emph{22}(10). \url{https://doi.org/10.3390/s22103710}
 
-\bibitem[\citeproctext]{ref-marrero2019}
-Marrero, J., García, A., Berrocoso, M., Llinares, Á., Rodríguez-Losada,
-A., \& Ortiz, R. (2019). Strategies for the development of volcanic
-hazard maps in monogenetic volcanic fields: The example of {La} {Palma}
-({Canary} {Islands}). \emph{Journal of Applied Volcanology}, \emph{8}.
-\url{https://doi.org/10.1186/s13617-019-0085-5}
+\bibitem[\citeproctext]{ref-garrido-varo_note_2019}
+Garrido-Varo, A., Garcia-Olmo, J., \& Fearn, T. (2019). A note on
+{Mahalanobis} and related distance measures in {WinISI} and {The}
+{Unscrambler}. \emph{Journal of Near Infrared Spectroscopy},
+\emph{27}(4), 253--258. \url{https://doi.org/10.1177/0967033519848296}
+
+\bibitem[\citeproctext]{ref-geyer_genetics_2022}
+Geyer, M., Mohler, V., \& Hartl, L. (2022). Genetics of the {Inverse}
+{Relationship} between {Grain} {Yield} and {Grain} {Protein} {Content}
+in {Common} {Wheat}. \emph{Plants}, \emph{11}(16), 2146.
+\url{https://doi.org/10.3390/plants11162146}
+
+\bibitem[\citeproctext]{ref-giancaspro_genetic_2019}
+Giancaspro, A., Giove, S. L., Blanco, A., \& Gadaleta, A. (2019).
+Genetic {Variation} for {Protein} {Content} and {Yield}-{Related}
+{Traits} in a {Durum} {Population} {Derived} {From} an
+{Inter}-{Specific} {Cross} {Between} {Hexaploid} and {Tetraploid}
+{Wheat} {Cultivars}. \emph{Frontiers in Plant Science}, \emph{10}.
+\url{https://doi.org/10.3389/fpls.2019.01509}
 
 \bibitem[\citeproctext]{ref-reeves_potential_2012}
 Reeves, J. B. (2012). Potential of {Near}- and {Mid}-infrared
