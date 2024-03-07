@@ -16,6 +16,20 @@ author:
         city: Ithaca
         state: NY
         postal-code: 14853
+  - name: Jamie Crawford
+    # orcid: 0000-0002-0760-5497
+    corresponding: false
+    # roles:
+    #   - Investigation
+    #   - Project administration
+    #   - Software
+    #   - Visualization
+    affiliations:
+      - name: Cornell University
+        address: 126 Medicago Drive
+        city: Ithaca
+        state: NY
+        postal-code: 14853
   - name: Lawrence B. Smart
     # orcid: 0000-0002-7859-8394
     corresponding: false
@@ -38,8 +52,9 @@ author:
         state: NY
         postal-code: 14853    
 keywords:
-  - La Palma
-  - Earthquakes
+  - Hemp
+  - Grain
+  - Spectroscopy
 abstract: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 plain-language-summary: |
@@ -66,13 +81,11 @@ library(data.table)
 
 ## INTRODUCTION
 
-Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes.
+Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes. Here, researchers are concerned with the assessment of percent crude protein (CP) in hemp grain using near-infrared spectroscopy (NIRS).
 
-Percentage crude protein (CP) of grain is an important consideration for researchers, producers, and consumers.
+Hemp grain with higher percent CP is of interest to researchers, producers, and consumers because of protein's nutritional value. The protein content of whole hemp seed approximately 25-30 % dry matter [@barta_proteomic_2024].
 
-Protein is important because of its nutrition
-
-Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap. Within the context of plant breeding, a sample of undamaged grain may subsequently be planted. NIRS technology has been used since the 1970's to assess oil seeds [@reeves_potential_2012, @williams_application_1975]
+NIRS technology is rapid, non-destructive, and cheap. Within the context of plant breeding, a sample of undamaged grain may subsequently be planted. NIRS technology has been used since the 1970's to assess oil seeds [@reeves_potential_2012, @williams_application_1975].
 
 A calibration set typically consists of samples from many environments encompassing the range of expected values from the analyte [@chadalavada_nir_2022]. For this study, a benchtop NIR spectrometer was used to develop a model to predict crude protein content based on a data set representing multiple years, locations, and cultivars.
 
@@ -101,9 +114,7 @@ All cultivar trials were planted in randomized complete block design with each c
 
 A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded.
 
-
-
-WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for crude protein laboratory assay from 2018-2021. Samples were selected for assay according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo2019]. For selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
+WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for laboratory assay from 2018-2021. Samples were selected for assay according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo_note_2019]. For selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
 
 ### Software used:
 
@@ -119,11 +130,15 @@ The calibration set consisted of
 
 The validation set consisted of
 
+### Laboratory Validation
+
 Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
 
 Prior to In 2017, an in
 
 ## RESULTS AND DISCUSSION
+
+In wheat, heritability of grain protein content has an estimated range of values from 0.4 - 0.7 [@giancaspro_genetic_2019, @geyer_genetics_2022]
 
 ## ACKNOWLEDGMENTS
 
