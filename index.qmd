@@ -93,6 +93,7 @@ For this study, a benchtop NIR spectrometer was used to develop a model to predi
 ## MATERIALS AND METHODS
 
 ```{r}
+#| output: false
 
 bckgrnd <- read_rds("./input_data/sample_background/simplified_background/background_data_set.Rds") |> setDT()
 
@@ -125,9 +126,9 @@ A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to
 
 WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for laboratory assay. Samples were selected according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo_note_2019]. Prior to selection selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
 
-### Software used:
+### Additional software used:
 
-Additional analysis was performed
+Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\].
 
 ### Preprocessing
 
@@ -141,7 +142,7 @@ The validation set consisted of
 
 ### Laboratory Validation
 
-Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017 were aggregated from
+Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017 were aggregated as described above, but
 
 Prior to In 2017, an in
 
