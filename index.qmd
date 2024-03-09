@@ -64,7 +64,13 @@ key-points:
   - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
 date: last-modified
-bibliography: references.bib
+bibliography:
+  - references.bib
+  - grateful-refs.bib
+
+# bibliography: grateful-refs.bib
+  # - references.bib
+  # - grateful-refs.bib
 csl: apa.csl
 citation:
   container-title: Earth and Space Science
@@ -128,7 +134,11 @@ WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) w
 
 ### Additional software used:
 
-Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\].
+<!-- Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\]. -->
+
+```{r}
+grateful::cite_packages(output = "paragraph", out.dir = ".")
+```
 
 ### Preprocessing
 
