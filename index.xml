@@ -107,10 +107,10 @@ Hemp Grain</article-title>
 <corresp id="cor-1">rvc3@cornell.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-08">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-09">
 <year>2024</year>
 <month>3</month>
-<day>8</day>
+<day>9</day>
 </pub-date>
 
 
@@ -247,18 +247,22 @@ etc.</bold></p>
   </sec>
   <sec id="additional-software-used">
     <title>2.3 Additional software used:</title>
-    <p>Additional analyses were performed using R Statistical Software
-    (<xref alt="R Core Team, 2024" rid="ref-r_core_team_r_2024" ref-type="bibr">R
-    Core Team, 2024</xref>). Data were tabulated and summarized using
-    the tidyverse and data.table [Barrett et al.
-    (<xref alt="2024" rid="ref-barrett_datatable_2024" ref-type="bibr">2024</xref>);
-    Wickham et al.
-    (<xref alt="2019" rid="ref-wickham_welcome_2019" ref-type="bibr">2019</xref>)].
-    PLSR models were constructed using the pls package and validated
-    using caret [Kuhn &amp; Max
-    (<xref alt="2008" rid="ref-kuhn_building_2008" ref-type="bibr">2008</xref>);
-    Liland et al.
-    (<xref alt="2023" rid="ref-liland_pls_2023" ref-type="bibr">2023</xref>)].</p>
+    <p>We used R version 4.3.3
+    (<xref alt="R Core Team, 2024" rid="ref-base" ref-type="bibr">R Core
+    Team, 2024</xref>) and the following R packages: data.table v.
+    1.15.2
+    (<xref alt="Barrett et al., 2024" rid="ref-datatable" ref-type="bibr">Barrett
+    et al., 2024</xref>), randomForest v. 4.7.1.1
+    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest" ref-type="bibr">Liaw
+    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
+    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024" ref-type="bibr">Allaire
+    et al., 2024</xref>;
+    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018" ref-type="bibr">Xie
+    et al., 2018</xref>,
+    <xref alt="2020" rid="ref-rmarkdown2020" ref-type="bibr">2020</xref>),
+    tidyverse v. 2.0.0
+    (<xref alt="Wickham et al., 2019" rid="ref-tidyverse" ref-type="bibr">Wickham
+    et al., 2019</xref>).</p>
   </sec>
   <sec id="preprocessing">
     <title>2.4 Preprocessing</title>
@@ -610,36 +614,100 @@ etc.</bold></p>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-kuhn_building_2008">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <string-name>Kuhn</string-name>
-        <string-name>Max</string-name>
-      </person-group>
-      <article-title>Building Predictive Models in R Using the caret Package</article-title>
-      <source>Journal of Statistical Software</source>
-      <year iso-8601-date="2008">2008</year>
-      <volume>28</volume>
-      <issue>5</issue>
-      <uri>https://www.jstatsoft.org/index.php/jss/article/view/v028i05</uri>
-      <pub-id pub-id-type="doi">10.18637/jss.v028.i05</pub-id>
-      <fpage>1</fpage>
-      <lpage>26</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-liland_pls_2023">
+  <ref id="ref-base">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
-        <name><surname>Liland</surname><given-names>Kristian Hovde</given-names></name>
-        <name><surname>Mevik</surname><given-names>Bjørn-Helge</given-names></name>
-        <name><surname>Wehrens</surname><given-names>Ron</given-names></name>
+        <string-name>R Core Team</string-name>
       </person-group>
-      <source>Pls: Partial Least Squares and Principal Component Regression</source>
-      <year iso-8601-date="2023">2023</year>
-      <uri>https://CRAN.R-project.org/package=pls</uri>
+      <source>R: A language and environment for statistical computing</source>
+      <publisher-name>R Foundation for Statistical Computing</publisher-name>
+      <publisher-loc>Vienna, Austria</publisher-loc>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://www.R-project.org/</uri>
     </element-citation>
   </ref>
-  <ref id="ref-wickham_welcome_2019">
+  <ref id="ref-datatable">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Barrett</surname><given-names>Tyson</given-names></name>
+        <name><surname>Dowle</surname><given-names>Matt</given-names></name>
+        <name><surname>Srinivasan</surname><given-names>Arun</given-names></name>
+        <name><surname>Gorecki</surname><given-names>Jan</given-names></name>
+        <name><surname>Chirico</surname><given-names>Michael</given-names></name>
+        <name><surname>Hocking</surname><given-names>Toby</given-names></name>
+      </person-group>
+      <source>data.table: Extension of ‘data.frame’</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=data.table</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-randomForest">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Liaw</surname><given-names>Andy</given-names></name>
+        <name><surname>Wiener</surname><given-names>Matthew</given-names></name>
+      </person-group>
+      <article-title>Classification and regression by randomForest</article-title>
+      <source>R News</source>
+      <year iso-8601-date="2002">2002</year>
+      <volume>2</volume>
+      <issue>3</issue>
+      <uri>https://CRAN.R-project.org/doc/Rnews/</uri>
+      <fpage>18</fpage>
+      <lpage>22</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2024">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Allaire</surname><given-names>JJ</given-names></name>
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
+        <name><surname>McPherson</surname><given-names>Jonathan</given-names></name>
+        <name><surname>Luraschi</surname><given-names>Javier</given-names></name>
+        <name><surname>Ushey</surname><given-names>Kevin</given-names></name>
+        <name><surname>Atkins</surname><given-names>Aron</given-names></name>
+        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
+        <name><surname>Cheng</surname><given-names>Joe</given-names></name>
+        <name><surname>Chang</surname><given-names>Winston</given-names></name>
+        <name><surname>Iannone</surname><given-names>Richard</given-names></name>
+      </person-group>
+      <source>rmarkdown: Dynamic documents for r</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://github.com/rstudio/rmarkdown</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2018">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Allaire</surname><given-names>J. J.</given-names></name>
+        <name><surname>Grolemund</surname><given-names>Garrett</given-names></name>
+      </person-group>
+      <source>R markdown: The definitive guide</source>
+      <publisher-name>Chapman; Hall/CRC</publisher-name>
+      <publisher-loc>Boca Raton, Florida</publisher-loc>
+      <year iso-8601-date="2018">2018</year>
+      <isbn>9781138359338</isbn>
+      <uri>https://bookdown.org/yihui/rmarkdown</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2020">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
+        <name><surname>Riederer</surname><given-names>Emily</given-names></name>
+      </person-group>
+      <source>R markdown cookbook</source>
+      <publisher-name>Chapman; Hall/CRC</publisher-name>
+      <publisher-loc>Boca Raton, Florida</publisher-loc>
+      <year iso-8601-date="2020">2020</year>
+      <isbn>9780367563837</isbn>
+      <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-tidyverse">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
         <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
@@ -675,33 +743,6 @@ etc.</bold></p>
       <pub-id pub-id-type="doi">10.21105/joss.01686</pub-id>
       <fpage>1686</fpage>
       <lpage></lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-r_core_team_r_2024">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <string-name>R Core Team</string-name>
-      </person-group>
-      <source>R: A Language and Environment for Statistical Computing</source>
-      <publisher-name>R Foundation for Statistical Computing</publisher-name>
-      <publisher-loc>Vienna, Austria</publisher-loc>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://www.R-project.org/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-barrett_datatable_2024">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Barrett</surname><given-names>Tyson</given-names></name>
-        <name><surname>Dowle</surname><given-names>Matt</given-names></name>
-        <name><surname>Srinivasan</surname><given-names>Arun</given-names></name>
-        <name><surname>Gorecki</surname><given-names>Jan</given-names></name>
-        <name><surname>Chirico</surname><given-names>Michael</given-names></name>
-        <name><surname>Hocking</surname><given-names>Toby</given-names></name>
-      </person-group>
-      <source>Data.table: Extension of ‘data.frame‘</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://CRAN.R-project.org/package=data.table</uri>
     </element-citation>
   </ref>
 </ref-list>
@@ -963,18 +1004,25 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
   </sec>
   <sec id="additional-software-used-nb-article">
     <title>2.3 Additional software used:</title>
-    <p>Additional analyses were performed using R Statistical Software
-    (<xref alt="R Core Team, 2024" rid="ref-r_core_team_r_2024-nb-article" ref-type="bibr">R
-    Core Team, 2024</xref>). Data were tabulated and summarized using
-    the tidyverse and data.table [Barrett et al.
-    (<xref alt="2024" rid="ref-barrett_datatable_2024-nb-article" ref-type="bibr">2024</xref>);
-    Wickham et al.
-    (<xref alt="2019" rid="ref-wickham_welcome_2019-nb-article" ref-type="bibr">2019</xref>)].
-    PLSR models were constructed using the pls package and validated
-    using caret [Kuhn &amp; Max
-    (<xref alt="2008" rid="ref-kuhn_building_2008-nb-article" ref-type="bibr">2008</xref>);
-    Liland et al.
-    (<xref alt="2023" rid="ref-liland_pls_2023-nb-article" ref-type="bibr">2023</xref>)].</p>
+    <sec id="nb-code-cell-3-nb-article" specific-use="notebook-code">
+    <code language="r script">grateful::cite_packages(output = &quot;paragraph&quot;, out.dir = &quot;.&quot;)</code>
+    <p>We used R version 4.3.3
+    (<xref alt="R Core Team, 2024" rid="ref-base-nb-article" ref-type="bibr">R Core
+    Team, 2024</xref>) and the following R packages: data.table v.
+    1.15.2
+    (<xref alt="Barrett et al., 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
+    et al., 2024</xref>), randomForest v. 4.7.1.1
+    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest-nb-article" ref-type="bibr">Liaw
+    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
+    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024-nb-article" ref-type="bibr">Allaire
+    et al., 2024</xref>;
+    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018-nb-article" ref-type="bibr">Xie
+    et al., 2018</xref>,
+    <xref alt="2020" rid="ref-rmarkdown2020-nb-article" ref-type="bibr">2020</xref>),
+    tidyverse v. 2.0.0
+    (<xref alt="Wickham et al., 2019" rid="ref-tidyverse-nb-article" ref-type="bibr">Wickham
+    et al., 2019</xref>).</p>
+    </sec>
   </sec>
   <sec id="preprocessing-nb-article">
     <title>2.4 Preprocessing</title>
@@ -1009,7 +1057,7 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>8 FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-3-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-4-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -1025,10 +1073,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-4-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-5-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-4-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-5-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -1356,36 +1404,100 @@ avg_years_between_eruptions</code>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-kuhn_building_2008-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <string-name>Kuhn</string-name>
-        <string-name>Max</string-name>
-      </person-group>
-      <article-title>Building Predictive Models in R Using the caret Package</article-title>
-      <source>Journal of Statistical Software</source>
-      <year iso-8601-date="2008">2008</year>
-      <volume>28</volume>
-      <issue>5</issue>
-      <uri>https://www.jstatsoft.org/index.php/jss/article/view/v028i05</uri>
-      <pub-id pub-id-type="doi">10.18637/jss.v028.i05</pub-id>
-      <fpage>1</fpage>
-      <lpage>26</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-liland_pls_2023-nb-article">
+  <ref id="ref-base-nb-article">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
-        <name><surname>Liland</surname><given-names>Kristian Hovde</given-names></name>
-        <name><surname>Mevik</surname><given-names>Bjørn-Helge</given-names></name>
-        <name><surname>Wehrens</surname><given-names>Ron</given-names></name>
+        <string-name>R Core Team</string-name>
       </person-group>
-      <source>Pls: Partial Least Squares and Principal Component Regression</source>
-      <year iso-8601-date="2023">2023</year>
-      <uri>https://CRAN.R-project.org/package=pls</uri>
+      <source>R: A language and environment for statistical computing</source>
+      <publisher-name>R Foundation for Statistical Computing</publisher-name>
+      <publisher-loc>Vienna, Austria</publisher-loc>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://www.R-project.org/</uri>
     </element-citation>
   </ref>
-  <ref id="ref-wickham_welcome_2019-nb-article">
+  <ref id="ref-datatable-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Barrett</surname><given-names>Tyson</given-names></name>
+        <name><surname>Dowle</surname><given-names>Matt</given-names></name>
+        <name><surname>Srinivasan</surname><given-names>Arun</given-names></name>
+        <name><surname>Gorecki</surname><given-names>Jan</given-names></name>
+        <name><surname>Chirico</surname><given-names>Michael</given-names></name>
+        <name><surname>Hocking</surname><given-names>Toby</given-names></name>
+      </person-group>
+      <source>data.table: Extension of ‘data.frame’</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=data.table</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-randomForest-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Liaw</surname><given-names>Andy</given-names></name>
+        <name><surname>Wiener</surname><given-names>Matthew</given-names></name>
+      </person-group>
+      <article-title>Classification and regression by randomForest</article-title>
+      <source>R News</source>
+      <year iso-8601-date="2002">2002</year>
+      <volume>2</volume>
+      <issue>3</issue>
+      <uri>https://CRAN.R-project.org/doc/Rnews/</uri>
+      <fpage>18</fpage>
+      <lpage>22</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2024-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Allaire</surname><given-names>JJ</given-names></name>
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
+        <name><surname>McPherson</surname><given-names>Jonathan</given-names></name>
+        <name><surname>Luraschi</surname><given-names>Javier</given-names></name>
+        <name><surname>Ushey</surname><given-names>Kevin</given-names></name>
+        <name><surname>Atkins</surname><given-names>Aron</given-names></name>
+        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
+        <name><surname>Cheng</surname><given-names>Joe</given-names></name>
+        <name><surname>Chang</surname><given-names>Winston</given-names></name>
+        <name><surname>Iannone</surname><given-names>Richard</given-names></name>
+      </person-group>
+      <source>rmarkdown: Dynamic documents for r</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://github.com/rstudio/rmarkdown</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2018-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Allaire</surname><given-names>J. J.</given-names></name>
+        <name><surname>Grolemund</surname><given-names>Garrett</given-names></name>
+      </person-group>
+      <source>R markdown: The definitive guide</source>
+      <publisher-name>Chapman; Hall/CRC</publisher-name>
+      <publisher-loc>Boca Raton, Florida</publisher-loc>
+      <year iso-8601-date="2018">2018</year>
+      <isbn>9781138359338</isbn>
+      <uri>https://bookdown.org/yihui/rmarkdown</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-rmarkdown2020-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
+        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
+        <name><surname>Riederer</surname><given-names>Emily</given-names></name>
+      </person-group>
+      <source>R markdown cookbook</source>
+      <publisher-name>Chapman; Hall/CRC</publisher-name>
+      <publisher-loc>Boca Raton, Florida</publisher-loc>
+      <year iso-8601-date="2020">2020</year>
+      <isbn>9780367563837</isbn>
+      <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-tidyverse-nb-article">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
         <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
@@ -1421,33 +1533,6 @@ avg_years_between_eruptions</code>
       <pub-id pub-id-type="doi">10.21105/joss.01686</pub-id>
       <fpage>1686</fpage>
       <lpage></lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-r_core_team_r_2024-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <string-name>R Core Team</string-name>
-      </person-group>
-      <source>R: A Language and Environment for Statistical Computing</source>
-      <publisher-name>R Foundation for Statistical Computing</publisher-name>
-      <publisher-loc>Vienna, Austria</publisher-loc>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://www.R-project.org/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-barrett_datatable_2024-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Barrett</surname><given-names>Tyson</given-names></name>
-        <name><surname>Dowle</surname><given-names>Matt</given-names></name>
-        <name><surname>Srinivasan</surname><given-names>Arun</given-names></name>
-        <name><surname>Gorecki</surname><given-names>Jan</given-names></name>
-        <name><surname>Chirico</surname><given-names>Michael</given-names></name>
-        <name><surname>Hocking</surname><given-names>Toby</given-names></name>
-      </person-group>
-      <source>Data.table: Extension of ‘data.frame‘</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://CRAN.R-project.org/package=data.table</uri>
     </element-citation>
   </ref>
 </ref-list>

@@ -296,11 +296,14 @@ smooth 2 settings respectively.
 \subsubsection{Additional software
 used:}\label{additional-software-used}
 
-Additional analyses were performed using R Statistical Software (R Core
-Team, 2024). Data were tabulated and summarized using the tidyverse and
-data.table {[}Barrett et al. (2024); Wickham et al. (2019){]}. PLSR
-models were constructed using the pls package and validated using caret
-{[}Kuhn \& Max (2008); Liland et al. (2023){]}.
+We used R version 4.3.3 (R Core Team, 2024) and the following R
+packages: data.table v. 1.15.2 (Barrett et al., 2024), randomForest v.
+4.7.1.1 (Liaw \& Wiener, 2002), rmarkdown v. 2.26 (Allaire et al., 2024;
+Xie et al., 2018, 2020), tidyverse v. 2.0.0 (Wickham et al., 2019).
+
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
 
 \subsubsection{Preprocessing}\label{preprocessing}
 
@@ -455,10 +458,16 @@ on La Palma.
 \begin{CSLReferences}{1}{0}
 \vspace{1em}
 
-\bibitem[\citeproctext]{ref-barrett_datatable_2024}
+\bibitem[\citeproctext]{ref-rmarkdown2024}
+Allaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey,
+K., Atkins, A., Wickham, H., Cheng, J., Chang, W., \& Iannone, R.
+(2024). \emph{{rmarkdown}: Dynamic documents for r}.
+\url{https://github.com/rstudio/rmarkdown}
+
+\bibitem[\citeproctext]{ref-datatable}
 Barrett, T., Dowle, M., Srinivasan, A., Gorecki, J., Chirico, M., \&
-Hocking, T. (2024). \emph{Data.table: {Extension} of `data.frame`}.
-\url{https://CRAN.R-project.org/package=data.table}
+Hocking, T. (2024). \emph{{data.table}: Extension of
+{``{data.frame}''}}. \url{https://CRAN.R-project.org/package=data.table}
 
 \bibitem[\citeproctext]{ref-barta_proteomic_2024}
 Bárta, J., Roudnický, P., Jarošová, M., Zdráhal, Z., Stupková, A.,
@@ -508,19 +517,14 @@ Hayes, M. (2020). Measuring {Protein} {Content} in {Food}: {An}
 {Overview} of {Methods}. \emph{Foods}, \emph{9}(10), 1340.
 \url{https://doi.org/10.3390/foods9101340}
 
-\bibitem[\citeproctext]{ref-kuhn_building_2008}
-Kuhn, \& Max. (2008). Building {Predictive} {Models} in {R} {Using} the
-caret {Package}. \emph{Journal of Statistical Software}, \emph{28}(5),
-1--26. \url{https://doi.org/10.18637/jss.v028.i05}
+\bibitem[\citeproctext]{ref-randomForest}
+Liaw, A., \& Wiener, M. (2002). Classification and regression by
+randomForest. \emph{R News}, \emph{2}(3), 18--22.
+\url{https://CRAN.R-project.org/doc/Rnews/}
 
-\bibitem[\citeproctext]{ref-liland_pls_2023}
-Liland, K. H., Mevik, B.-H., \& Wehrens, R. (2023). \emph{Pls: {Partial}
-{Least} {Squares} and {Principal} {Component} {Regression}}.
-\url{https://CRAN.R-project.org/package=pls}
-
-\bibitem[\citeproctext]{ref-r_core_team_r_2024}
-R Core Team. (2024). \emph{R: {A} {Language} and {Environment} for
-{Statistical} {Computing}}. R Foundation for Statistical Computing.
+\bibitem[\citeproctext]{ref-base}
+R Core Team. (2024). \emph{{R}: A language and environment for
+statistical computing}. R Foundation for Statistical Computing.
 \url{https://www.R-project.org/}
 
 \bibitem[\citeproctext]{ref-reeves_potential_2012}
@@ -534,18 +538,28 @@ Roberts, C. A., Workman, J., \& Reeves, J. B. (2004).
 \emph{Near-infrared spectroscopy in agriculture}. American Society of
 Agronomy.
 
-\bibitem[\citeproctext]{ref-wickham_welcome_2019}
+\bibitem[\citeproctext]{ref-tidyverse}
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
 François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
 Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
 Robinson, D., Seidel, D. P., Spinu, V., \ldots{} Yutani, H. (2019).
-Welcome to the tidyverse. \emph{Journal of Open Source Software},
+Welcome to the {tidyverse}. \emph{Journal of Open Source Software},
 \emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
 
 \bibitem[\citeproctext]{ref-williams_application_1975}
 Williams, P. C. (1975). Application of near infrared reflectance
 spectroscopy to analysis of cereal grains and oilseeds. \emph{Cereal
 Chemistry}, \emph{52}(4 p.561-576), 576--561.
+
+\bibitem[\citeproctext]{ref-rmarkdown2018}
+Xie, Y., Allaire, J. J., \& Grolemund, G. (2018). \emph{R markdown: The
+definitive guide}. Chapman; Hall/CRC.
+\url{https://bookdown.org/yihui/rmarkdown}
+
+\bibitem[\citeproctext]{ref-rmarkdown2020}
+Xie, Y., Dervieux, C., \& Riederer, E. (2020). \emph{R markdown
+cookbook}. Chapman; Hall/CRC.
+\url{https://bookdown.org/yihui/rmarkdown-cookbook}
 
 \end{CSLReferences}
 
