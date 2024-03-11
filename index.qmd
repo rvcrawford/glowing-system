@@ -101,7 +101,7 @@ For this study, a benchtop NIR spectrometer was used to develop a model to predi
 ```{r}
 #| output: false
 
-bckgrnd <- read_rds("./input_data/sample_background/simplified_background/background_data_set.Rds") |> setDT()
+bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
 
  bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
  
