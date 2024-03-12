@@ -107,10 +107,10 @@ Hemp Grain</article-title>
 <corresp id="cor-1">rvc3@cornell.edu</corresp>
 </author-notes>
 
-<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-09">
+<pub-date date-type="pub" publication-format="electronic" iso-8601-date="2024-03-12">
 <year>2024</year>
 <month>3</month>
-<day>9</day>
+<day>12</day>
 </pub-date>
 
 
@@ -249,10 +249,17 @@ etc.</bold></p>
     <title>2.3 Additional software used:</title>
     <p>We used R version 4.3.3
     (<xref alt="R Core Team, 2024" rid="ref-base" ref-type="bibr">R Core
-    Team, 2024</xref>) and the following R packages: data.table v.
-    1.15.2
+    Team, 2024</xref>) and the following R packages: caret v. 6.0.94
+    (<xref alt="Kuhn &amp; Max, 2008" rid="ref-caret" ref-type="bibr">Kuhn
+    &amp; Max, 2008</xref>), data.table v. 1.15.2
     (<xref alt="Barrett et al., 2024" rid="ref-datatable" ref-type="bibr">Barrett
-    et al., 2024</xref>), randomForest v. 4.7.1.1
+    et al., 2024</xref>), emmeans v. 1.10.0
+    (<xref alt="Lenth, 2024" rid="ref-emmeans" ref-type="bibr">Lenth,
+    2024</xref>), lme4 v. 1.1.35.1
+    (<xref alt="Bates et al., 2015" rid="ref-lme4" ref-type="bibr">Bates
+    et al., 2015</xref>), prospectr v. 0.2.7
+    (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr" ref-type="bibr">Stevens
+    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
     (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest" ref-type="bibr">Liaw
     &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
     (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024" ref-type="bibr">Allaire
@@ -260,28 +267,34 @@ etc.</bold></p>
     <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018" ref-type="bibr">Xie
     et al., 2018</xref>,
     <xref alt="2020" rid="ref-rmarkdown2020" ref-type="bibr">2020</xref>),
-    tidyverse v. 2.0.0
+    tidymodels v. 1.1.1
+    (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels" ref-type="bibr">Kuhn
+    &amp; Wickham, 2020</xref>), tidyverse v. 2.0.0
     (<xref alt="Wickham et al., 2019" rid="ref-tidyverse" ref-type="bibr">Wickham
     et al., 2019</xref>).</p>
   </sec>
-  <sec id="preprocessing">
-    <title>2.4 Preprocessing</title>
-    <p>Multiplicative scatter correction (MSC)</p>
-    <p>standard normal variate (SNV) transformation</p>
-    <p>The calibration set consisted of</p>
-    <p>The validation set consisted of</p>
-  </sec>
   <sec id="laboratory-validation">
-    <title>2.5 Laboratory Validation</title>
+    <title>2.4 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
-    Samples from 2017 were aggregated as described above, but</p>
-    <p>Prior to In 2017, an in</p>
+    Samples from 2017 were aggregated as described above, but the
+    remaining samples were not aggregated.</p>
+  </sec>
+  <sec id="preprocessing">
+    <title>2.5 Preprocessing</title>
+    <p>Multiplicative scatter correction (MSC)</p>
+    <p>standard normal variate (SNV) transformation</p>
+    <p>Calibration and validations sets were created by dividing the
+    laboratory CP values into tertiles according to their percent CP.
+    Within each tertile, 75% of the samples were randomly assigned to
+    the calibration set and the remaining 25% were assigned to the
+    validation set.</p>
   </sec>
 </sec>
 <sec id="results-and-discussion">
   <title>3 RESULTS AND DISCUSSION</title>
+  <p>Laboratory assay</p>
 </sec>
 <sec id="acknowledgments">
   <title>4 ACKNOWLEDGMENTS</title>
@@ -626,6 +639,23 @@ etc.</bold></p>
       <uri>https://www.R-project.org/</uri>
     </element-citation>
   </ref>
+  <ref id="ref-caret">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Kuhn</string-name>
+        <string-name>Max</string-name>
+      </person-group>
+      <article-title>Building predictive models in r using the caret package</article-title>
+      <source>Journal of Statistical Software</source>
+      <year iso-8601-date="2008">2008</year>
+      <volume>28</volume>
+      <issue>5</issue>
+      <uri>https://www.jstatsoft.org/index.php/jss/article/view/v028i05</uri>
+      <pub-id pub-id-type="doi">10.18637/jss.v028.i05</pub-id>
+      <fpage>1</fpage>
+      <lpage>26</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-datatable">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -639,6 +669,44 @@ etc.</bold></p>
       <source>data.table: Extension of ‘data.frame’</source>
       <year iso-8601-date="2024">2024</year>
       <uri>https://CRAN.R-project.org/package=data.table</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-emmeans">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Lenth</surname><given-names>Russell V.</given-names></name>
+      </person-group>
+      <source>emmeans: Estimated marginal means, aka least-squares means</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=emmeans</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-lme4">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
+        <name><surname>Mächler</surname><given-names>Martin</given-names></name>
+        <name><surname>Bolker</surname><given-names>Ben</given-names></name>
+        <name><surname>Walker</surname><given-names>Steve</given-names></name>
+      </person-group>
+      <article-title>Fitting linear mixed-effects models using lme4</article-title>
+      <source>Journal of Statistical Software</source>
+      <year iso-8601-date="2015">2015</year>
+      <volume>67</volume>
+      <issue>1</issue>
+      <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
+      <fpage>1</fpage>
+      <lpage>48</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-prospectr">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Stevens</surname><given-names>Antoine</given-names></name>
+        <name><surname>Ramirez-Lopez</surname><given-names>Leornardo</given-names></name>
+      </person-group>
+      <source>An introduction to the prospectr package</source>
+      <year iso-8601-date="2024">2024</year>
     </element-citation>
   </ref>
   <ref id="ref-randomForest">
@@ -705,6 +773,17 @@ etc.</bold></p>
       <year iso-8601-date="2020">2020</year>
       <isbn>9780367563837</isbn>
       <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-tidymodels">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Kuhn</surname><given-names>Max</given-names></name>
+        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
+      </person-group>
+      <source>Tidymodels: A collection of packages for modeling and machine learning using tidyverse principles.</source>
+      <year iso-8601-date="2020">2020</year>
+      <uri>https://www.tidymodels.org</uri>
     </element-citation>
   </ref>
   <ref id="ref-tidyverse">
@@ -848,6 +927,8 @@ mollit anim id est laborum.</p>
 <sec id="nb-code-cell-1-nb-article" specific-use="notebook-code">
 <code language="r script">library(tidyverse)</code>
 <code language="r script">library(data.table)</code>
+<code language="r script">library(caret)</code>
+<code language="r script">library(prospectr)</code>
 <sec id="nb-code-cell-1-output-0-nb-article" specific-use="notebook-output">
 <preformat>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -876,6 +957,19 @@ The following objects are masked from 'package:dplyr':
 The following object is masked from 'package:purrr':
 
     transpose</preformat>
+</sec>
+<sec id="nb-code-cell-1-output-2-nb-article" specific-use="notebook-output">
+<preformat>Loading required package: lattice
+
+Attaching package: 'caret'
+
+The following object is masked from 'package:purrr':
+
+    lift</preformat>
+</sec>
+<sec id="nb-code-cell-1-output-3-nb-article" specific-use="notebook-output">
+<preformat>[34mprospectr version 0.2.7 -- cakes[39m
+[34mcheck the package repository at: https://github.com/l-ramirez-lopez/prospectr[39m</preformat>
 </sec>
 </sec>
 <p><bold>incomplete: may contain errors, run-ons, half-thoughts,
@@ -938,11 +1032,16 @@ etc.</bold></p>
 <sec id="materials-and-methods-nb-article">
   <title>2 MATERIALS AND METHODS</title>
   <sec id="nb-code-cell-2-nb-article" specific-use="notebook-code">
-  <code language="r script">bckgrnd &lt;- read_rds(&quot;./input_data/sample_background/simplified_background/background_data_set.Rds&quot;) |&gt; setDT()
+  <code language="r script">bckgrnd &lt;- fread(&quot;./input_data/simplified_data/background_data_set.csv&quot;) |&gt; setDT()
+
+spectra &lt;- fread(&quot;./input_data/simplified_data/train_test_crude_protein.csv&quot;)
 
  bckgrnd[,in_ny:= ifelse(loc!=&quot;kentucky&quot;, T, F)]
  
 bg2 &lt;- bckgrnd[loc!=&quot;kentucky&quot;]
+
+# extract indices of non-kentucky
+bg_indices &lt;- bckgrnd[loc!=&quot;kentucky&quot;, which = T]
 
 # correct names in bg2--should be h-51, NOT hl-51
 
@@ -952,7 +1051,12 @@ bg2[cultivar==&quot;hl-51&quot;]$cultivar &lt;- &quot;h-51&quot;
 
 bg2[grepl(&quot;51&quot;, cultivar),]</code>
   <code language="r script"> #looks good 
-tab &lt;-  table(bckgrnd$in_ny)</code>
+tab &lt;-  table(bckgrnd$in_ny)
+
+
+# now take correct spectra filtering out stuff from KY
+
+spectra_2 &lt;- spectra[bg_indices]</code>
   <sec id="nb-code-cell-2-output-0-nb-article" specific-use="notebook-output">
   <preformat>   temp_id harv_year       loc cultivar       type  in_ny
      &lt;int&gt;     &lt;int&gt;    &lt;char&gt;   &lt;char&gt;     &lt;char&gt; &lt;lgcl&gt;
@@ -1008,10 +1112,17 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
     <code language="r script">grateful::cite_packages(output = &quot;paragraph&quot;, out.dir = &quot;.&quot;)</code>
     <p>We used R version 4.3.3
     (<xref alt="R Core Team, 2024" rid="ref-base-nb-article" ref-type="bibr">R Core
-    Team, 2024</xref>) and the following R packages: data.table v.
-    1.15.2
+    Team, 2024</xref>) and the following R packages: caret v. 6.0.94
+    (<xref alt="Kuhn &amp; Max, 2008" rid="ref-caret-nb-article" ref-type="bibr">Kuhn
+    &amp; Max, 2008</xref>), data.table v. 1.15.2
     (<xref alt="Barrett et al., 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
-    et al., 2024</xref>), randomForest v. 4.7.1.1
+    et al., 2024</xref>), emmeans v. 1.10.0
+    (<xref alt="Lenth, 2024" rid="ref-emmeans-nb-article" ref-type="bibr">Lenth,
+    2024</xref>), lme4 v. 1.1.35.1
+    (<xref alt="Bates et al., 2015" rid="ref-lme4-nb-article" ref-type="bibr">Bates
+    et al., 2015</xref>), prospectr v. 0.2.7
+    (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr-nb-article" ref-type="bibr">Stevens
+    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
     (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest-nb-article" ref-type="bibr">Liaw
     &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
     (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024-nb-article" ref-type="bibr">Allaire
@@ -1019,29 +1130,35 @@ tab &lt;-  table(bckgrnd$in_ny)</code>
     <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018-nb-article" ref-type="bibr">Xie
     et al., 2018</xref>,
     <xref alt="2020" rid="ref-rmarkdown2020-nb-article" ref-type="bibr">2020</xref>),
-    tidyverse v. 2.0.0
+    tidymodels v. 1.1.1
+    (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels-nb-article" ref-type="bibr">Kuhn
+    &amp; Wickham, 2020</xref>), tidyverse v. 2.0.0
     (<xref alt="Wickham et al., 2019" rid="ref-tidyverse-nb-article" ref-type="bibr">Wickham
     et al., 2019</xref>).</p>
     </sec>
   </sec>
-  <sec id="preprocessing-nb-article">
-    <title>2.4 Preprocessing</title>
-    <p>Multiplicative scatter correction (MSC)</p>
-    <p>standard normal variate (SNV) transformation</p>
-    <p>The calibration set consisted of</p>
-    <p>The validation set consisted of</p>
-  </sec>
   <sec id="laboratory-validation-nb-article">
-    <title>2.5 Laboratory Validation</title>
+    <title>2.4 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
-    Samples from 2017 were aggregated as described above, but</p>
-    <p>Prior to In 2017, an in</p>
+    Samples from 2017 were aggregated as described above, but the
+    remaining samples were not aggregated.</p>
+  </sec>
+  <sec id="preprocessing-nb-article">
+    <title>2.5 Preprocessing</title>
+    <p>Multiplicative scatter correction (MSC)</p>
+    <p>standard normal variate (SNV) transformation</p>
+    <p>Calibration and validations sets were created by dividing the
+    laboratory CP values into tertiles according to their percent CP.
+    Within each tertile, 75% of the samples were randomly assigned to
+    the calibration set and the remaining 25% were assigned to the
+    validation set.</p>
   </sec>
 </sec>
 <sec id="results-and-discussion-nb-article">
   <title>3 RESULTS AND DISCUSSION</title>
+  <p>Laboratory assay</p>
 </sec>
 <sec id="acknowledgments-nb-article">
   <title>4 ACKNOWLEDGMENTS</title>
@@ -1416,6 +1533,23 @@ avg_years_between_eruptions</code>
       <uri>https://www.R-project.org/</uri>
     </element-citation>
   </ref>
+  <ref id="ref-caret-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <string-name>Kuhn</string-name>
+        <string-name>Max</string-name>
+      </person-group>
+      <article-title>Building predictive models in r using the caret package</article-title>
+      <source>Journal of Statistical Software</source>
+      <year iso-8601-date="2008">2008</year>
+      <volume>28</volume>
+      <issue>5</issue>
+      <uri>https://www.jstatsoft.org/index.php/jss/article/view/v028i05</uri>
+      <pub-id pub-id-type="doi">10.18637/jss.v028.i05</pub-id>
+      <fpage>1</fpage>
+      <lpage>26</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-datatable-nb-article">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1429,6 +1563,44 @@ avg_years_between_eruptions</code>
       <source>data.table: Extension of ‘data.frame’</source>
       <year iso-8601-date="2024">2024</year>
       <uri>https://CRAN.R-project.org/package=data.table</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-emmeans-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Lenth</surname><given-names>Russell V.</given-names></name>
+      </person-group>
+      <source>emmeans: Estimated marginal means, aka least-squares means</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=emmeans</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-lme4-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
+        <name><surname>Mächler</surname><given-names>Martin</given-names></name>
+        <name><surname>Bolker</surname><given-names>Ben</given-names></name>
+        <name><surname>Walker</surname><given-names>Steve</given-names></name>
+      </person-group>
+      <article-title>Fitting linear mixed-effects models using lme4</article-title>
+      <source>Journal of Statistical Software</source>
+      <year iso-8601-date="2015">2015</year>
+      <volume>67</volume>
+      <issue>1</issue>
+      <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
+      <fpage>1</fpage>
+      <lpage>48</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-prospectr-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Stevens</surname><given-names>Antoine</given-names></name>
+        <name><surname>Ramirez-Lopez</surname><given-names>Leornardo</given-names></name>
+      </person-group>
+      <source>An introduction to the prospectr package</source>
+      <year iso-8601-date="2024">2024</year>
     </element-citation>
   </ref>
   <ref id="ref-randomForest-nb-article">
@@ -1495,6 +1667,17 @@ avg_years_between_eruptions</code>
       <year iso-8601-date="2020">2020</year>
       <isbn>9780367563837</isbn>
       <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-tidymodels-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Kuhn</surname><given-names>Max</given-names></name>
+        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
+      </person-group>
+      <source>Tidymodels: A collection of packages for modeling and machine learning using tidyverse principles.</source>
+      <year iso-8601-date="2020">2020</year>
+      <uri>https://www.tidymodels.org</uri>
     </element-citation>
   </ref>
   <ref id="ref-tidyverse-nb-article">

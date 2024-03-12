@@ -82,6 +82,8 @@ number-sections: true
 
 library(tidyverse)
 library(data.table)
+library(caret)
+library(prospectr)
 ```
 
 **incomplete: may contain errors, run-ons, half-thoughts, etc.**
@@ -101,11 +103,16 @@ For this study, a benchtop NIR spectrometer was used to develop a model to predi
 ```{r}
 #| output: false
 
-bckgrnd <- read_rds("./input_data/sample_background/simplified_background/background_data_set.Rds") |> setDT()
+bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
+
+spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
 
  bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
  
 bg2 <- bckgrnd[loc!="kentucky"]
+
+# extract indices of non-kentucky
+bg_indices <- bckgrnd[loc!="kentucky", which = T]
 
 # correct names in bg2--should be h-51, NOT hl-51
 
@@ -118,6 +125,10 @@ bg2[grepl("51", cultivar),]
  #looks good 
 tab <-  table(bckgrnd$in_ny)
 
+
+# now take correct spectra filtering out stuff from KY
+
+spectra_2 <- spectra[bg_indices]
 ```
 
 ### Hemp Grain Sample Background
@@ -140,23 +151,24 @@ WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) w
 grateful::cite_packages(output = "paragraph", out.dir = ".")
 ```
 
+### Laboratory Validation
+
+Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017 were aggregated as described above, but the remaining samples were not aggregated. 
+
 ### Preprocessing
 
 Multiplicative scatter correction (MSC)
 
 standard normal variate (SNV) transformation
 
-The calibration set consisted of
+Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. 
 
-The validation set consisted of
 
-### Laboratory Validation
-
-Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). For those assays, 1mm ground samples were analyzed by combustion using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017 were aggregated as described above, but
-
-Prior to In 2017, an in
 
 ## RESULTS AND DISCUSSION
+
+Laboratory assay
+
 
 ## ACKNOWLEDGMENTS
 

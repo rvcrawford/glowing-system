@@ -297,13 +297,25 @@ smooth 2 settings respectively.
 used:}\label{additional-software-used}
 
 We used R version 4.3.3 (R Core Team, 2024) and the following R
-packages: data.table v. 1.15.2 (Barrett et al., 2024), randomForest v.
-4.7.1.1 (Liaw \& Wiener, 2002), rmarkdown v. 2.26 (Allaire et al., 2024;
-Xie et al., 2018, 2020), tidyverse v. 2.0.0 (Wickham et al., 2019).
+packages: caret v. 6.0.94 (Kuhn \& Max, 2008), data.table v. 1.15.2
+(Barrett et al., 2024), emmeans v. 1.10.0 (Lenth, 2024), lme4 v.
+1.1.35.1 (Bates et al., 2015), prospectr v. 0.2.7 (Stevens \&
+Ramirez-Lopez, 2024), randomForest v. 4.7.1.1 (Liaw \& Wiener, 2002),
+rmarkdown v. 2.26 (Allaire et al., 2024; Xie et al., 2018, 2020),
+tidymodels v. 1.1.1 (Kuhn \& Wickham, 2020), tidyverse v. 2.0.0 (Wickham
+et al., 2019).
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
+
+\subsubsection{Laboratory Validation}\label{laboratory-validation}
+
+Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca,
+NY). For those assays, 1mm ground samples were analyzed by combustion
+using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017
+were aggregated as described above, but the remaining samples were not
+aggregated.
 
 \subsubsection{Preprocessing}\label{preprocessing}
 
@@ -311,20 +323,14 @@ Multiplicative scatter correction (MSC)
 
 standard normal variate (SNV) transformation
 
-The calibration set consisted of
-
-The validation set consisted of
-
-\subsubsection{Laboratory Validation}\label{laboratory-validation}
-
-Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca,
-NY). For those assays, 1mm ground samples were analyzed by combustion
-using a CN628 or CN928 Carbon/Nitrogen Determinator. Samples from 2017
-were aggregated as described above, but
-
-Prior to In 2017, an in
+Calibration and validations sets were created by dividing the laboratory
+CP values into tertiles according to their percent CP. Within each
+tertile, 75\% of the samples were randomly assigned to the calibration
+set and the remaining 25\% were assigned to the validation set.
 
 \subsection{RESULTS AND DISCUSSION}\label{results-and-discussion}
+
+Laboratory assay
 
 \subsection{ACKNOWLEDGMENTS}\label{acknowledgments}
 
@@ -477,6 +483,12 @@ Bedrníček, J., \& Smetana, P. (2024). Proteomic {Profiles} of {Whole}
 ({Cannabis} sativa {L}.) {Cultivars}. \emph{Plants}, \emph{13}(1), 111.
 \url{https://doi.org/10.3390/plants13010111}
 
+\bibitem[\citeproctext]{ref-lme4}
+Bates, D., Mächler, M., Bolker, B., \& Walker, S. (2015). Fitting linear
+mixed-effects models using {lme4}. \emph{Journal of Statistical
+Software}, \emph{67}(1), 1--48.
+\url{https://doi.org/10.18637/jss.v067.i01}
+
 \bibitem[\citeproctext]{ref-chadalavada_nir_2022}
 Chadalavada, K., Anbazhagan, K., Ndour, A., Choudhary, S., Palmer, W.,
 Flynn, J. R., Mallayee, S., Pothu, S., Prasad, K. V. S. V.,
@@ -517,6 +529,20 @@ Hayes, M. (2020). Measuring {Protein} {Content} in {Food}: {An}
 {Overview} of {Methods}. \emph{Foods}, \emph{9}(10), 1340.
 \url{https://doi.org/10.3390/foods9101340}
 
+\bibitem[\citeproctext]{ref-tidymodels}
+Kuhn, M., \& Wickham, H. (2020). \emph{{Tidymodels}: A collection of
+packages for modeling and machine learning using tidyverse principles.}
+\url{https://www.tidymodels.org}
+
+\bibitem[\citeproctext]{ref-caret}
+Kuhn, \& Max. (2008). Building predictive models in r using the caret
+package. \emph{Journal of Statistical Software}, \emph{28}(5), 1--26.
+\url{https://doi.org/10.18637/jss.v028.i05}
+
+\bibitem[\citeproctext]{ref-emmeans}
+Lenth, R. V. (2024). \emph{{emmeans}: Estimated marginal means, aka
+least-squares means}. \url{https://CRAN.R-project.org/package=emmeans}
+
 \bibitem[\citeproctext]{ref-randomForest}
 Liaw, A., \& Wiener, M. (2002). Classification and regression by
 randomForest. \emph{R News}, \emph{2}(3), 18--22.
@@ -537,6 +563,10 @@ Science and Plant Analysis}, \emph{43}(1-2), 478--495.
 Roberts, C. A., Workman, J., \& Reeves, J. B. (2004).
 \emph{Near-infrared spectroscopy in agriculture}. American Society of
 Agronomy.
+
+\bibitem[\citeproctext]{ref-prospectr}
+Stevens, A., \& Ramirez-Lopez, L. (2024). \emph{An introduction to the
+prospectr package}.
 
 \bibitem[\citeproctext]{ref-tidyverse}
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
