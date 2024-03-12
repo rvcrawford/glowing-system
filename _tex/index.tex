@@ -173,7 +173,6 @@
   urlcolor={Blue},
   pdfcreator={LaTeX via pandoc}}
 
-\journalname{Earth and Space Science}
 
 \draftfalse
 
@@ -226,7 +225,7 @@ and cheap, and consists of the measurement of NIR radiation reflected
 from a sample (Roberts et al., 2004). NIR spectra from many samples are
 related to laboratory values for components such as moisture, protein,
 fat, or fiber (Roberts et al., 2004). NIRS technology has been used
-since the 1970's to assess forage CP (Reeves, 2012; Williams, 1975). A
+since the 1970's to assess forage CP (Reeves, 2012a; Williams, 1975). A
 NIRS calibration set often consists of samples from one species grown in
 many environments encompassing the range of expected values from the
 analyte or analytes (Chadalavada et al., 2022). Partial least squares
@@ -329,35 +328,34 @@ Initially several of common spectral preprocessing methods were tested
 by creating 100 calibration and validation sets as described above.
 Spectral data from those data sets were transformed by each of the
 following methods: First Derivative, Gap-segment derivative,
-Multiplicative Scatter Correction, Savitzky-Golay, SNV-Detrend, Standard
-Normal Variate, Standard Normal Variate/ Savitzky-Golay. For each of
-these preprocessing methods, models were fit and predictions were made
-on the corresponding validation set (since there were 7 preprocessing
-methods, 7 separate models were fit for each of the 100 sets. The
-relationship between the predicted and actual values of validation set
-were calculated via RMSE, R\textsuperscript{2} and Ratio of Performance
-to InterQuartile distance (RPIQ). An analysis of variance was performed
-in order to compare the preprocessing methods according to these metrics
-considering each data set as a subject, with multiple measurements
-(preprocessing methods) applied to that subject.
+Multiplicative Scatter Correction, Raw Spectra, Savitzky-Golay,
+SNV-Detrend, Standard Normal Variate, Standard Normal Variate/
+Savitzky-Golay. For each of these preprocessing methods, models were fit
+and predictions were made on the corresponding validation set (since
+there were 8 preprocessing methods, 8 separate models were fit for each
+of the 100 sets. The relationship between the predicted and actual
+values of validation set were calculated via RMSE, R\textsuperscript{2}
+and Ratio of Performance to InterQuartile distance (RPIQ). An analysis
+of variance was performed in order to compare the preprocessing methods
+according to these metrics considering each data set as a subject, with
+multiple measurements (preprocessing methods) applied to that subject.
 
 Once the most promising preprocessing method was identified, 1000 more
 data sets were created and analyzed via that method and performance on
 the validation sets summarized with RMSE, R\textsuperscript{2}, and
 RPIQ.
 
-\subsubsection{Additional software
-used:}\label{additional-software-used}
+\subsubsection{Additional software used}\label{additional-software-used}
 
 We used R version 4.3.3 (R Core Team, 2024) and the following R
 packages: caret v. 6.0.94 (Kuhn \& Max, 2008), data.table v. 1.15.2
 (Barrett et al., 2024), emmeans v. 1.10.0 (Lenth, 2024), knitr v. 1.45
-(Xie, 2014, 2015, 2023), lme4 v. 1.1.35.1 (Bates et al., 2015),
-prospectr v. 0.2.7 (Stevens \& Ramirez-Lopez, 2024), randomForest v.
-4.7.1.1 (Liaw \& Wiener, 2002), rmarkdown v. 2.26 (Allaire et al., 2024;
-Xie et al., 2018, 2020), skimr v. 2.1.5 (Waring et al., 2022),
-tidymodels v. 1.1.1 (Kuhn \& Wickham, 2020), tidyverse v. 2.0.0 (Wickham
-et al., 2019).
+(Xie, 2014, 2015, 2023), lme4 v. 1.1.35.1 (Bates et al., 2015), pls v.
+2.8.3 (Liland et al., 2023), prospectr v. 0.2.7 (Stevens \&
+Ramirez-Lopez, 2024), randomForest v. 4.7.1.1 (Liaw \& Wiener, 2002),
+rmarkdown v. 2.26 (Allaire et al., 2024; Xie et al., 2018, 2020), skimr
+v. 2.1.5 (Waring et al., 2022), tidymodels v. 1.1.1 (Kuhn \& Wickham,
+2020), tidyverse v. 2.0.0 (Wickham et al., 2019).
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
@@ -365,9 +363,13 @@ Notebook}}
 
 \subsection{RESULTS AND DISCUSSION}\label{results-and-discussion}
 
+\subsubsection{Laboratory assay CP
+values}\label{laboratory-assay-cp-values}
+
 Laboratory assay percent CP values are summarized in the following
 table. These are similar to the range of CP values observed in the
-literature and indicate an appropriate basis for a chemometric model.
+literature and this indicating an appropriate basis for a chemometric
+model.
 
 \begin{longtable}[]{@{}rrrrrrr@{}}
 \caption{Summary of Laboratory Assayed CP values (Values are Percent Dry
@@ -390,6 +392,31 @@ maximum \\
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
+
+\subsubsection{Preprocessing methods
+comparison}\label{preprocessing-methods-comparison}
+
+\begin{verbatim}
+# A tibble: 6 x 5
+     id preproc          .metric .estimator .estimate
+  <int> <chr>            <chr>   <chr>          <dbl>
+1     1 first_derivative rmse    standard        1.15
+2     1 gap_der          rmse    standard        1.31
+3     1 msc              rmse    standard        1.12
+4     1 raw              rmse    standard        1.23
+5     1 sav_gol          rmse    standard        1.19
+6     1 snv              rmse    standard        1.18
+\end{verbatim}
+
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
+
+This study is limited in that it represents the creation of one model
+based upon spectra collected from one machine. NIRS calibrations can be
+unique to a particular machine, if the machines compared are of the same
+model (Reeves, 2012b). As well, the calibration and validation sets are
+relatively small.
 
 This research showed the promise of the use of NIRS in order to make
 predictions concerning \%CP in hemp grain using PLS. Promising
@@ -531,21 +558,20 @@ on La Palma.
 
 \bibitem[\citeproctext]{ref-rmarkdown2024}
 Allaire, J., Xie, Y., Dervieux, C., McPherson, J., Luraschi, J., Ushey,
-K., Atkins, A., Wickham, H., Cheng, J., Chang, W., \& Iannone, R.
-(2024). \emph{{rmarkdown}: Dynamic documents for r}.
-\url{https://github.com/rstudio/rmarkdown}
+K., et al. (2024). \emph{{rmarkdown}: Dynamic documents for r}.
+Retrieved from \url{https://github.com/rstudio/rmarkdown}
 
 \bibitem[\citeproctext]{ref-datatable}
 Barrett, T., Dowle, M., Srinivasan, A., Gorecki, J., Chirico, M., \&
 Hocking, T. (2024). \emph{{data.table}: Extension of
-{``{data.frame}''}}. \url{https://CRAN.R-project.org/package=data.table}
+{``{data.frame}''}}. Retrieved from
+\url{https://CRAN.R-project.org/package=data.table}
 
 \bibitem[\citeproctext]{ref-barta_proteomic_2024}
 Bárta, J., Roudnický, P., Jarošová, M., Zdráhal, Z., Stupková, A.,
-Bártová, V., Krejčová, Z., Kyselka, J., Filip, V., Říha, V., Lorenc, F.,
-Bedrníček, J., \& Smetana, P. (2024). Proteomic {Profiles} of {Whole}
-{Seeds}, {Hulls}, and {Dehulled} {Seeds} of {Two} {Industrial} {Hemp}
-({Cannabis} sativa {L}.) {Cultivars}. \emph{Plants}, \emph{13}(1), 111.
+Bártová, V., et al. (2024). Proteomic {Profiles} of {Whole} {Seeds},
+{Hulls}, and {Dehulled} {Seeds} of {Two} {Industrial} {Hemp} ({Cannabis}
+sativa {L}.) {Cultivars}. \emph{Plants}, \emph{13}(1), 111.
 \url{https://doi.org/10.3390/plants13010111}
 
 \bibitem[\citeproctext]{ref-lme4}
@@ -556,18 +582,17 @@ Software}, \emph{67}(1), 1--48.
 
 \bibitem[\citeproctext]{ref-chadalavada_nir_2022}
 Chadalavada, K., Anbazhagan, K., Ndour, A., Choudhary, S., Palmer, W.,
-Flynn, J. R., Mallayee, S., Pothu, S., Prasad, K. V. S. V.,
-Varijakshapanikar, P., Jones, C. S., \& Kholová, J. (2022). {NIR}
-{Instruments} and {Prediction} {Methods} for {Rapid} {Access} to {Grain}
-{Protein} {Content} in {Multiple} {Cereals}. \emph{Sensors (Basel,
-Switzerland)}, \emph{22}(10). \url{https://doi.org/10.3390/s22103710}
+Flynn, J. R., et al. (2022). {NIR} {Instruments} and {Prediction}
+{Methods} for {Rapid} {Access} to {Grain} {Protein} {Content} in
+{Multiple} {Cereals}. \emph{Sensors (Basel, Switzerland)},
+\emph{22}(10). \url{https://doi.org/10.3390/s22103710}
 
 \bibitem[\citeproctext]{ref-ely_industrial_2022}
 Ely, K., \& Fike, J. (2022). Industrial {Hemp} and {Hemp} {Byproducts}
 as {Sustainable} {Feedstuffs} in {Livestock} {Diets}. In D. C. Agrawal,
 R. Kumar, \& M. Dhanasekaran (Eds.), \emph{Cannabis/{Hemp} for
-{Sustainable} {Agriculture} and {Materials}} (pp. 145--162). Springer.
-\url{https://doi.org/10.1007/978-981-16-8778-5_6}
+{Sustainable} {Agriculture} and {Materials}} (pp. 145--162). Singapore:
+Springer. \url{https://doi.org/10.1007/978-981-16-8778-5_6}
 
 \bibitem[\citeproctext]{ref-garrido-varo_note_2019}
 Garrido-Varo, A., Garcia-Olmo, J., \& Fearn, T. (2019). A note on
@@ -594,34 +619,46 @@ Hayes, M. (2020). Measuring {Protein} {Content} in {Food}: {An}
 {Overview} of {Methods}. \emph{Foods}, \emph{9}(10), 1340.
 \url{https://doi.org/10.3390/foods9101340}
 
-\bibitem[\citeproctext]{ref-tidymodels}
-Kuhn, M., \& Wickham, H. (2020). \emph{{Tidymodels}: A collection of
-packages for modeling and machine learning using tidyverse principles.}
-\url{https://www.tidymodels.org}
-
 \bibitem[\citeproctext]{ref-caret}
 Kuhn, \& Max. (2008). Building predictive models in r using the caret
 package. \emph{Journal of Statistical Software}, \emph{28}(5), 1--26.
 \url{https://doi.org/10.18637/jss.v028.i05}
 
+\bibitem[\citeproctext]{ref-tidymodels}
+Kuhn, M., \& Wickham, H. (2020). \emph{{Tidymodels}: A collection of
+packages for modeling and machine learning using tidyverse principles.}
+Retrieved from \url{https://www.tidymodels.org}
+
 \bibitem[\citeproctext]{ref-emmeans}
 Lenth, R. V. (2024). \emph{{emmeans}: Estimated marginal means, aka
-least-squares means}. \url{https://CRAN.R-project.org/package=emmeans}
+least-squares means}. Retrieved from
+\url{https://CRAN.R-project.org/package=emmeans}
 
 \bibitem[\citeproctext]{ref-randomForest}
 Liaw, A., \& Wiener, M. (2002). Classification and regression by
-randomForest. \emph{R News}, \emph{2}(3), 18--22.
+randomForest. \emph{R News}, \emph{2}(3), 18--22. Retrieved from
 \url{https://CRAN.R-project.org/doc/Rnews/}
+
+\bibitem[\citeproctext]{ref-pls}
+Liland, K. H., Mevik, B.-H., \& Wehrens, R. (2023). \emph{{pls}: Partial
+least squares and principal component regression}. Retrieved from
+\url{https://CRAN.R-project.org/package=pls}
 
 \bibitem[\citeproctext]{ref-base}
 R Core Team. (2024). \emph{{R}: A language and environment for
-statistical computing}. R Foundation for Statistical Computing.
-\url{https://www.R-project.org/}
+statistical computing}. Vienna, Austria: R Foundation for Statistical
+Computing. Retrieved from \url{https://www.R-project.org/}
 
 \bibitem[\citeproctext]{ref-reeves_potential_2012}
-Reeves, J. B. (2012). Potential of {Near}- and {Mid}-infrared
+Reeves, J. B. (2012a). Potential of {Near}- and {Mid}-infrared
 {Spectroscopy} in {Biofuel} {Production}. \emph{Communications in Soil
 Science and Plant Analysis}, \emph{43}(1-2), 478--495.
+\url{https://doi.org/10.1080/00103624.2012.641844}
+
+\bibitem[\citeproctext]{ref-reeves2012}
+Reeves, J. B. (2012b). Potential of near- and mid-infrared spectroscopy
+in biofuel production. \emph{Communications in Soil Science and Plant
+Analysis}, \emph{43}(1-2), 478--495.
 \url{https://doi.org/10.1080/00103624.2012.641844}
 
 \bibitem[\citeproctext]{ref-roberts_near-infrared_2004}
@@ -636,15 +673,13 @@ prospectr package}.
 \bibitem[\citeproctext]{ref-skimr}
 Waring, E., Quinn, M., McNamara, A., Arino de la Rubia, E., Zhu, H., \&
 Ellis, S. (2022). \emph{{skimr}: Compact and flexible summaries of
-data}. \url{https://CRAN.R-project.org/package=skimr}
+data}. Retrieved from \url{https://CRAN.R-project.org/package=skimr}
 
 \bibitem[\citeproctext]{ref-tidyverse}
 Wickham, H., Averick, M., Bryan, J., Chang, W., McGowan, L. D.,
-François, R., Grolemund, G., Hayes, A., Henry, L., Hester, J., Kuhn, M.,
-Pedersen, T. L., Miller, E., Bache, S. M., Müller, K., Ooms, J.,
-Robinson, D., Seidel, D. P., Spinu, V., \ldots{} Yutani, H. (2019).
-Welcome to the {tidyverse}. \emph{Journal of Open Source Software},
-\emph{4}(43), 1686. \url{https://doi.org/10.21105/joss.01686}
+François, R., et al. (2019). Welcome to the {tidyverse}. \emph{Journal
+of Open Source Software}, \emph{4}(43), 1686.
+\url{https://doi.org/10.21105/joss.01686}
 
 \bibitem[\citeproctext]{ref-williams_application_1975}
 Williams, P. C. (1975). Application of near infrared reflectance
@@ -659,20 +694,21 @@ Hall/CRC.
 
 \bibitem[\citeproctext]{ref-knitr2015}
 Xie, Y. (2015). \emph{Dynamic documents with {R} and knitr} (2nd ed.).
-Chapman; Hall/CRC. \url{https://yihui.org/knitr/}
+Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from
+\url{https://yihui.org/knitr/}
 
 \bibitem[\citeproctext]{ref-knitr2023}
 Xie, Y. (2023). \emph{{knitr}: A general-purpose package for dynamic
-report generation in r}. \url{https://yihui.org/knitr/}
+report generation in r}. Retrieved from \url{https://yihui.org/knitr/}
 
 \bibitem[\citeproctext]{ref-rmarkdown2018}
 Xie, Y., Allaire, J. J., \& Grolemund, G. (2018). \emph{R markdown: The
-definitive guide}. Chapman; Hall/CRC.
-\url{https://bookdown.org/yihui/rmarkdown}
+definitive guide}. Boca Raton, Florida: Chapman; Hall/CRC. Retrieved
+from \url{https://bookdown.org/yihui/rmarkdown}
 
 \bibitem[\citeproctext]{ref-rmarkdown2020}
 Xie, Y., Dervieux, C., \& Riederer, E. (2020). \emph{R markdown
-cookbook}. Chapman; Hall/CRC.
+cookbook}. Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from
 \url{https://bookdown.org/yihui/rmarkdown-cookbook}
 
 \end{CSLReferences}
