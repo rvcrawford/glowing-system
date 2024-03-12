@@ -1,11 +1,27 @@
 # script to test various preprocessing methods
 library(tidymodels)
+spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
+
+bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
+
+spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
+
+bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
+
+bg2 <- bckgrnd[loc!="kentucky"]
+
+# extract indices of non-kentucky
+bg_indices <- bckgrnd[loc!="kentucky", which = T]
+
+spectra_2 <- spectra[bg_indices]
+
 x <- spectra_2[,-c(1:2)]
 
 head(x[,1:5])
 
 library(prospectr)
 my_preprocess <- function(train, test){
+  raw_train <- train
   # first derivative
   first_deriv_train <-  t(diff(t(train), diff = 1))
   sg_train <- prospectr::savitzkyGolay(train, m = 1, p = 3, w = 5)
@@ -15,6 +31,7 @@ my_preprocess <- function(train, test){
   snv_detrend_train <- prospectr::detrend(train, wav = as.numeric(colnames(train) |> parse_number()))
   msc_train <- prospectr::msc(train)
   
+  raw_test <- test
   first_deriv_test <-  t(diff(t(test), diff = 1))
   sg_test <- prospectr::savitzkyGolay(test, m = 1, p = 3, w = 5)
   gap_der_test <- prospectr::gapDer(X = test, m = 1, w = 11, s = 5)
@@ -24,15 +41,18 @@ my_preprocess <- function(train, test){
   msc_test <- msc(test, ref_spectrum = attr(msc_train, "Reference spectrum"))
   
 
-  output_train <- list(first_deriv_train, sg_train, gap_der_train, snv_train, snv_sg_train, snv_detrend_train, msc_train)
-  names(output_train) <- c("first_derivative_train", 
+  output_train <- list(raw_train, first_deriv_train, sg_train, gap_der_train, snv_train, snv_sg_train, snv_detrend_train, msc_train)
+  names(output_train) <- c("raw_train",
+                    "first_derivative_train", 
                            "sav_gol_train", "gap_der_train",
                            "snv_train", "snv_sg_train",
                            "snv_detrend_train",
                            "msc_train")
   
-  output_test <- list(first_deriv_test, sg_test, gap_der_test, snv_test, snv_sg_test, snv_detrend_test, msc_test)
-  names(output_test) <- c("first_derivative_test", 
+  output_test <- list(raw_test, first_deriv_test, sg_test, gap_der_test, snv_test, snv_sg_test, snv_detrend_test, msc_test)
+  names(output_test) <- c(
+    "raw_test",
+    "first_derivative_test", 
                            "sav_gol_test", "gap_der_test",
                            "snv_test", "snv_sg_test",
                            "snv_detrend_test", 
@@ -81,11 +101,12 @@ preprocess_analyze_function <- function(spectra, y ){
   spectra <- my_preprocess(spectra[inTrain], spectra[!inTrain])
   trains <- lapply(spectra[[1]], function(x)cbind(y_train,x))
   tests <- lapply(spectra[[2]], function(x)cbind(y_test,x))
-  
+  # ctrl <- trainControl(method = "LOOCV")
   trained_models <- lapply(trains, function(x) train(
     y_train ~ .,
     data = x,
     method = "pls",
+    # trCntrl = ctrl,
     # preProc = c("center", "scale"),
     ## added:
     tuneLength = 20
@@ -97,6 +118,8 @@ preprocess_analyze_function <- function(spectra, y ){
   return(cbind(y_test, predicts) |> setDT() |> melt(id.vars = 1))
 }
 
+# note--observe diminution of model performance when using LOOCV, stick with bootstrap...
+
 zz <- preprocess_analyze_function(x, spectra_2$crude_protein)
 
 # perform this operation 100 times
@@ -106,6 +129,11 @@ my_simulations <- replicate(100, preprocess_analyze_function(x, spectra_2$crude_
 
 # make all of these into data.tables
 long_form <- apply(my_simulations,2, as.data.table) |> rbindlist(idcol = "id") 
+
+# create preprocess key
+
+long_form[, preproc:=gsub("_train", "", variable)]
+
 
 # write these long data to R
 
@@ -121,9 +149,9 @@ long_form2 <- merge(long_form, preprocess_key, all.x = T)
 long_form3 <- long_form2[,c(2,3,5,6)]
 
 # fwrite(long_form3, "./input_data/simplified_data/preprocessing_methods_test.csv")
-
+# 
 # fwrite(preprocess_key, "./input_data/simplified_data/preprocessing_key.csv")
-
+# 
 
 # try actually loading these in and then working with them.
 
@@ -137,7 +165,7 @@ prep_key <- fread("./input_data/simplified_data/preprocessing_key.csv")
 
 sims_key <- fread("./input_data/simplified_data/preprocessing_methods_test.csv")
 
-long_form <- merge(sims, prep, all.x = T)
+long_form <- merge(sims_key, prep_key, all.x = T)
 
 # now pull the metrics
 
