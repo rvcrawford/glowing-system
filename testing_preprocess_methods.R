@@ -1,5 +1,7 @@
 # script to test various preprocessing methods
 library(tidymodels)
+library(data.table)
+library(tidyverse)
 spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
 
 bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
