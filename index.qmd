@@ -76,6 +76,7 @@ bibliography:
 #   container-title: Earth and Space Science
 # number-sections: true
 # bibliography: references.bib
+# bibliography: references.bib
 ---
 
 ```{r}
@@ -87,13 +88,14 @@ library(caret)
 library(prospectr)
 library(pls)
 library(tidymodels)
+library(nlme)
 ```
 
 **incomplete: may contain errors, run-ons, half-thoughts, etc.**
 
 ## INTRODUCTION
 
-Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes and a cultivar may be referred to as a grain, fiber, or dual-purpose type. Because of protein's nutritional importance, the protein content of a grain crop is an prime consideration for researchers, producers, and consumers. Whole hemp grain typically contains approximately 20-30% protein [@ely_industrial_2022; @barta_proteomic_2024]. Crude protein (CP) is often used as a proxy for the direct measurement of protein concentration and consists of the multiplication of nitrogen concentration by a conversion factor because measuring nitrogen concentration is relatively easy and cheap via laboratory assay [@hayes_measuring_2020].
+Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes and a cultivar may be referred to as a grain, fiber, or dual-purpose type. Because of protein's nutritional importance, the protein content of a grain crop is an prime consideration for researchers, producers, and consumers. Whole hemp grain typically contains approximately 20-30% protein [@ely_industrial_2022; @barta_proteomic_2024; @callaway2004]. Crude protein (CP) is often used as a proxy for the direct measurement of protein concentration and consists of the multiplication of nitrogen concentration by a conversion factor because measuring nitrogen concentration is relatively easy and cheap via laboratory assay [@hayes_measuring_2020].
 
 Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap, and consists of the measurement of NIR radiation reflected from a sample [@roberts_near-infrared_2004]. NIR spectra from many samples are related to laboratory values for components such as moisture, protein, fat, or fiber [@roberts_near-infrared_2004]. NIRS technology has been used since the 1970's to assess forage CP [@reeves_potential_2012; @williams_application_1975]. A NIRS calibration set often consists of samples from one species grown in many environments encompassing the range of expected values from the analyte or analytes [@chadalavada_nir_2022]. Partial least squares regression (PLSR) is a typical method used in the agricultural and food sciences to relate spectra to analyte [@roberts_near-infrared_2004]. PLSR calculates principal components (PCs) which relate to the dependent variable and summarize the spectra and uses a subset of PCs in order to fit the regression model. PLSR is commonly used in spectroscopy because it tends to work well with highly-correlated spectral data. Typically the number of principal components is chosen via cross-validation to avoid overfitting. **CITES FOR ALL OF THIS**
 
@@ -161,7 +163,7 @@ preproc_key[,full_name:= c("Raw Spectra", "First Derivative", "Savitzky-Golay", 
                            "Standard Normal Variate", "Standard Normal Variate/ Savitzky-Golay", "SNV-Detrend", "Multiplicative Scatter Correction")]
 ```
 
-Initially several of common spectral preprocessing methods were tested by creating 100 calibration and validation sets as described above. Spectral data from those data sets were transformed by each of the following methods: `r sort(preproc_key$full_name)`. For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were `r (preproc_key$full_name) |> unique() |> length()` preprocessing methods, `r preproc_key$full_name |> unique() |> length()` separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of validation set were calculated via RMSE, R^2^ and Ratio of Performance to InterQuartile distance (RPIQ). An analysis of variance was performed in order to compare the preprocessing methods according to these metrics considering each data set as a subject, with multiple measurements (preprocessing methods) applied to that subject.
+Initially several of common spectral preprocessing methods were tested by creating 100 calibration and validation sets as described above. Spectral data from those data sets were transformed by each of the following methods: `r sort(preproc_key$full_name)`. For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were `r (preproc_key$full_name) |> unique() |> length()` preprocessing methods, `r preproc_key$full_name |> unique() |> length()` separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of validation set were calculated via RMSE, R^2^ and Ratio of Performance to InterQuartile distance (RPIQ). Analyses of variance (ANOVA) were performed for each of these metrics in order to compare the preprocessing methods. For each ANOVA, each data set was considered as a subject and allowing different variances for each preprocessing method.
 
 Once the most promising preprocessing method was identified, 1000 more data sets were created and analyzed via that method and performance on the validation sets summarized with RMSE, R^2^, and RPIQ.
 
@@ -189,10 +191,11 @@ knitr::kable(my_summary, caption = "Summary of Laboratory Assayed CP values (Val
 
 ### Preprocessing methods comparison
 
+All preprocessing methods outperformed raw spectral data.
 
 ```{r}
 # 
-multi_metric <- metric_set(rmse, rsq, rpiq,rpd)
+multi_metric <- metric_set(rmse, rsq, rpiq)
 
 
 # read data back in to work with it
@@ -210,8 +213,105 @@ long_form <- merge(sims_key, prep_key, all.x = T)
 summaries <- long_form |> 
   group_by(id, preproc) |> 
   multi_metric(y, value)
-head(summaries)
+
+# # comparing methods over a series of metrics...
+# summaries_with_models <- summaries |> 
+#   mutate(id = as.character(id)) |> 
+#   nest(data = -.metric) |> 
+#   mutate(mod = map(data, ~lme4::lmer(.estimate ~ preproc + (1|id), data = .x)),
+#          ems = map(mod, ~emmeans::emmeans(.x, "preproc") |> data.frame())
+#          )
+# 
+# summaries_with_models_2 <- summaries_with_models |> 
+#   select(1, ems) |> 
+#   unnest(ems)
+
 ```
+
+```{r}
+# actually, let's summarize via nlme
+# set our varident
+vf2 <- varIdent(form= ~ 1|preproc)
+
+# define custom contrasts
+first_part <- rep(1/7,7)
+contrast_full <- append(first_part, -1, after = 3)
+
+
+custom <- list(preprocess_vs_raw = contrast_full)
+
+nlme_summaries <- summaries |> 
+  mutate(id = as.character(id)) |> 
+  nest(data = -.metric) |> 
+  mutate(
+    mod_standard = map(data, ~nlme::lme(.estimate ~ preproc, random = ~1|id, data = .x, method ="ML")),
+    
+    mod_varident = map(data, ~nlme::lme(.estimate ~ preproc, random = ~1|id, weights = vf2, data = .x, method ="ML")),
+    mod_compare = map2(mod_standard, mod_varident, ~anova(.x, .y)),
+         ems = map(mod_varident, ~emmeans::emmeans(.x, "preproc") |>multcomp::cld() |>  data.frame()), 
+             ems2 = map(mod_varident, ~emmeans::emmeans(.x, "preproc")),
+                        contrast = map(ems2, ~emmeans::contrast(.x, custom))
+                                       )
+
+
+
+nlme_summaries_with_models_2 <- nlme_summaries |> 
+  select(1, ems) |> 
+  unnest(ems)
+```
+
+```{r}
+# add full names
+
+to_table <- nlme_summaries_with_models_2|> 
+  left_join(preproc_key) |> 
+  select('Preprocessing Method' = full_name, Metric = .metric, Estimate = emmean, SE) |> 
+  mutate(Estimate = paste(format(round(Estimate, 2), nsmall = 2), "±", format(round(SE, 3), nsmall = 3)))
+```
+
+```{r}
+# printable table of results
+
+to_table |> 
+  select(1:3) |> 
+  pivot_wider(names_from = Metric, values_from = Estimate) |> 
+  arrange(rmse) |> 
+  rename(RMSE = rmse, 'R^2' = rsq, RPIQ = rpiq ) |> 
+  knitr::kable(label = "Evaluation of Preprocessing Methods")
+
+```
+
+```{r}
+contrasts <- nlme_summaries |> 
+  select(.metric, contrast) |> 
+  transmute(.metric, tidy_contrast = map(contrast, tidy)) |> 
+  unnest(tidy_contrast)
+  
+```
+
+```{r}
+# lead_lag summaries
+lead_lag <- nlme_summaries_with_models_2 |> select(1:4) |> 
+  arrange(.metric, emmean)%>% 
+  group_by(.metric) |> 
+  mutate(lagged = lag(emmean)) %>% 
+  mutate(pct_change = (emmean - lagged) / lagged)|> 
+  mutate(lead = lead(emmean)) %>% 
+  mutate(pct_change_lead = (emmean - lead) / lead)
+```
+
+```{r}
+# percent change for contrasts
+
+raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |> 
+  dplyr::select(1:3) |> 
+  left_join(contrasts |> select(1,3,estimated_diff = 5)) |> 
+  mutate(percent_difference = estimated_diff/(emmean+estimated_diff))
+```
+
+The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. Savitzky Golay RMSE averaged 1.7% lower, while R^2^ and RPIQ averaged 1.2% and 2.0% higher than the next best preprocessing method (first derivative, according to each metric). However, only at R^2^ was the difference from the next best preprocessing method statistically significant at $\alpha$ \<0.05. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the Savitzky-Golay method was the best performing under all methods, a final model was developed using that preprocessing method.
+
+### Final model summary development
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, if the machines compared are of the same model [@reeves2012]. As well, the calibration and validation sets are relatively small.
 

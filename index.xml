@@ -144,8 +144,10 @@ etc.</bold></p>
   (<xref alt="Ely and Fike 2022" rid="ref-ely_industrial_2022" ref-type="bibr">Ely
   and Fike 2022</xref>;
   <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024" ref-type="bibr">Bárta
-  et al. 2024</xref>). Crude protein (CP) is often used as a proxy for
-  the direct measurement of protein concentration and consists of the
+  et al. 2024</xref>;
+  <xref alt="Callaway 2004" rid="ref-callaway2004" ref-type="bibr">Callaway
+  2004</xref>). Crude protein (CP) is often used as a proxy for the
+  direct measurement of protein concentration and consists of the
   multiplication of nitrogen concentration by a conversion factor
   because measuring nitrogen concentration is relatively easy and cheap
   via laboratory assay
@@ -271,10 +273,10 @@ etc.</bold></p>
     fit for each of the 100 sets. The relationship between the predicted
     and actual values of validation set were calculated via RMSE,
     R<sup>2</sup> and Ratio of Performance to InterQuartile distance
-    (RPIQ). An analysis of variance was performed in order to compare
-    the preprocessing methods according to these metrics considering
-    each data set as a subject, with multiple measurements
-    (preprocessing methods) applied to that subject.</p>
+    (RPIQ). Analyses of variance (ANOVA) were performed for each of
+    these metrics in order to compare the preprocessing methods. For
+    each ANOVA, each data set was considered as a subject and allowing
+    different variances for each preprocessing method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the validation sets summarized with RMSE,
@@ -297,7 +299,13 @@ etc.</bold></p>
     <xref alt="2023" rid="ref-knitr2023" ref-type="bibr">2023</xref>),
     lme4 v. 1.1.35.1
     (<xref alt="Bates et al. 2015" rid="ref-lme4" ref-type="bibr">Bates
-    et al. 2015</xref>), pls v. 2.8.3
+    et al. 2015</xref>), multcomp v. 1.4.25
+    (<xref alt="Hothorn, Bretz, and Westfall 2008" rid="ref-multcomp" ref-type="bibr">Hothorn,
+    Bretz, and Westfall 2008</xref>), nlme v. 3.1.163
+    (<xref alt="J. C. Pinheiro and Bates 2000" rid="ref-nlme2000" ref-type="bibr">J.
+    C. Pinheiro and Bates 2000</xref>;
+    <xref alt="J. Pinheiro, Bates, and R Core Team 2023" rid="ref-nlme2023" ref-type="bibr">J.
+    Pinheiro, Bates, and R Core Team 2023</xref>), pls v. 2.8.3
     (<xref alt="Liland, Mevik, and Wehrens 2023" rid="ref-pls" ref-type="bibr">Liland,
     Mevik, and Wehrens 2023</xref>), prospectr v. 0.2.7
     (<xref alt="Stevens and Ramirez-Lopez 2024" rid="ref-prospectr" ref-type="bibr">Stevens
@@ -359,15 +367,98 @@ etc.</bold></p>
   </sec>
   <sec id="preprocessing-methods-comparison">
     <title>Preprocessing methods comparison</title>
-    <preformat># A tibble: 6 × 5
-     id preproc          .metric .estimator .estimate
-  &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-1     1 first_derivative rmse    standard        1.15
-2     1 gap_der          rmse    standard        1.31
-3     1 msc              rmse    standard        1.12
-4     1 raw              rmse    standard        1.23
-5     1 sav_gol          rmse    standard        1.19
-6     1 snv              rmse    standard        1.18</preformat>
+    <p>All preprocessing methods outperformed raw spectral data.</p>
+    <table-wrap>
+      <table>
+        <colgroup>
+          <col width="51%" />
+          <col width="16%" />
+          <col width="16%" />
+          <col width="16%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th align="left">Preprocessing Method</th>
+            <th align="left">RMSE</th>
+            <th align="left">R^2</th>
+            <th align="left">RPIQ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left">Savitzky-Golay</td>
+            <td align="left">1.16 ± 0.018</td>
+            <td align="left">0.77 ± 0.009</td>
+            <td align="left">3.36 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">First Derivative</td>
+            <td align="left">1.18 ± 0.018</td>
+            <td align="left">0.76 ± 0.009</td>
+            <td align="left">3.30 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">Standard Normal Variate/
+            Savitzky-Golay</td>
+            <td align="left">1.19 ± 0.018</td>
+            <td align="left">0.76 ± 0.009</td>
+            <td align="left">3.26 ± 0.082</td>
+          </tr>
+          <tr>
+            <td align="left">Gap-segment derivative</td>
+            <td align="left">1.23 ± 0.019</td>
+            <td align="left">0.75 ± 0.009</td>
+            <td align="left">3.17 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">SNV-Detrend</td>
+            <td align="left">1.27 ± 0.021</td>
+            <td align="left">0.73 ± 0.010</td>
+            <td align="left">3.10 ± 0.083</td>
+          </tr>
+          <tr>
+            <td align="left">Standard Normal Variate</td>
+            <td align="left">1.29 ± 0.023</td>
+            <td align="left">0.73 ± 0.010</td>
+            <td align="left">3.07 ± 0.083</td>
+          </tr>
+          <tr>
+            <td align="left">Multiplicative Scatter Correction</td>
+            <td align="left">1.32 ± 0.020</td>
+            <td align="left">0.72 ± 0.010</td>
+            <td align="left">2.96 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">Raw Spectra</td>
+            <td align="left">1.37 ± 0.028</td>
+            <td align="left">0.69 ± 0.012</td>
+            <td align="left">2.89 ± 0.086</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    <p>The Savitzky-Golay method had the lowest RMSE, highest
+    R<sup>2</sup>, and highest RPIQ averaging over all iterations.
+    Savitzky Golay RMSE averaged 1.7% lower, while R<sup>2</sup> and
+    RPIQ averaged 1.2% and 2.0% higher than the next best preprocessing
+    method (first derivative, according to each metric). However, only
+    at R<sup>2</sup> was the difference from the next best preprocessing
+    method statistically significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    &lt;0.05. Averaged together, all preprocessed spectra were superior
+    to raw spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ
+    values (significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    level &lt;0.001). Averaged together, preprocessing methods had -11.1
+    % lower RMSE, and had 6.9% higher R<sup>2</sup> 9.1% higher RPIQ
+    than unprocessed spectra. Because the Savitzky-Golay method was the
+    best performing under all methods, a final model was developed using
+    that preprocessing method.</p>
+  </sec>
+  <sec id="final-model-summary-development">
+    <title>Final model summary development</title>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, if the machines
@@ -729,6 +820,22 @@ etc.</bold></p>
       <lpage>495</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-callaway2004">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Callaway</surname><given-names>J. C.</given-names></name>
+      </person-group>
+      <article-title>Hempseed as a nutritional resource: An overview</article-title>
+      <source>Euphytica</source>
+      <year iso-8601-date="2004-01-01">2004</year><month>01</month><day>01</day>
+      <volume>140</volume>
+      <issue>1</issue>
+      <uri>https://doi.org/10.1007/s10681-004-4811-6</uri>
+      <pub-id pub-id-type="doi">10.1007/s10681-004-4811-6</pub-id>
+      <fpage>65</fpage>
+      <lpage>72</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-base">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -838,6 +945,47 @@ etc.</bold></p>
       <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
       <fpage>1</fpage>
       <lpage>48</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-multcomp">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hothorn</surname><given-names>Torsten</given-names></name>
+        <name><surname>Bretz</surname><given-names>Frank</given-names></name>
+        <name><surname>Westfall</surname><given-names>Peter</given-names></name>
+      </person-group>
+      <article-title>Simultaneous inference in general parametric models</article-title>
+      <source>Biometrical Journal</source>
+      <year iso-8601-date="2008">2008</year>
+      <volume>50</volume>
+      <issue>3</issue>
+      <fpage>346</fpage>
+      <lpage>363</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nlme2023">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Pinheiro</surname><given-names>José</given-names></name>
+        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
+        <string-name>R Core Team</string-name>
+      </person-group>
+      <source>nlme: Linear and nonlinear mixed effects models</source>
+      <year iso-8601-date="2023">2023</year>
+      <uri>https://CRAN.R-project.org/package=nlme</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-nlme2000">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Pinheiro</surname><given-names>José C.</given-names></name>
+        <name><surname>Bates</surname><given-names>Douglas M.</given-names></name>
+      </person-group>
+      <source>Mixed-effects models in s and s-PLUS</source>
+      <publisher-name>Springer</publisher-name>
+      <publisher-loc>New York</publisher-loc>
+      <year iso-8601-date="2000">2000</year>
+      <pub-id pub-id-type="doi">10.1007/b98882</pub-id>
     </element-citation>
   </ref>
   <ref id="ref-pls">
@@ -1099,6 +1247,7 @@ mollit anim id est laborum.</p>
 <code language="r script">library(prospectr)</code>
 <code language="r script">library(pls)</code>
 <code language="r script">library(tidymodels)</code>
+<code language="r script">library(nlme)</code>
 <sec id="nb-code-cell-1-output-0-nb-article" specific-use="notebook-output">
 <preformat>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -1183,6 +1332,14 @@ The following object is masked from 'package:stats':
 ✖ data.table::transpose()  masks purrr::transpose()
 • Use suppressPackageStartupMessages() to eliminate package startup messages</preformat>
 </sec>
+<sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
+<preformat>
+Attaching package: 'nlme'
+
+The following object is masked from 'package:dplyr':
+
+    collapse</preformat>
+</sec>
 </sec>
 <p><bold>incomplete: may contain errors, run-ons, half-thoughts,
 etc.</bold></p>
@@ -1199,8 +1356,10 @@ etc.</bold></p>
   (<xref alt="Ely and Fike 2022" rid="ref-ely_industrial_2022-nb-article" ref-type="bibr">Ely
   and Fike 2022</xref>;
   <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024-nb-article" ref-type="bibr">Bárta
-  et al. 2024</xref>). Crude protein (CP) is often used as a proxy for
-  the direct measurement of protein concentration and consists of the
+  et al. 2024</xref>;
+  <xref alt="Callaway 2004" rid="ref-callaway2004-nb-article" ref-type="bibr">Callaway
+  2004</xref>). Crude protein (CP) is often used as a proxy for the
+  direct measurement of protein concentration and consists of the
   multiplication of nitrogen concentration by a conversion factor
   because measuring nitrogen concentration is relatively easy and cheap
   via laboratory assay
@@ -1366,10 +1525,10 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     fit for each of the 100 sets. The relationship between the predicted
     and actual values of validation set were calculated via RMSE,
     R<sup>2</sup> and Ratio of Performance to InterQuartile distance
-    (RPIQ). An analysis of variance was performed in order to compare
-    the preprocessing methods according to these metrics considering
-    each data set as a subject, with multiple measurements
-    (preprocessing methods) applied to that subject.</p>
+    (RPIQ). Analyses of variance (ANOVA) were performed for each of
+    these metrics in order to compare the preprocessing methods. For
+    each ANOVA, each data set was considered as a subject and allowing
+    different variances for each preprocessing method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the validation sets summarized with RMSE,
@@ -1394,7 +1553,13 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <xref alt="2023" rid="ref-knitr2023-nb-article" ref-type="bibr">2023</xref>),
     lme4 v. 1.1.35.1
     (<xref alt="Bates et al. 2015" rid="ref-lme4-nb-article" ref-type="bibr">Bates
-    et al. 2015</xref>), pls v. 2.8.3
+    et al. 2015</xref>), multcomp v. 1.4.25
+    (<xref alt="Hothorn, Bretz, and Westfall 2008" rid="ref-multcomp-nb-article" ref-type="bibr">Hothorn,
+    Bretz, and Westfall 2008</xref>), nlme v. 3.1.163
+    (<xref alt="J. C. Pinheiro and Bates 2000" rid="ref-nlme2000-nb-article" ref-type="bibr">J.
+    C. Pinheiro and Bates 2000</xref>;
+    <xref alt="J. Pinheiro, Bates, and R Core Team 2023" rid="ref-nlme2023-nb-article" ref-type="bibr">J.
+    Pinheiro, Bates, and R Core Team 2023</xref>), pls v. 2.8.3
     (<xref alt="Liland, Mevik, and Wehrens 2023" rid="ref-pls-nb-article" ref-type="bibr">Liland,
     Mevik, and Wehrens 2023</xref>), prospectr v. 0.2.7
     (<xref alt="Stevens and Ramirez-Lopez 2024" rid="ref-prospectr-nb-article" ref-type="bibr">Stevens
@@ -1464,9 +1629,10 @@ knitr::kable(my_summary, caption = &quot;Summary of Laboratory Assayed CP values
   </sec>
   <sec id="preprocessing-methods-comparison-nb-article">
     <title>Preprocessing methods comparison</title>
+    <p>All preprocessing methods outperformed raw spectral data.</p>
     <sec id="nb-code-cell-6-nb-article" specific-use="notebook-code">
     <code language="r script"># 
-multi_metric &lt;- metric_set(rmse, rsq, rpiq,rpd)
+multi_metric &lt;- metric_set(rmse, rsq, rpiq)
 
 
 # read data back in to work with it
@@ -1484,19 +1650,189 @@ long_form &lt;- merge(sims_key, prep_key, all.x = T)
 summaries &lt;- long_form |&gt; 
   group_by(id, preproc) |&gt; 
   multi_metric(y, value)
-head(summaries)</code>
-    <sec id="nb-code-cell-6-output-0-nb-article" specific-use="notebook-output">
-    <preformat># A tibble: 6 × 5
-     id preproc          .metric .estimator .estimate
-  &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
-1     1 first_derivative rmse    standard        1.15
-2     1 gap_der          rmse    standard        1.31
-3     1 msc              rmse    standard        1.12
-4     1 raw              rmse    standard        1.23
-5     1 sav_gol          rmse    standard        1.19
-6     1 snv              rmse    standard        1.18</preformat>
+
+# # comparing methods over a series of metrics...
+# summaries_with_models &lt;- summaries |&gt; 
+#   mutate(id = as.character(id)) |&gt; 
+#   nest(data = -.metric) |&gt; 
+#   mutate(mod = map(data, ~lme4::lmer(.estimate ~ preproc + (1|id), data = .x)),
+#          ems = map(mod, ~emmeans::emmeans(.x, &quot;preproc&quot;) |&gt; data.frame())
+#          )
+# 
+# summaries_with_models_2 &lt;- summaries_with_models |&gt; 
+#   select(1, ems) |&gt; 
+#   unnest(ems)</code>
+    </sec>
+    <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
+    <code language="r script"># actually, let's summarize via nlme
+# set our varident
+vf2 &lt;- varIdent(form= ~ 1|preproc)
+
+# define custom contrasts
+first_part &lt;- rep(1/7,7)
+contrast_full &lt;- append(first_part, -1, after = 3)
+
+
+custom &lt;- list(preprocess_vs_raw = contrast_full)
+
+nlme_summaries &lt;- summaries |&gt; 
+  mutate(id = as.character(id)) |&gt; 
+  nest(data = -.metric) |&gt; 
+  mutate(
+    mod_standard = map(data, ~nlme::lme(.estimate ~ preproc, random = ~1|id, data = .x, method =&quot;ML&quot;)),
+    
+    mod_varident = map(data, ~nlme::lme(.estimate ~ preproc, random = ~1|id, weights = vf2, data = .x, method =&quot;ML&quot;)),
+    mod_compare = map2(mod_standard, mod_varident, ~anova(.x, .y)),
+         ems = map(mod_varident, ~emmeans::emmeans(.x, &quot;preproc&quot;) |&gt;multcomp::cld() |&gt;  data.frame()), 
+             ems2 = map(mod_varident, ~emmeans::emmeans(.x, &quot;preproc&quot;)),
+                        contrast = map(ems2, ~emmeans::contrast(.x, custom))
+                                       )
+
+
+
+nlme_summaries_with_models_2 &lt;- nlme_summaries |&gt; 
+  select(1, ems) |&gt; 
+  unnest(ems)</code>
+    </sec>
+    <sec id="nb-code-cell-8-nb-article" specific-use="notebook-code">
+    <code language="r script"># add full names
+
+to_table &lt;- nlme_summaries_with_models_2|&gt; 
+  left_join(preproc_key) |&gt; 
+  select('Preprocessing Method' = full_name, Metric = .metric, Estimate = emmean, SE) |&gt; 
+  mutate(Estimate = paste(format(round(Estimate, 2), nsmall = 2), &quot;±&quot;, format(round(SE, 3), nsmall = 3)))</code>
+    <sec id="nb-code-cell-8-output-0-nb-article" specific-use="notebook-output">
+    <preformat>Joining with `by = join_by(preproc)`</preformat>
     </sec>
     </sec>
+    <sec id="nb-code-cell-9-nb-article" specific-use="notebook-code">
+    <code language="r script"># printable table of results
+
+to_table |&gt; 
+  select(1:3) |&gt; 
+  pivot_wider(names_from = Metric, values_from = Estimate) |&gt; 
+  arrange(rmse) |&gt; 
+  rename(RMSE = rmse, 'R^2' = rsq, RPIQ = rpiq ) |&gt; 
+  knitr::kable(label = &quot;Evaluation of Preprocessing Methods&quot;)</code>
+    <table-wrap>
+      <table>
+        <colgroup>
+          <col width="51%" />
+          <col width="16%" />
+          <col width="16%" />
+          <col width="16%" />
+        </colgroup>
+        <thead>
+          <tr>
+            <th align="left">Preprocessing Method</th>
+            <th align="left">RMSE</th>
+            <th align="left">R^2</th>
+            <th align="left">RPIQ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left">Savitzky-Golay</td>
+            <td align="left">1.16 ± 0.018</td>
+            <td align="left">0.77 ± 0.009</td>
+            <td align="left">3.36 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">First Derivative</td>
+            <td align="left">1.18 ± 0.018</td>
+            <td align="left">0.76 ± 0.009</td>
+            <td align="left">3.30 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">Standard Normal Variate/
+            Savitzky-Golay</td>
+            <td align="left">1.19 ± 0.018</td>
+            <td align="left">0.76 ± 0.009</td>
+            <td align="left">3.26 ± 0.082</td>
+          </tr>
+          <tr>
+            <td align="left">Gap-segment derivative</td>
+            <td align="left">1.23 ± 0.019</td>
+            <td align="left">0.75 ± 0.009</td>
+            <td align="left">3.17 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">SNV-Detrend</td>
+            <td align="left">1.27 ± 0.021</td>
+            <td align="left">0.73 ± 0.010</td>
+            <td align="left">3.10 ± 0.083</td>
+          </tr>
+          <tr>
+            <td align="left">Standard Normal Variate</td>
+            <td align="left">1.29 ± 0.023</td>
+            <td align="left">0.73 ± 0.010</td>
+            <td align="left">3.07 ± 0.083</td>
+          </tr>
+          <tr>
+            <td align="left">Multiplicative Scatter Correction</td>
+            <td align="left">1.32 ± 0.020</td>
+            <td align="left">0.72 ± 0.010</td>
+            <td align="left">2.96 ± 0.081</td>
+          </tr>
+          <tr>
+            <td align="left">Raw Spectra</td>
+            <td align="left">1.37 ± 0.028</td>
+            <td align="left">0.69 ± 0.012</td>
+            <td align="left">2.89 ± 0.086</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+    </sec>
+    <sec id="nb-code-cell-10-nb-article" specific-use="notebook-code">
+    <code language="r script">contrasts &lt;- nlme_summaries |&gt; 
+  select(.metric, contrast) |&gt; 
+  transmute(.metric, tidy_contrast = map(contrast, tidy)) |&gt; 
+  unnest(tidy_contrast)</code>
+    </sec>
+    <sec id="nb-code-cell-11-nb-article" specific-use="notebook-code">
+    <code language="r script"># lead_lag summaries
+lead_lag &lt;- nlme_summaries_with_models_2 |&gt; select(1:4) |&gt; 
+  arrange(.metric, emmean)%&gt;% 
+  group_by(.metric) |&gt; 
+  mutate(lagged = lag(emmean)) %&gt;% 
+  mutate(pct_change = (emmean - lagged) / lagged)|&gt; 
+  mutate(lead = lead(emmean)) %&gt;% 
+  mutate(pct_change_lead = (emmean - lead) / lead)</code>
+    </sec>
+    <sec id="nb-code-cell-12-nb-article" specific-use="notebook-code">
+    <code language="r script"># percent change for contrasts
+
+raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&quot;) |&gt; 
+  dplyr::select(1:3) |&gt; 
+  left_join(contrasts |&gt; select(1,3,estimated_diff = 5)) |&gt; 
+  mutate(percent_difference = estimated_diff/(emmean+estimated_diff))</code>
+    <sec id="nb-code-cell-12-output-0-nb-article" specific-use="notebook-output">
+    <preformat>Joining with `by = join_by(.metric)`</preformat>
+    </sec>
+    </sec>
+    <p>The Savitzky-Golay method had the lowest RMSE, highest
+    R<sup>2</sup>, and highest RPIQ averaging over all iterations.
+    Savitzky Golay RMSE averaged 1.7% lower, while R<sup>2</sup> and
+    RPIQ averaged 1.2% and 2.0% higher than the next best preprocessing
+    method (first derivative, according to each metric). However, only
+    at R<sup>2</sup> was the difference from the next best preprocessing
+    method statistically significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    &lt;0.05. Averaged together, all preprocessed spectra were superior
+    to raw spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ
+    values (significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    level &lt;0.001). Averaged together, preprocessing methods had -11.1
+    % lower RMSE, and had 6.9% higher R<sup>2</sup> 9.1% higher RPIQ
+    than unprocessed spectra. Because the Savitzky-Golay method was the
+    best performing under all methods, a final model was developed using
+    that preprocessing method.</p>
+  </sec>
+  <sec id="final-model-summary-development-nb-article">
+    <title>Final model summary development</title>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, if the machines
@@ -1525,7 +1861,7 @@ head(summaries)</code>
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -1541,10 +1877,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-8-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-8-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-14-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -1888,6 +2224,22 @@ avg_years_between_eruptions</code>
       <lpage>495</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-callaway2004-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Callaway</surname><given-names>J. C.</given-names></name>
+      </person-group>
+      <article-title>Hempseed as a nutritional resource: An overview</article-title>
+      <source>Euphytica</source>
+      <year iso-8601-date="2004-01-01">2004</year><month>01</month><day>01</day>
+      <volume>140</volume>
+      <issue>1</issue>
+      <uri>https://doi.org/10.1007/s10681-004-4811-6</uri>
+      <pub-id pub-id-type="doi">10.1007/s10681-004-4811-6</pub-id>
+      <fpage>65</fpage>
+      <lpage>72</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-base-nb-article">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1997,6 +2349,47 @@ avg_years_between_eruptions</code>
       <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
       <fpage>1</fpage>
       <lpage>48</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-multcomp-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Hothorn</surname><given-names>Torsten</given-names></name>
+        <name><surname>Bretz</surname><given-names>Frank</given-names></name>
+        <name><surname>Westfall</surname><given-names>Peter</given-names></name>
+      </person-group>
+      <article-title>Simultaneous inference in general parametric models</article-title>
+      <source>Biometrical Journal</source>
+      <year iso-8601-date="2008">2008</year>
+      <volume>50</volume>
+      <issue>3</issue>
+      <fpage>346</fpage>
+      <lpage>363</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-nlme2023-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Pinheiro</surname><given-names>José</given-names></name>
+        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
+        <string-name>R Core Team</string-name>
+      </person-group>
+      <source>nlme: Linear and nonlinear mixed effects models</source>
+      <year iso-8601-date="2023">2023</year>
+      <uri>https://CRAN.R-project.org/package=nlme</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-nlme2000-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Pinheiro</surname><given-names>José C.</given-names></name>
+        <name><surname>Bates</surname><given-names>Douglas M.</given-names></name>
+      </person-group>
+      <source>Mixed-effects models in s and s-PLUS</source>
+      <publisher-name>Springer</publisher-name>
+      <publisher-loc>New York</publisher-loc>
+      <year iso-8601-date="2000">2000</year>
+      <pub-id pub-id-type="doi">10.1007/b98882</pub-id>
     </element-citation>
   </ref>
   <ref id="ref-pls-nb-article">
