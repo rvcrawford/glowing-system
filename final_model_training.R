@@ -155,3 +155,23 @@ table(mins_per_model$which_min)
 model_n_comp_statistics |> 
   ggplot(aes(as.factor(ncomp), MAE)) + 
   geom_jitter(alpha = 0.04)
+
+# below looks pretty good
+model_n_comp_statistics |> 
+  ggplot(aes(as.factor(ncomp), RMSE)) + 
+  geom_line(aes(group = id), alpha = 0.05) + 
+  theme_classic() + 
+  xlab("Crude Proten Model Number of Principal Components") + 
+  ylab("Crude Protein Model Root Mean Squared Error")
+
+multi_metric <- metric_set(rmse, rsq, rpiq)
+
+final_model_table <- model_final_predictions |> 
+  group_by(id) |> 
+  multi_metric(crude_protein, predicted_crude_protein)
+
+final_model_table |> 
+  ggplot(aes(x = .metric, y = .estimate)) + 
+  theme_classic() + geom_boxplot() + 
+  facet_wrap(vars(.metric), scales = "free") +
+  xlab("Metric") + ylab("Estimate")

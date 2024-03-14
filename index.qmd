@@ -311,7 +311,37 @@ raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |>
 
 The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. Savitzky Golay RMSE averaged 1.7% lower, while R^2^ and RPIQ averaged 1.2% and 2.0% higher than the next best preprocessing method (first derivative, according to each metric). However, only at R^2^ was the difference from the next best preprocessing method statistically significant at $\alpha$ \<0.05. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the Savitzky-Golay method was the best performing under all methods, a final model was developed using that preprocessing method.
 
-### Final model summary development
+### Final model development and summary
+
+```{r}
+model_n_comp_statistics <- fread("./input_data/simplified_data/final_model_n_component_stats.csv")
+
+model_n_comp_statistics |> 
+  ggplot(aes(as.factor(ncomp), RMSE)) + 
+  geom_line(aes(group = id), alpha = 0.03) + 
+  theme_classic() + 
+  xlab("Crude Protein Model Number of Principal Components") + 
+  ylab("Crude Protein Model Root Mean Squared Error")
+
+```
+
+**calculate relative distance from minima**
+The relative ranks of the models are stable at approximately 14 PCs, with very few models (lines) crossing over one another. 
+
+```{r}
+model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
+
+final_model_table <- model_final_predictions |> 
+  group_by(id) |> 
+  multi_metric(crude_protein, predicted_crude_protein)
+
+final_model_table |> 
+  ggplot(aes(x = .metric, y = .estimate)) + 
+  theme_classic() + geom_boxplot() + 
+  facet_wrap(vars(.metric), scales = "free") +
+  xlab("Metric") + ylab("Estimate")
+```
+
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, if the machines compared are of the same model [@reeves2012]. As well, the calibration and validation sets are relatively small.
 
