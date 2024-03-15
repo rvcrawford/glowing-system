@@ -139,8 +139,18 @@ model_n_comp_statistics <- lapply(my_train, function(x)x[[1]] |> setDT()) |> rbi
 # fwrite(model_n_comp_statistics,"./input_data/simplified_data/final_model_n_component_stats.csv")
 
 model_final_predictions <- lapply(my_train, function(x)data.table(x[[2]])) |> rbindlist(idcol = "id")
+testing_set_sample_numbers <- apply(inTrain2, 2, function(x)setdiff(1:149, x)) |> as.vector()
+
+model_final_predictions[, ith_in_data_set:=testing_set_sample_numbers]
 
 # fwrite(model_final_predictions,"./input_data/simplified_data/final_model_predictions.csv")
+
+model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
+
+head(model_final_predictions)
+
+# look at how much was sampled
+model_final_predictions[,.N, by = ith_in_data_set]
 
 model_n_comp_statistics |> 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
@@ -155,6 +165,7 @@ table(mins_per_model$which_min)
 model_n_comp_statistics |> 
   ggplot(aes(as.factor(ncomp), MAE)) + 
   geom_jitter(alpha = 0.04)
+
 
 # below looks pretty good
 model_n_comp_statistics |> 
@@ -175,3 +186,49 @@ final_model_table |>
   theme_classic() + geom_boxplot() + 
   facet_wrap(vars(.metric), scales = "free") +
   xlab("Metric") + ylab("Estimate")
+
+model_final_predictions |> 
+  ggplot(aes(crude_protein, predicted_crude_protein))  + 
+  geom_line(aes(group = id), alpha = 0.05) 
+
+spectra_3$crude_protein
+
+# pull sample values...
+spectra_3[!inTrain2,1]
+
+setdiff(1:149, inTrain2[,1])
+
+# get sample indices for training set
+model_final_predictions |> 
+  ggplot(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+                         crude_protein), crude_protein)) + 
+  geom_point(shape = 1)+
+  geom_point(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), predicted_crude_protein), alpha = 0.05, shape = 2) + 
+  theme_classic()
+
+model_final_predictions[,difference := predicted_crude_protein - crude_protein]
+
+# maybe add cutpoints for model
+my_cut <- cut(spectra_3$crude_protein, 3)
+cut_dt <- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
+
+model_final_predictions |> 
+  left_join(cut_dt) |> 
+  ggplot(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), crude_protein))+
+  geom_point(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), difference), alpha = 0.05, shape = 2) +
+    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+  facet_wrap( ~cutpoints, scales = "free_x",
+          labeller = as_labeller(c("(20.8,24.1]" = "Low",
+                                   "(24.1,27.5]"= "Medium",
+                                   "(27.5,30.8]" ="High"))) + 
+    theme_classic()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank())
