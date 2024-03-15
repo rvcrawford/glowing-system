@@ -182,11 +182,14 @@ grateful::cite_packages(output = "paragraph", out.dir = ".")
 Laboratory assay percent CP values are summarized in the following table. These are similar to the range of CP values observed in the literature and this indicating an appropriate basis for a chemometric model.
 
 ```{r}
+#| label: tbl-lab-protein-vals
+#| tbl-cap: Summary of Laboratory Assayed CP values (Values are Percent Dry Matter)
+
 my_summary <- spectra_2$crude_protein |> skimr::skim()|> select(c(5:11)) |> 
   mutate_all(round, 1)
 names(my_summary) <- c("mean", "sd", "minimum", "first quartile", "median", "third quartile", "maximum") 
 
-knitr::kable(my_summary, caption = "Summary of Laboratory Assayed CP values (Values are Percent Dry Matter)")
+knitr::kable(my_summary)
 ```
 
 ### Preprocessing methods comparison
@@ -270,6 +273,9 @@ to_table <- nlme_summaries_with_models_2|>
 ```
 
 ```{r}
+#| label: tbl-preproc
+#| tbl-cap: Evaluation of Preprocessing Methods
+
 # printable table of results
 
 to_table |> 
@@ -277,7 +283,7 @@ to_table |>
   pivot_wider(names_from = Metric, values_from = Estimate) |> 
   arrange(rmse) |> 
   rename(RMSE = rmse, 'R^2' = rsq, RPIQ = rpiq ) |> 
-  knitr::kable(label = "Evaluation of Preprocessing Methods")
+  knitr::kable()
 
 ```
 
@@ -314,6 +320,9 @@ The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ av
 ### Final model development and summary
 
 ```{r}
+#| label: fig-model-calibration
+#| fig-cap: Decreasing RMSE with increasing number of PCs
+
 model_n_comp_statistics <- fread("./input_data/simplified_data/final_model_n_component_stats.csv")
 
 model_n_comp_statistics |> 
@@ -329,6 +338,10 @@ model_n_comp_statistics |>
 The relative ranks of the models are stable at approximately 14 PCs, with very few models (lines) crossing over one another. 
 
 ```{r}
+#| label: fig-final-metric-boxplot
+#| fig-cap: Final model test set evaluations (1000 iterations per plot)
+
+
 model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
 
 final_model_table <- model_final_predictions |> 
@@ -340,6 +353,48 @@ final_model_table |>
   theme_classic() + geom_boxplot() + 
   facet_wrap(vars(.metric), scales = "free") +
   xlab("Metric") + ylab("Estimate")
+```
+
+
+```{r}
+# read in model final predictions
+model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
+
+# add difference calculation between predicted and observed...
+model_final_predictions[,difference := predicted_crude_protein - crude_protein]
+
+```
+
+
+```{r}
+
+my_cut <- cut(spectra_2$crude_protein, 3)
+cut_dt <- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
+
+```
+
+
+```{r}
+#| label: fig-validation_set_performance
+#| fig-cap: Test set predictions versus normalized scores across hemp samples
+
+model_final_predictions |> 
+  left_join(cut_dt) |> 
+  ggplot(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), crude_protein))+
+  geom_point(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), difference), alpha = 0.05, shape = 2) +
+    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+  facet_wrap( ~cutpoints, scales = "free_x",
+          labeller = as_labeller(c("(20.8,24.1]" = "Low",
+                                   "(24.1,27.5]"= "Medium",
+                                   "(27.5,30.8]" ="High"))) + 
+    theme_classic()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank())
 ```
 
 

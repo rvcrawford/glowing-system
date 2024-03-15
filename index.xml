@@ -334,109 +334,113 @@ etc.</bold></p>
     following table. These are similar to the range of CP values
     observed in the literature and this indicating an appropriate basis
     for a chemometric model.</p>
-    <table-wrap>
-      <caption>
-        <p>Summary of Laboratory Assayed CP values (Values are Percent
-        Dry Matter)</p>
-      </caption>
-      <table>
-        <thead>
-          <tr>
-            <th align="right">mean</th>
-            <th align="right">sd</th>
-            <th align="right">minimum</th>
-            <th align="right">first quartile</th>
-            <th align="right">median</th>
-            <th align="right">third quartile</th>
-            <th align="right">maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="right">26.1</td>
-            <td align="right">2.5</td>
-            <td align="right">20.8</td>
-            <td align="right">23.9</td>
-            <td align="right">26.4</td>
-            <td align="right">28.2</td>
-            <td align="right">30.8</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
+    <fig id="tbl-lab-protein-vals">
+      <caption><p>Table 1: Summary of Laboratory Assayed CP values
+      (Values are Percent Dry Matter)</p></caption>
+      <table-wrap>
+        <table>
+          <thead>
+            <tr>
+              <th align="right">mean</th>
+              <th align="right">sd</th>
+              <th align="right">minimum</th>
+              <th align="right">first quartile</th>
+              <th align="right">median</th>
+              <th align="right">third quartile</th>
+              <th align="right">maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right">26.1</td>
+              <td align="right">2.5</td>
+              <td align="right">20.8</td>
+              <td align="right">23.9</td>
+              <td align="right">26.4</td>
+              <td align="right">28.2</td>
+              <td align="right">30.8</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
   </sec>
   <sec id="preprocessing-methods-comparison">
     <title>Preprocessing methods comparison</title>
     <p>All preprocessing methods outperformed raw spectral data.</p>
-    <table-wrap>
-      <table>
-        <colgroup>
-          <col width="51%" />
-          <col width="16%" />
-          <col width="16%" />
-          <col width="16%" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th align="left">Preprocessing Method</th>
-            <th align="left">RMSE</th>
-            <th align="left">R^2</th>
-            <th align="left">RPIQ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="left">Savitzky-Golay</td>
-            <td align="left">1.16 ± 0.018</td>
-            <td align="left">0.77 ± 0.009</td>
-            <td align="left">3.36 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">First Derivative</td>
-            <td align="left">1.18 ± 0.018</td>
-            <td align="left">0.76 ± 0.009</td>
-            <td align="left">3.30 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">Standard Normal Variate/
-            Savitzky-Golay</td>
-            <td align="left">1.19 ± 0.018</td>
-            <td align="left">0.76 ± 0.009</td>
-            <td align="left">3.26 ± 0.082</td>
-          </tr>
-          <tr>
-            <td align="left">Gap-segment derivative</td>
-            <td align="left">1.23 ± 0.019</td>
-            <td align="left">0.75 ± 0.009</td>
-            <td align="left">3.17 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">SNV-Detrend</td>
-            <td align="left">1.27 ± 0.021</td>
-            <td align="left">0.73 ± 0.010</td>
-            <td align="left">3.10 ± 0.083</td>
-          </tr>
-          <tr>
-            <td align="left">Standard Normal Variate</td>
-            <td align="left">1.29 ± 0.023</td>
-            <td align="left">0.73 ± 0.010</td>
-            <td align="left">3.07 ± 0.083</td>
-          </tr>
-          <tr>
-            <td align="left">Multiplicative Scatter Correction</td>
-            <td align="left">1.32 ± 0.020</td>
-            <td align="left">0.72 ± 0.010</td>
-            <td align="left">2.96 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">Raw Spectra</td>
-            <td align="left">1.37 ± 0.028</td>
-            <td align="left">0.69 ± 0.012</td>
-            <td align="left">2.89 ± 0.086</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
+    <fig id="tbl-preproc">
+      <caption><p>Table 2: Evaluation of Preprocessing
+      Methods</p></caption>
+      <table-wrap>
+        <table>
+          <colgroup>
+            <col width="51%" />
+            <col width="16%" />
+            <col width="16%" />
+            <col width="16%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th align="left">Preprocessing Method</th>
+              <th align="left">RMSE</th>
+              <th align="left">R^2</th>
+              <th align="left">RPIQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">Savitzky-Golay</td>
+              <td align="left">1.16 ± 0.018</td>
+              <td align="left">0.77 ± 0.009</td>
+              <td align="left">3.36 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">First Derivative</td>
+              <td align="left">1.18 ± 0.018</td>
+              <td align="left">0.76 ± 0.009</td>
+              <td align="left">3.30 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Standard Normal Variate/
+              Savitzky-Golay</td>
+              <td align="left">1.19 ± 0.018</td>
+              <td align="left">0.76 ± 0.009</td>
+              <td align="left">3.26 ± 0.082</td>
+            </tr>
+            <tr>
+              <td align="left">Gap-segment derivative</td>
+              <td align="left">1.23 ± 0.019</td>
+              <td align="left">0.75 ± 0.009</td>
+              <td align="left">3.17 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">SNV-Detrend</td>
+              <td align="left">1.27 ± 0.021</td>
+              <td align="left">0.73 ± 0.010</td>
+              <td align="left">3.10 ± 0.083</td>
+            </tr>
+            <tr>
+              <td align="left">Standard Normal Variate</td>
+              <td align="left">1.29 ± 0.023</td>
+              <td align="left">0.73 ± 0.010</td>
+              <td align="left">3.07 ± 0.083</td>
+            </tr>
+            <tr>
+              <td align="left">Multiplicative Scatter Correction</td>
+              <td align="left">1.32 ± 0.020</td>
+              <td align="left">0.72 ± 0.010</td>
+              <td align="left">2.96 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Raw Spectra</td>
+              <td align="left">1.37 ± 0.028</td>
+              <td align="left">0.69 ± 0.012</td>
+              <td align="left">2.89 ± 0.086</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
     <p>The Savitzky-Golay method had the lowest RMSE, highest
     R<sup>2</sup>, and highest RPIQ averaging over all iterations.
     Savitzky Golay RMSE averaged 1.7% lower, while R<sup>2</sup> and
@@ -459,11 +463,24 @@ etc.</bold></p>
   </sec>
   <sec id="final-model-development-and-summary">
     <title>Final model development and summary</title>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-13-1.png" />
+    <fig id="fig-model-calibration">
+      <caption><p>Figure 1: Decreasing RMSE with increasing number of
+      PCs</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
+    </fig>
     <p><bold>calculate relative distance from minima</bold> The relative
     ranks of the models are stable at approximately 14 PCs, with very
     few models (lines) crossing over one another.</p>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-14-1.png" />
+    <fig id="fig-final-metric-boxplot">
+      <caption><p>Figure 2: Final model test set evaluations (1000
+      iterations per plot)</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
+    </fig>
+    <fig id="fig-validation_set_performance">
+      <caption><p>Figure 3: Test set predictions versus normalized
+      scores across hemp samples</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
+    </fig>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, if the machines
@@ -493,7 +510,7 @@ etc.</bold></p>
 <sec id="figures-and-tables">
   <title>FIGURES AND TABLES</title>
   <fig id="fig-timeline">
-    <caption><p>Figure 1: Timeline of recent earthquakes on La
+    <caption><p>Figure 4: Timeline of recent earthquakes on La
     Palma</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
@@ -505,7 +522,7 @@ etc.</bold></p>
   Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
   and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
   <p>Eight eruptions have been recorded since the late 1400s
-  (<xref alt="Figure 1" rid="fig-timeline">Figure 1</xref>).</p>
+  (<xref alt="Figure 4" rid="fig-timeline">Figure 4</xref>).</p>
   <p>Data and methods are discussed in
   <xref alt="Section 9" rid="sec-data-methods">Section 9</xref>.</p>
   <p>Let <inline-formula><alternatives>
@@ -531,7 +548,7 @@ etc.</bold></p>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
   years can be calculated.</p>
   <fig id="tbl-history">
-    <caption><p>Table 1: Recent historic eruptions on La
+    <caption><p>Table 3: Recent historic eruptions on La
     Palma</p></caption>
     <table-wrap>
       <table>
@@ -578,22 +595,22 @@ etc.</bold></p>
       </table>
     </table-wrap>
   </fig>
-  <p><xref alt="Table 1" rid="tbl-history">Table 1</xref> summarises the
+  <p><xref alt="Table 3" rid="tbl-history">Table 3</xref> summarises the
   eruptions recorded since the colonization of the islands by Europeans
   in the late 1400s.</p>
   <fig id="fig-map">
-    <caption><p>Figure 2: Map of La Palma</p></caption>
+    <caption><p>Figure 5: Map of La Palma</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="images/la-palma-map.png" />
   </fig>
   <p>La Palma is one of the west most islands in the Volcanic
   Archipelago of the Canary Islands
-  (<xref alt="Figure 2" rid="fig-map">Figure 2</xref>).</p>
+  (<xref alt="Figure 5" rid="fig-map">Figure 5</xref>).</p>
   <fig id="fig-spatial-plot">
-    <caption><p>Figure 3: Locations of earthquakes on La Palma since
+    <caption><p>Figure 6: Locations of earthquakes on La Palma since
     2017</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png" />
   </fig>
-  <p><xref alt="Figure 3" rid="fig-spatial-plot">Figure 3</xref> shows
+  <p><xref alt="Figure 6" rid="fig-spatial-plot">Figure 6</xref> shows
   the location of recent Earthquakes on La Palma.</p>
 </sec>
 <sec id="sec-data-methods">
@@ -1335,7 +1352,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1599,37 +1616,37 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
   mutate_all(round, 1)
 names(my_summary) &lt;- c(&quot;mean&quot;, &quot;sd&quot;, &quot;minimum&quot;, &quot;first quartile&quot;, &quot;median&quot;, &quot;third quartile&quot;, &quot;maximum&quot;) 
 
-knitr::kable(my_summary, caption = &quot;Summary of Laboratory Assayed CP values (Values are Percent Dry Matter)&quot;)</code>
-    <table-wrap>
-      <caption>
-        <p>Summary of Laboratory Assayed CP values (Values are Percent
-        Dry Matter)</p>
-      </caption>
-      <table>
-        <thead>
-          <tr>
-            <th align="right">mean</th>
-            <th align="right">sd</th>
-            <th align="right">minimum</th>
-            <th align="right">first quartile</th>
-            <th align="right">median</th>
-            <th align="right">third quartile</th>
-            <th align="right">maximum</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="right">26.1</td>
-            <td align="right">2.5</td>
-            <td align="right">20.8</td>
-            <td align="right">23.9</td>
-            <td align="right">26.4</td>
-            <td align="right">28.2</td>
-            <td align="right">30.8</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
+knitr::kable(my_summary)</code>
+    <fig id="tbl-lab-protein-vals-nb-article">
+      <caption><p>Table 1: Summary of Laboratory Assayed CP values
+      (Values are Percent Dry Matter)</p></caption>
+      <table-wrap>
+        <table>
+          <thead>
+            <tr>
+              <th align="right">mean</th>
+              <th align="right">sd</th>
+              <th align="right">minimum</th>
+              <th align="right">first quartile</th>
+              <th align="right">median</th>
+              <th align="right">third quartile</th>
+              <th align="right">maximum</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="right">26.1</td>
+              <td align="right">2.5</td>
+              <td align="right">20.8</td>
+              <td align="right">23.9</td>
+              <td align="right">26.4</td>
+              <td align="right">28.2</td>
+              <td align="right">30.8</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
     </sec>
   </sec>
   <sec id="preprocessing-methods-comparison-nb-article">
@@ -1718,76 +1735,80 @@ to_table |&gt;
   pivot_wider(names_from = Metric, values_from = Estimate) |&gt; 
   arrange(rmse) |&gt; 
   rename(RMSE = rmse, 'R^2' = rsq, RPIQ = rpiq ) |&gt; 
-  knitr::kable(label = &quot;Evaluation of Preprocessing Methods&quot;)</code>
-    <table-wrap>
-      <table>
-        <colgroup>
-          <col width="51%" />
-          <col width="16%" />
-          <col width="16%" />
-          <col width="16%" />
-        </colgroup>
-        <thead>
-          <tr>
-            <th align="left">Preprocessing Method</th>
-            <th align="left">RMSE</th>
-            <th align="left">R^2</th>
-            <th align="left">RPIQ</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="left">Savitzky-Golay</td>
-            <td align="left">1.16 ± 0.018</td>
-            <td align="left">0.77 ± 0.009</td>
-            <td align="left">3.36 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">First Derivative</td>
-            <td align="left">1.18 ± 0.018</td>
-            <td align="left">0.76 ± 0.009</td>
-            <td align="left">3.30 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">Standard Normal Variate/
-            Savitzky-Golay</td>
-            <td align="left">1.19 ± 0.018</td>
-            <td align="left">0.76 ± 0.009</td>
-            <td align="left">3.26 ± 0.082</td>
-          </tr>
-          <tr>
-            <td align="left">Gap-segment derivative</td>
-            <td align="left">1.23 ± 0.019</td>
-            <td align="left">0.75 ± 0.009</td>
-            <td align="left">3.17 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">SNV-Detrend</td>
-            <td align="left">1.27 ± 0.021</td>
-            <td align="left">0.73 ± 0.010</td>
-            <td align="left">3.10 ± 0.083</td>
-          </tr>
-          <tr>
-            <td align="left">Standard Normal Variate</td>
-            <td align="left">1.29 ± 0.023</td>
-            <td align="left">0.73 ± 0.010</td>
-            <td align="left">3.07 ± 0.083</td>
-          </tr>
-          <tr>
-            <td align="left">Multiplicative Scatter Correction</td>
-            <td align="left">1.32 ± 0.020</td>
-            <td align="left">0.72 ± 0.010</td>
-            <td align="left">2.96 ± 0.081</td>
-          </tr>
-          <tr>
-            <td align="left">Raw Spectra</td>
-            <td align="left">1.37 ± 0.028</td>
-            <td align="left">0.69 ± 0.012</td>
-            <td align="left">2.89 ± 0.086</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
+  knitr::kable()</code>
+    <fig id="tbl-preproc-nb-article">
+      <caption><p>Table 2: Evaluation of Preprocessing
+      Methods</p></caption>
+      <table-wrap>
+        <table>
+          <colgroup>
+            <col width="51%" />
+            <col width="16%" />
+            <col width="16%" />
+            <col width="16%" />
+          </colgroup>
+          <thead>
+            <tr>
+              <th align="left">Preprocessing Method</th>
+              <th align="left">RMSE</th>
+              <th align="left">R^2</th>
+              <th align="left">RPIQ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">Savitzky-Golay</td>
+              <td align="left">1.16 ± 0.018</td>
+              <td align="left">0.77 ± 0.009</td>
+              <td align="left">3.36 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">First Derivative</td>
+              <td align="left">1.18 ± 0.018</td>
+              <td align="left">0.76 ± 0.009</td>
+              <td align="left">3.30 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Standard Normal Variate/
+              Savitzky-Golay</td>
+              <td align="left">1.19 ± 0.018</td>
+              <td align="left">0.76 ± 0.009</td>
+              <td align="left">3.26 ± 0.082</td>
+            </tr>
+            <tr>
+              <td align="left">Gap-segment derivative</td>
+              <td align="left">1.23 ± 0.019</td>
+              <td align="left">0.75 ± 0.009</td>
+              <td align="left">3.17 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">SNV-Detrend</td>
+              <td align="left">1.27 ± 0.021</td>
+              <td align="left">0.73 ± 0.010</td>
+              <td align="left">3.10 ± 0.083</td>
+            </tr>
+            <tr>
+              <td align="left">Standard Normal Variate</td>
+              <td align="left">1.29 ± 0.023</td>
+              <td align="left">0.73 ± 0.010</td>
+              <td align="left">3.07 ± 0.083</td>
+            </tr>
+            <tr>
+              <td align="left">Multiplicative Scatter Correction</td>
+              <td align="left">1.32 ± 0.020</td>
+              <td align="left">0.72 ± 0.010</td>
+              <td align="left">2.96 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Raw Spectra</td>
+              <td align="left">1.37 ± 0.028</td>
+              <td align="left">0.69 ± 0.012</td>
+              <td align="left">2.89 ± 0.086</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
     </sec>
     <sec id="nb-code-cell-10-nb-article" specific-use="notebook-code">
     <code language="r script">contrasts &lt;- nlme_summaries |&gt; 
@@ -1838,7 +1859,7 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
     <title>Final model development and summary</title>
-    <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
+    <sec id="cell-fig-model-calibration-nb-article" specific-use="notebook-code">
     <code language="r script">model_n_comp_statistics &lt;- fread(&quot;./input_data/simplified_data/final_model_n_component_stats.csv&quot;)
 
 model_n_comp_statistics |&gt; 
@@ -1847,12 +1868,16 @@ model_n_comp_statistics |&gt;
   theme_classic() + 
   xlab(&quot;Crude Protein Model Number of Principal Components&quot;) + 
   ylab(&quot;Crude Protein Model Root Mean Squared Error&quot;)</code>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-13-1.png" />
+    <fig id="fig-model-calibration-nb-article">
+      <caption><p>Figure 1: Decreasing RMSE with increasing number of
+      PCs</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
+    </fig>
     </sec>
     <p><bold>calculate relative distance from minima</bold> The relative
     ranks of the models are stable at approximately 14 PCs, with very
     few models (lines) crossing over one another.</p>
-    <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
+    <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
     <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions.csv&quot;)
 
 final_model_table &lt;- model_final_predictions |&gt; 
@@ -1864,7 +1889,49 @@ final_model_table |&gt;
   theme_classic() + geom_boxplot() + 
   facet_wrap(vars(.metric), scales = &quot;free&quot;) +
   xlab(&quot;Metric&quot;) + ylab(&quot;Estimate&quot;)</code>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/unnamed-chunk-14-1.png" />
+    <fig id="fig-final-metric-boxplot-nb-article">
+      <caption><p>Figure 2: Final model test set evaluations (1000
+      iterations per plot)</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
+    </fig>
+    </sec>
+    <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
+    <code language="r script"># read in model final predictions
+model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions.csv&quot;)
+
+# add difference calculation between predicted and observed...
+model_final_predictions[,difference := predicted_crude_protein - crude_protein]</code>
+    </sec>
+    <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
+    <code language="r script">my_cut &lt;- cut(spectra_2$crude_protein, 3)
+cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)</code>
+    </sec>
+    <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-code">
+    <code language="r script">model_final_predictions |&gt; 
+  left_join(cut_dt) |&gt; 
+  ggplot(aes(fct_reorder(
+    ith_in_data_set |&gt; as.character(),
+    crude_protein), crude_protein))+
+  geom_point(aes(fct_reorder(
+    ith_in_data_set |&gt; as.character(),
+    crude_protein), difference), alpha = 0.05, shape = 2) +
+    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+  facet_wrap( ~cutpoints, scales = &quot;free_x&quot;,
+          labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low&quot;,
+                                   &quot;(24.1,27.5]&quot;= &quot;Medium&quot;,
+                                   &quot;(27.5,30.8]&quot; =&quot;High&quot;))) + 
+    theme_classic()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank())</code>
+    <fig id="fig-validation_set_performance-nb-article">
+      <caption><p>Figure 3: Test set predictions versus normalized
+      scores across hemp samples</p></caption>
+      <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
+    </fig>
+    <sec id="cell-fig-validation_set_performance-output-0-nb-article" specific-use="notebook-output">
+    <preformat>Joining with `by = join_by(ith_in_data_set)`</preformat>
+    </sec>
     </sec>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
@@ -1905,7 +1972,7 @@ plot(eruptions, rep(0, n_eruptions),
 axis(1)
 box()</code>
   <fig id="fig-timeline-nb-article">
-    <caption><p>Figure 1: Timeline of recent earthquakes on La
+    <caption><p>Figure 4: Timeline of recent earthquakes on La
     Palma</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
@@ -1925,7 +1992,7 @@ avg_years_between_eruptions</code>
   Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
   and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
   <p>Eight eruptions have been recorded since the late 1400s
-  (<xref alt="Figure 1" rid="fig-timeline-nb-article">Figure 1</xref>).</p>
+  (<xref alt="Figure 4" rid="fig-timeline-nb-article">Figure 4</xref>).</p>
   <p>Data and methods are discussed in
   <xref alt="Section 9" rid="sec-data-methods-nb-article">Section 9</xref>.</p>
   <p>Let <inline-formula><alternatives>
@@ -1951,7 +2018,7 @@ avg_years_between_eruptions</code>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
   years can be calculated.</p>
   <fig id="tbl-history-nb-article">
-    <caption><p>Table 1: Recent historic eruptions on La
+    <caption><p>Table 3: Recent historic eruptions on La
     Palma</p></caption>
     <table-wrap>
       <table>
@@ -1998,16 +2065,16 @@ avg_years_between_eruptions</code>
       </table>
     </table-wrap>
   </fig>
-  <p><xref alt="Table 1" rid="tbl-history-nb-article">Table 1</xref> summarises the
+  <p><xref alt="Table 3" rid="tbl-history-nb-article">Table 3</xref> summarises the
   eruptions recorded since the colonization of the islands by Europeans
   in the late 1400s.</p>
   <fig id="fig-map-nb-article">
-    <caption><p>Figure 2: Map of La Palma</p></caption>
+    <caption><p>Figure 5: Map of La Palma</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="images/la-palma-map.png" />
   </fig>
   <p>La Palma is one of the west most islands in the Volcanic
   Archipelago of the Canary Islands
-  (<xref alt="Figure 2" rid="fig-map-nb-article">Figure 2</xref>).</p>
+  (<xref alt="Figure 5" rid="fig-map-nb-article">Figure 5</xref>).</p>
   <sec id="cell-fig-spatial-plot-nb-article" specific-use="notebook-code">
   <code language="python">la_palma |&gt; 
   ggplot(aes(Longitude, Latitude)) +
@@ -2017,13 +2084,13 @@ avg_years_between_eruptions</code>
   theme_bw()</code>
   <sec id="cell-fig-spatial-plot-output-0-nb-article" specific-use="notebook-output">
   <fig id="fig-spatial-plot-nb-article">
-    <caption><p>Figure 3: Locations of earthquakes on La Palma since
+    <caption><p>Figure 6: Locations of earthquakes on La Palma since
     2017</p></caption>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png" />
   </fig>
   </sec>
   </sec>
-  <p><xref alt="Figure 3" rid="fig-spatial-plot-nb-article">Figure 3</xref> shows
+  <p><xref alt="Figure 6" rid="fig-spatial-plot-nb-article">Figure 6</xref> shows
   the location of recent Earthquakes on La Palma.</p>
 </sec>
 <sec id="sec-data-methods-nb-article">
