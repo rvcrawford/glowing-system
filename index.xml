@@ -481,6 +481,7 @@ etc.</bold></p>
       scores across hemp samples</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
+    <p>Errors tend to be lower at higher levels of actual CP</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, if the machines
@@ -1878,7 +1879,7 @@ model_n_comp_statistics |&gt;
     ranks of the models are stable at approximately 14 PCs, with very
     few models (lines) crossing over one another.</p>
     <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
-    <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions.csv&quot;)
+    <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions_revised.csv&quot;)
 
 final_model_table &lt;- model_final_predictions |&gt; 
   group_by(id) |&gt; 
@@ -1896,31 +1897,53 @@ final_model_table |&gt;
     </fig>
     </sec>
     <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
-    <code language="r script"># read in model final predictions
-model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions.csv&quot;)
-
-# add difference calculation between predicted and observed...
+    <code language="r script"># add difference calculation between predicted and observed...
 model_final_predictions[,difference := predicted_crude_protein - crude_protein]</code>
     </sec>
     <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
-    <code language="r script">my_cut &lt;- cut(spectra_2$crude_protein, 3)
-cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)</code>
+    <code language="r script"># my_cut &lt;- cut(spectra_2$crude_protein, 3)
+# cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
+
+
+# revised_model_cutpoints
+cutpoints2 &lt;- model_final_predictions |&gt; 
+  distinct(ith_in_data_set, crude_protein) |&gt; 
+  mutate(cutpoints = cut(crude_protein, 3))</code>
     </sec>
     <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-code">
-    <code language="r script">model_final_predictions |&gt; 
-  left_join(cut_dt) |&gt; 
+    <code language="r script"># 
+# model_final_predictions |&gt; 
+#   left_join(cut_dt) |&gt; 
+#   ggplot(aes(fct_reorder(
+#     ith_in_data_set |&gt; as.character(),
+#     crude_protein), crude_protein))+
+#   geom_point(aes(fct_reorder(
+#     ith_in_data_set |&gt; as.character(),
+#     crude_protein), difference), alpha = 0.05, shape = 2) +
+#     geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+#   facet_wrap( ~cutpoints, scales = &quot;free_x&quot;,
+#           labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low (20.8 - 24.1)&quot;,
+#                                    &quot;(24.1,27.5]&quot;= &quot;Medium (24.2 - 27.5)&quot;,
+#                                    &quot;(27.5,30.8]&quot; =&quot;High (27.6-30.8)&quot;))) + 
+#     theme_classic()+
+#   theme(
+#     axis.title.x = element_blank(),
+#     axis.text.x = element_blank())
+
+model_final_predictions |&gt; 
+  left_join(cutpoints2) |&gt; 
   ggplot(aes(fct_reorder(
     ith_in_data_set |&gt; as.character(),
     crude_protein), crude_protein))+
   geom_point(aes(fct_reorder(
     ith_in_data_set |&gt; as.character(),
     crude_protein), difference), alpha = 0.05, shape = 2) +
-    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+  geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
   facet_wrap( ~cutpoints, scales = &quot;free_x&quot;,
-          labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low&quot;,
-                                   &quot;(24.1,27.5]&quot;= &quot;Medium&quot;,
-                                   &quot;(27.5,30.8]&quot; =&quot;High&quot;))) + 
-    theme_classic()+
+              labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low CP (20.8 - 24.1%)&quot;,
+                                       &quot;(24.1,27.5]&quot;= &quot;Medium CP (24.2 - 27.5%)&quot;,
+                                       &quot;(27.5,30.8]&quot; =&quot;High CP (27.6-30.8%)&quot;))) + 
+  theme_classic()+
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank())</code>
@@ -1930,9 +1953,10 @@ cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)</code>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
     <sec id="cell-fig-validation_set_performance-output-0-nb-article" specific-use="notebook-output">
-    <preformat>Joining with `by = join_by(ith_in_data_set)`</preformat>
+    <preformat>Joining with `by = join_by(crude_protein, ith_in_data_set)`</preformat>
     </sec>
     </sec>
+    <p>Errors tend to be lower at higher levels of actual CP</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, if the machines
