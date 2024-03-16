@@ -223,7 +223,7 @@ model_final_predictions |>
   geom_point(aes(fct_reorder(
     ith_in_data_set |> as.character(),
     crude_protein), difference), alpha = 0.05, shape = 2) +
-    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+    geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
   facet_wrap( ~cutpoints, scales = "free_x",
           labeller = as_labeller(c("(20.8,24.1]" = "Low",
                                    "(24.1,27.5]"= "Medium",
@@ -232,3 +232,81 @@ model_final_predictions |>
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank())
+
+# calculate mean difference
+mean_dif <-  model_final_predictions[,list(mean_dif = mean(difference)), by = ith_in_data_set]
+
+# summarize mean differences
+
+summary(mean_dif)
+
+bg2[, ith_in_data_set:=1:.N]
+
+bg2
+
+mean_ranks <- merge(mean_dif[abs(mean_dif)>1.5,], bg2, all.x = T)
+
+cbind(bg2, spectra_2[,1])[,median(crude_protein), by = cultivar]
+
+
+ mean_ranks[ith_in_data_set%in%c(2,7)][]      
+
+model_final_predictions[ith_in_data_set%in%c(2,7)]
+
+m2 <- split(model_final_predictions, model_final_predictions$ith_in_data_set%in%c(2,7))
+
+
+splt2 <- m2[[2]]
+
+
+basics <- splt2[, c("crude_protein", "ith_in_data_set")] |> unique()
+
+basics$ith_in_data_set <- c(7,2)
+
+basics
+
+splt2[, c("crude_protein", "difference"):=NULL]
+
+splt3 <- merge(splt2, basics, all.x = T)
+splt3[,difference := predicted_crude_protein - crude_protein]
+
+# switches ith 2 and 7!
+model_final_predictions_revised <- rbind(m2[[1]], splt3)
+
+# revised_model_cutpoints
+cutpoints2 <- model_final_predictions_revised |> 
+  distinct(ith_in_data_set, crude_protein) |> 
+  mutate(cutpoints = cut(crude_protein, 3))
+
+model_final_predictions_revised |> 
+  left_join(cutpoints2) |> 
+  ggplot(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), crude_protein))+
+  geom_point(aes(fct_reorder(
+    ith_in_data_set |> as.character(),
+    crude_protein), difference), alpha = 0.05, shape = 2) +
+  geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
+  facet_wrap( ~cutpoints, scales = "free_x",
+              labeller = as_labeller(c("(20.8,24.1]" = "Low",
+                                       "(24.1,27.5]"= "Medium",
+                                       "(27.5,30.8]" ="High"))) + 
+  theme_classic()+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank())
+
+
+
+final_model_table2 <- model_final_predictions_revised |> 
+  group_by(id) |> 
+  multi_metric(crude_protein, predicted_crude_protein)
+
+final_model_table2 |> 
+  ggplot(aes(x = .metric, y = .estimate)) + 
+  theme_classic() + geom_boxplot() + 
+  facet_wrap(vars(.metric), scales = "free") +
+  xlab("Metric") + ylab("Estimate")
+
+
+# fwrite(model_final_predictions_revised, "./input_data/simplified_data/final_model_predictions_revised.csv")

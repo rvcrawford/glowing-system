@@ -342,7 +342,7 @@ The relative ranks of the models are stable at approximately 14 PCs, with very f
 #| fig-cap: Final model test set evaluations (1000 iterations per plot)
 
 
-model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
+model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions_revised.csv")
 
 final_model_table <- model_final_predictions |> 
   group_by(id) |> 
@@ -357,8 +357,6 @@ final_model_table |>
 
 
 ```{r}
-# read in model final predictions
-model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions.csv")
 
 # add difference calculation between predicted and observed...
 model_final_predictions[,difference := predicted_crude_protein - crude_protein]
@@ -368,35 +366,62 @@ model_final_predictions[,difference := predicted_crude_protein - crude_protein]
 
 ```{r}
 
-my_cut <- cut(spectra_2$crude_protein, 3)
-cut_dt <- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
+# my_cut <- cut(spectra_2$crude_protein, 3)
+# cut_dt <- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
+
+
+# revised_model_cutpoints
+cutpoints2 <- model_final_predictions |> 
+  distinct(ith_in_data_set, crude_protein) |> 
+  mutate(cutpoints = cut(crude_protein, 3))
 
 ```
+
+
 
 
 ```{r}
 #| label: fig-validation_set_performance
 #| fig-cap: Test set predictions versus normalized scores across hemp samples
+# 
+# model_final_predictions |> 
+#   left_join(cut_dt) |> 
+#   ggplot(aes(fct_reorder(
+#     ith_in_data_set |> as.character(),
+#     crude_protein), crude_protein))+
+#   geom_point(aes(fct_reorder(
+#     ith_in_data_set |> as.character(),
+#     crude_protein), difference), alpha = 0.05, shape = 2) +
+#     geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+#   facet_wrap( ~cutpoints, scales = "free_x",
+#           labeller = as_labeller(c("(20.8,24.1]" = "Low (20.8 - 24.1)",
+#                                    "(24.1,27.5]"= "Medium (24.2 - 27.5)",
+#                                    "(27.5,30.8]" ="High (27.6-30.8)"))) + 
+#     theme_classic()+
+#   theme(
+#     axis.title.x = element_blank(),
+#     axis.text.x = element_blank())
 
 model_final_predictions |> 
-  left_join(cut_dt) |> 
+  left_join(cutpoints2) |> 
   ggplot(aes(fct_reorder(
     ith_in_data_set |> as.character(),
     crude_protein), crude_protein))+
   geom_point(aes(fct_reorder(
     ith_in_data_set |> as.character(),
     crude_protein), difference), alpha = 0.05, shape = 2) +
-    geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
+  geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
   facet_wrap( ~cutpoints, scales = "free_x",
-          labeller = as_labeller(c("(20.8,24.1]" = "Low",
-                                   "(24.1,27.5]"= "Medium",
-                                   "(27.5,30.8]" ="High"))) + 
-    theme_classic()+
+              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
+                                       "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
+                                       "(27.5,30.8]" ="High CP (27.6-30.8%)"))) + 
+  theme_classic()+
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank())
-```
 
+```
+Errors tend to be lower at higher levels of actual CP
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, if the machines compared are of the same model [@reeves2012]. As well, the calibration and validation sets are relatively small.
 
