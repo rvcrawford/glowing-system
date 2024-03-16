@@ -108,37 +108,51 @@ For this study, a benchtop NIR spectrometer was used to develop a model to predi
 ```{r}
 #| output: false
 
-bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
+# bckgrnd <- fread("./input_data/simplified_data/background_data_set.csv") |> setDT()
 
-spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
+# spectra <- fread("./input_data/simplified_data/train_test_crude_protein.csv")
 
- bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
+ # bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]
  
-bg2 <- bckgrnd[loc!="kentucky"]
+# bg2 <- bckgrnd[loc!="kentucky"]
 
 # extract indices of non-kentucky
-bg_indices <- bckgrnd[loc!="kentucky", which = T]
+# bg_indices <- bckgrnd[loc!="kentucky", which = T]
 
 # correct names in bg2--should be h-51, NOT hl-51
 
-bg2[cultivar=="hl-51"]$cultivar <- "h-51"
+# bg2[cultivar=="hl-51"]$cultivar <- "h-51"
 
 # check to see if i did the calc correctly
 
-bg2[grepl("51", cultivar),]
+# bg2[grepl("51", cultivar),]
 
  #looks good 
-tab <-  table(bckgrnd$in_ny)
+# tab <-  table(bckgrnd$in_ny)
 
 
 # now take correct spectra filtering out stuff from KY
 
-spectra_2 <- spectra[bg_indices]
+# spectra_2 <- spectra[bg_indices]
+
 ```
+
+
+```{r}
+# should be correct finalized data sets, 
+
+# notably, switches sample 2 and 7 around
+
+full_data <- fread("./input_data/final_data_set/full_hemp_data.csv")
+
+tab <-  table(full_data$in_ny)
+
+```
+
 
 ### Hemp Grain Sample Background
 
-Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017 - 2021 from `r nrow(distinct(bckgrnd |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[2]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. In total, `r bg2$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material.
+Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017 - 2021 from `r nrow(distinct(full_data |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[2]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. In total, `r full_data$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material.
 
 All cultivar trials were planted in randomized complete block design with each cultivar replicated four times. The 2017 data were comprised of samples from the same thirteen cultivars sampled from six NY locations. For those trials, grain was harvested from each plot individually and aggregated by cultivar within each trial. Four subsamples were drawn from each aggregated sample and scanned separately. These spectra were averaged at each 2 nm increment. All remaining samples from 2018-2021 were collected on a per-plot basis. All possible cultivars and possible locations were represented in 2017, but only a selected subset of cultivars and locations were represented in 2018-2021.
 
@@ -157,9 +171,9 @@ Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). Fo
 Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and validation sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. For each calibration set, models were developed in caret using PLSR. In fitting the model, the number of principal components was optimized over a grid search from 1-20. Model performance was evaluated with a bootstrapping method using root mean squared error (RMSE) and R^2^ statistics in selecting a final model.
 
 ```{r}
-preproc_key <- fread("./input_data/simplified_data/preprocessing_key.csv")
+preproc_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
 
-preproc_key[,full_name:= c("Raw Spectra", "First Derivative", "Savitzky-Golay", "Gap-segment derivative",
+preproc_key[,full_name:= c("Raw Spectra", "First Derivative", "Second Derivative","Savitzky-Golay", "Gap-segment derivative",
                            "Standard Normal Variate", "Standard Normal Variate/ Savitzky-Golay", "SNV-Detrend", "Multiplicative Scatter Correction")]
 ```
 
@@ -185,7 +199,7 @@ Laboratory assay percent CP values are summarized in the following table. These 
 #| label: tbl-lab-protein-vals
 #| tbl-cap: Summary of Laboratory Assayed CP values (Values are Percent Dry Matter)
 
-my_summary <- spectra_2$crude_protein |> skimr::skim()|> select(c(5:11)) |> 
+my_summary <- full_data$crude_protein |> skimr::skim()|> select(c(5:11)) |> 
   mutate_all(round, 1)
 names(my_summary) <- c("mean", "sd", "minimum", "first quartile", "median", "third quartile", "maximum") 
 
@@ -203,9 +217,9 @@ multi_metric <- metric_set(rmse, rsq, rpiq)
 
 # read data back in to work with it
 
-prep_key <- fread("./input_data/simplified_data/preprocessing_key.csv")
+prep_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
 
-sims_key <- fread("./input_data/simplified_data/preprocessing_methods_test.csv")
+sims_key <- fread("./input_data/final_data_set/preprocessing_methods_test.csv")
 
 long_form <- merge(sims_key, prep_key, all.x = T)
 
@@ -214,6 +228,7 @@ long_form <- merge(sims_key, prep_key, all.x = T)
 # long_form[, multi_metric(y, value), by = c("id", "preproc")]
 
 summaries <- long_form |> 
+  filter(preproc!="second_derivative") |> 
   group_by(id, preproc) |> 
   multi_metric(y, value)
 
@@ -315,7 +330,7 @@ raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |>
   mutate(percent_difference = estimated_diff/(emmean+estimated_diff))
 ```
 
-The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. Savitzky Golay RMSE averaged 1.7% lower, while R^2^ and RPIQ averaged 1.2% and 2.0% higher than the next best preprocessing method (first derivative, according to each metric). However, only at R^2^ was the difference from the next best preprocessing method statistically significant at $\alpha$ \<0.05. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the Savitzky-Golay method was the best performing under all methods, a final model was developed using that preprocessing method.
+The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. Savitzky Golay RMSE averaged 1.0% lower, while R^2^ and RPIQ averaged 0.5% and 0.9% higher than the next best preprocessing method (Savitzky-Golay following SNV-Detrend in both cases) for each metric) but the differences were not statistically significant at $\alpha$ \<0.05. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the Savitzky-Golay method was the best performing under all methods, a final model was developed using that preprocessing method.
 
 ### Final model development and summary
 

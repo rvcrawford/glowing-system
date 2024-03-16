@@ -1,0 +1,10 @@
+preproc,preproc_id
+raw,1
+first_derivative,2
+second_derivative,3
+sav_gol,4
+gap_der,5
+snv,6
+snv_sg,7
+snv_detrend,8
+msc,9
