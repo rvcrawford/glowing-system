@@ -338,7 +338,7 @@ The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ av
 #| label: fig-model-calibration
 #| fig-cap: Decreasing RMSE with increasing number of PCs
 
-model_n_comp_statistics <- fread("./input_data/simplified_data/final_model_n_component_stats.csv")
+model_n_comp_statistics <- fread("./input_data/final_data_set/final_model_n_component_stats.csv")
 
 model_n_comp_statistics |> 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
@@ -357,7 +357,10 @@ The relative ranks of the models are stable at approximately 14 PCs, with very f
 #| fig-cap: Final model test set evaluations (1000 iterations per plot)
 
 
-model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions_revised.csv")
+model_final_predictions <- fread("./input_data/final_data_set/final_model_predictions.csv")
+
+setnames(model_final_predictions, "V1", "crude_protein")
+
 
 final_model_table <- model_final_predictions |> 
   group_by(id) |> 
