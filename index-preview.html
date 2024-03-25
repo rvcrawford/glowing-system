@@ -235,6 +235,7 @@
 <meta name="citation_reference" content="citation_title=Building predictive models in r using the caret package;,citation_author=Kuhn;,citation_author=Max;,citation_publication_date=2008;,citation_cover_date=2008;,citation_year=2008;,citation_fulltext_html_url=https://www.jstatsoft.org/index.php/jss/article/view/v028i05;,citation_issue=5;,citation_doi=10.18637/jss.v028.i05;,citation_volume=28;,citation_journal_title=Journal of Statistical Software;">
 <meta name="citation_reference" content="citation_title=data.table: Extension of “data.frame”;,citation_author=Tyson Barrett;,citation_author=Matt Dowle;,citation_author=Arun Srinivasan;,citation_author=Jan Gorecki;,citation_author=Michael Chirico;,citation_author=Toby Hocking;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://CRAN.R-project.org/package=data.table;">
 <meta name="citation_reference" content="citation_title=emmeans: Estimated marginal means, aka least-squares means;,citation_author=Russell V. Lenth;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://CRAN.R-project.org/package=emmeans;">
+<meta name="citation_reference" content="citation_title=kableExtra: Construct complex table with “kable” and pipe syntax;,citation_author=Hao Zhu;,citation_publication_date=2024;,citation_cover_date=2024;,citation_year=2024;,citation_fulltext_html_url=https://CRAN.R-project.org/package=kableExtra;">
 <meta name="citation_reference" content="citation_title=knitr: A general-purpose package for dynamic report generation in r;,citation_author=Yihui Xie;,citation_publication_date=2023;,citation_cover_date=2023;,citation_year=2023;,citation_fulltext_html_url=https://yihui.org/knitr/;">
 <meta name="citation_reference" content="citation_title=Dynamic documents with R and knitr;,citation_author=Yihui Xie;,citation_publication_date=2015;,citation_cover_date=2015;,citation_year=2015;,citation_fulltext_html_url=https://yihui.org/knitr/;">
 <meta name="citation_reference" content="citation_title=knitr: A comprehensive tool for reproducible research in R;,citation_author=Yihui Xie;,citation_editor=Victoria Stodden;,citation_editor=Friedrich Leisch;,citation_editor=Roger D. Peng;,citation_publication_date=2014;,citation_cover_date=2014;,citation_year=2014;,citation_inbook_title=Implementing reproducible computational research;">
@@ -467,7 +468,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use tidymodels_prefer() to resolve common conflicts.</code></pre>
+• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -478,53 +479,62 @@ The following object is masked from 'package:dplyr':
 
     collapse</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows</code></pre>
+</div>
 </div></div>
 <p><strong>incomplete: may contain errors, run-ons, half-thoughts, etc.</strong></p>
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">INTRODUCTION</h2>
 <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes and a cultivar may be referred to as a grain, fiber, or dual-purpose type. Because of protein’s nutritional importance, the protein content of a grain crop is an prime consideration for researchers, producers, and consumers. Whole hemp grain typically contains approximately 20-30% protein <span class="citation" data-cites="ely_industrial_2022 barta_proteomic_2024 callaway2004">(<a href="#ref-ely_industrial_2022" role="doc-biblioref">Ely and Fike 2022</a>; <a href="#ref-barta_proteomic_2024" role="doc-biblioref">Bárta et al. 2024</a>; <a href="#ref-callaway2004" role="doc-biblioref"><strong>callaway2004?</strong></a>)</span>. Crude protein (CP) is often used as a proxy for the direct measurement of protein concentration and consists of the multiplication of nitrogen concentration by a conversion factor because measuring nitrogen concentration is relatively easy and cheap via laboratory assay <span class="citation" data-cites="hayes_measuring_2020">(<a href="#ref-hayes_measuring_2020" role="doc-biblioref">Hayes 2020</a>)</span>.</p>
 <p>Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap, and consists of the measurement of NIR radiation reflected from a sample <span class="citation" data-cites="roberts_near-infrared_2004">(<a href="#ref-roberts_near-infrared_2004" role="doc-biblioref">Roberts, Workman, and Reeves 2004</a>)</span>. NIR spectra from many samples are related to laboratory values for components such as moisture, protein, fat, or fiber <span class="citation" data-cites="roberts_near-infrared_2004">(<a href="#ref-roberts_near-infrared_2004" role="doc-biblioref">Roberts, Workman, and Reeves 2004</a>)</span>. NIRS technology has been used since the 1970’s to assess forage CP <span class="citation" data-cites="reeves_potential_2012 williams_application_1975">(<a href="#ref-reeves_potential_2012" role="doc-biblioref">Reeves 2012</a>; <a href="#ref-williams_application_1975" role="doc-biblioref">Williams 1975</a>)</span>. A NIRS calibration set often consists of samples from one species grown in many environments encompassing the range of expected values from the analyte or analytes <span class="citation" data-cites="chadalavada_nir_2022">(<a href="#ref-chadalavada_nir_2022" role="doc-biblioref">Chadalavada et al. 2022</a>)</span>. Partial least squares regression (PLSR) is a typical method used in the agricultural and food sciences to relate spectra to analyte <span class="citation" data-cites="roberts_near-infrared_2004">(<a href="#ref-roberts_near-infrared_2004" role="doc-biblioref">Roberts, Workman, and Reeves 2004</a>)</span>. PLSR calculates principal components (PCs) which relate to the dependent variable and summarize the spectra and uses a subset of PCs in order to fit the regression model. PLSR is commonly used in spectroscopy because it tends to work well with highly-correlated spectral data. Typically the number of principal components is chosen via cross-validation to avoid overfitting. <strong>CITES FOR ALL OF THIS</strong></p>
-<p>A NIRS-scanned sample of undamaged grain may subsequently be grown, an important consideration for a plant breeder. In wheat and corn, grain protein content has been shown to be heritable <span class="citation" data-cites="giancaspro_genetic_2019 geyer_genetics_2022">(<a href="#ref-giancaspro_genetic_2019" role="doc-biblioref">Giancaspro et al. 2019</a>; <a href="#ref-geyer_genetics_2022" role="doc-biblioref">Geyer, Mohler, and Hartl 2022</a>)</span>. This suggests (at least potentially) that NIRS technology could serve as resource to more rapidly identify high CP hemp germplasm, enabling the delivery of higher CP hemp grain cultivars faster.</p>
+<p>A NIRS-scanned sample of undamaged grain may used for other purposes or it may planted as a seed. In wheat and corn, grain protein content has been shown to be heritable <span class="citation" data-cites="giancaspro_genetic_2019 geyer_genetics_2022">(<a href="#ref-giancaspro_genetic_2019" role="doc-biblioref">Giancaspro et al. 2019</a>; <a href="#ref-geyer_genetics_2022" role="doc-biblioref">Geyer, Mohler, and Hartl 2022</a>)</span>. This suggests (at least potentially) that NIRS technology could serve as resource to more rapidly identify high CP hemp germplasm, enabling the delivery of higher CP hemp grain cultivars faster.</p>
 <p>For this study, a benchtop NIR spectrometer was used to develop a model to predict CP content based on a data set of hemp grain representing multiple years, locations, and cultivars from grain and dual-purpose hemp types using PLSR.</p>
 </section>
 <section id="materials-and-methods" class="level2">
 <h2 class="anchored" data-anchor-id="materials-and-methods">MATERIALS AND METHODS</h2>
 <div class="cell-container"><div class="cell-decorator"><pre>In [2]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bckgrnd &lt;- fread("./input_data/simplified_data/background_data_set.csv") |&gt; setDT()</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># spectra &lt;- fread("./input_data/simplified_data/train_test_crude_protein.csv")</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2 &lt;- bckgrnd[loc!="kentucky"]</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="co"># extract indices of non-kentucky</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># bg_indices &lt;- bckgrnd[loc!="kentucky", which = T]</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a><span class="co"># correct names in bg2--should be h-51, NOT hl-51</span></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2[cultivar=="hl-51"]$cultivar &lt;- "h-51"</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a><span class="co"># check to see if i did the calc correctly</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2[grepl("51", cultivar),]</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a> <span class="co">#looks good </span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a><span class="co"># tab &lt;-  table(bckgrnd$in_ny)</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="co"># now take correct spectra filtering out stuff from KY</span></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a><span class="co"># spectra_2 &lt;- spectra[bg_indices]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># bckgrnd &lt;- fread("./input_data/simplified_data/background_data_set.csv") |&gt; setDT()</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># spectra &lt;- fread("./input_data/simplified_data/train_test_crude_protein.csv")</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a> <span class="co"># bckgrnd[,in_ny:= ifelse(loc!="kentucky", T, F)]</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2 &lt;- bckgrnd[loc!="kentucky"]</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="co"># extract indices of non-kentucky</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># bg_indices &lt;- bckgrnd[loc!="kentucky", which = T]</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># correct names in bg2--should be h-51, NOT hl-51</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2[cultivar=="hl-51"]$cultivar &lt;- "h-51"</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># check to see if i did the calc correctly</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a><span class="co"># bg2[grepl("51", cultivar),]</span></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a> <span class="co">#looks good </span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="co"># tab &lt;-  table(bckgrnd$in_ny)</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a><span class="co"># now take correct spectra filtering out stuff from KY</span></span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a><span class="co"># spectra_2 &lt;- spectra[bg_indices]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [3]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># should be correct finalized data sets, </span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># notably, switches sample 2 and 7 around</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>full_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/full_hemp_data.csv"</span>)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span>  <span class="fu">table</span>(full_data<span class="sc">$</span>in_ny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># should be correct finalized data sets, </span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># notably, switches sample 2 and 7 around</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>full_data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/full_hemp_data.csv"</span>)</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span>  <span class="fu">table</span>(full_data<span class="sc">$</span>in_ny)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <section id="hemp-grain-sample-background" class="level3">
 <h3 class="anchored" data-anchor-id="hemp-grain-sample-background">Hemp Grain Sample Background</h3>
@@ -544,21 +554,21 @@ The following object is masked from 'package:dplyr':
 <h3 class="anchored" data-anchor-id="model-development">Model Development</h3>
 <p>Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and validation sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. For each calibration set, models were developed in caret using PLSR. In fitting the model, the number of principal components was optimized over au grid search from 1-20. Model performance was evaluated with 25 iterations of bootstrapping and minimized root mean squared error (RMSE) in selecting the number of principal components in the final model <span class="citation" data-cites="kuhn2008">(<a href="#ref-kuhn2008" role="doc-biblioref"><strong>kuhn2008?</strong></a>)</span>.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [4]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>preproc_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_key.csv"</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>preproc_key[,full_name<span class="sc">:</span><span class="er">=</span> <span class="fu">c</span>(<span class="st">"Raw Spectra"</span>, <span class="st">"First Derivative"</span>, <span class="st">"Second Derivative"</span>,<span class="st">"Savitzky-Golay"</span>, <span class="st">"Gap-segment Derivative"</span>,</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Standard Normal Variate"</span>, <span class="st">"Standard Normal Variate following Savitzky-Golay"</span>, <span class="st">"Standard Normal Variate-Detrend"</span>, <span class="st">"Multiplicative Scatter Correction"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>preproc_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_key.csv"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>preproc_key[,full_name<span class="sc">:</span><span class="er">=</span> <span class="fu">c</span>(<span class="st">"Raw Spectra"</span>, <span class="st">"First Derivative"</span>, <span class="st">"Second Derivative"</span>,<span class="st">"Savitzky-Golay"</span>, <span class="st">"Gap-segment Derivative"</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>                           <span class="st">"Standard Normal Variate"</span>, <span class="st">"Standard Normal Variate following Savitzky-Golay"</span>, <span class="st">"Standard Normal Variate-Detrend"</span>, <span class="st">"Multiplicative Scatter Correction"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<p>Initially a number of common spectral preprocessing methods were tested by creating 100 calibration and validation sets as described above. Spectral data from those data sets were transformed by each of the following methods: 1) first derivative, 2) Savitzky-Golay (SG), 3) gap-segment derivative, 4) standard normal variate (SNV), 4) standard normal variate following Savitzky-Golay (SNV-SG), 5) SNV-detrend, and 6) multiplicative scatter correction. For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were 8 preprocessing methods, 8 separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of the validation set were calculated via RMSE, R<sup>2</sup> and Ratio of Performance to InterQuartile distance (RPIQ), three common model assessment metrics. Analyses of variance (ANOVA) were performed for each of these metrics in order to compare the preprocessing methods. For each ANOVA, each data set was considered as a subject and allowing different variances for each preprocessing method.</p>
+<p>Initially a number of common spectral preprocessing methods were tested by creating 100 calibration and validation sets as described above. Spectral data from those data sets were transformed by each of the following methods: 1) first derivative, 2) Savitzky-Golay (SG), 3) gap-segment derivative, 4) standard normal variate (SNV), 4) standard normal variate following Savitzky-Golay (SNV-SG), 5) SNV-detrend, and 6) multiplicative scatter correction. For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were 8 preprocessing methods, 8 separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of the validation set were calculated via RMSE, R<sup>2</sup> and Ratio of Performance to InterQuartile distance (RPIQ), three common model assessment metrics. Larger R<sup>2</sup> and RPIQ, and smaller RMSE values are superior. Analyses of variance (ANOVA) were performed for each of these metrics in order to compare the preprocessing methods. For each ANOVA, each data set was considered as a subject and allowing different variances for each preprocessing method.</p>
 <p>Once the most promising preprocessing method was identified, 1000 more data sets were created and analyzed via that method and performance on the validation sets was summarized with RMSE, R<sup>2</sup>, and RPIQ.</p>
 </section>
 <section id="additional-software-used" class="level3">
 <h3 class="anchored" data-anchor-id="additional-software-used">Additional software used</h3>
 <!-- Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\]. -->
 <div class="cell-container"><div class="cell-decorator"><pre>In [5]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>grateful<span class="sc">::</span><span class="fu">cite_packages</span>(<span class="at">output =</span> <span class="st">"paragraph"</span>, <span class="at">out.dir =</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>grateful<span class="sc">::</span><span class="fu">cite_packages</span>(<span class="at">output =</span> <span class="st">"paragraph"</span>, <span class="at">out.dir =</span> <span class="st">"."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p>We used R version 4.3.3 <span class="citation" data-cites="base">(<a href="#ref-base" role="doc-biblioref">R Core Team 2024</a>)</span> and the following R packages: caret v. 6.0.94 <span class="citation" data-cites="caret">(<a href="#ref-caret" role="doc-biblioref">Kuhn and Max 2008</a>)</span>, data.table v. 1.15.2 <span class="citation" data-cites="datatable">(<a href="#ref-datatable" role="doc-biblioref">Barrett et al. 2024</a>)</span>, emmeans v. 1.10.0 <span class="citation" data-cites="emmeans">(<a href="#ref-emmeans" role="doc-biblioref">Lenth 2024</a>)</span>, knitr v. 1.45 <span class="citation" data-cites="knitr2014 knitr2015 knitr2023">(<a href="#ref-knitr2014" role="doc-biblioref">Xie 2014</a>, <a href="#ref-knitr2015" role="doc-biblioref">2015</a>, <a href="#ref-knitr2023" role="doc-biblioref">2023</a>)</span>, lme4 v. 1.1.35.1 <span class="citation" data-cites="lme4">(<a href="#ref-lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>, multcomp v. 1.4.25 <span class="citation" data-cites="multcomp">(<a href="#ref-multcomp" role="doc-biblioref">Hothorn, Bretz, and Westfall 2008</a>)</span>, nlme v. 3.1.163 <span class="citation" data-cites="nlme2000 nlme2023">(<a href="#ref-nlme2000" role="doc-biblioref">J. C. Pinheiro and Bates 2000</a>; <a href="#ref-nlme2023" role="doc-biblioref">J. Pinheiro, Bates, and R Core Team 2023</a>)</span>, pls v. 2.8.3 <span class="citation" data-cites="pls">(<a href="#ref-pls" role="doc-biblioref">Liland, Mevik, and Wehrens 2023</a>)</span>, prospectr v. 0.2.7 <span class="citation" data-cites="prospectr">(<a href="#ref-prospectr" role="doc-biblioref">Stevens and Ramirez-Lopez 2024</a>)</span>, randomForest v. 4.7.1.1 <span class="citation" data-cites="randomForest">(<a href="#ref-randomForest" role="doc-biblioref">Liaw and Wiener 2002</a>)</span>, rmarkdown v. 2.26 <span class="citation" data-cites="rmarkdown2018 rmarkdown2020 rmarkdown2024">(<a href="#ref-rmarkdown2018" role="doc-biblioref">Xie, Allaire, and Grolemund 2018</a>; <a href="#ref-rmarkdown2020" role="doc-biblioref">Xie, Dervieux, and Riederer 2020</a>; <a href="#ref-rmarkdown2024" role="doc-biblioref">Allaire et al. 2024</a>)</span>, skimr v. 2.1.5 <span class="citation" data-cites="skimr">(<a href="#ref-skimr" role="doc-biblioref">Waring et al. 2022</a>)</span>, tidymodels v. 1.1.1 <span class="citation" data-cites="tidymodels">(<a href="#ref-tidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span>, tidyverse v. 2.0.0 <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
+<p>We used R version 4.3.3 <span class="citation" data-cites="base">(<a href="#ref-base" role="doc-biblioref">R Core Team 2024</a>)</span> and the following R packages: caret v. 6.0.94 <span class="citation" data-cites="caret">(<a href="#ref-caret" role="doc-biblioref">Kuhn and Max 2008</a>)</span>, data.table v. 1.15.2 <span class="citation" data-cites="datatable">(<a href="#ref-datatable" role="doc-biblioref">Barrett et al. 2024</a>)</span>, emmeans v. 1.10.0 <span class="citation" data-cites="emmeans">(<a href="#ref-emmeans" role="doc-biblioref">Lenth 2024</a>)</span>, kableExtra v. 1.4.0 <span class="citation" data-cites="kableExtra">(<a href="#ref-kableExtra" role="doc-biblioref">Zhu 2024</a>)</span>, knitr v. 1.45 <span class="citation" data-cites="knitr2014 knitr2015 knitr2023">(<a href="#ref-knitr2014" role="doc-biblioref">Xie 2014</a>, <a href="#ref-knitr2015" role="doc-biblioref">2015</a>, <a href="#ref-knitr2023" role="doc-biblioref">2023</a>)</span>, lme4 v. 1.1.35.1 <span class="citation" data-cites="lme4">(<a href="#ref-lme4" role="doc-biblioref">Bates et al. 2015</a>)</span>, multcomp v. 1.4.25 <span class="citation" data-cites="multcomp">(<a href="#ref-multcomp" role="doc-biblioref">Hothorn, Bretz, and Westfall 2008</a>)</span>, nlme v. 3.1.163 <span class="citation" data-cites="nlme2000 nlme2023">(<a href="#ref-nlme2000" role="doc-biblioref">J. C. Pinheiro and Bates 2000</a>; <a href="#ref-nlme2023" role="doc-biblioref">J. Pinheiro, Bates, and R Core Team 2023</a>)</span>, pls v. 2.8.3 <span class="citation" data-cites="pls">(<a href="#ref-pls" role="doc-biblioref">Liland, Mevik, and Wehrens 2023</a>)</span>, prospectr v. 0.2.7 <span class="citation" data-cites="prospectr">(<a href="#ref-prospectr" role="doc-biblioref">Stevens and Ramirez-Lopez 2024</a>)</span>, randomForest v. 4.7.1.1 <span class="citation" data-cites="randomForest">(<a href="#ref-randomForest" role="doc-biblioref">Liaw and Wiener 2002</a>)</span>, rmarkdown v. 2.26 <span class="citation" data-cites="rmarkdown2018 rmarkdown2020 rmarkdown2024">(<a href="#ref-rmarkdown2018" role="doc-biblioref">Xie, Allaire, and Grolemund 2018</a>; <a href="#ref-rmarkdown2020" role="doc-biblioref">Xie, Dervieux, and Riederer 2020</a>; <a href="#ref-rmarkdown2024" role="doc-biblioref">Allaire et al. 2024</a>)</span>, skimr v. 2.1.5 <span class="citation" data-cites="skimr">(<a href="#ref-skimr" role="doc-biblioref">Waring et al. 2022</a>)</span>, tidymodels v. 1.1.1 <span class="citation" data-cites="tidymodels">(<a href="#ref-tidymodels" role="doc-biblioref">Kuhn and Wickham 2020</a>)</span>, tidyverse v. 2.0.0 <span class="citation" data-cites="tidyverse">(<a href="#ref-tidyverse" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
 </div>
 </div></div>
 </section>
@@ -567,14 +577,14 @@ The following object is masked from 'package:dplyr':
 <h2 class="anchored" data-anchor-id="results-and-discussion">RESULTS AND DISCUSSION</h2>
 <section id="laboratory-assay-cp-values" class="level3">
 <h3 class="anchored" data-anchor-id="laboratory-assay-cp-values">Laboratory assay CP values</h3>
-<p>Laboratory assay percent CP values are summarized in the following table. These are similar to the range of CP values observed in the literature, indicating an appropriate basis for a chemometric model. The CP values are left-skewed and two thirds of the samples contained more than 25% CP.</p>
+<p>Laboratory assay percent CP values are summarized in the following table. These are similar to the range of CP values observed in the literature, indicating an reasonable basis for a chemometric model. The CP values are left-skewed and two thirds of the samples contained more than 25% CP.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [6]:</pre></div><div class="cell">
 
-<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>my_summary <span class="ot">&lt;-</span> full_data<span class="sc">$</span>crude_protein <span class="sc">|&gt;</span> skimr<span class="sc">::</span><span class="fu">skim</span>()<span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(round, <span class="dv">1</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_summary) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"minimum"</span>, <span class="st">"first quartile"</span>, <span class="st">"median"</span>, <span class="st">"third quartile"</span>, <span class="st">"maximum"</span>) <span class="sc">|&gt;</span> <span class="fu">str_to_title</span>()</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(my_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-lab-protein-vals" class="cell quarto-float anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [7]:</pre></div><div><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>my_summary <span class="ot">&lt;-</span> full_data<span class="sc">$</span>crude_protein <span class="sc">|&gt;</span> skimr<span class="sc">::</span><span class="fu">skim</span>()<span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="fu">c</span>(<span class="dv">5</span><span class="sc">:</span><span class="dv">11</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate_all</span>(round, <span class="dv">1</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(my_summary) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"sd"</span>, <span class="st">"minimum"</span>, <span class="st">"first quartile"</span>, <span class="st">"median"</span>, <span class="st">"third quartile"</span>, <span class="st">"maximum"</span>) <span class="sc">|&gt;</span> <span class="fu">str_to_title</span>()</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(my_summary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-lab-protein-vals" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lab-protein-vals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Summary of Laboratory Assayed CP Values (Percent Dry Matter)
@@ -614,125 +624,125 @@ Table&nbsp;1: Summary of Laboratory Assayed CP Values (Percent Dry Matter)
 <section id="preprocessing-methods-comparison" class="level3">
 <h3 class="anchored" data-anchor-id="preprocessing-methods-comparison">Preprocessing methods comparison</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [8]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>multi_metric <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, rpiq)</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read data back in to work with it</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>prep_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_key.csv"</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>sims_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_methods_test.csv"</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>long_form <span class="ot">&lt;-</span> <span class="fu">merge</span>(sims_key, prep_key, <span class="at">all.x =</span> T)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="co"># now pull the metrics</span></span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="co"># long_form[, multi_metric(y, value), by = c("id", "preproc")]</span></span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>summaries <span class="ot">&lt;-</span> long_form <span class="sc">|&gt;</span> </span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(preproc<span class="sc">!=</span><span class="st">"second_derivative"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id, preproc) <span class="sc">|&gt;</span> </span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multi_metric</span>(y, value)</span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="co"># # comparing methods over a series of metrics...</span></span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="co"># summaries_with_models &lt;- summaries |&gt; </span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(id = as.character(id)) |&gt; </span></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   nest(data = -.metric) |&gt; </span></span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(mod = map(data, ~lme4::lmer(.estimate ~ preproc + (1|id), data = .x)),</span></span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="co">#          ems = map(mod, ~emmeans::emmeans(.x, "preproc") |&gt; data.frame())</span></span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="co">#          )</span></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a><span class="co"># summaries_with_models_2 &lt;- summaries_with_models |&gt; </span></span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(1, ems) |&gt; </span></span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   unnest(ems)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>multi_metric <span class="ot">&lt;-</span> <span class="fu">metric_set</span>(rmse, rsq, rpiq)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read data back in to work with it</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>prep_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_key.csv"</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>sims_key <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/preprocessing_methods_test.csv"</span>)</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>long_form <span class="ot">&lt;-</span> <span class="fu">merge</span>(sims_key, prep_key, <span class="at">all.x =</span> T)</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="co"># now pull the metrics</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="co"># long_form[, multi_metric(y, value), by = c("id", "preproc")]</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>summaries <span class="ot">&lt;-</span> long_form <span class="sc">|&gt;</span> </span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(preproc<span class="sc">!=</span><span class="st">"second_derivative"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id, preproc) <span class="sc">|&gt;</span> </span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multi_metric</span>(y, value)</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="co"># # comparing methods over a series of metrics...</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co"># summaries_with_models &lt;- summaries |&gt; </span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(id = as.character(id)) |&gt; </span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="co">#   nest(data = -.metric) |&gt; </span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(mod = map(data, ~lme4::lmer(.estimate ~ preproc + (1|id), data = .x)),</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="co">#          ems = map(mod, ~emmeans::emmeans(.x, "preproc") |&gt; data.frame())</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="co">#          )</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a><span class="co"># summaries_with_models_2 &lt;- summaries_with_models |&gt; </span></span>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a><span class="co">#   select(1, ems) |&gt; </span></span>
+<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a><span class="co">#   unnest(ems)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [9]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># actually, let's summarize via nlme</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># set our varident</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>vf2 <span class="ot">&lt;-</span> <span class="fu">varIdent</span>(<span class="at">form=</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>preproc)</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># define custom contrasts</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>first_part <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>,<span class="dv">7</span>)</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>contrast_full <span class="ot">&lt;-</span> <span class="fu">append</span>(first_part, <span class="sc">-</span><span class="dv">1</span>, <span class="at">after =</span> <span class="dv">3</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>custom <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">preprocess_vs_raw =</span> contrast_full)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>nlme_summaries <span class="ot">&lt;-</span> summaries <span class="sc">|&gt;</span> </span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.character</span>(id)) <span class="sc">|&gt;</span> </span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>.metric) <span class="sc">|&gt;</span> </span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_standard =</span> <span class="fu">map</span>(data, <span class="sc">~</span>nlme<span class="sc">::</span><span class="fu">lme</span>(.estimate <span class="sc">~</span> preproc, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>id, <span class="at">data =</span> .x, <span class="at">method =</span><span class="st">"ML"</span>)),</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_varident =</span> <span class="fu">map</span>(data, <span class="sc">~</span>nlme<span class="sc">::</span><span class="fu">lme</span>(.estimate <span class="sc">~</span> preproc, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>id, <span class="at">weights =</span> vf2, <span class="at">data =</span> .x, <span class="at">method =</span><span class="st">"ML"</span>)),</span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_compare =</span> <span class="fu">map2</span>(mod_standard, mod_varident, <span class="sc">~</span><span class="fu">anova</span>(.x, .y)),</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">ems =</span> <span class="fu">map</span>(mod_varident, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">emmeans</span>(.x, <span class="st">"preproc"</span>) <span class="sc">|&gt;</span>multcomp<span class="sc">::</span><span class="fu">cld</span>() <span class="sc">|&gt;</span>  <span class="fu">data.frame</span>()), </span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">ems2 =</span> <span class="fu">map</span>(mod_varident, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">emmeans</span>(.x, <span class="st">"preproc"</span>)),</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">contrast =</span> <span class="fu">map</span>(ems2, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">contrast</span>(.x, custom))</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>                                       )</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>nlme_summaries_with_models_2 <span class="ot">&lt;-</span> nlme_summaries <span class="sc">|&gt;</span> </span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>, ems) <span class="sc">|&gt;</span> </span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(ems)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># actually, let's summarize via nlme</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># set our varident</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>vf2 <span class="ot">&lt;-</span> <span class="fu">varIdent</span>(<span class="at">form=</span> <span class="sc">~</span> <span class="dv">1</span><span class="sc">|</span>preproc)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># define custom contrasts</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>first_part <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">7</span>,<span class="dv">7</span>)</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>contrast_full <span class="ot">&lt;-</span> <span class="fu">append</span>(first_part, <span class="sc">-</span><span class="dv">1</span>, <span class="at">after =</span> <span class="dv">3</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>custom <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">preprocess_vs_raw =</span> contrast_full)</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>nlme_summaries <span class="ot">&lt;-</span> summaries <span class="sc">|&gt;</span> </span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">id =</span> <span class="fu">as.character</span>(id)) <span class="sc">|&gt;</span> </span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>(<span class="at">data =</span> <span class="sc">-</span>.metric) <span class="sc">|&gt;</span> </span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_standard =</span> <span class="fu">map</span>(data, <span class="sc">~</span>nlme<span class="sc">::</span><span class="fu">lme</span>(.estimate <span class="sc">~</span> preproc, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>id, <span class="at">data =</span> .x, <span class="at">method =</span><span class="st">"ML"</span>)),</span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_varident =</span> <span class="fu">map</span>(data, <span class="sc">~</span>nlme<span class="sc">::</span><span class="fu">lme</span>(.estimate <span class="sc">~</span> preproc, <span class="at">random =</span> <span class="sc">~</span><span class="dv">1</span><span class="sc">|</span>id, <span class="at">weights =</span> vf2, <span class="at">data =</span> .x, <span class="at">method =</span><span class="st">"ML"</span>)),</span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">mod_compare =</span> <span class="fu">map2</span>(mod_standard, mod_varident, <span class="sc">~</span><span class="fu">anova</span>(.x, .y)),</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>         <span class="at">ems =</span> <span class="fu">map</span>(mod_varident, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">emmeans</span>(.x, <span class="st">"preproc"</span>) <span class="sc">|&gt;</span>multcomp<span class="sc">::</span><span class="fu">cld</span>() <span class="sc">|&gt;</span>  <span class="fu">data.frame</span>()), </span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>             <span class="at">ems2 =</span> <span class="fu">map</span>(mod_varident, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">emmeans</span>(.x, <span class="st">"preproc"</span>)),</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>                        <span class="at">contrast =</span> <span class="fu">map</span>(ems2, <span class="sc">~</span>emmeans<span class="sc">::</span><span class="fu">contrast</span>(.x, custom))</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>                                       )</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>nlme_summaries_with_models_2 <span class="ot">&lt;-</span> nlme_summaries <span class="sc">|&gt;</span> </span>
+<span id="cb23-28"><a href="#cb23-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span>, ems) <span class="sc">|&gt;</span> </span>
+<span id="cb23-29"><a href="#cb23-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(ems)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [10]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add full names</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>to_table <span class="ot">&lt;-</span> nlme_summaries_with_models_2<span class="sc">|&gt;</span> </span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(preproc_key) <span class="sc">|&gt;</span> </span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">'Preprocessing Method'</span> <span class="ot">=</span> full_name, <span class="at">Metric =</span> .metric, <span class="at">Estimate =</span> emmean, SE) <span class="sc">|&gt;</span> </span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Estimate =</span> <span class="fu">paste</span>(<span class="fu">format</span>(<span class="fu">round</span>(Estimate, <span class="dv">2</span>), <span class="at">nsmall =</span> <span class="dv">2</span>), <span class="st">"±"</span>, <span class="fu">format</span>(<span class="fu">round</span>(SE, <span class="dv">3</span>), <span class="at">nsmall =</span> <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add full names</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>to_table <span class="ot">&lt;-</span> nlme_summaries_with_models_2<span class="sc">|&gt;</span> </span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(preproc_key) <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="st">'Preprocessing Method'</span> <span class="ot">=</span> full_name, <span class="at">Metric =</span> .metric, <span class="at">Estimate =</span> emmean, SE) <span class="sc">|&gt;</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Estimate =</span> <span class="fu">paste</span>(<span class="fu">format</span>(<span class="fu">round</span>(Estimate, <span class="dv">2</span>), <span class="at">nsmall =</span> <span class="dv">2</span>), <span class="st">"±"</span>, <span class="fu">format</span>(<span class="fu">round</span>(SE, <span class="dv">3</span>), <span class="at">nsmall =</span> <span class="dv">3</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(preproc)`</code></pre>
 </div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [11]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>contrasts <span class="ot">&lt;-</span> nlme_summaries <span class="sc">|&gt;</span> </span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(.metric, contrast) <span class="sc">|&gt;</span> </span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(.metric, <span class="at">tidy_contrast =</span> <span class="fu">map</span>(contrast, tidy)) <span class="sc">|&gt;</span> </span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidy_contrast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>contrasts <span class="ot">&lt;-</span> nlme_summaries <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(.metric, contrast) <span class="sc">|&gt;</span> </span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(.metric, <span class="at">tidy_contrast =</span> <span class="fu">map</span>(contrast, tidy)) <span class="sc">|&gt;</span> </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tidy_contrast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [12]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lead_lag summaries</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>lead_lag <span class="ot">&lt;-</span> nlme_summaries_with_models_2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(.metric, emmean)<span class="sc">%&gt;%</span> </span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.metric) <span class="sc">|&gt;</span> </span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lagged =</span> <span class="fu">lag</span>(emmean)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_change =</span> (emmean <span class="sc">-</span> lagged) <span class="sc">/</span> lagged)<span class="sc">|&gt;</span> </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead =</span> <span class="fu">lead</span>(emmean)) <span class="sc">%&gt;%</span> </span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_change_lead =</span> (emmean <span class="sc">-</span> lead) <span class="sc">/</span> lead)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lead_lag summaries</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>lead_lag <span class="ot">&lt;-</span> nlme_summaries_with_models_2 <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(.metric, emmean)<span class="sc">%&gt;%</span> </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.metric) <span class="sc">|&gt;</span> </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lagged =</span> <span class="fu">lag</span>(emmean)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_change =</span> (emmean <span class="sc">-</span> lagged) <span class="sc">/</span> lagged)<span class="sc">|&gt;</span> </span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">lead =</span> <span class="fu">lead</span>(emmean)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">pct_change_lead =</span> (emmean <span class="sc">-</span> lead) <span class="sc">/</span> lead)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [13]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percent change for contrasts</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>raw_contrast <span class="ot">&lt;-</span> nlme_summaries_with_models_2 <span class="sc">|&gt;</span> <span class="fu">filter</span>(preproc<span class="sc">==</span><span class="st">"raw"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(contrasts <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="at">estimated_diff =</span> <span class="dv">5</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_difference =</span> estimated_diff<span class="sc">/</span>(emmean<span class="sc">+</span>estimated_diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># percent change for contrasts</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>raw_contrast <span class="ot">&lt;-</span> nlme_summaries_with_models_2 <span class="sc">|&gt;</span> <span class="fu">filter</span>(preproc<span class="sc">==</span><span class="st">"raw"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(contrasts <span class="sc">|&gt;</span> <span class="fu">select</span>(<span class="dv">1</span>,<span class="dv">3</span>,<span class="at">estimated_diff =</span> <span class="dv">5</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">percent_difference =</span> estimated_diff<span class="sc">/</span>(emmean<span class="sc">+</span>estimated_diff))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(.metric)`</code></pre>
 </div>
 </div></div>
 <p>All preprocessing methods outperformed raw spectral data <a href="#tbl-preproc" class="quarto-xref">Table&nbsp;2</a>. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ values (significant at <span class="math inline">\(\alpha\)</span> level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed spectra.</p>
-<p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at <span class="math inline">\(\alpha\)</span> &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread of data in skewed populations <span class="citation" data-cites="bellon-maurel2010">(<a href="#ref-bellon-maurel2010" role="doc-biblioref">Bellon-Maurel et al. 2010</a>)</span> and thus offers a robust metric for model assessment. Therefore the superiority of SNV-SG as measured via RPIQ made it the superior candidate for the choice of final model.</p>
+<p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at <span class="math inline">\(\alpha\)</span> &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread of data in skewed populations <span class="citation" data-cites="bellon-maurel2010">(<a href="#ref-bellon-maurel2010" role="doc-biblioref">Bellon-Maurel et al. 2010</a>)</span> and thus offers a robust metric for model assessment in this context, where the CP data are skewed. Therefore the superiority of SNV-SG as measured via RPIQ made it the best choice for the final model.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [14]:</pre></div><div class="cell">
 
-<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># printable table of results</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>to_table2 <span class="ot">&lt;-</span> to_table <span class="sc">|&gt;</span> </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Metric, <span class="at">values_from =</span> Estimate) <span class="sc">|&gt;</span> </span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(rmse) <span class="sc">|&gt;</span> </span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">RMSE =</span> rmse, <span class="at">RPIQ =</span> rpiq ) </span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="co"># names(to_table2)[3] &lt;- "$^{2}$"</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>to_table2<span class="sc">|&gt;</span> </span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Preprocessing Method"</span>, <span class="st">"RMSE"</span>, <span class="st">"$R^{2}$"</span>, <span class="st">"RPIQ"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-preproc" class="cell quarto-float anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [15]:</pre></div><div><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># printable table of results</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>to_table2 <span class="ot">&lt;-</span> to_table <span class="sc">|&gt;</span> </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Metric, <span class="at">values_from =</span> Estimate) <span class="sc">|&gt;</span> </span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(rmse) <span class="sc">|&gt;</span> </span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">RMSE =</span> rmse, <span class="at">RPIQ =</span> rpiq ) </span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a><span class="co"># names(to_table2)[3] &lt;- "$^{2}$"</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>to_table2<span class="sc">|&gt;</span> </span>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Preprocessing Method"</span>, <span class="st">"RMSE"</span>, <span class="st">"$R^{2}$"</span>, <span class="st">"RPIQ"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-preproc" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-preproc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Evaluation of Preprocessing Methods by Metric
+Table&nbsp;2: Evaluation of Preprocessing Methods by Metric ± Standard Error
 </figcaption>
 <div aria-describedby="tbl-preproc-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <div class="cell-output-display">
@@ -807,32 +817,31 @@ Table&nbsp;2: Evaluation of Preprocessing Methods by Metric
 </figure>
 </div></div></div>
 </div></div>
-<p><strong>paragraph discussing relative merits of various preprocessing methods</strong></p>
-<p>The preprocessing methods examined represent a portion of those available. As well, preprocessing methods tend to have a number of user-adjustable parameters whose various permutations were not tested. This subset of preprocessing methods and parameters nonetheless contained substantial variations in model quality, demonstrating the importance of the selection an appropriate preprocessing method.</p>
+<p>The preprocessing methods examined represent a portion of those available. As well, preprocessing methods tend to have a number of user-adjustable parameters whose various permutations were not tested. This subset of preprocessing methods and parameters nonetheless contained substantial variations in model quality, demonstrating the importance of the selection of an appropriate preprocessing method.</p>
 </section>
 <section id="final-model-development-and-summary" class="level3">
 <h3 class="anchored" data-anchor-id="final-model-development-and-summary">Final model development and summary</h3>
 <div class="cell-container"><div class="cell-decorator"><pre>In [16]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>model_n_comp_statistics <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/final_model_n_component_stats.csv"</span>)</span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define a function to calculate percent difference</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>pct_lower <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  my_lag <span class="ot">=</span> data.table<span class="sc">::</span><span class="fu">shift</span>(x, <span class="at">type =</span> <span class="st">"lag"</span>)</span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>((x <span class="sc">-</span> my_lag)<span class="sc">/</span>my_lag<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>avg_change <span class="ot">&lt;-</span> model_n_comp_statistics[,<span class="fu">lapply</span>(.SD, mean),.SDcols <span class="ot">=</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>, by<span class="ot">=</span> ncomp]</span>
-<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>change_per_pc <span class="ot">&lt;-</span> avg_change[, <span class="fu">lapply</span>(.SD, pct_lower), .SDcols <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>model_n_comp_statistics <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/final_model_n_component_stats.csv"</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># define a function to calculate percent difference</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>pct_lower <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  my_lag <span class="ot">=</span> data.table<span class="sc">::</span><span class="fu">shift</span>(x, <span class="at">type =</span> <span class="st">"lag"</span>)</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>((x <span class="sc">-</span> my_lag)<span class="sc">/</span>my_lag<span class="sc">*</span><span class="dv">100</span>,<span class="dv">2</span>)</span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>avg_change <span class="ot">&lt;-</span> model_n_comp_statistics[,<span class="fu">lapply</span>(.SD, mean),.SDcols <span class="ot">=</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">8</span>, by<span class="ot">=</span> ncomp]</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>change_per_pc <span class="ot">&lt;-</span> avg_change[, <span class="fu">lapply</span>(.SD, pct_lower), .SDcols <span class="ot">=</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <p>The model improved most rapidly as the number of principal components increased from 1 to 7, with the inclusion of each additional PC being associated with a decrease in RMSE of 5-12% . From 8 to 12 PCs, model performance continued to improve, although gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more PCs, performance gains were minimal and the relative ranks of the models tended to be stable <a href="#fig-model-calibration" class="quarto-xref">Figure&nbsp;1</a>.</p>
 <div class="cell-container"><div class="cell-decorator"><pre>In [17]:</pre></div><div id="cell-fig-model-calibration" class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>model_n_comp_statistics <span class="sc">|&gt;</span> </span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">as.factor</span>(ncomp), RMSE)) <span class="sc">+</span> </span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> id), <span class="at">alpha =</span> <span class="fl">0.03</span>) <span class="sc">+</span> </span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Crude Protein Model Number of Principal Components"</span>) <span class="sc">+</span> </span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Crude Protein Model Root Mean Squared Error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>model_n_comp_statistics <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">as.factor</span>(ncomp), RMSE)) <span class="sc">+</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> id), <span class="at">alpha =</span> <span class="fl">0.03</span>) <span class="sc">+</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Crude Protein Model Number of Principal Components"</span>) <span class="sc">+</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Crude Protein Model Root Mean Squared Error"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-model-calibration" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -846,26 +855,34 @@ Figure&nbsp;1: Decreasing RMSE with increasing number of PCs
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div id="cell-fig-final-metric-boxplot" class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>model_final_predictions <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/final_model_predictions.csv"</span>)</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="co"># setnames(model_final_predictions, "V1", "crude_protein")</span></span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>final_model_table <span class="ot">&lt;-</span> model_final_predictions <span class="sc">|&gt;</span> </span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
-<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multi_metric</span>(crude_protein, predicted_crude_protein)</span>
-<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a>final_model_table <span class="sc">|&gt;</span></span>
-<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">metric2 =</span> <span class="fu">toupper</span>(.metric)) <span class="sc">|&gt;</span> </span>
-<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .metric, <span class="at">y =</span> .estimate)) <span class="sc">+</span> </span>
-<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
-<span id="cb31-14"><a href="#cb31-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(metric2), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb31-15"><a href="#cb31-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Metric"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Estimate"</span>)<span class="sc">+</span></span>
-<span id="cb31-16"><a href="#cb31-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb31-17"><a href="#cb31-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb31-18"><a href="#cb31-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [18]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>model_final_predictions <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/final_model_predictions.csv"</span>)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>final_model_table <span class="ot">&lt;-</span> model_final_predictions <span class="sc">|&gt;</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id) <span class="sc">|&gt;</span> </span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">multi_metric</span>(crude_protein, predicted_crude_protein) <span class="sc">|&gt;</span> <span class="fu">setDT</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<p>Final model performance was similar, but not identical to, that obtained during the initial comparison of preprocessing methods. The final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, and RPIQ was 3.89 (all calculated on the test sets). Despite the generally good model performance, a subset of poor models can be seen. For example, <a href="#fig-final-metric-boxplot" class="quarto-xref">Figure&nbsp;2</a> shows 21 number of models with R<sup>2</sup> below 0.7.</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>skim_metrics <span class="ot">&lt;-</span> final_model_table <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(.metric) <span class="sc">|&gt;</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  skimr<span class="sc">::</span><span class="fu">skim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div id="cell-fig-final-metric-boxplot" class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># setnames(model_final_predictions, "V1", "crude_protein")</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>final_model_table <span class="sc">|&gt;</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">metric2 =</span> <span class="fu">toupper</span>(.metric)) <span class="sc">|&gt;</span> </span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> .metric, <span class="at">y =</span> .estimate)) <span class="sc">+</span> </span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(metric2), <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Metric"</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">"Estimate"</span>)<span class="sc">+</span></span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-final-metric-boxplot" class="quarto-figure quarto-figure-center quarto-float anchored">
 <figure class="quarto-float quarto-float-fig figure">
@@ -879,57 +896,57 @@ Figure&nbsp;2: Final model validation set performance (1000 iterations)
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [19]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add difference calculation between predicted and observed...</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>model_final_predictions[,difference <span class="sc">:</span><span class="er">=</span> predicted_crude_protein <span class="sc">-</span> crude_protein]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># add difference calculation between predicted and observed...</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>model_final_predictions[,difference <span class="sc">:</span><span class="er">=</span> predicted_crude_protein <span class="sc">-</span> crude_protein]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [20]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># my_cut &lt;- cut(spectra_2$crude_protein, 3)</span></span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)</span></span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revised_model_cutpoints</span></span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>cutpoints2 <span class="ot">&lt;-</span> model_final_predictions <span class="sc">|&gt;</span> </span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(ith_in_data_set, crude_protein) <span class="sc">|&gt;</span> </span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutpoints =</span> <span class="fu">cut</span>(crude_protein, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [22]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># my_cut &lt;- cut(spectra_2$crude_protein, 3)</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="co"># cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># revised_model_cutpoints</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>cutpoints2 <span class="ot">&lt;-</span> model_final_predictions <span class="sc">|&gt;</span> </span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(ith_in_data_set, crude_protein) <span class="sc">|&gt;</span> </span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">cutpoints =</span> <span class="fu">cut</span>(crude_protein, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [21]:</pre></div><div id="cell-fig-validation_set_performance" class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model_final_predictions |&gt; </span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   left_join(cut_dt) |&gt; </span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot(aes(fct_reorder(</span></span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     ith_in_data_set |&gt; as.character(),</span></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     crude_protein), crude_protein))+</span></span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(aes(fct_reorder(</span></span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     ith_in_data_set |&gt; as.character(),</span></span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     crude_protein), difference), alpha = 0.05, shape = 2) +</span></span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="co">#     geom_hline(yintercept = 0, linewidth = 2, lty = 2)+</span></span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   facet_wrap( ~cutpoints, scales = "free_x",</span></span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="co">#           labeller = as_labeller(c("(20.8,24.1]" = "Low (20.8 - 24.1)",</span></span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                                    "(24.1,27.5]"= "Medium (24.2 - 27.5)",</span></span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                                    "(27.5,30.8]" ="High (27.6-30.8)"))) + </span></span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     theme_classic()+</span></span>
-<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme(</span></span>
-<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     axis.title.x = element_blank(),</span></span>
-<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     axis.text.x = element_blank())</span></span>
-<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>model_final_predictions <span class="sc">|&gt;</span> </span>
-<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(cutpoints2) <span class="sc">|&gt;</span> </span>
-<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(</span>
-<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>    ith_in_data_set <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
-<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a>    crude_protein), crude_protein))<span class="sc">+</span></span>
-<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(</span>
-<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>    ith_in_data_set <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
-<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>    crude_protein), difference), <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">shape =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span>cutpoints, <span class="at">scales =</span> <span class="st">"free_x"</span>,</span>
-<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"(20.8,24.1]"</span> <span class="ot">=</span> <span class="st">"Low CP (20.8 - 24.1%)"</span>,</span>
-<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(24.1,27.5]"</span><span class="ot">=</span> <span class="st">"Medium CP (24.2 - 27.5%)"</span>,</span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(27.5,30.8]"</span> <span class="ot">=</span><span class="st">"High CP (27.6-30.8%)"</span>))) <span class="sc">+</span> </span>
-<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="cell-fig-validation_set_performance" class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="co"># model_final_predictions |&gt; </span></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   left_join(cut_dt) |&gt; </span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot(aes(fct_reorder(</span></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="co">#     ith_in_data_set |&gt; as.character(),</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="co">#     crude_protein), crude_protein))+</span></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(aes(fct_reorder(</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a><span class="co">#     ith_in_data_set |&gt; as.character(),</span></span>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a><span class="co">#     crude_protein), difference), alpha = 0.05, shape = 2) +</span></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="co">#     geom_hline(yintercept = 0, linewidth = 2, lty = 2)+</span></span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   facet_wrap( ~cutpoints, scales = "free_x",</span></span>
+<span id="cb38-12"><a href="#cb38-12" aria-hidden="true" tabindex="-1"></a><span class="co">#           labeller = as_labeller(c("(20.8,24.1]" = "Low (20.8 - 24.1)",</span></span>
+<span id="cb38-13"><a href="#cb38-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                                    "(24.1,27.5]"= "Medium (24.2 - 27.5)",</span></span>
+<span id="cb38-14"><a href="#cb38-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                                    "(27.5,30.8]" ="High (27.6-30.8)"))) + </span></span>
+<span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a><span class="co">#     theme_classic()+</span></span>
+<span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme(</span></span>
+<span id="cb38-17"><a href="#cb38-17" aria-hidden="true" tabindex="-1"></a><span class="co">#     axis.title.x = element_blank(),</span></span>
+<span id="cb38-18"><a href="#cb38-18" aria-hidden="true" tabindex="-1"></a><span class="co">#     axis.text.x = element_blank())</span></span>
+<span id="cb38-19"><a href="#cb38-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-20"><a href="#cb38-20" aria-hidden="true" tabindex="-1"></a>model_final_predictions <span class="sc">|&gt;</span> </span>
+<span id="cb38-21"><a href="#cb38-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(cutpoints2) <span class="sc">|&gt;</span> </span>
+<span id="cb38-22"><a href="#cb38-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(</span>
+<span id="cb38-23"><a href="#cb38-23" aria-hidden="true" tabindex="-1"></a>    ith_in_data_set <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
+<span id="cb38-24"><a href="#cb38-24" aria-hidden="true" tabindex="-1"></a>    crude_protein), crude_protein))<span class="sc">+</span></span>
+<span id="cb38-25"><a href="#cb38-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="fu">fct_reorder</span>(</span>
+<span id="cb38-26"><a href="#cb38-26" aria-hidden="true" tabindex="-1"></a>    ith_in_data_set <span class="sc">|&gt;</span> <span class="fu">as.character</span>(),</span>
+<span id="cb38-27"><a href="#cb38-27" aria-hidden="true" tabindex="-1"></a>    crude_protein), difference), <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">shape =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-28"><a href="#cb38-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb38-29"><a href="#cb38-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span>cutpoints, <span class="at">scales =</span> <span class="st">"free_x"</span>,</span>
+<span id="cb38-30"><a href="#cb38-30" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"(20.8,24.1]"</span> <span class="ot">=</span> <span class="st">"Low CP (20.8 - 24.1%)"</span>,</span>
+<span id="cb38-31"><a href="#cb38-31" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(24.1,27.5]"</span><span class="ot">=</span> <span class="st">"Medium CP (24.2 - 27.5%)"</span>,</span>
+<span id="cb38-32"><a href="#cb38-32" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(27.5,30.8]"</span> <span class="ot">=</span><span class="st">"High CP (27.6-30.8%)"</span>))) <span class="sc">+</span> </span>
+<span id="cb38-33"><a href="#cb38-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb38-34"><a href="#cb38-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb38-35"><a href="#cb38-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb38-36"><a href="#cb38-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(crude_protein, ith_in_data_set)`</code></pre>
 </div>
@@ -965,16 +982,16 @@ Figure&nbsp;3: Test set predictions versus normalized scores across hemp samples
 </section>
 <section id="figures-and-tables" class="level2">
 <h2 class="anchored" data-anchor-id="figures-and-tables">FIGURES AND TABLES</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [22]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>eruptions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1492</span>, <span class="dv">1585</span>, <span class="dv">1646</span>, <span class="dv">1677</span>, <span class="dv">1712</span>, <span class="dv">1949</span>, <span class="dv">1971</span>, <span class="dv">2021</span>)</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>n_eruptions <span class="ot">&lt;-</span> <span class="fu">length</span>(eruptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>eruptions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1492</span>, <span class="dv">1585</span>, <span class="dv">1646</span>, <span class="dv">1677</span>, <span class="dv">1712</span>, <span class="dv">1949</span>, <span class="dv">1971</span>, <span class="dv">2021</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>n_eruptions <span class="ot">&lt;-</span> <span class="fu">length</span>(eruptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [23]:</pre></div><div id="cell-fig-timeline" class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eruptions, <span class="fu">rep</span>(<span class="dv">0</span>, n_eruptions), </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="st">"|"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div id="cell-fig-timeline" class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eruptions, <span class="fu">rep</span>(<span class="dv">0</span>, n_eruptions), </span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="st">"|"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-timeline" class="quarto-figure quarto-figure-center quarto-float anchored" alt="An event plot of the years of the last 8 eruptions on La Palma.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -988,9 +1005,9 @@ Figure&nbsp;4: Timeline of recent earthquakes on La Palma
 </div>
 </div>
 </div></div>
-<div class="cell-container"><div class="cell-decorator"><pre>In [24]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">diff</span>(eruptions[<span class="sc">-</span>n_eruptions]))</span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [26]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">diff</span>(eruptions[<span class="sc">-</span>n_eruptions]))</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 79.83333</code></pre>
 </div>
@@ -1068,13 +1085,13 @@ Figure&nbsp;5: Map of La Palma
 </div>
 <p>La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (<a href="#fig-map" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="quarto-embed-nb-cell" data-notebook="/home/runner/work/glowing-system/glowing-system/notebooks/explore-earthquakes.qmd" data-notebook-title="Explore Earthquakes" data-notebook-cellid="cell-fig-spatial-plot">
-<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div id="cell-fig-spatial-plot" class="cell" data-message.hidden="true" data-warning.hidden="true">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>la_palma <span class="op">|&gt;</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(Longitude, Latitude)) <span class="op">+</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(color <span class="op">=</span> Magnitude, size <span class="op">=</span> <span class="dv">40</span><span class="op">-</span>`Depth(km)`)) <span class="op">+</span></span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  scale_color_viridis_c(direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> </span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  scale_size(<span class="bu">range</span> <span class="op">=</span> c(<span class="fl">0.5</span>, <span class="dv">2</span>), guide <span class="op">=</span> <span class="st">"none"</span>) <span class="op">+</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-container"><div class="cell-decorator"><pre>In [27]:</pre></div><div id="cell-fig-spatial-plot" class="cell" data-message.hidden="true" data-warning.hidden="true">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>la_palma <span class="op">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(Longitude, Latitude)) <span class="op">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(color <span class="op">=</span> Magnitude, size <span class="op">=</span> <span class="dv">40</span><span class="op">-</span>`Depth(km)`)) <span class="op">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  scale_color_viridis_c(direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> </span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  scale_size(<span class="bu">range</span> <span class="op">=</span> c(<span class="fl">0.5</span>, <span class="dv">2</span>), guide <span class="op">=</span> <span class="st">"none"</span>) <span class="op">+</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-spatial-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A scatterplot of earthquake locations plotting latitude against longitude.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1192,6 +1209,9 @@ Xie, Yihui, J. J. Allaire, and Garrett Grolemund. 2018. <em>R Markdown: The Defi
 </div>
 <div id="ref-rmarkdown2020" class="csl-entry" role="listitem">
 Xie, Yihui, Christophe Dervieux, and Emily Riederer. 2020. <em>R Markdown Cookbook</em>. Boca Raton, Florida: Chapman; Hall/CRC. <a href="https://bookdown.org/yihui/rmarkdown-cookbook">https://bookdown.org/yihui/rmarkdown-cookbook</a>.
+</div>
+<div id="ref-kableExtra" class="csl-entry" role="listitem">
+Zhu, Hao. 2024. <em><span class="nocase">kableExtra</span>: Construct Complex Table with <span>“<span class="nocase">kable</span>”</span> and Pipe Syntax</em>. <a href="https://CRAN.R-project.org/package=kableExtra">https://CRAN.R-project.org/package=kableExtra</a>.
 </div>
 </div>
 </section>
@@ -1615,7 +1635,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","descPosition":"bottom","loop":false,"selector":".lightbox"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","closeEffect":"zoom","loop":false,"descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

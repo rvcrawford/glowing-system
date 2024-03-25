@@ -181,9 +181,9 @@ etc.</bold></p>
   highly-correlated spectral data. Typically the number of principal
   components is chosen via cross-validation to avoid overfitting.
   <bold>CITES FOR ALL OF THIS</bold></p>
-  <p>A NIRS-scanned sample of undamaged grain may subsequently be grown,
-  an important consideration for a plant breeder. In wheat and corn,
-  grain protein content has been shown to be heritable
+  <p>A NIRS-scanned sample of undamaged grain may used for other
+  purposes or it may planted as a seed. In wheat and corn, grain protein
+  content has been shown to be heritable
   (<xref alt="Giancaspro et al. 2019" rid="ref-giancaspro_genetic_2019" ref-type="bibr">Giancaspro
   et al. 2019</xref>;
   <xref alt="Geyer, Mohler, and Hartl 2022" rid="ref-geyer_genetics_2022" ref-type="bibr">Geyer,
@@ -276,7 +276,8 @@ etc.</bold></p>
     100 sets. The relationship between the predicted and actual values
     of the validation set were calculated via RMSE, R<sup>2</sup> and
     Ratio of Performance to InterQuartile distance (RPIQ), three common
-    model assessment metrics. Analyses of variance (ANOVA) were
+    model assessment metrics. Larger R<sup>2</sup> and RPIQ, and smaller
+    RMSE values are superior. Analyses of variance (ANOVA) were
     performed for each of these metrics in order to compare the
     preprocessing methods. For each ANOVA, each data set was considered
     as a subject and allowing different variances for each preprocessing
@@ -296,6 +297,8 @@ etc.</bold></p>
     (<xref alt="Barrett et al. 2024" rid="ref-datatable" ref-type="bibr">Barrett
     et al. 2024</xref>), emmeans v. 1.10.0
     (<xref alt="Lenth 2024" rid="ref-emmeans" ref-type="bibr">Lenth
+    2024</xref>), kableExtra v. 1.4.0
+    (<xref alt="Zhu 2024" rid="ref-kableExtra" ref-type="bibr">Zhu
     2024</xref>), knitr v. 1.45
     (<xref alt="Xie 2014" rid="ref-knitr2014" ref-type="bibr">Xie
     2014</xref>,
@@ -336,7 +339,7 @@ etc.</bold></p>
     <title>Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
-    observed in the literature, indicating an appropriate basis for a
+    observed in the literature, indicating an reasonable basis for a
     chemometric model. The CP values are left-skewed and two thirds of
     the samples contained more than 25% CP.</p>
     <fig id="tbl-lab-protein-vals">
@@ -395,11 +398,12 @@ etc.</bold></p>
     of data in skewed populations
     (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010" ref-type="bibr">Bellon-Maurel
     et al. 2010</xref>) and thus offers a robust metric for model
-    assessment. Therefore the superiority of SNV-SG as measured via RPIQ
-    made it the superior candidate for the choice of final model.</p>
+    assessment in this context, where the CP data are skewed. Therefore
+    the superiority of SNV-SG as measured via RPIQ made it the best
+    choice for the final model.</p>
     <fig id="tbl-preproc">
-      <caption><p>Table 2: Evaluation of Preprocessing Methods by
-      Metric</p></caption>
+      <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
+      ± Standard Error</p></caption>
       <table-wrap>
         <table>
           <colgroup>
@@ -472,14 +476,12 @@ etc.</bold></p>
         </table>
       </table-wrap>
     </fig>
-    <p><bold>paragraph discussing relative merits of various
-    preprocessing methods</bold></p>
     <p>The preprocessing methods examined represent a portion of those
     available. As well, preprocessing methods tend to have a number of
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance of the selection an appropriate
+    demonstrating the importance of the selection of an appropriate
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
@@ -497,6 +499,14 @@ etc.</bold></p>
       PCs</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
+    <p>Final model performance was similar, but not identical to, that
+    obtained during the initial comparison of preprocessing methods. The
+    final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, and RPIQ
+    was 3.89 (all calculated on the test sets). Despite the generally
+    good model performance, a subset of poor models can be seen. For
+    example,
+    <xref alt="Figure 2" rid="fig-final-metric-boxplot">Figure 2</xref>
+    shows 21 number of models with R<sup>2</sup> below 0.7.</p>
     <fig id="fig-final-metric-boxplot">
       <caption><p>Figure 2: Final model validation set performance (1000
       iterations)</p></caption>
@@ -927,6 +937,16 @@ etc.</bold></p>
       <uri>https://CRAN.R-project.org/package=emmeans</uri>
     </element-citation>
   </ref>
+  <ref id="ref-kableExtra">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Zhu</surname><given-names>Hao</given-names></name>
+      </person-group>
+      <source>kableExtra: Construct complex table with ‘kable’ and pipe syntax</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=kableExtra</uri>
+    </element-citation>
+  </ref>
   <ref id="ref-knitr2023">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1285,6 +1305,7 @@ mollit anim id est laborum.</p>
 <code language="r script">library(pls)</code>
 <code language="r script">library(tidymodels)</code>
 <code language="r script">library(nlme)</code>
+<code language="r script">library(kableExtra)</code>
 <sec id="nb-code-cell-1-output-0-nb-article" specific-use="notebook-output">
 <preformat>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
 ✔ dplyr     1.1.4     ✔ readr     2.1.5
@@ -1367,7 +1388,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Learn how to get started at https://www.tidymodels.org/start/</preformat>
+• Use tidymodels_prefer() to resolve common conflicts.</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1376,6 +1397,14 @@ Attaching package: 'nlme'
 The following object is masked from 'package:dplyr':
 
     collapse</preformat>
+</sec>
+<sec id="nb-code-cell-1-output-7-nb-article" specific-use="notebook-output">
+<preformat>
+Attaching package: 'kableExtra'
+
+The following object is masked from 'package:dplyr':
+
+    group_rows</preformat>
 </sec>
 </sec>
 <p><bold>incomplete: may contain errors, run-ons, half-thoughts,
@@ -1430,9 +1459,9 @@ etc.</bold></p>
   highly-correlated spectral data. Typically the number of principal
   components is chosen via cross-validation to avoid overfitting.
   <bold>CITES FOR ALL OF THIS</bold></p>
-  <p>A NIRS-scanned sample of undamaged grain may subsequently be grown,
-  an important consideration for a plant breeder. In wheat and corn,
-  grain protein content has been shown to be heritable
+  <p>A NIRS-scanned sample of undamaged grain may used for other
+  purposes or it may planted as a seed. In wheat and corn, grain protein
+  content has been shown to be heritable
   (<xref alt="Giancaspro et al. 2019" rid="ref-giancaspro_genetic_2019-nb-article" ref-type="bibr">Giancaspro
   et al. 2019</xref>;
   <xref alt="Geyer, Mohler, and Hartl 2022" rid="ref-geyer_genetics_2022-nb-article" ref-type="bibr">Geyer,
@@ -1568,7 +1597,8 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     100 sets. The relationship between the predicted and actual values
     of the validation set were calculated via RMSE, R<sup>2</sup> and
     Ratio of Performance to InterQuartile distance (RPIQ), three common
-    model assessment metrics. Analyses of variance (ANOVA) were
+    model assessment metrics. Larger R<sup>2</sup> and RPIQ, and smaller
+    RMSE values are superior. Analyses of variance (ANOVA) were
     performed for each of these metrics in order to compare the
     preprocessing methods. For each ANOVA, each data set was considered
     as a subject and allowing different variances for each preprocessing
@@ -1590,6 +1620,8 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     (<xref alt="Barrett et al. 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
     et al. 2024</xref>), emmeans v. 1.10.0
     (<xref alt="Lenth 2024" rid="ref-emmeans-nb-article" ref-type="bibr">Lenth
+    2024</xref>), kableExtra v. 1.4.0
+    (<xref alt="Zhu 2024" rid="ref-kableExtra-nb-article" ref-type="bibr">Zhu
     2024</xref>), knitr v. 1.45
     (<xref alt="Xie 2014" rid="ref-knitr2014-nb-article" ref-type="bibr">Xie
     2014</xref>,
@@ -1631,7 +1663,7 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <title>Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
-    observed in the literature, indicating an appropriate basis for a
+    observed in the literature, indicating an reasonable basis for a
     chemometric model. The CP values are left-skewed and two thirds of
     the samples contained more than 25% CP.</p>
     <sec id="nb-code-cell-6-nb-article" specific-use="notebook-code">
@@ -1800,8 +1832,9 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     of data in skewed populations
     (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr">Bellon-Maurel
     et al. 2010</xref>) and thus offers a robust metric for model
-    assessment. Therefore the superiority of SNV-SG as measured via RPIQ
-    made it the superior candidate for the choice of final model.</p>
+    assessment in this context, where the CP data are skewed. Therefore
+    the superiority of SNV-SG as measured via RPIQ made it the best
+    choice for the final model.</p>
     <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
     <code language="r script"># printable table of results
 
@@ -1814,8 +1847,8 @@ to_table2 &lt;- to_table |&gt;
 to_table2|&gt; 
   knitr::kable(col.names = c(&quot;Preprocessing Method&quot;, &quot;RMSE&quot;, &quot;$R^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;, &quot;RPIQ&quot;))</code>
     <fig id="tbl-preproc-nb-article">
-      <caption><p>Table 2: Evaluation of Preprocessing Methods by
-      Metric</p></caption>
+      <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
+      ± Standard Error</p></caption>
       <table-wrap>
         <table>
           <colgroup>
@@ -1889,14 +1922,12 @@ to_table2|&gt;
       </table-wrap>
     </fig>
     </sec>
-    <p><bold>paragraph discussing relative merits of various
-    preprocessing methods</bold></p>
     <p>The preprocessing methods examined represent a portion of those
     available. As well, preprocessing methods tend to have a number of
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance of the selection an appropriate
+    demonstrating the importance of the selection of an appropriate
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
@@ -1935,15 +1966,30 @@ change_per_pc &lt;- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]</code>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
     </sec>
-    <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-15-nb-article" specific-use="notebook-code">
     <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/final_data_set/final_model_predictions.csv&quot;)
-
-# setnames(model_final_predictions, &quot;V1&quot;, &quot;crude_protein&quot;)
-
 
 final_model_table &lt;- model_final_predictions |&gt; 
   group_by(id) |&gt; 
-  multi_metric(crude_protein, predicted_crude_protein)
+  multi_metric(crude_protein, predicted_crude_protein) |&gt; setDT()</code>
+    </sec>
+    <p>Final model performance was similar, but not identical to, that
+    obtained during the initial comparison of preprocessing methods. The
+    final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, and RPIQ
+    was 3.89 (all calculated on the test sets). Despite the generally
+    good model performance, a subset of poor models can be seen. For
+    example,
+    <xref alt="Figure 2" rid="fig-final-metric-boxplot-nb-article">Figure 2</xref>
+    shows 21 number of models with R<sup>2</sup> below 0.7.</p>
+    <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
+    <code language="r script">skim_metrics &lt;- final_model_table |&gt; 
+  group_by(.metric) |&gt; 
+  skimr::skim()</code>
+    </sec>
+    <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
+    <code language="r script"># setnames(model_final_predictions, &quot;V1&quot;, &quot;crude_protein&quot;)
+
+
 
 final_model_table |&gt;
   mutate(metric2 = toupper(.metric)) |&gt; 
@@ -1961,11 +2007,11 @@ final_model_table |&gt;
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     </sec>
-    <sec id="nb-code-cell-15-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
     <code language="r script"># add difference calculation between predicted and observed...
 model_final_predictions[,difference := predicted_crude_protein - crude_protein]</code>
     </sec>
-    <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
     <code language="r script"># my_cut &lt;- cut(spectra_2$crude_protein, 3)
 # cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
 
@@ -2050,7 +2096,7 @@ model_final_predictions |&gt;
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -2066,10 +2112,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-18-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-20-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -2469,6 +2515,16 @@ avg_years_between_eruptions</code>
       <source>emmeans: Estimated marginal means, aka least-squares means</source>
       <year iso-8601-date="2024">2024</year>
       <uri>https://CRAN.R-project.org/package=emmeans</uri>
+    </element-citation>
+  </ref>
+  <ref id="ref-kableExtra-nb-article">
+    <element-citation publication-type="book">
+      <person-group person-group-type="author">
+        <name><surname>Zhu</surname><given-names>Hao</given-names></name>
+      </person-group>
+      <source>kableExtra: Construct complex table with ‘kable’ and pipe syntax</source>
+      <year iso-8601-date="2024">2024</year>
+      <uri>https://CRAN.R-project.org/package=kableExtra</uri>
     </element-citation>
   </ref>
   <ref id="ref-knitr2023-nb-article">
