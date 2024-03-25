@@ -145,12 +145,12 @@ etc.</bold></p>
   and Fike 2022</xref>;
   <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024" ref-type="bibr">Bárta
   et al. 2024</xref>;
-  <xref alt="Callaway 2004" rid="ref-callaway2004" ref-type="bibr">Callaway
-  2004</xref>). Crude protein (CP) is often used as a proxy for the
-  direct measurement of protein concentration and consists of the
-  multiplication of nitrogen concentration by a conversion factor
-  because measuring nitrogen concentration is relatively easy and cheap
-  via laboratory assay
+  <xref alt="callaway2004?" rid="ref-callaway2004" ref-type="bibr"><bold>callaway2004?</bold></xref>).
+  Crude protein (CP) is often used as a proxy for the direct measurement
+  of protein concentration and consists of the multiplication of
+  nitrogen concentration by a conversion factor because measuring
+  nitrogen concentration is relatively easy and cheap via laboratory
+  assay
   (<xref alt="Hayes 2020" rid="ref-hayes_measuring_2020" ref-type="bibr">Hayes
   2020</xref>).</p>
   <p>Near-infrared spectroscopy (NIRS) technology is rapid,
@@ -163,8 +163,8 @@ etc.</bold></p>
   (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts,
   Workman, and Reeves 2004</xref>). NIRS technology has been used since
   the 1970’s to assess forage CP
-  (<xref alt="Reeves 2012a" rid="ref-reeves_potential_2012" ref-type="bibr">Reeves
-  2012a</xref>;
+  (<xref alt="Reeves 2012" rid="ref-reeves_potential_2012" ref-type="bibr">Reeves
+  2012</xref>;
   <xref alt="Williams 1975" rid="ref-williams_application_1975" ref-type="bibr">Williams
   1975</xref>). A NIRS calibration set often consists of samples from
   one species grown in many environments encompassing the range of
@@ -258,29 +258,32 @@ etc.</bold></p>
     remaining 25% were assigned to the validation set. For each
     calibration set, models were developed in caret using PLSR. In
     fitting the model, the number of principal components was optimized
-    over a grid search from 1-20. Model performance was evaluated with a
-    bootstrapping method using root mean squared error (RMSE) and
-    R<sup>2</sup> statistics in selecting a final model.</p>
-    <p>Initially several of common spectral preprocessing methods were
+    over au grid search from 1-20. Model performance was evaluated with
+    25 iterations of bootstrapping and minimized root mean squared error
+    (RMSE) in selecting the number of principal components in the final
+    model
+    (<xref alt="kuhn2008?" rid="ref-kuhn2008" ref-type="bibr"><bold>kuhn2008?</bold></xref>).</p>
+    <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 calibration and validation sets as described
     above. Spectral data from those data sets were transformed by each
-    of the following methods: First Derivative, Gap-segment derivative,
-    Multiplicative Scatter Correction, Raw Spectra, Savitzky-Golay,
-    Second Derivative, SNV-Detrend, Standard Normal Variate, Standard
-    Normal Variate/ Savitzky-Golay. For each of these preprocessing
-    methods, models were fit and predictions were made on the
-    corresponding validation set (since there were 9 preprocessing
-    methods, 9 separate models were fit for each of the 100 sets. The
-    relationship between the predicted and actual values of validation
-    set were calculated via RMSE, R<sup>2</sup> and Ratio of Performance
-    to InterQuartile distance (RPIQ). Analyses of variance (ANOVA) were
+    of the following methods: 1) first derivative, 2) Savitzky-Golay
+    (SG), 3) gap-segment derivative, 4) standard normal variate (SNV),
+    4) standard normal variate following Savitzky-Golay (SNV-SG), 5)
+    SNV-detrend, and 6) multiplicative scatter correction. For each of
+    these preprocessing methods, models were fit and predictions were
+    made on the corresponding validation set (since there were 8
+    preprocessing methods, 8 separate models were fit for each of the
+    100 sets. The relationship between the predicted and actual values
+    of the validation set were calculated via RMSE, R<sup>2</sup> and
+    Ratio of Performance to InterQuartile distance (RPIQ), three common
+    model assessment metrics. Analyses of variance (ANOVA) were
     performed for each of these metrics in order to compare the
     preprocessing methods. For each ANOVA, each data set was considered
     as a subject and allowing different variances for each preprocessing
     method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
-    performance on the validation sets summarized with RMSE,
+    performance on the validation sets was summarized with RMSE,
     R<sup>2</sup>, and RPIQ.</p>
   </sec>
   <sec id="additional-software-used">
@@ -333,22 +336,23 @@ etc.</bold></p>
     <title>Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
-    observed in the literature and this indicating an appropriate basis
-    for a chemometric model.</p>
+    observed in the literature, indicating an appropriate basis for a
+    chemometric model. The CP values are left-skewed and two thirds of
+    the samples contained more than 25% CP.</p>
     <fig id="tbl-lab-protein-vals">
-      <caption><p>Table 1: Summary of Laboratory Assayed CP values
-      (Values are Percent Dry Matter)</p></caption>
+      <caption><p>Table 1: Summary of Laboratory Assayed CP Values
+      (Percent Dry Matter)</p></caption>
       <table-wrap>
         <table>
           <thead>
             <tr>
-              <th align="right">mean</th>
-              <th align="right">sd</th>
-              <th align="right">minimum</th>
-              <th align="right">first quartile</th>
-              <th align="right">median</th>
-              <th align="right">third quartile</th>
-              <th align="right">maximum</th>
+              <th align="right">Mean</th>
+              <th align="right">Sd</th>
+              <th align="right">Minimum</th>
+              <th align="right">First Quartile</th>
+              <th align="right">Median</th>
+              <th align="right">Third Quartile</th>
+              <th align="right">Maximum</th>
             </tr>
           </thead>
           <tbody>
@@ -368,29 +372,55 @@ etc.</bold></p>
   </sec>
   <sec id="preprocessing-methods-comparison">
     <title>Preprocessing methods comparison</title>
-    <p>All preprocessing methods outperformed raw spectral data.</p>
+    <p>All preprocessing methods outperformed raw spectral data
+    <xref alt="Table 2" rid="tbl-preproc">Table 2</xref>. Averaged
+    together, all preprocessed spectra were superior to raw spectra,
+    with lower RMSE, and higher R<sup>2</sup> and RPIQ values
+    (significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
+    had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
+    spectra.</p>
+    <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
+    highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
+    1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
+    higher respectively than the next best preprocessing method (SG in
+    both cases), but the difference between the best and second best
+    method by metric were only statistically significant at
+    <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
+    of data in skewed populations
+    (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010" ref-type="bibr">Bellon-Maurel
+    et al. 2010</xref>) and thus offers a robust metric for model
+    assessment. Therefore the superiority of SNV-SG as measured via RPIQ
+    made it the superior candidate for the choice of final model.</p>
     <fig id="tbl-preproc">
-      <caption><p>Table 2: Evaluation of Preprocessing
-      Methods</p></caption>
+      <caption><p>Table 2: Evaluation of Preprocessing Methods by
+      Metric</p></caption>
       <table-wrap>
         <table>
           <colgroup>
-            <col width="51%" />
-            <col width="16%" />
-            <col width="16%" />
-            <col width="16%" />
+            <col width="56%" />
+            <col width="15%" />
+            <col width="15%" />
+            <col width="15%" />
           </colgroup>
           <thead>
             <tr>
               <th align="left">Preprocessing Method</th>
               <th align="left">RMSE</th>
-              <th align="left">R^2</th>
+              <th align="left"><inline-formula><alternatives>
+              <tex-math><![CDATA[R^{2}]]></tex-math>
+              <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></alternatives></inline-formula></th>
               <th align="left">RPIQ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td align="left">Standard Normal Variate/
+              <td align="left">Standard Normal Variate following
               Savitzky-Golay</td>
               <td align="left">1.02 ± 0.012</td>
               <td align="left">0.84 ± 0.004</td>
@@ -415,13 +445,13 @@ etc.</bold></p>
               <td align="left">3.61 ± 0.081</td>
             </tr>
             <tr>
-              <td align="left">Gap-segment derivative</td>
+              <td align="left">Gap-segment Derivative</td>
               <td align="left">1.12 ± 0.018</td>
               <td align="left">0.81 ± 0.006</td>
               <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
-              <td align="left">SNV-Detrend</td>
+              <td align="left">Standard Normal Variate-Detrend</td>
               <td align="left">1.13 ± 0.015</td>
               <td align="left">0.80 ± 0.005</td>
               <td align="left">3.55 ± 0.079</td>
@@ -442,39 +472,34 @@ etc.</bold></p>
         </table>
       </table-wrap>
     </fig>
-    <p>The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the
-    lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over
-    all iterations. SG-SNV RMSE averaged 1.4% lower, while R<sup>2</sup>
-    and RPIQ averaged 0.4% and 2.4% higher respectively than the next
-    best preprocessing method (Savitzky-Golay in both cases) but the
-    difference between the best and second best method by metric were
-    only statistically significant at <inline-formula><alternatives>
-    <tex-math><![CDATA[\alpha]]></tex-math>
-    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05 for RPIQ. Averaged together, all preprocessed spectra were
-    superior to raw spectra, with lower RMSE, and higher R<sup>2</sup>
-    and RPIQ values (significant at <inline-formula><alternatives>
-    <tex-math><![CDATA[\alpha]]></tex-math>
-    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    level &lt;0.001). Averaged together, preprocessing methods had -11.6
-    % lower RMSE, and had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ
-    than unprocessed spectra. Because the SG-SNV method was the best
-    performing under all methods, a final model was developed using that
+    <p><bold>paragraph discussing relative merits of various
+    preprocessing methods</bold></p>
+    <p>The preprocessing methods examined represent a portion of those
+    available. As well, preprocessing methods tend to have a number of
+    user-adjustable parameters whose various permutations were not
+    tested. This subset of preprocessing methods and parameters
+    nonetheless contained substantial variations in model quality,
+    demonstrating the importance of the selection an appropriate
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
     <title>Final model development and summary</title>
+    <p>The model improved most rapidly as the number of principal
+    components increased from 1 to 7, with the inclusion of each
+    additional PC being associated with a decrease in RMSE of 5-12% .
+    From 8 to 12 PCs, model performance continued to improve, although
+    gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
+    PCs, performance gains were minimal and the relative ranks of the
+    models tended to be stable
+    <xref alt="Figure 1" rid="fig-model-calibration">Figure 1</xref>.</p>
     <fig id="fig-model-calibration">
       <caption><p>Figure 1: Decreasing RMSE with increasing number of
       PCs</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
-    <p><bold>calculate relative distance from minima</bold> The relative
-    ranks of the models are stable at approximately 14 PCs, with very
-    few models (lines) crossing over one another.</p>
     <fig id="fig-final-metric-boxplot">
-      <caption><p>Figure 2: Final model test set evaluations (1000
-      iterations per plot)</p></caption>
+      <caption><p>Figure 2: Final model validation set performance (1000
+      iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     <fig id="fig-validation_set_performance">
@@ -485,11 +510,11 @@ etc.</bold></p>
     <p>Errors tend to be lower at higher levels of actual CP</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
-    calibrations can be unique to a particular machine, if the machines
-    compared are of the same model
-    (<xref alt="Reeves 2012b" rid="ref-reeves2012" ref-type="bibr">Reeves
-    2012b</xref>). As well, the calibration and validation sets are
-    relatively small.</p>
+    calibrations can be unique to a particular machine, even if the
+    machines compared are of the same model
+    (<xref alt="reeves2012?" rid="ref-reeves2012" ref-type="bibr"><bold>reeves2012?</bold></xref>).
+    As well, the calibration and validation sets are relatively
+    small.</p>
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
@@ -828,36 +853,24 @@ etc.</bold></p>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-reeves2012">
+  <ref id="ref-bellon-maurel2010">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
-        <name><surname>Reeves</surname><given-names>James B.</given-names></name>
+        <name><surname>Bellon-Maurel</surname><given-names>Véronique</given-names></name>
+        <name><surname>Fernandez-Ahumada</surname><given-names>Elvira</given-names></name>
+        <name><surname>Palagos</surname><given-names>Bernard</given-names></name>
+        <name><surname>Roger</surname><given-names>Jean-Michel</given-names></name>
+        <name><surname>McBratney</surname><given-names>Alex</given-names></name>
       </person-group>
-      <article-title>Potential of near- and mid-infrared spectroscopy in biofuel production</article-title>
-      <source>Communications in Soil Science and Plant Analysis</source>
-      <year iso-8601-date="2012-01-01">2012</year><month>01</month><day>01</day>
-      <volume>43</volume>
-      <issue>1-2</issue>
-      <uri>https://doi.org/10.1080/00103624.2012.641844</uri>
-      <pub-id pub-id-type="doi">10.1080/00103624.2012.641844</pub-id>
-      <fpage>478</fpage>
-      <lpage>495</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-callaway2004">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Callaway</surname><given-names>J. C.</given-names></name>
-      </person-group>
-      <article-title>Hempseed as a nutritional resource: An overview</article-title>
-      <source>Euphytica</source>
-      <year iso-8601-date="2004-01-01">2004</year><month>01</month><day>01</day>
-      <volume>140</volume>
-      <issue>1</issue>
-      <uri>https://doi.org/10.1007/s10681-004-4811-6</uri>
-      <pub-id pub-id-type="doi">10.1007/s10681-004-4811-6</pub-id>
-      <fpage>65</fpage>
-      <lpage>72</lpage>
+      <article-title>Critical review of chemometric indicators commonly used for assessing the quality of the prediction of soil attributes by NIR spectroscopy</article-title>
+      <source>TrAC Trends in Analytical Chemistry</source>
+      <year iso-8601-date="2010-10-01">2010</year><month>10</month><day>01</day>
+      <volume>29</volume>
+      <issue>9</issue>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0165993610001585</uri>
+      <pub-id pub-id-type="doi">10.1016/j.trac.2010.05.006</pub-id>
+      <fpage>1073</fpage>
+      <lpage>1081</lpage>
     </element-citation>
   </ref>
   <ref id="ref-base">
@@ -1381,12 +1394,12 @@ etc.</bold></p>
   and Fike 2022</xref>;
   <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024-nb-article" ref-type="bibr">Bárta
   et al. 2024</xref>;
-  <xref alt="Callaway 2004" rid="ref-callaway2004-nb-article" ref-type="bibr">Callaway
-  2004</xref>). Crude protein (CP) is often used as a proxy for the
-  direct measurement of protein concentration and consists of the
-  multiplication of nitrogen concentration by a conversion factor
-  because measuring nitrogen concentration is relatively easy and cheap
-  via laboratory assay
+  <xref alt="callaway2004?" rid="ref-callaway2004-nb-article" ref-type="bibr"><bold>callaway2004?</bold></xref>).
+  Crude protein (CP) is often used as a proxy for the direct measurement
+  of protein concentration and consists of the multiplication of
+  nitrogen concentration by a conversion factor because measuring
+  nitrogen concentration is relatively easy and cheap via laboratory
+  assay
   (<xref alt="Hayes 2020" rid="ref-hayes_measuring_2020-nb-article" ref-type="bibr">Hayes
   2020</xref>).</p>
   <p>Near-infrared spectroscopy (NIRS) technology is rapid,
@@ -1399,8 +1412,8 @@ etc.</bold></p>
   (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts,
   Workman, and Reeves 2004</xref>). NIRS technology has been used since
   the 1970’s to assess forage CP
-  (<xref alt="Reeves 2012a" rid="ref-reeves_potential_2012-nb-article" ref-type="bibr">Reeves
-  2012a</xref>;
+  (<xref alt="Reeves 2012" rid="ref-reeves_potential_2012-nb-article" ref-type="bibr">Reeves
+  2012</xref>;
   <xref alt="Williams 1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">Williams
   1975</xref>). A NIRS calibration set often consists of samples from
   one species grown in many environments encompassing the range of
@@ -1531,35 +1544,38 @@ tab &lt;-  table(full_data$in_ny)</code>
     remaining 25% were assigned to the validation set. For each
     calibration set, models were developed in caret using PLSR. In
     fitting the model, the number of principal components was optimized
-    over a grid search from 1-20. Model performance was evaluated with a
-    bootstrapping method using root mean squared error (RMSE) and
-    R<sup>2</sup> statistics in selecting a final model.</p>
+    over au grid search from 1-20. Model performance was evaluated with
+    25 iterations of bootstrapping and minimized root mean squared error
+    (RMSE) in selecting the number of principal components in the final
+    model
+    (<xref alt="kuhn2008?" rid="ref-kuhn2008-nb-article" ref-type="bibr"><bold>kuhn2008?</bold></xref>).</p>
     <sec id="nb-code-cell-4-nb-article" specific-use="notebook-code">
     <code language="r script">preproc_key &lt;- fread(&quot;./input_data/final_data_set/preprocessing_key.csv&quot;)
 
-preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;, &quot;Second Derivative&quot;,&quot;Savitzky-Golay&quot;, &quot;Gap-segment derivative&quot;,
-                           &quot;Standard Normal Variate&quot;, &quot;Standard Normal Variate/ Savitzky-Golay&quot;, &quot;SNV-Detrend&quot;, &quot;Multiplicative Scatter Correction&quot;)]</code>
+preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;, &quot;Second Derivative&quot;,&quot;Savitzky-Golay&quot;, &quot;Gap-segment Derivative&quot;,
+                           &quot;Standard Normal Variate&quot;, &quot;Standard Normal Variate following Savitzky-Golay&quot;, &quot;Standard Normal Variate-Detrend&quot;, &quot;Multiplicative Scatter Correction&quot;)]</code>
     </sec>
-    <p>Initially several of common spectral preprocessing methods were
+    <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 calibration and validation sets as described
     above. Spectral data from those data sets were transformed by each
-    of the following methods: First Derivative, Gap-segment derivative,
-    Multiplicative Scatter Correction, Raw Spectra, Savitzky-Golay,
-    Second Derivative, SNV-Detrend, Standard Normal Variate, Standard
-    Normal Variate/ Savitzky-Golay. For each of these preprocessing
-    methods, models were fit and predictions were made on the
-    corresponding validation set (since there were 9 preprocessing
-    methods, 9 separate models were fit for each of the 100 sets. The
-    relationship between the predicted and actual values of validation
-    set were calculated via RMSE, R<sup>2</sup> and Ratio of Performance
-    to InterQuartile distance (RPIQ). Analyses of variance (ANOVA) were
+    of the following methods: 1) first derivative, 2) Savitzky-Golay
+    (SG), 3) gap-segment derivative, 4) standard normal variate (SNV),
+    4) standard normal variate following Savitzky-Golay (SNV-SG), 5)
+    SNV-detrend, and 6) multiplicative scatter correction. For each of
+    these preprocessing methods, models were fit and predictions were
+    made on the corresponding validation set (since there were 8
+    preprocessing methods, 8 separate models were fit for each of the
+    100 sets. The relationship between the predicted and actual values
+    of the validation set were calculated via RMSE, R<sup>2</sup> and
+    Ratio of Performance to InterQuartile distance (RPIQ), three common
+    model assessment metrics. Analyses of variance (ANOVA) were
     performed for each of these metrics in order to compare the
     preprocessing methods. For each ANOVA, each data set was considered
     as a subject and allowing different variances for each preprocessing
     method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
-    performance on the validation sets summarized with RMSE,
+    performance on the validation sets was summarized with RMSE,
     R<sup>2</sup>, and RPIQ.</p>
   </sec>
   <sec id="additional-software-used-nb-article">
@@ -1615,28 +1631,29 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <title>Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
-    observed in the literature and this indicating an appropriate basis
-    for a chemometric model.</p>
+    observed in the literature, indicating an appropriate basis for a
+    chemometric model. The CP values are left-skewed and two thirds of
+    the samples contained more than 25% CP.</p>
     <sec id="nb-code-cell-6-nb-article" specific-use="notebook-code">
     <code language="r script">my_summary &lt;- full_data$crude_protein |&gt; skimr::skim()|&gt; select(c(5:11)) |&gt; 
   mutate_all(round, 1)
-names(my_summary) &lt;- c(&quot;mean&quot;, &quot;sd&quot;, &quot;minimum&quot;, &quot;first quartile&quot;, &quot;median&quot;, &quot;third quartile&quot;, &quot;maximum&quot;) 
+names(my_summary) &lt;- c(&quot;mean&quot;, &quot;sd&quot;, &quot;minimum&quot;, &quot;first quartile&quot;, &quot;median&quot;, &quot;third quartile&quot;, &quot;maximum&quot;) |&gt; str_to_title()
 
 knitr::kable(my_summary)</code>
     <fig id="tbl-lab-protein-vals-nb-article">
-      <caption><p>Table 1: Summary of Laboratory Assayed CP values
-      (Values are Percent Dry Matter)</p></caption>
+      <caption><p>Table 1: Summary of Laboratory Assayed CP Values
+      (Percent Dry Matter)</p></caption>
       <table-wrap>
         <table>
           <thead>
             <tr>
-              <th align="right">mean</th>
-              <th align="right">sd</th>
-              <th align="right">minimum</th>
-              <th align="right">first quartile</th>
-              <th align="right">median</th>
-              <th align="right">third quartile</th>
-              <th align="right">maximum</th>
+              <th align="right">Mean</th>
+              <th align="right">Sd</th>
+              <th align="right">Minimum</th>
+              <th align="right">First Quartile</th>
+              <th align="right">Median</th>
+              <th align="right">Third Quartile</th>
+              <th align="right">Maximum</th>
             </tr>
           </thead>
           <tbody>
@@ -1657,7 +1674,6 @@ knitr::kable(my_summary)</code>
   </sec>
   <sec id="preprocessing-methods-comparison-nb-article">
     <title>Preprocessing methods comparison</title>
-    <p>All preprocessing methods outperformed raw spectral data.</p>
     <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
     <code language="r script"># 
 multi_metric &lt;- metric_set(rmse, rsq, rpiq)
@@ -1735,36 +1751,92 @@ to_table &lt;- nlme_summaries_with_models_2|&gt;
     </sec>
     </sec>
     <sec id="nb-code-cell-10-nb-article" specific-use="notebook-code">
+    <code language="r script">contrasts &lt;- nlme_summaries |&gt; 
+  select(.metric, contrast) |&gt; 
+  transmute(.metric, tidy_contrast = map(contrast, tidy)) |&gt; 
+  unnest(tidy_contrast)</code>
+    </sec>
+    <sec id="nb-code-cell-11-nb-article" specific-use="notebook-code">
+    <code language="r script"># lead_lag summaries
+lead_lag &lt;- nlme_summaries_with_models_2 |&gt; select(1:4) |&gt; 
+  arrange(.metric, emmean)%&gt;% 
+  group_by(.metric) |&gt; 
+  mutate(lagged = lag(emmean)) %&gt;% 
+  mutate(pct_change = (emmean - lagged) / lagged)|&gt; 
+  mutate(lead = lead(emmean)) %&gt;% 
+  mutate(pct_change_lead = (emmean - lead) / lead)</code>
+    </sec>
+    <sec id="nb-code-cell-12-nb-article" specific-use="notebook-code">
+    <code language="r script"># percent change for contrasts
+
+raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&quot;) |&gt; 
+  dplyr::select(1:3) |&gt; 
+  left_join(contrasts |&gt; select(1,3,estimated_diff = 5)) |&gt; 
+  mutate(percent_difference = estimated_diff/(emmean+estimated_diff))</code>
+    <sec id="nb-code-cell-12-output-0-nb-article" specific-use="notebook-output">
+    <preformat>Joining with `by = join_by(.metric)`</preformat>
+    </sec>
+    </sec>
+    <p>All preprocessing methods outperformed raw spectral data
+    <xref alt="Table 2" rid="tbl-preproc-nb-article">Table 2</xref>. Averaged
+    together, all preprocessed spectra were superior to raw spectra,
+    with lower RMSE, and higher R<sup>2</sup> and RPIQ values
+    (significant at <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
+    had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
+    spectra.</p>
+    <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
+    highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
+    1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
+    higher respectively than the next best preprocessing method (SG in
+    both cases), but the difference between the best and second best
+    method by metric were only statistically significant at
+    <inline-formula><alternatives>
+    <tex-math><![CDATA[\alpha]]></tex-math>
+    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
+    &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
+    of data in skewed populations
+    (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr">Bellon-Maurel
+    et al. 2010</xref>) and thus offers a robust metric for model
+    assessment. Therefore the superiority of SNV-SG as measured via RPIQ
+    made it the superior candidate for the choice of final model.</p>
+    <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
     <code language="r script"># printable table of results
 
-to_table |&gt; 
+to_table2 &lt;- to_table |&gt; 
   select(1:3) |&gt; 
   pivot_wider(names_from = Metric, values_from = Estimate) |&gt; 
   arrange(rmse) |&gt; 
-  rename(RMSE = rmse, 'R^2' = rsq, RPIQ = rpiq ) |&gt; 
-  knitr::kable()</code>
+  rename(RMSE = rmse, RPIQ = rpiq ) 
+# names(to_table2)[3] &lt;- &quot;$^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;
+to_table2|&gt; 
+  knitr::kable(col.names = c(&quot;Preprocessing Method&quot;, &quot;RMSE&quot;, &quot;$R^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;, &quot;RPIQ&quot;))</code>
     <fig id="tbl-preproc-nb-article">
-      <caption><p>Table 2: Evaluation of Preprocessing
-      Methods</p></caption>
+      <caption><p>Table 2: Evaluation of Preprocessing Methods by
+      Metric</p></caption>
       <table-wrap>
         <table>
           <colgroup>
-            <col width="51%" />
-            <col width="16%" />
-            <col width="16%" />
-            <col width="16%" />
+            <col width="56%" />
+            <col width="15%" />
+            <col width="15%" />
+            <col width="15%" />
           </colgroup>
           <thead>
             <tr>
               <th align="left">Preprocessing Method</th>
               <th align="left">RMSE</th>
-              <th align="left">R^2</th>
+              <th align="left"><inline-formula><alternatives>
+              <tex-math><![CDATA[R^{2}]]></tex-math>
+              <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></alternatives></inline-formula></th>
               <th align="left">RPIQ</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td align="left">Standard Normal Variate/
+              <td align="left">Standard Normal Variate following
               Savitzky-Golay</td>
               <td align="left">1.02 ± 0.012</td>
               <td align="left">0.84 ± 0.004</td>
@@ -1789,13 +1861,13 @@ to_table |&gt;
               <td align="left">3.61 ± 0.081</td>
             </tr>
             <tr>
-              <td align="left">Gap-segment derivative</td>
+              <td align="left">Gap-segment Derivative</td>
               <td align="left">1.12 ± 0.018</td>
               <td align="left">0.81 ± 0.006</td>
               <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
-              <td align="left">SNV-Detrend</td>
+              <td align="left">Standard Normal Variate-Detrend</td>
               <td align="left">1.13 ± 0.015</td>
               <td align="left">0.80 ± 0.005</td>
               <td align="left">3.55 ± 0.079</td>
@@ -1817,59 +1889,41 @@ to_table |&gt;
       </table-wrap>
     </fig>
     </sec>
-    <sec id="nb-code-cell-11-nb-article" specific-use="notebook-code">
-    <code language="r script">contrasts &lt;- nlme_summaries |&gt; 
-  select(.metric, contrast) |&gt; 
-  transmute(.metric, tidy_contrast = map(contrast, tidy)) |&gt; 
-  unnest(tidy_contrast)</code>
-    </sec>
-    <sec id="nb-code-cell-12-nb-article" specific-use="notebook-code">
-    <code language="r script"># lead_lag summaries
-lead_lag &lt;- nlme_summaries_with_models_2 |&gt; select(1:4) |&gt; 
-  arrange(.metric, emmean)%&gt;% 
-  group_by(.metric) |&gt; 
-  mutate(lagged = lag(emmean)) %&gt;% 
-  mutate(pct_change = (emmean - lagged) / lagged)|&gt; 
-  mutate(lead = lead(emmean)) %&gt;% 
-  mutate(pct_change_lead = (emmean - lead) / lead)</code>
-    </sec>
-    <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
-    <code language="r script"># percent change for contrasts
-
-raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&quot;) |&gt; 
-  dplyr::select(1:3) |&gt; 
-  left_join(contrasts |&gt; select(1,3,estimated_diff = 5)) |&gt; 
-  mutate(percent_difference = estimated_diff/(emmean+estimated_diff))</code>
-    <sec id="nb-code-cell-13-output-0-nb-article" specific-use="notebook-output">
-    <preformat>Joining with `by = join_by(.metric)`</preformat>
-    </sec>
-    </sec>
-    <p>The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the
-    lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over
-    all iterations. SG-SNV RMSE averaged 1.4% lower, while R<sup>2</sup>
-    and RPIQ averaged 0.4% and 2.4% higher respectively than the next
-    best preprocessing method (Savitzky-Golay in both cases) but the
-    difference between the best and second best method by metric were
-    only statistically significant at <inline-formula><alternatives>
-    <tex-math><![CDATA[\alpha]]></tex-math>
-    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05 for RPIQ. Averaged together, all preprocessed spectra were
-    superior to raw spectra, with lower RMSE, and higher R<sup>2</sup>
-    and RPIQ values (significant at <inline-formula><alternatives>
-    <tex-math><![CDATA[\alpha]]></tex-math>
-    <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    level &lt;0.001). Averaged together, preprocessing methods had -11.6
-    % lower RMSE, and had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ
-    than unprocessed spectra. Because the SG-SNV method was the best
-    performing under all methods, a final model was developed using that
+    <p><bold>paragraph discussing relative merits of various
+    preprocessing methods</bold></p>
+    <p>The preprocessing methods examined represent a portion of those
+    available. As well, preprocessing methods tend to have a number of
+    user-adjustable parameters whose various permutations were not
+    tested. This subset of preprocessing methods and parameters
+    nonetheless contained substantial variations in model quality,
+    demonstrating the importance of the selection an appropriate
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
     <title>Final model development and summary</title>
-    <sec id="cell-fig-model-calibration-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
     <code language="r script">model_n_comp_statistics &lt;- fread(&quot;./input_data/final_data_set/final_model_n_component_stats.csv&quot;)
 
-model_n_comp_statistics |&gt; 
+# define a function to calculate percent difference
+pct_lower &lt;- function(x){
+  my_lag = data.table::shift(x, type = &quot;lag&quot;)
+  round((x - my_lag)/my_lag*100,2)
+}
+
+avg_change &lt;- model_n_comp_statistics[,lapply(.SD, mean),.SDcols = 3:8, by= ncomp]
+
+change_per_pc &lt;- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]</code>
+    </sec>
+    <p>The model improved most rapidly as the number of principal
+    components increased from 1 to 7, with the inclusion of each
+    additional PC being associated with a decrease in RMSE of 5-12% .
+    From 8 to 12 PCs, model performance continued to improve, although
+    gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
+    PCs, performance gains were minimal and the relative ranks of the
+    models tended to be stable
+    <xref alt="Figure 1" rid="fig-model-calibration-nb-article">Figure 1</xref>.</p>
+    <sec id="cell-fig-model-calibration-nb-article" specific-use="notebook-code">
+    <code language="r script">model_n_comp_statistics |&gt; 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
   geom_line(aes(group = id), alpha = 0.03) + 
   theme_classic() + 
@@ -1881,9 +1935,6 @@ model_n_comp_statistics |&gt;
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
     </sec>
-    <p><bold>calculate relative distance from minima</bold> The relative
-    ranks of the models are stable at approximately 14 PCs, with very
-    few models (lines) crossing over one another.</p>
     <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
     <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/final_data_set/final_model_predictions.csv&quot;)
 
@@ -1894,22 +1945,27 @@ final_model_table &lt;- model_final_predictions |&gt;
   group_by(id) |&gt; 
   multi_metric(crude_protein, predicted_crude_protein)
 
-final_model_table |&gt; 
+final_model_table |&gt;
+  mutate(metric2 = toupper(.metric)) |&gt; 
   ggplot(aes(x = .metric, y = .estimate)) + 
   theme_classic() + geom_boxplot() + 
-  facet_wrap(vars(.metric), scales = &quot;free&quot;) +
-  xlab(&quot;Metric&quot;) + ylab(&quot;Estimate&quot;)</code>
+  facet_wrap(vars(metric2), scales = &quot;free&quot;) +
+  xlab(&quot;Metric&quot;) + ylab(&quot;Estimate&quot;)+
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank())</code>
     <fig id="fig-final-metric-boxplot-nb-article">
-      <caption><p>Figure 2: Final model test set evaluations (1000
-      iterations per plot)</p></caption>
+      <caption><p>Figure 2: Final model validation set performance (1000
+      iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     </sec>
-    <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-15-nb-article" specific-use="notebook-code">
     <code language="r script"># add difference calculation between predicted and observed...
 model_final_predictions[,difference := predicted_crude_protein - crude_protein]</code>
     </sec>
-    <sec id="nb-code-cell-15-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
     <code language="r script"># my_cut &lt;- cut(spectra_2$crude_protein, 3)
 # cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
 
@@ -1968,11 +2024,11 @@ model_final_predictions |&gt;
     <p>Errors tend to be lower at higher levels of actual CP</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
-    calibrations can be unique to a particular machine, if the machines
-    compared are of the same model
-    (<xref alt="Reeves 2012b" rid="ref-reeves2012-nb-article" ref-type="bibr">Reeves
-    2012b</xref>). As well, the calibration and validation sets are
-    relatively small.</p>
+    calibrations can be unique to a particular machine, even if the
+    machines compared are of the same model
+    (<xref alt="reeves2012?" rid="ref-reeves2012-nb-article" ref-type="bibr"><bold>reeves2012?</bold></xref>).
+    As well, the calibration and validation sets are relatively
+    small.</p>
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
@@ -1994,7 +2050,7 @@ model_final_predictions |&gt;
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -2010,10 +2066,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-17-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-18-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -2341,36 +2397,24 @@ avg_years_between_eruptions</code>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-reeves2012-nb-article">
+  <ref id="ref-bellon-maurel2010-nb-article">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
-        <name><surname>Reeves</surname><given-names>James B.</given-names></name>
+        <name><surname>Bellon-Maurel</surname><given-names>Véronique</given-names></name>
+        <name><surname>Fernandez-Ahumada</surname><given-names>Elvira</given-names></name>
+        <name><surname>Palagos</surname><given-names>Bernard</given-names></name>
+        <name><surname>Roger</surname><given-names>Jean-Michel</given-names></name>
+        <name><surname>McBratney</surname><given-names>Alex</given-names></name>
       </person-group>
-      <article-title>Potential of near- and mid-infrared spectroscopy in biofuel production</article-title>
-      <source>Communications in Soil Science and Plant Analysis</source>
-      <year iso-8601-date="2012-01-01">2012</year><month>01</month><day>01</day>
-      <volume>43</volume>
-      <issue>1-2</issue>
-      <uri>https://doi.org/10.1080/00103624.2012.641844</uri>
-      <pub-id pub-id-type="doi">10.1080/00103624.2012.641844</pub-id>
-      <fpage>478</fpage>
-      <lpage>495</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-callaway2004-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Callaway</surname><given-names>J. C.</given-names></name>
-      </person-group>
-      <article-title>Hempseed as a nutritional resource: An overview</article-title>
-      <source>Euphytica</source>
-      <year iso-8601-date="2004-01-01">2004</year><month>01</month><day>01</day>
-      <volume>140</volume>
-      <issue>1</issue>
-      <uri>https://doi.org/10.1007/s10681-004-4811-6</uri>
-      <pub-id pub-id-type="doi">10.1007/s10681-004-4811-6</pub-id>
-      <fpage>65</fpage>
-      <lpage>72</lpage>
+      <article-title>Critical review of chemometric indicators commonly used for assessing the quality of the prediction of soil attributes by NIR spectroscopy</article-title>
+      <source>TrAC Trends in Analytical Chemistry</source>
+      <year iso-8601-date="2010-10-01">2010</year><month>10</month><day>01</day>
+      <volume>29</volume>
+      <issue>9</issue>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0165993610001585</uri>
+      <pub-id pub-id-type="doi">10.1016/j.trac.2010.05.006</pub-id>
+      <fpage>1073</fpage>
+      <lpage>1081</lpage>
     </element-citation>
   </ref>
   <ref id="ref-base-nb-article">
