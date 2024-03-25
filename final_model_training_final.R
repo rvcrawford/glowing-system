@@ -6,6 +6,7 @@ library(prospectr)
 library(caret)
 full_dat <- fread("./input_data/final_data_set/full_hemp_data.csv")
 
+full_dat[crude_protein==23.6|crude_protein==28.5,1:9]
 my_sg_preprocess <- function(train, test){
   
   sg_train <- prospectr::savitzkyGolay(train, m = 1, p = 3, w = 5)
@@ -34,16 +35,19 @@ inTrain2 <- createDataPartition(
 )
 
 # calculate preprocessed spectra
-sg_preprocessed_datset <- data.table(crude_protein = full_dat$crude_protein,
-                   prospectr::savitzkyGolay(full_dat[,10:709], m = 1, p = 3, w = 5))
+# sg_preprocessed_datset <- data.table(crude_protein = full_dat$crude_protein,
+#                    prospectr::savitzkyGolay(full_dat[,10:709], m = 1, p = 3, w = 5))
+# 
+# snv_sg <- prospectr::standardNormalVariate(sg_test)
 
-
+snv_sg <- data.table(crude_protein = full_dat$crude_protein,
+           prospectr::standardNormalVariate(prospectr::savitzkyGolay(full_dat[,10:709], m = 1, p = 3, w = 5)))
 
 my_train <- apply(inTrain2, 2, function(x){
   my_train = 
     train(
       crude_protein ~ .,
-      data = sg_preprocessed_datset[x],
+      data = snv_sg[x],
       method = "pls",
       # trCntrl = ctrl,
       # preProc = c("center", "scale"),
@@ -51,8 +55,8 @@ my_train <- apply(inTrain2, 2, function(x){
       tuneLength = 20
     )
   output= my_train$results
-  my_preds = predict(my_train, sg_preprocessed_datset[!x])
-  preds_dt = data.table(crude_protein = sg_preprocessed_datset[!x,]$crude_protein,
+  my_preds = predict(my_train, snv_sg[!x])
+  preds_dt = data.table(crude_protein = snv_sg[!x,]$crude_protein,
                         predicted_crude_protein = my_preds)
   my_output = list(output, preds_dt)
   names(my_output) = c("output", "predictions")
@@ -73,10 +77,11 @@ model_final_predictions[, ith_in_data_set:=testing_set_sample_numbers]
 #  NOW READING BACK IN
 model_final_predictions <- fread("./input_data/final_data_set/final_model_predictions.csv")
 
-setnames(model_final_predictions, "V1", "crude_protein")
+# setnames(model_final_predictions, "V1", "crude_protein")
 # look at how much was sampled
 model_final_predictions[,.N, by = ith_in_data_set]
 # which_mins
+
 mins_per_model <- model_n_comp_statistics[, list(which_min = which.min(RMSE)), by = id]
 
 table(mins_per_model$which_min)
@@ -109,3 +114,12 @@ final_model_table |>
   theme_classic() + geom_boxplot() + 
   facet_wrap(vars(.metric), scales = "free") +
   xlab("Metric") + ylab("Estimate")
+
+model_final_predictions[,difference := predicted_crude_protein - crude_protein]
+
+# calculate mean difference
+mean_dif <-  model_final_predictions[,list(mean_dif = mean(difference)), by = ith_in_data_set]
+
+# summarize mean differences
+
+summary(mean_dif)

@@ -6,6 +6,7 @@ library(prospectr)
 library(caret)
 full_dat <- fread("./input_data/final_data_set/full_hemp_data.csv")
 
+full_dat[ith_in_data_set%in%c(2,7),1:10]
 
 my_preprocess <- function(train, test){
   raw_train <- train
@@ -138,9 +139,9 @@ multi_metric <- metric_set(rmse, rsq, rpiq,rpd)
 
 # read data back in to work with it
 
-prep_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
+# prep_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
 
-sims_key <- fread("./input_data/final_data_set/preprocessing_methods_test.csv")
+# sims_key <- fread("./input_data/final_data_set/preprocessing_methods_test.csv")
 
 long_form <- merge(sims_key, prep_key, all.x = T)
 
@@ -154,7 +155,7 @@ long_form <- merge(sims_key, prep_key, all.x = T)
 multi_metric <- metric_set(rmse, rsq, rpiq,rpd)
 
 
-# summaries <- long_form |>
+summaries <- long_form |>
   group_by(id, preproc) |> 
   multi_metric(y, value)
 
