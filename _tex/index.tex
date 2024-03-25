@@ -441,16 +441,16 @@ RPIQ
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Savitzky-Golay & 1.20 ± 0.016 & 0.77 ± 0.007 & 3.43 ± 0.067 \\
-Standard Normal Variate/ Savitzky-Golay & 1.21 ± 0.016 & 0.76 ± 0.007 &
-3.40 ± 0.068 \\
-First Derivative & 1.22 ± 0.016 & 0.76 ± 0.007 & 3.38 ± 0.067 \\
-Gap-segment derivative & 1.24 ± 0.018 & 0.75 ± 0.008 & 3.34 ± 0.068 \\
-Standard Normal Variate & 1.27 ± 0.018 & 0.74 ± 0.008 & 3.24 ± 0.070 \\
-SNV-Detrend & 1.28 ± 0.018 & 0.74 ± 0.008 & 3.24 ± 0.070 \\
-Multiplicative Scatter Correction & 1.30 ± 0.018 & 0.73 ± 0.008 & 3.17 ±
-0.069 \\
-Raw Spectra & 1.32 ± 0.021 & 0.72 ± 0.009 & 3.13 ± 0.072 \\
+Standard Normal Variate/ Savitzky-Golay & 1.02 ± 0.012 & 0.84 ± 0.004 &
+3.97 ± 0.076 \\
+Savitzky-Golay & 1.03 ± 0.012 & 0.83 ± 0.004 & 3.88 ± 0.072 \\
+First Derivative & 1.07 ± 0.013 & 0.82 ± 0.004 & 3.77 ± 0.075 \\
+Standard Normal Variate & 1.12 ± 0.016 & 0.80 ± 0.005 & 3.61 ± 0.081 \\
+Gap-segment derivative & 1.12 ± 0.018 & 0.81 ± 0.006 & 3.60 ± 0.086 \\
+SNV-Detrend & 1.13 ± 0.015 & 0.80 ± 0.005 & 3.55 ± 0.079 \\
+Multiplicative Scatter Correction & 1.17 ± 0.016 & 0.79 ± 0.006 & 3.47 ±
+0.080 \\
+Raw Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 3.42 ± 0.105 \\
 
 \end{longtable}
 
@@ -470,20 +470,20 @@ Notebook}}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-The Savitzky-Golay method had the lowest RMSE, highest
-R\textsuperscript{2}, and highest RPIQ averaging over all iterations.
-Savitzky Golay RMSE averaged 1.0\% lower, while R\textsuperscript{2} and
-RPIQ averaged 0.5\% and 0.9\% higher than the next best preprocessing
-method (Savitzky-Golay following SNV-Detrend in both cases) for each
-metric) but the differences were not statistically significant at
-\(\alpha\) \textless0.05. Averaged together, all preprocessed spectra
-were superior to raw spectra, with lower RMSE, and higher
-R\textsuperscript{2} and RPIQ values (significant at \(\alpha\) level
-\textless0.001). Averaged together, preprocessing methods had -6.1 \%
-lower RMSE, and had 3.6\% higher R\textsuperscript{2} 5.5\% higher RPIQ
-than unprocessed spectra. Because the Savitzky-Golay method was the best
-performing under all methods, a final model was developed using that
-preprocessing method.
+The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the lowest
+RMSE, highest R\textsuperscript{2}, and highest RPIQ averaging over all
+iterations. SG-SNV RMSE averaged 1.4\% lower, while R\textsuperscript{2}
+and RPIQ averaged 0.4\% and 2.4\% higher respectively than the next best
+preprocessing method (Savitzky-Golay in both cases) but the difference
+between the best and second best method by metric were only
+statistically significant at \(\alpha\) \textless0.05 for RPIQ. Averaged
+together, all preprocessed spectra were superior to raw spectra, with
+lower RMSE, and higher R\textsuperscript{2} and RPIQ values (significant
+at \(\alpha\) level \textless0.001). Averaged together, preprocessing
+methods had -11.6 \% lower RMSE, and had 3.1\% higher
+R\textsuperscript{2} 7.4\% higher RPIQ than unprocessed spectra. Because
+the SG-SNV method was the best performing under all methods, a final
+model was developed using that preprocessing method.
 
 \subsubsection{Final model development and
 summary}\label{final-model-development-and-summary}

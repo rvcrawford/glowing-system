@@ -390,77 +390,77 @@ etc.</bold></p>
           </thead>
           <tbody>
             <tr>
-              <td align="left">Savitzky-Golay</td>
-              <td align="left">1.20 ± 0.016</td>
-              <td align="left">0.77 ± 0.007</td>
-              <td align="left">3.43 ± 0.067</td>
-            </tr>
-            <tr>
               <td align="left">Standard Normal Variate/
               Savitzky-Golay</td>
-              <td align="left">1.21 ± 0.016</td>
-              <td align="left">0.76 ± 0.007</td>
-              <td align="left">3.40 ± 0.068</td>
+              <td align="left">1.02 ± 0.012</td>
+              <td align="left">0.84 ± 0.004</td>
+              <td align="left">3.97 ± 0.076</td>
+            </tr>
+            <tr>
+              <td align="left">Savitzky-Golay</td>
+              <td align="left">1.03 ± 0.012</td>
+              <td align="left">0.83 ± 0.004</td>
+              <td align="left">3.88 ± 0.072</td>
             </tr>
             <tr>
               <td align="left">First Derivative</td>
-              <td align="left">1.22 ± 0.016</td>
-              <td align="left">0.76 ± 0.007</td>
-              <td align="left">3.38 ± 0.067</td>
-            </tr>
-            <tr>
-              <td align="left">Gap-segment derivative</td>
-              <td align="left">1.24 ± 0.018</td>
-              <td align="left">0.75 ± 0.008</td>
-              <td align="left">3.34 ± 0.068</td>
+              <td align="left">1.07 ± 0.013</td>
+              <td align="left">0.82 ± 0.004</td>
+              <td align="left">3.77 ± 0.075</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate</td>
-              <td align="left">1.27 ± 0.018</td>
-              <td align="left">0.74 ± 0.008</td>
-              <td align="left">3.24 ± 0.070</td>
+              <td align="left">1.12 ± 0.016</td>
+              <td align="left">0.80 ± 0.005</td>
+              <td align="left">3.61 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Gap-segment derivative</td>
+              <td align="left">1.12 ± 0.018</td>
+              <td align="left">0.81 ± 0.006</td>
+              <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
               <td align="left">SNV-Detrend</td>
-              <td align="left">1.28 ± 0.018</td>
-              <td align="left">0.74 ± 0.008</td>
-              <td align="left">3.24 ± 0.070</td>
+              <td align="left">1.13 ± 0.015</td>
+              <td align="left">0.80 ± 0.005</td>
+              <td align="left">3.55 ± 0.079</td>
             </tr>
             <tr>
               <td align="left">Multiplicative Scatter Correction</td>
-              <td align="left">1.30 ± 0.018</td>
-              <td align="left">0.73 ± 0.008</td>
-              <td align="left">3.17 ± 0.069</td>
+              <td align="left">1.17 ± 0.016</td>
+              <td align="left">0.79 ± 0.006</td>
+              <td align="left">3.47 ± 0.080</td>
             </tr>
             <tr>
               <td align="left">Raw Spectra</td>
-              <td align="left">1.32 ± 0.021</td>
-              <td align="left">0.72 ± 0.009</td>
-              <td align="left">3.13 ± 0.072</td>
+              <td align="left">1.22 ± 0.044</td>
+              <td align="left">0.79 ± 0.009</td>
+              <td align="left">3.42 ± 0.105</td>
             </tr>
           </tbody>
         </table>
       </table-wrap>
     </fig>
-    <p>The Savitzky-Golay method had the lowest RMSE, highest
-    R<sup>2</sup>, and highest RPIQ averaging over all iterations.
-    Savitzky Golay RMSE averaged 1.0% lower, while R<sup>2</sup> and
-    RPIQ averaged 0.5% and 0.9% higher than the next best preprocessing
-    method (Savitzky-Golay following SNV-Detrend in both cases) for each
-    metric) but the differences were not statistically significant at
-    <inline-formula><alternatives>
+    <p>The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the
+    lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over
+    all iterations. SG-SNV RMSE averaged 1.4% lower, while R<sup>2</sup>
+    and RPIQ averaged 0.4% and 2.4% higher respectively than the next
+    best preprocessing method (Savitzky-Golay in both cases) but the
+    difference between the best and second best method by metric were
+    only statistically significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05. Averaged together, all preprocessed spectra were superior
-    to raw spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ
-    values (significant at <inline-formula><alternatives>
+    &lt;0.05 for RPIQ. Averaged together, all preprocessed spectra were
+    superior to raw spectra, with lower RMSE, and higher R<sup>2</sup>
+    and RPIQ values (significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    level &lt;0.001). Averaged together, preprocessing methods had -6.1
-    % lower RMSE, and had 3.6% higher R<sup>2</sup> 5.5% higher RPIQ
-    than unprocessed spectra. Because the Savitzky-Golay method was the
-    best performing under all methods, a final model was developed using
-    that preprocessing method.</p>
+    level &lt;0.001). Averaged together, preprocessing methods had -11.6
+    % lower RMSE, and had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ
+    than unprocessed spectra. Because the SG-SNV method was the best
+    performing under all methods, a final model was developed using that
+    preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
     <title>Final model development and summary</title>
@@ -1354,7 +1354,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</preformat>
+• Learn how to get started at https://www.tidymodels.org/start/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1764,53 +1764,53 @@ to_table |&gt;
           </thead>
           <tbody>
             <tr>
-              <td align="left">Savitzky-Golay</td>
-              <td align="left">1.20 ± 0.016</td>
-              <td align="left">0.77 ± 0.007</td>
-              <td align="left">3.43 ± 0.067</td>
-            </tr>
-            <tr>
               <td align="left">Standard Normal Variate/
               Savitzky-Golay</td>
-              <td align="left">1.21 ± 0.016</td>
-              <td align="left">0.76 ± 0.007</td>
-              <td align="left">3.40 ± 0.068</td>
+              <td align="left">1.02 ± 0.012</td>
+              <td align="left">0.84 ± 0.004</td>
+              <td align="left">3.97 ± 0.076</td>
+            </tr>
+            <tr>
+              <td align="left">Savitzky-Golay</td>
+              <td align="left">1.03 ± 0.012</td>
+              <td align="left">0.83 ± 0.004</td>
+              <td align="left">3.88 ± 0.072</td>
             </tr>
             <tr>
               <td align="left">First Derivative</td>
-              <td align="left">1.22 ± 0.016</td>
-              <td align="left">0.76 ± 0.007</td>
-              <td align="left">3.38 ± 0.067</td>
-            </tr>
-            <tr>
-              <td align="left">Gap-segment derivative</td>
-              <td align="left">1.24 ± 0.018</td>
-              <td align="left">0.75 ± 0.008</td>
-              <td align="left">3.34 ± 0.068</td>
+              <td align="left">1.07 ± 0.013</td>
+              <td align="left">0.82 ± 0.004</td>
+              <td align="left">3.77 ± 0.075</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate</td>
-              <td align="left">1.27 ± 0.018</td>
-              <td align="left">0.74 ± 0.008</td>
-              <td align="left">3.24 ± 0.070</td>
+              <td align="left">1.12 ± 0.016</td>
+              <td align="left">0.80 ± 0.005</td>
+              <td align="left">3.61 ± 0.081</td>
+            </tr>
+            <tr>
+              <td align="left">Gap-segment derivative</td>
+              <td align="left">1.12 ± 0.018</td>
+              <td align="left">0.81 ± 0.006</td>
+              <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
               <td align="left">SNV-Detrend</td>
-              <td align="left">1.28 ± 0.018</td>
-              <td align="left">0.74 ± 0.008</td>
-              <td align="left">3.24 ± 0.070</td>
+              <td align="left">1.13 ± 0.015</td>
+              <td align="left">0.80 ± 0.005</td>
+              <td align="left">3.55 ± 0.079</td>
             </tr>
             <tr>
               <td align="left">Multiplicative Scatter Correction</td>
-              <td align="left">1.30 ± 0.018</td>
-              <td align="left">0.73 ± 0.008</td>
-              <td align="left">3.17 ± 0.069</td>
+              <td align="left">1.17 ± 0.016</td>
+              <td align="left">0.79 ± 0.006</td>
+              <td align="left">3.47 ± 0.080</td>
             </tr>
             <tr>
               <td align="left">Raw Spectra</td>
-              <td align="left">1.32 ± 0.021</td>
-              <td align="left">0.72 ± 0.009</td>
-              <td align="left">3.13 ± 0.072</td>
+              <td align="left">1.22 ± 0.044</td>
+              <td align="left">0.79 ± 0.009</td>
+              <td align="left">3.42 ± 0.105</td>
             </tr>
           </tbody>
         </table>
@@ -1844,30 +1844,30 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     <preformat>Joining with `by = join_by(.metric)`</preformat>
     </sec>
     </sec>
-    <p>The Savitzky-Golay method had the lowest RMSE, highest
-    R<sup>2</sup>, and highest RPIQ averaging over all iterations.
-    Savitzky Golay RMSE averaged 1.0% lower, while R<sup>2</sup> and
-    RPIQ averaged 0.5% and 0.9% higher than the next best preprocessing
-    method (Savitzky-Golay following SNV-Detrend in both cases) for each
-    metric) but the differences were not statistically significant at
-    <inline-formula><alternatives>
+    <p>The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the
+    lowest RMSE, highest R<sup>2</sup>, and highest RPIQ averaging over
+    all iterations. SG-SNV RMSE averaged 1.4% lower, while R<sup>2</sup>
+    and RPIQ averaged 0.4% and 2.4% higher respectively than the next
+    best preprocessing method (Savitzky-Golay in both cases) but the
+    difference between the best and second best method by metric were
+    only statistically significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05. Averaged together, all preprocessed spectra were superior
-    to raw spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ
-    values (significant at <inline-formula><alternatives>
+    &lt;0.05 for RPIQ. Averaged together, all preprocessed spectra were
+    superior to raw spectra, with lower RMSE, and higher R<sup>2</sup>
+    and RPIQ values (significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    level &lt;0.001). Averaged together, preprocessing methods had -6.1
-    % lower RMSE, and had 3.6% higher R<sup>2</sup> 5.5% higher RPIQ
-    than unprocessed spectra. Because the Savitzky-Golay method was the
-    best performing under all methods, a final model was developed using
-    that preprocessing method.</p>
+    level &lt;0.001). Averaged together, preprocessing methods had -11.6
+    % lower RMSE, and had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ
+    than unprocessed spectra. Because the SG-SNV method was the best
+    performing under all methods, a final model was developed using that
+    preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
     <title>Final model development and summary</title>
     <sec id="cell-fig-model-calibration-nb-article" specific-use="notebook-code">
-    <code language="r script">model_n_comp_statistics &lt;- fread(&quot;./input_data/simplified_data/final_model_n_component_stats.csv&quot;)
+    <code language="r script">model_n_comp_statistics &lt;- fread(&quot;./input_data/final_data_set/final_model_n_component_stats.csv&quot;)
 
 model_n_comp_statistics |&gt; 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
@@ -1885,7 +1885,10 @@ model_n_comp_statistics |&gt;
     ranks of the models are stable at approximately 14 PCs, with very
     few models (lines) crossing over one another.</p>
     <sec id="cell-fig-final-metric-boxplot-nb-article" specific-use="notebook-code">
-    <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/simplified_data/final_model_predictions_revised.csv&quot;)
+    <code language="r script">model_final_predictions &lt;- fread(&quot;./input_data/final_data_set/final_model_predictions.csv&quot;)
+
+# setnames(model_final_predictions, &quot;V1&quot;, &quot;crude_protein&quot;)
+
 
 final_model_table &lt;- model_final_predictions |&gt; 
   group_by(id) |&gt; 

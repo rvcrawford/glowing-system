@@ -330,7 +330,7 @@ raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |>
   mutate(percent_difference = estimated_diff/(emmean+estimated_diff))
 ```
 
-The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. Savitzky Golay RMSE averaged 1.0% lower, while R^2^ and RPIQ averaged 0.5% and 0.9% higher than the next best preprocessing method (Savitzky-Golay following SNV-Detrend in both cases) for each metric) but the differences were not statistically significant at $\alpha$ \<0.05. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the Savitzky-Golay method was the best performing under all methods, a final model was developed using that preprocessing method.
+The Savitzky-Golay following SNV-Detrend (SG-SNV) method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. SG-SNV RMSE averaged 1.4% lower, while R^2^ and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (Savitzky-Golay in both cases) but the difference between the best and second best method by metric were only statistically significant at $\alpha$ \<0.05 for RPIQ. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the SG-SNV method was the best performing under all methods, a final model was developed using that preprocessing method.
 
 ### Final model development and summary
 
@@ -338,7 +338,7 @@ The Savitzky-Golay method had the lowest RMSE, highest R^2^, and highest RPIQ av
 #| label: fig-model-calibration
 #| fig-cap: Decreasing RMSE with increasing number of PCs
 
-model_n_comp_statistics <- fread("./input_data/simplified_data/final_model_n_component_stats.csv")
+model_n_comp_statistics <- fread("./input_data/final_data_set/final_model_n_component_stats.csv")
 
 model_n_comp_statistics |> 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
@@ -357,7 +357,10 @@ The relative ranks of the models are stable at approximately 14 PCs, with very f
 #| fig-cap: Final model test set evaluations (1000 iterations per plot)
 
 
-model_final_predictions <- fread("./input_data/simplified_data/final_model_predictions_revised.csv")
+model_final_predictions <- fread("./input_data/final_data_set/final_model_predictions.csv")
+
+# setnames(model_final_predictions, "V1", "crude_protein")
+
 
 final_model_table <- model_final_predictions |> 
   group_by(id) |> 
