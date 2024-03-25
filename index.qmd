@@ -68,15 +68,10 @@ bibliography:
   - references.bib
   - grateful-refs.bib
 
-# bibliography: grateful-refs.bib
-  # - references.bib
-  # - grateful-refs.bib
 # csl: apa.csl
 # citation:
 #   container-title: Earth and Space Science
 # number-sections: true
-# bibliography: references.bib
-# bibliography: references.bib
 ---
 
 ```{r}
@@ -311,7 +306,9 @@ raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |>
   mutate(percent_difference = estimated_diff/(emmean+estimated_diff))
 ```
 
-All preprocessing methods outperformed raw spectral data @tbl-preproc. The SNV-SG method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R^2^ and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at $\alpha$ \<0.05 for RPIQ. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Averaged together, preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra. Because the SNV-SG method was the best performing according to all metrics, a final model was developed using it.
+All preprocessing methods outperformed raw spectral data @tbl-preproc. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra.
+
+The SNV-SG method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R^2^ and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at $\alpha$ \<0.05 for RPIQ. RPIQ was devised to accurately reflect the spread of data in skewed populations [@bellon-maurel2010] and thus offers a robust metric for model assessment. Therefore the superiority of SNV-SG as measured via RPIQ made it the superior candidate for the choice of final model.
 
 ```{r}
 #| label: tbl-preproc
@@ -332,7 +329,7 @@ to_table2|>
 
 **paragraph discussing relative merits of various preprocessing methods**
 
-The methods examined represent a portion of those available. As well, preprocessing methods tend to have a number of user-adjustable parameters whose various permutations were not tested here. The subset of preprocessing methods and parameters tested here nonetheless contained substantial variations in model quality, demonstrating the importance of the choice of preprocessing method.
+The preprocessing methods examined represent a portion of those available. As well, preprocessing methods tend to have a number of user-adjustable parameters whose various permutations were not tested. This subset of preprocessing methods and parameters nonetheless contained substantial variations in model quality, demonstrating the importance of the selection an appropriate preprocessing method.
 
 ### Final model development and summary
 
@@ -350,7 +347,7 @@ avg_change <- model_n_comp_statistics[,lapply(.SD, mean),.SDcols = 3:8, by= ncom
 change_per_pc <- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]
 ```
 
-Models improved most rapidly as the number of principal components increased from 1 to 7, with the inclusion of each additional PC being associated with a decrease in RMSE of 5-12% . From 8 to 12 PCs, model performance continued to improve, although gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more PCs, performance gains were minimal and the relative ranks of the models tended to be stable @fig-model-calibration.
+The model improved most rapidly as the number of principal components increased from 1 to 7, with the inclusion of each additional PC being associated with a decrease in RMSE of 5-12% . From 8 to 12 PCs, model performance continued to improve, although gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more PCs, performance gains were minimal and the relative ranks of the models tended to be stable @fig-model-calibration.
 
 ```{r}
 #| label: fig-model-calibration
