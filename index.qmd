@@ -68,10 +68,10 @@ bibliography:
   - references.bib
   - grateful-refs.bib
 
-# csl: apa.csl
+csl: apa.csl
 # citation:
 #   container-title: Earth and Space Science
-# number-sections: true
+number-sections: true
 ---
 
 ```{r}
@@ -162,7 +162,7 @@ Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). Fo
 
 ### Model Development
 
-Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and validation sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. For each calibration set, models were developed in caret using PLSR. In fitting the model, the number of principal components was optimized over au grid search from 1-20. Model performance was evaluated with 25 iterations of bootstrapping and minimized root mean squared error (RMSE) in selecting the number of principal components in the final model [@kuhn2008].
+Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and validation sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. For each calibration set, models were developed in caret using PLSR. In fitting the model, the number of principal components was optimized over au grid search from 1-20. Model performance was evaluated with 25 iterations of bootstrapping and minimized root mean squared error (RMSE) in selecting the number of principal components in the final model .
 
 ```{r}
 preproc_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
@@ -371,15 +371,13 @@ final_model_table <- model_final_predictions |>
 
 ```
 
-Final model performance was similar, but not identical to, that obtained during the initial comparison of preprocessing methods. The final models' mean RMSE  was 1.03, R^2^ was 0.83, and RPIQ was 3.89 (all calculated on the test sets). Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows 21 number of models with R^2^ below 0.7. 
+Final model performance was similar, but not identical to, that obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, and RPIQ was 3.89 (all calculated on the test sets). Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows 21 number of models with R^2^ below 0.7.
 
 ```{r}
 skim_metrics <- final_model_table |> 
   group_by(.metric) |> 
   skimr::skim()
 ```
-
-
 
 ```{r}
 #| label: fig-final-metric-boxplot

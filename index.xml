@@ -132,7 +132,7 @@ mollit anim id est laborum.</p>
 <p><bold>incomplete: may contain errors, run-ons, half-thoughts,
 etc.</bold></p>
 <sec id="introduction">
-  <title>INTRODUCTION</title>
+  <title>1 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
   a source of food or feed from grain, and bast fiber or hurd from the
   stalk. Hemp cultivars are commonly grown for one or both purposes and
@@ -141,55 +141,55 @@ etc.</bold></p>
   grain crop is an prime consideration for researchers, producers, and
   consumers. Whole hemp grain typically contains approximately 20-30%
   protein
-  (<xref alt="Ely and Fike 2022" rid="ref-ely_industrial_2022" ref-type="bibr">Ely
-  and Fike 2022</xref>;
-  <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024" ref-type="bibr">Bárta
-  et al. 2024</xref>;
+  (<xref alt="Bárta et al., 2024" rid="ref-barta_proteomic_2024" ref-type="bibr">Bárta
+  et al., 2024</xref>;
+  <xref alt="Ely &amp; Fike, 2022" rid="ref-ely_industrial_2022" ref-type="bibr">Ely
+  &amp; Fike, 2022</xref>;
   <xref alt="callaway2004?" rid="ref-callaway2004" ref-type="bibr"><bold>callaway2004?</bold></xref>).
   Crude protein (CP) is often used as a proxy for the direct measurement
   of protein concentration and consists of the multiplication of
   nitrogen concentration by a conversion factor because measuring
   nitrogen concentration is relatively easy and cheap via laboratory
   assay
-  (<xref alt="Hayes 2020" rid="ref-hayes_measuring_2020" ref-type="bibr">Hayes
+  (<xref alt="Hayes, 2020" rid="ref-hayes_measuring_2020" ref-type="bibr">Hayes,
   2020</xref>).</p>
   <p>Near-infrared spectroscopy (NIRS) technology is rapid,
   non-destructive, and cheap, and consists of the measurement of NIR
   radiation reflected from a sample
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). NIR spectra from many samples are
-  related to laboratory values for components such as moisture, protein,
-  fat, or fiber
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). NIRS technology has been used since
-  the 1970’s to assess forage CP
-  (<xref alt="Reeves 2012" rid="ref-reeves_potential_2012" ref-type="bibr">Reeves
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts
+  et al., 2004</xref>). NIR spectra from many samples are related to
+  laboratory values for components such as moisture, protein, fat, or
+  fiber
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts
+  et al., 2004</xref>). NIRS technology has been used since the 1970’s
+  to assess forage CP
+  (<xref alt="Reeves, 2012" rid="ref-reeves_potential_2012" ref-type="bibr">Reeves,
   2012</xref>;
-  <xref alt="Williams 1975" rid="ref-williams_application_1975" ref-type="bibr">Williams
+  <xref alt="Williams, 1975" rid="ref-williams_application_1975" ref-type="bibr">Williams,
   1975</xref>). A NIRS calibration set often consists of samples from
   one species grown in many environments encompassing the range of
   expected values from the analyte or analytes
-  (<xref alt="Chadalavada et al. 2022" rid="ref-chadalavada_nir_2022" ref-type="bibr">Chadalavada
-  et al. 2022</xref>). Partial least squares regression (PLSR) is a
+  (<xref alt="Chadalavada et al., 2022" rid="ref-chadalavada_nir_2022" ref-type="bibr">Chadalavada
+  et al., 2022</xref>). Partial least squares regression (PLSR) is a
   typical method used in the agricultural and food sciences to relate
   spectra to analyte
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). PLSR calculates principal components
-  (PCs) which relate to the dependent variable and summarize the spectra
-  and uses a subset of PCs in order to fit the regression model. PLSR is
-  commonly used in spectroscopy because it tends to work well with
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts
+  et al., 2004</xref>). PLSR calculates principal components (PCs) which
+  relate to the dependent variable and summarize the spectra and uses a
+  subset of PCs in order to fit the regression model. PLSR is commonly
+  used in spectroscopy because it tends to work well with
   highly-correlated spectral data. Typically the number of principal
   components is chosen via cross-validation to avoid overfitting.
   <bold>CITES FOR ALL OF THIS</bold></p>
   <p>A NIRS-scanned sample of undamaged grain may used for other
   purposes or it may planted as a seed. In wheat and corn, grain protein
   content has been shown to be heritable
-  (<xref alt="Giancaspro et al. 2019" rid="ref-giancaspro_genetic_2019" ref-type="bibr">Giancaspro
-  et al. 2019</xref>;
-  <xref alt="Geyer, Mohler, and Hartl 2022" rid="ref-geyer_genetics_2022" ref-type="bibr">Geyer,
-  Mohler, and Hartl 2022</xref>). This suggests (at least potentially)
-  that NIRS technology could serve as resource to more rapidly identify
-  high CP hemp germplasm, enabling the delivery of higher CP hemp grain
+  (<xref alt="Geyer et al., 2022" rid="ref-geyer_genetics_2022" ref-type="bibr">Geyer
+  et al., 2022</xref>;
+  <xref alt="Giancaspro et al., 2019" rid="ref-giancaspro_genetic_2019" ref-type="bibr">Giancaspro
+  et al., 2019</xref>). This suggests (at least potentially) that NIRS
+  technology could serve as resource to more rapidly identify high CP
+  hemp germplasm, enabling the delivery of higher CP hemp grain
   cultivars faster.</p>
   <p>For this study, a benchtop NIR spectrometer was used to develop a
   model to predict CP content based on a data set of hemp grain
@@ -197,9 +197,9 @@ etc.</bold></p>
   dual-purpose hemp types using PLSR.</p>
 </sec>
 <sec id="materials-and-methods">
-  <title>MATERIALS AND METHODS</title>
+  <title>2 MATERIALS AND METHODS</title>
   <sec id="hemp-grain-sample-background">
-    <title>Hemp Grain Sample Background</title>
+    <title>2.1 Hemp Grain Sample Background</title>
     <p>Spectral data were obtained from whole (unground) hemp grain
     samples, harvested at maturity, collected from 2017 - 2021 from 18
     cultivar trials in New York (NY) (NA samples). Grain samples were
@@ -221,7 +221,7 @@ etc.</bold></p>
     represented in 2018-2021.</p>
   </sec>
   <sec id="spectral-data-collection-and-preprocessing">
-    <title>Spectral Data Collection and Preprocessing</title>
+    <title>2.2 Spectral Data Collection and Preprocessing</title>
     <p>A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model
     5000) was used to obtain the spectra (FOSS North America, Eden
     Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498
@@ -234,14 +234,13 @@ etc.</bold></p>
     H, where H is approximately equal to the squared Mahalanobis
     distance divided by the number of principal components used in the
     calculation
-    (<xref alt="Garrido-Varo, Garcia-Olmo, and Fearn 2019" rid="ref-garrido-varo_note_2019" ref-type="bibr">Garrido-Varo,
-    Garcia-Olmo, and Fearn 2019</xref>). Prior to selection selection,
-    spectra were preprocessed using SNV-detrend with settings 1,4,4,1
-    for the derivative, gap, smooth, and smooth 2 settings
-    respectively.</p>
+    (<xref alt="Garrido-Varo et al., 2019" rid="ref-garrido-varo_note_2019" ref-type="bibr">Garrido-Varo
+    et al., 2019</xref>). Prior to selection selection, spectra were
+    preprocessed using SNV-detrend with settings 1,4,4,1 for the
+    derivative, gap, smooth, and smooth 2 settings respectively.</p>
   </sec>
   <sec id="laboratory-validation">
-    <title>Laboratory Validation</title>
+    <title>2.3 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
@@ -249,7 +248,7 @@ etc.</bold></p>
     remaining samples were not aggregated.</p>
   </sec>
   <sec id="model-development">
-    <title>Model Development</title>
+    <title>2.4 Model Development</title>
     <p>Calibration and validations sets were created by dividing the
     laboratory CP values into tertiles according to their percent CP in
     order to ensure that the range of CP values was present in both
@@ -261,8 +260,7 @@ etc.</bold></p>
     over au grid search from 1-20. Model performance was evaluated with
     25 iterations of bootstrapping and minimized root mean squared error
     (RMSE) in selecting the number of principal components in the final
-    model
-    (<xref alt="kuhn2008?" rid="ref-kuhn2008" ref-type="bibr"><bold>kuhn2008?</bold></xref>).</p>
+    model .</p>
     <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 calibration and validation sets as described
     above. Spectral data from those data sets were transformed by each
@@ -288,55 +286,55 @@ etc.</bold></p>
     R<sup>2</sup>, and RPIQ.</p>
   </sec>
   <sec id="additional-software-used">
-    <title>Additional software used</title>
+    <title>2.5 Additional software used</title>
     <p>We used R version 4.3.3
-    (<xref alt="R Core Team 2024" rid="ref-base" ref-type="bibr">R Core
-    Team 2024</xref>) and the following R packages: caret v. 6.0.94
-    (<xref alt="Kuhn and Max 2008" rid="ref-caret" ref-type="bibr">Kuhn
-    and Max 2008</xref>), data.table v. 1.15.2
-    (<xref alt="Barrett et al. 2024" rid="ref-datatable" ref-type="bibr">Barrett
-    et al. 2024</xref>), emmeans v. 1.10.0
-    (<xref alt="Lenth 2024" rid="ref-emmeans" ref-type="bibr">Lenth
+    (<xref alt="R Core Team, 2024" rid="ref-base" ref-type="bibr">R Core
+    Team, 2024</xref>) and the following R packages: caret v. 6.0.94
+    (<xref alt="Kuhn &amp; Max, 2008" rid="ref-caret" ref-type="bibr">Kuhn
+    &amp; Max, 2008</xref>), data.table v. 1.15.2
+    (<xref alt="Barrett et al., 2024" rid="ref-datatable" ref-type="bibr">Barrett
+    et al., 2024</xref>), emmeans v. 1.10.0
+    (<xref alt="Lenth, 2024" rid="ref-emmeans" ref-type="bibr">Lenth,
     2024</xref>), kableExtra v. 1.4.0
-    (<xref alt="Zhu 2024" rid="ref-kableExtra" ref-type="bibr">Zhu
+    (<xref alt="Zhu, 2024" rid="ref-kableExtra" ref-type="bibr">Zhu,
     2024</xref>), knitr v. 1.45
-    (<xref alt="Xie 2014" rid="ref-knitr2014" ref-type="bibr">Xie
+    (<xref alt="Xie, 2014" rid="ref-knitr2014" ref-type="bibr">Xie,
     2014</xref>,
     <xref alt="2015" rid="ref-knitr2015" ref-type="bibr">2015</xref>,
     <xref alt="2023" rid="ref-knitr2023" ref-type="bibr">2023</xref>),
     lme4 v. 1.1.35.1
-    (<xref alt="Bates et al. 2015" rid="ref-lme4" ref-type="bibr">Bates
-    et al. 2015</xref>), multcomp v. 1.4.25
-    (<xref alt="Hothorn, Bretz, and Westfall 2008" rid="ref-multcomp" ref-type="bibr">Hothorn,
-    Bretz, and Westfall 2008</xref>), nlme v. 3.1.163
-    (<xref alt="J. C. Pinheiro and Bates 2000" rid="ref-nlme2000" ref-type="bibr">J.
-    C. Pinheiro and Bates 2000</xref>;
-    <xref alt="J. Pinheiro, Bates, and R Core Team 2023" rid="ref-nlme2023" ref-type="bibr">J.
-    Pinheiro, Bates, and R Core Team 2023</xref>), pls v. 2.8.3
-    (<xref alt="Liland, Mevik, and Wehrens 2023" rid="ref-pls" ref-type="bibr">Liland,
-    Mevik, and Wehrens 2023</xref>), prospectr v. 0.2.7
-    (<xref alt="Stevens and Ramirez-Lopez 2024" rid="ref-prospectr" ref-type="bibr">Stevens
-    and Ramirez-Lopez 2024</xref>), randomForest v. 4.7.1.1
-    (<xref alt="Liaw and Wiener 2002" rid="ref-randomForest" ref-type="bibr">Liaw
-    and Wiener 2002</xref>), rmarkdown v. 2.26
-    (<xref alt="Xie, Allaire, and Grolemund 2018" rid="ref-rmarkdown2018" ref-type="bibr">Xie,
-    Allaire, and Grolemund 2018</xref>;
-    <xref alt="Xie, Dervieux, and Riederer 2020" rid="ref-rmarkdown2020" ref-type="bibr">Xie,
-    Dervieux, and Riederer 2020</xref>;
-    <xref alt="Allaire et al. 2024" rid="ref-rmarkdown2024" ref-type="bibr">Allaire
-    et al. 2024</xref>), skimr v. 2.1.5
-    (<xref alt="Waring et al. 2022" rid="ref-skimr" ref-type="bibr">Waring
-    et al. 2022</xref>), tidymodels v. 1.1.1
-    (<xref alt="Kuhn and Wickham 2020" rid="ref-tidymodels" ref-type="bibr">Kuhn
-    and Wickham 2020</xref>), tidyverse v. 2.0.0
-    (<xref alt="Wickham et al. 2019" rid="ref-tidyverse" ref-type="bibr">Wickham
-    et al. 2019</xref>).</p>
+    (<xref alt="Bates et al., 2015" rid="ref-lme4" ref-type="bibr">Bates
+    et al., 2015</xref>), multcomp v. 1.4.25
+    (<xref alt="Hothorn et al., 2008" rid="ref-multcomp" ref-type="bibr">Hothorn
+    et al., 2008</xref>), nlme v. 3.1.163
+    (<xref alt="J. Pinheiro et al., 2023" rid="ref-nlme2023" ref-type="bibr">J.
+    Pinheiro et al., 2023</xref>;
+    <xref alt="J. C. Pinheiro &amp; Bates, 2000" rid="ref-nlme2000" ref-type="bibr">J.
+    C. Pinheiro &amp; Bates, 2000</xref>), pls v. 2.8.3
+    (<xref alt="Liland et al., 2023" rid="ref-pls" ref-type="bibr">Liland
+    et al., 2023</xref>), prospectr v. 0.2.7
+    (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr" ref-type="bibr">Stevens
+    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
+    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest" ref-type="bibr">Liaw
+    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
+    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024" ref-type="bibr">Allaire
+    et al., 2024</xref>;
+    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018" ref-type="bibr">Xie
+    et al., 2018</xref>,
+    <xref alt="2020" rid="ref-rmarkdown2020" ref-type="bibr">2020</xref>),
+    skimr v. 2.1.5
+    (<xref alt="Waring et al., 2022" rid="ref-skimr" ref-type="bibr">Waring
+    et al., 2022</xref>), tidymodels v. 1.1.1
+    (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels" ref-type="bibr">Kuhn
+    &amp; Wickham, 2020</xref>), tidyverse v. 2.0.0
+    (<xref alt="Wickham et al., 2019" rid="ref-tidyverse" ref-type="bibr">Wickham
+    et al., 2019</xref>).</p>
   </sec>
 </sec>
 <sec id="results-and-discussion">
-  <title>RESULTS AND DISCUSSION</title>
+  <title>3 RESULTS AND DISCUSSION</title>
   <sec id="laboratory-assay-cp-values">
-    <title>Laboratory assay CP values</title>
+    <title>3.1 Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
     observed in the literature, indicating an reasonable basis for a
@@ -374,7 +372,7 @@ etc.</bold></p>
     </fig>
   </sec>
   <sec id="preprocessing-methods-comparison">
-    <title>Preprocessing methods comparison</title>
+    <title>3.2 Preprocessing methods comparison</title>
     <p>All preprocessing methods outperformed raw spectral data
     <xref alt="Table 2" rid="tbl-preproc">Table 2</xref>. Averaged
     together, all preprocessed spectra were superior to raw spectra,
@@ -396,8 +394,8 @@ etc.</bold></p>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
     of data in skewed populations
-    (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010" ref-type="bibr">Bellon-Maurel
-    et al. 2010</xref>) and thus offers a robust metric for model
+    (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel2010" ref-type="bibr">Bellon-Maurel
+    et al., 2010</xref>) and thus offers a robust metric for model
     assessment in this context, where the CP data are skewed. Therefore
     the superiority of SNV-SG as measured via RPIQ made it the best
     choice for the final model.</p>
@@ -485,7 +483,7 @@ etc.</bold></p>
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
-    <title>Final model development and summary</title>
+    <title>3.3 Final model development and summary</title>
     <p>The model improved most rapidly as the number of principal
     components increased from 1 to 7, with the inclusion of each
     additional PC being associated with a decrease in RMSE of 5-12% .
@@ -533,19 +531,19 @@ etc.</bold></p>
   </sec>
 </sec>
 <sec id="acknowledgments">
-  <title>ACKNOWLEDGMENTS</title>
+  <title>4 ACKNOWLEDGMENTS</title>
 </sec>
 <sec id="supplemental-material">
-  <title>SUPPLEMENTAL MATERIAL</title>
+  <title>5 SUPPLEMENTAL MATERIAL</title>
 </sec>
 <sec id="optional-sections">
-  <title>OPTIONAL SECTIONS</title>
+  <title>6 OPTIONAL SECTIONS</title>
 </sec>
 <sec id="references">
-  <title>REFERENCES</title>
+  <title>7 REFERENCES</title>
 </sec>
 <sec id="figures-and-tables">
-  <title>FIGURES AND TABLES</title>
+  <title>8 FIGURES AND TABLES</title>
   <fig id="fig-timeline">
     <caption><p>Figure 4: Timeline of recent earthquakes on La
     Palma</p></caption>
@@ -651,10 +649,10 @@ etc.</bold></p>
   the location of recent Earthquakes on La Palma.</p>
 </sec>
 <sec id="sec-data-methods">
-  <title>Data &amp; Methods</title>
+  <title>9 Data &amp; Methods</title>
 </sec>
 <sec id="conclusion">
-  <title>Conclusion</title>
+  <title>10 Conclusion</title>
 </sec>
 </body>
 
@@ -1388,7 +1386,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use tidymodels_prefer() to resolve common conflicts.</preformat>
+• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1410,7 +1408,7 @@ The following object is masked from 'package:dplyr':
 <p><bold>incomplete: may contain errors, run-ons, half-thoughts,
 etc.</bold></p>
 <sec id="introduction-nb-article">
-  <title>INTRODUCTION</title>
+  <title>1 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
   a source of food or feed from grain, and bast fiber or hurd from the
   stalk. Hemp cultivars are commonly grown for one or both purposes and
@@ -1419,55 +1417,55 @@ etc.</bold></p>
   grain crop is an prime consideration for researchers, producers, and
   consumers. Whole hemp grain typically contains approximately 20-30%
   protein
-  (<xref alt="Ely and Fike 2022" rid="ref-ely_industrial_2022-nb-article" ref-type="bibr">Ely
-  and Fike 2022</xref>;
-  <xref alt="Bárta et al. 2024" rid="ref-barta_proteomic_2024-nb-article" ref-type="bibr">Bárta
-  et al. 2024</xref>;
+  (<xref alt="Bárta et al., 2024" rid="ref-barta_proteomic_2024-nb-article" ref-type="bibr">Bárta
+  et al., 2024</xref>;
+  <xref alt="Ely &amp; Fike, 2022" rid="ref-ely_industrial_2022-nb-article" ref-type="bibr">Ely
+  &amp; Fike, 2022</xref>;
   <xref alt="callaway2004?" rid="ref-callaway2004-nb-article" ref-type="bibr"><bold>callaway2004?</bold></xref>).
   Crude protein (CP) is often used as a proxy for the direct measurement
   of protein concentration and consists of the multiplication of
   nitrogen concentration by a conversion factor because measuring
   nitrogen concentration is relatively easy and cheap via laboratory
   assay
-  (<xref alt="Hayes 2020" rid="ref-hayes_measuring_2020-nb-article" ref-type="bibr">Hayes
+  (<xref alt="Hayes, 2020" rid="ref-hayes_measuring_2020-nb-article" ref-type="bibr">Hayes,
   2020</xref>).</p>
   <p>Near-infrared spectroscopy (NIRS) technology is rapid,
   non-destructive, and cheap, and consists of the measurement of NIR
   radiation reflected from a sample
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). NIR spectra from many samples are
-  related to laboratory values for components such as moisture, protein,
-  fat, or fiber
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). NIRS technology has been used since
-  the 1970’s to assess forage CP
-  (<xref alt="Reeves 2012" rid="ref-reeves_potential_2012-nb-article" ref-type="bibr">Reeves
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts
+  et al., 2004</xref>). NIR spectra from many samples are related to
+  laboratory values for components such as moisture, protein, fat, or
+  fiber
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts
+  et al., 2004</xref>). NIRS technology has been used since the 1970’s
+  to assess forage CP
+  (<xref alt="Reeves, 2012" rid="ref-reeves_potential_2012-nb-article" ref-type="bibr">Reeves,
   2012</xref>;
-  <xref alt="Williams 1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">Williams
+  <xref alt="Williams, 1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">Williams,
   1975</xref>). A NIRS calibration set often consists of samples from
   one species grown in many environments encompassing the range of
   expected values from the analyte or analytes
-  (<xref alt="Chadalavada et al. 2022" rid="ref-chadalavada_nir_2022-nb-article" ref-type="bibr">Chadalavada
-  et al. 2022</xref>). Partial least squares regression (PLSR) is a
+  (<xref alt="Chadalavada et al., 2022" rid="ref-chadalavada_nir_2022-nb-article" ref-type="bibr">Chadalavada
+  et al., 2022</xref>). Partial least squares regression (PLSR) is a
   typical method used in the agricultural and food sciences to relate
   spectra to analyte
-  (<xref alt="Roberts, Workman, and Reeves 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts,
-  Workman, and Reeves 2004</xref>). PLSR calculates principal components
-  (PCs) which relate to the dependent variable and summarize the spectra
-  and uses a subset of PCs in order to fit the regression model. PLSR is
-  commonly used in spectroscopy because it tends to work well with
+  (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts
+  et al., 2004</xref>). PLSR calculates principal components (PCs) which
+  relate to the dependent variable and summarize the spectra and uses a
+  subset of PCs in order to fit the regression model. PLSR is commonly
+  used in spectroscopy because it tends to work well with
   highly-correlated spectral data. Typically the number of principal
   components is chosen via cross-validation to avoid overfitting.
   <bold>CITES FOR ALL OF THIS</bold></p>
   <p>A NIRS-scanned sample of undamaged grain may used for other
   purposes or it may planted as a seed. In wheat and corn, grain protein
   content has been shown to be heritable
-  (<xref alt="Giancaspro et al. 2019" rid="ref-giancaspro_genetic_2019-nb-article" ref-type="bibr">Giancaspro
-  et al. 2019</xref>;
-  <xref alt="Geyer, Mohler, and Hartl 2022" rid="ref-geyer_genetics_2022-nb-article" ref-type="bibr">Geyer,
-  Mohler, and Hartl 2022</xref>). This suggests (at least potentially)
-  that NIRS technology could serve as resource to more rapidly identify
-  high CP hemp germplasm, enabling the delivery of higher CP hemp grain
+  (<xref alt="Geyer et al., 2022" rid="ref-geyer_genetics_2022-nb-article" ref-type="bibr">Geyer
+  et al., 2022</xref>;
+  <xref alt="Giancaspro et al., 2019" rid="ref-giancaspro_genetic_2019-nb-article" ref-type="bibr">Giancaspro
+  et al., 2019</xref>). This suggests (at least potentially) that NIRS
+  technology could serve as resource to more rapidly identify high CP
+  hemp germplasm, enabling the delivery of higher CP hemp grain
   cultivars faster.</p>
   <p>For this study, a benchtop NIR spectrometer was used to develop a
   model to predict CP content based on a data set of hemp grain
@@ -1475,7 +1473,7 @@ etc.</bold></p>
   dual-purpose hemp types using PLSR.</p>
 </sec>
 <sec id="materials-and-methods-nb-article">
-  <title>MATERIALS AND METHODS</title>
+  <title>2 MATERIALS AND METHODS</title>
   <sec id="nb-code-cell-2-nb-article" specific-use="notebook-code">
   <code language="r script"># bckgrnd &lt;- fread(&quot;./input_data/simplified_data/background_data_set.csv&quot;) |&gt; setDT()
 
@@ -1514,7 +1512,7 @@ full_data &lt;- fread(&quot;./input_data/final_data_set/full_hemp_data.csv&quot;
 tab &lt;-  table(full_data$in_ny)</code>
   </sec>
   <sec id="hemp-grain-sample-background-nb-article">
-    <title>Hemp Grain Sample Background</title>
+    <title>2.1 Hemp Grain Sample Background</title>
     <p>Spectral data were obtained from whole (unground) hemp grain
     samples, harvested at maturity, collected from 2017 - 2021 from 18
     cultivar trials in New York (NY) (NA samples). Grain samples were
@@ -1536,7 +1534,7 @@ tab &lt;-  table(full_data$in_ny)</code>
     represented in 2018-2021.</p>
   </sec>
   <sec id="spectral-data-collection-and-preprocessing-nb-article">
-    <title>Spectral Data Collection and Preprocessing</title>
+    <title>2.2 Spectral Data Collection and Preprocessing</title>
     <p>A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model
     5000) was used to obtain the spectra (FOSS North America, Eden
     Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498
@@ -1549,14 +1547,13 @@ tab &lt;-  table(full_data$in_ny)</code>
     H, where H is approximately equal to the squared Mahalanobis
     distance divided by the number of principal components used in the
     calculation
-    (<xref alt="Garrido-Varo, Garcia-Olmo, and Fearn 2019" rid="ref-garrido-varo_note_2019-nb-article" ref-type="bibr">Garrido-Varo,
-    Garcia-Olmo, and Fearn 2019</xref>). Prior to selection selection,
-    spectra were preprocessed using SNV-detrend with settings 1,4,4,1
-    for the derivative, gap, smooth, and smooth 2 settings
-    respectively.</p>
+    (<xref alt="Garrido-Varo et al., 2019" rid="ref-garrido-varo_note_2019-nb-article" ref-type="bibr">Garrido-Varo
+    et al., 2019</xref>). Prior to selection selection, spectra were
+    preprocessed using SNV-detrend with settings 1,4,4,1 for the
+    derivative, gap, smooth, and smooth 2 settings respectively.</p>
   </sec>
   <sec id="laboratory-validation-nb-article">
-    <title>Laboratory Validation</title>
+    <title>2.3 Laboratory Validation</title>
     <p>Laboratory assays were performed by Dairy One Forage Laboratory
     (Ithaca, NY). For those assays, 1mm ground samples were analyzed by
     combustion using a CN628 or CN928 Carbon/Nitrogen Determinator.
@@ -1564,7 +1561,7 @@ tab &lt;-  table(full_data$in_ny)</code>
     remaining samples were not aggregated.</p>
   </sec>
   <sec id="model-development-nb-article">
-    <title>Model Development</title>
+    <title>2.4 Model Development</title>
     <p>Calibration and validations sets were created by dividing the
     laboratory CP values into tertiles according to their percent CP in
     order to ensure that the range of CP values was present in both
@@ -1576,8 +1573,7 @@ tab &lt;-  table(full_data$in_ny)</code>
     over au grid search from 1-20. Model performance was evaluated with
     25 iterations of bootstrapping and minimized root mean squared error
     (RMSE) in selecting the number of principal components in the final
-    model
-    (<xref alt="kuhn2008?" rid="ref-kuhn2008-nb-article" ref-type="bibr"><bold>kuhn2008?</bold></xref>).</p>
+    model .</p>
     <sec id="nb-code-cell-4-nb-article" specific-use="notebook-code">
     <code language="r script">preproc_key &lt;- fread(&quot;./input_data/final_data_set/preprocessing_key.csv&quot;)
 
@@ -1609,58 +1605,58 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     R<sup>2</sup>, and RPIQ.</p>
   </sec>
   <sec id="additional-software-used-nb-article">
-    <title>Additional software used</title>
+    <title>2.5 Additional software used</title>
     <sec id="nb-code-cell-5-nb-article" specific-use="notebook-code">
     <code language="r script">grateful::cite_packages(output = &quot;paragraph&quot;, out.dir = &quot;.&quot;)</code>
     <p>We used R version 4.3.3
-    (<xref alt="R Core Team 2024" rid="ref-base-nb-article" ref-type="bibr">R Core
-    Team 2024</xref>) and the following R packages: caret v. 6.0.94
-    (<xref alt="Kuhn and Max 2008" rid="ref-caret-nb-article" ref-type="bibr">Kuhn
-    and Max 2008</xref>), data.table v. 1.15.2
-    (<xref alt="Barrett et al. 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
-    et al. 2024</xref>), emmeans v. 1.10.0
-    (<xref alt="Lenth 2024" rid="ref-emmeans-nb-article" ref-type="bibr">Lenth
+    (<xref alt="R Core Team, 2024" rid="ref-base-nb-article" ref-type="bibr">R Core
+    Team, 2024</xref>) and the following R packages: caret v. 6.0.94
+    (<xref alt="Kuhn &amp; Max, 2008" rid="ref-caret-nb-article" ref-type="bibr">Kuhn
+    &amp; Max, 2008</xref>), data.table v. 1.15.2
+    (<xref alt="Barrett et al., 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
+    et al., 2024</xref>), emmeans v. 1.10.0
+    (<xref alt="Lenth, 2024" rid="ref-emmeans-nb-article" ref-type="bibr">Lenth,
     2024</xref>), kableExtra v. 1.4.0
-    (<xref alt="Zhu 2024" rid="ref-kableExtra-nb-article" ref-type="bibr">Zhu
+    (<xref alt="Zhu, 2024" rid="ref-kableExtra-nb-article" ref-type="bibr">Zhu,
     2024</xref>), knitr v. 1.45
-    (<xref alt="Xie 2014" rid="ref-knitr2014-nb-article" ref-type="bibr">Xie
+    (<xref alt="Xie, 2014" rid="ref-knitr2014-nb-article" ref-type="bibr">Xie,
     2014</xref>,
     <xref alt="2015" rid="ref-knitr2015-nb-article" ref-type="bibr">2015</xref>,
     <xref alt="2023" rid="ref-knitr2023-nb-article" ref-type="bibr">2023</xref>),
     lme4 v. 1.1.35.1
-    (<xref alt="Bates et al. 2015" rid="ref-lme4-nb-article" ref-type="bibr">Bates
-    et al. 2015</xref>), multcomp v. 1.4.25
-    (<xref alt="Hothorn, Bretz, and Westfall 2008" rid="ref-multcomp-nb-article" ref-type="bibr">Hothorn,
-    Bretz, and Westfall 2008</xref>), nlme v. 3.1.163
-    (<xref alt="J. C. Pinheiro and Bates 2000" rid="ref-nlme2000-nb-article" ref-type="bibr">J.
-    C. Pinheiro and Bates 2000</xref>;
-    <xref alt="J. Pinheiro, Bates, and R Core Team 2023" rid="ref-nlme2023-nb-article" ref-type="bibr">J.
-    Pinheiro, Bates, and R Core Team 2023</xref>), pls v. 2.8.3
-    (<xref alt="Liland, Mevik, and Wehrens 2023" rid="ref-pls-nb-article" ref-type="bibr">Liland,
-    Mevik, and Wehrens 2023</xref>), prospectr v. 0.2.7
-    (<xref alt="Stevens and Ramirez-Lopez 2024" rid="ref-prospectr-nb-article" ref-type="bibr">Stevens
-    and Ramirez-Lopez 2024</xref>), randomForest v. 4.7.1.1
-    (<xref alt="Liaw and Wiener 2002" rid="ref-randomForest-nb-article" ref-type="bibr">Liaw
-    and Wiener 2002</xref>), rmarkdown v. 2.26
-    (<xref alt="Xie, Allaire, and Grolemund 2018" rid="ref-rmarkdown2018-nb-article" ref-type="bibr">Xie,
-    Allaire, and Grolemund 2018</xref>;
-    <xref alt="Xie, Dervieux, and Riederer 2020" rid="ref-rmarkdown2020-nb-article" ref-type="bibr">Xie,
-    Dervieux, and Riederer 2020</xref>;
-    <xref alt="Allaire et al. 2024" rid="ref-rmarkdown2024-nb-article" ref-type="bibr">Allaire
-    et al. 2024</xref>), skimr v. 2.1.5
-    (<xref alt="Waring et al. 2022" rid="ref-skimr-nb-article" ref-type="bibr">Waring
-    et al. 2022</xref>), tidymodels v. 1.1.1
-    (<xref alt="Kuhn and Wickham 2020" rid="ref-tidymodels-nb-article" ref-type="bibr">Kuhn
-    and Wickham 2020</xref>), tidyverse v. 2.0.0
-    (<xref alt="Wickham et al. 2019" rid="ref-tidyverse-nb-article" ref-type="bibr">Wickham
-    et al. 2019</xref>).</p>
+    (<xref alt="Bates et al., 2015" rid="ref-lme4-nb-article" ref-type="bibr">Bates
+    et al., 2015</xref>), multcomp v. 1.4.25
+    (<xref alt="Hothorn et al., 2008" rid="ref-multcomp-nb-article" ref-type="bibr">Hothorn
+    et al., 2008</xref>), nlme v. 3.1.163
+    (<xref alt="J. Pinheiro et al., 2023" rid="ref-nlme2023-nb-article" ref-type="bibr">J.
+    Pinheiro et al., 2023</xref>;
+    <xref alt="J. C. Pinheiro &amp; Bates, 2000" rid="ref-nlme2000-nb-article" ref-type="bibr">J.
+    C. Pinheiro &amp; Bates, 2000</xref>), pls v. 2.8.3
+    (<xref alt="Liland et al., 2023" rid="ref-pls-nb-article" ref-type="bibr">Liland
+    et al., 2023</xref>), prospectr v. 0.2.7
+    (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr-nb-article" ref-type="bibr">Stevens
+    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
+    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest-nb-article" ref-type="bibr">Liaw
+    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
+    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024-nb-article" ref-type="bibr">Allaire
+    et al., 2024</xref>;
+    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018-nb-article" ref-type="bibr">Xie
+    et al., 2018</xref>,
+    <xref alt="2020" rid="ref-rmarkdown2020-nb-article" ref-type="bibr">2020</xref>),
+    skimr v. 2.1.5
+    (<xref alt="Waring et al., 2022" rid="ref-skimr-nb-article" ref-type="bibr">Waring
+    et al., 2022</xref>), tidymodels v. 1.1.1
+    (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels-nb-article" ref-type="bibr">Kuhn
+    &amp; Wickham, 2020</xref>), tidyverse v. 2.0.0
+    (<xref alt="Wickham et al., 2019" rid="ref-tidyverse-nb-article" ref-type="bibr">Wickham
+    et al., 2019</xref>).</p>
     </sec>
   </sec>
 </sec>
 <sec id="results-and-discussion-nb-article">
-  <title>RESULTS AND DISCUSSION</title>
+  <title>3 RESULTS AND DISCUSSION</title>
   <sec id="laboratory-assay-cp-values-nb-article">
-    <title>Laboratory assay CP values</title>
+    <title>3.1 Laboratory assay CP values</title>
     <p>Laboratory assay percent CP values are summarized in the
     following table. These are similar to the range of CP values
     observed in the literature, indicating an reasonable basis for a
@@ -1705,7 +1701,7 @@ knitr::kable(my_summary)</code>
     </sec>
   </sec>
   <sec id="preprocessing-methods-comparison-nb-article">
-    <title>Preprocessing methods comparison</title>
+    <title>3.2 Preprocessing methods comparison</title>
     <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
     <code language="r script"># 
 multi_metric &lt;- metric_set(rmse, rsq, rpiq)
@@ -1830,8 +1826,8 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
     of data in skewed populations
-    (<xref alt="Bellon-Maurel et al. 2010" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr">Bellon-Maurel
-    et al. 2010</xref>) and thus offers a robust metric for model
+    (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr">Bellon-Maurel
+    et al., 2010</xref>) and thus offers a robust metric for model
     assessment in this context, where the CP data are skewed. Therefore
     the superiority of SNV-SG as measured via RPIQ made it the best
     choice for the final model.</p>
@@ -1931,7 +1927,7 @@ to_table2|&gt;
     preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
-    <title>Final model development and summary</title>
+    <title>3.3 Final model development and summary</title>
     <sec id="nb-code-cell-14-nb-article" specific-use="notebook-code">
     <code language="r script">model_n_comp_statistics &lt;- fread(&quot;./input_data/final_data_set/final_model_n_component_stats.csv&quot;)
 
@@ -2083,19 +2079,19 @@ model_final_predictions |&gt;
   </sec>
 </sec>
 <sec id="acknowledgments-nb-article">
-  <title>ACKNOWLEDGMENTS</title>
+  <title>4 ACKNOWLEDGMENTS</title>
 </sec>
 <sec id="supplemental-material-nb-article">
-  <title>SUPPLEMENTAL MATERIAL</title>
+  <title>5 SUPPLEMENTAL MATERIAL</title>
 </sec>
 <sec id="optional-sections-nb-article">
-  <title>OPTIONAL SECTIONS</title>
+  <title>6 OPTIONAL SECTIONS</title>
 </sec>
 <sec id="references-nb-article">
-  <title>REFERENCES</title>
+  <title>7 REFERENCES</title>
 </sec>
 <sec id="figures-and-tables-nb-article">
-  <title>FIGURES AND TABLES</title>
+  <title>8 FIGURES AND TABLES</title>
   <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
@@ -2229,10 +2225,10 @@ avg_years_between_eruptions</code>
   the location of recent Earthquakes on La Palma.</p>
 </sec>
 <sec id="sec-data-methods-nb-article">
-  <title>Data &amp; Methods</title>
+  <title>9 Data &amp; Methods</title>
 </sec>
 <sec id="conclusion-nb-article">
-  <title>Conclusion</title>
+  <title>10 Conclusion</title>
 </sec>
 </body>
 
