@@ -478,7 +478,7 @@ model_final_predictions |>
 
 Errors tend to be lower at higher levels of actual CP
 
-This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves2012]. As well, the calibration and validation sets are relatively small.
+This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@Reeves_2012] . As well, the calibration and validation sets are relatively small.
 
 This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine the model by including more samples or by examining other predictive methods.
 
