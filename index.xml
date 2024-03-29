@@ -295,18 +295,7 @@ etc.</bold></p>
     (<xref alt="Barrett et al., 2024" rid="ref-datatable" ref-type="bibr">Barrett
     et al., 2024</xref>), emmeans v. 1.10.0
     (<xref alt="Lenth, 2024" rid="ref-emmeans" ref-type="bibr">Lenth,
-    2024</xref>), kableExtra v. 1.4.0
-    (<xref alt="Zhu, 2024" rid="ref-kableExtra" ref-type="bibr">Zhu,
-    2024</xref>), knitr v. 1.45
-    (<xref alt="Xie, 2014" rid="ref-knitr2014" ref-type="bibr">Xie,
-    2014</xref>,
-    <xref alt="2015" rid="ref-knitr2015" ref-type="bibr">2015</xref>,
-    <xref alt="2023" rid="ref-knitr2023" ref-type="bibr">2023</xref>),
-    lme4 v. 1.1.35.1
-    (<xref alt="Bates et al., 2015" rid="ref-lme4" ref-type="bibr">Bates
-    et al., 2015</xref>), multcomp v. 1.4.25
-    (<xref alt="Hothorn et al., 2008" rid="ref-multcomp" ref-type="bibr">Hothorn
-    et al., 2008</xref>), nlme v. 3.1.163
+    2024</xref>), nlme v. 3.1.163
     (<xref alt="J. Pinheiro et al., 2023" rid="ref-nlme2023" ref-type="bibr">J.
     Pinheiro et al., 2023</xref>;
     <xref alt="J. C. Pinheiro &amp; Bates, 2000" rid="ref-nlme2000" ref-type="bibr">J.
@@ -314,15 +303,7 @@ etc.</bold></p>
     (<xref alt="Liland et al., 2023" rid="ref-pls" ref-type="bibr">Liland
     et al., 2023</xref>), prospectr v. 0.2.7
     (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr" ref-type="bibr">Stevens
-    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
-    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest" ref-type="bibr">Liaw
-    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
-    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024" ref-type="bibr">Allaire
-    et al., 2024</xref>;
-    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018" ref-type="bibr">Xie
-    et al., 2018</xref>,
-    <xref alt="2020" rid="ref-rmarkdown2020" ref-type="bibr">2020</xref>),
-    skimr v. 2.1.5
+    &amp; Ramirez-Lopez, 2024</xref>), skimr v. 2.1.5
     (<xref alt="Waring et al., 2022" rid="ref-skimr" ref-type="bibr">Waring
     et al., 2022</xref>), tidymodels v. 1.1.1
     (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels" ref-type="bibr">Kuhn
@@ -394,11 +375,11 @@ etc.</bold></p>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
     of data in skewed populations
-    (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel2010" ref-type="bibr">Bellon-Maurel
-    et al., 2010</xref>) and thus offers a robust metric for model
-    assessment in this context, where the CP data are skewed. Therefore
-    the superiority of SNV-SG as measured via RPIQ made it the best
-    choice for the final model.</p>
+    (<xref alt="bellon-maurel2010?" rid="ref-bellon-maurel2010" ref-type="bibr"><bold>bellon-maurel2010?</bold></xref>)
+    and thus offers a robust metric for model assessment in this
+    context, where the CP data are skewed. Therefore the superiority of
+    SNV-SG as measured via RPIQ made it the best choice for the final
+    model.</p>
     <fig id="tbl-preproc">
       <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
       ± Standard Error</p></caption>
@@ -504,15 +485,38 @@ etc.</bold></p>
     good model performance, a subset of poor models can be seen. For
     example,
     <xref alt="Figure 2" rid="fig-final-metric-boxplot">Figure 2</xref>
-    shows 21 number of models with R<sup>2</sup> below 0.7.</p>
+    shows twenty-one models with R<sup>2</sup> below 0.7. <bold>more
+    comment on poor models?</bold></p>
     <fig id="fig-final-metric-boxplot">
       <caption><p>Figure 2: Final model validation set performance (1000
       iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
+    <preformat>
+Call:
+lm(formula = difference ~ adj_cp, data = temp_dat)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.51794 -0.58132  0.06936  0.50754  2.74745 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.80412    0.17827   4.511 1.31e-05 ***
+adj_cp      -0.15334    0.03051  -5.026 1.44e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9138 on 147 degrees of freedom
+Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
+F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
+    <p>Finally, the pattern of errors was examined on a per-sample
+    basis.
+    <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref></p>
     <fig id="fig-validation_set_performance">
-      <caption><p>Figure 3: Test set predictions versus normalized
-      scores across hemp samples</p></caption>
+      <caption><p>Figure 3: Test set prediction errors on a per-sample
+      basis. Actual sample value set to 0, and samples ranked from least
+      to greatest.</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
     <p>Errors tend to be lower at higher levels of actual CP</p>
@@ -520,8 +524,8 @@ etc.</bold></p>
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, even if the
     machines compared are of the same model
-    (<xref alt="reeves2012?" rid="ref-reeves2012" ref-type="bibr"><bold>reeves2012?</bold></xref>).
-    As well, the calibration and validation sets are relatively
+    (<xref alt="Reeves_2012?" rid="ref-Reeves_2012" ref-type="bibr"><bold>Reeves_2012?</bold></xref>)
+    . As well, the calibration and validation sets are relatively
     small.</p>
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
@@ -535,6 +539,369 @@ etc.</bold></p>
 </sec>
 <sec id="supplemental-material">
   <title>5 SUPPLEMENTAL MATERIAL</title>
+  <fig id="tbl-hemp_provenance">
+    <caption><p>Table 3: Tally of hemp cultivars and locations. Private
+    cultivars are labeled “cultivar1”, “cultivar2”, etc.</p></caption>
+    <table-wrap>
+      <table>
+        <thead>
+          <tr>
+            <th align="left">cultivar2</th>
+            <th align="right">chazy</th>
+            <th align="right">freeville</th>
+            <th align="right">geneva</th>
+            <th align="right">ithaca</th>
+            <th align="right">willsboro</th>
+            <th align="right">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left">altair</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">anka</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">5</td>
+            <td align="right">2</td>
+            <td align="right">11</td>
+          </tr>
+          <tr>
+            <td align="left">bialobrzeskie</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right">1</td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">canda</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">cfx-1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">cfx-2</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">7</td>
+          </tr>
+          <tr>
+            <td align="left">crs-1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar2</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar3</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar4</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">earlina 8</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">experimental1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">experimental2</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">felina 32</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">3</td>
+            <td align="right"></td>
+            <td align="right">6</td>
+          </tr>
+          <tr>
+            <td align="left">futura 75</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">grandi</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">10</td>
+          </tr>
+          <tr>
+            <td align="left">h-51</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">han-fn-h</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">han-nw</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">helena</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">henola</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">hlesia</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">3</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">hliana</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">joey</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">katani</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">nebraska (feral)</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">pewter river</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">picolo</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">portugal</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">rocky hemp</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">sterling gold</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">swift</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">tygra</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">uso-31</td>
+            <td align="right">2</td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">wojko</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">x-59</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">Total</td>
+            <td align="right">5</td>
+            <td align="right">24</td>
+            <td align="right">41</td>
+            <td align="right">76</td>
+            <td align="right">3</td>
+            <td align="right">149</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </fig>
 </sec>
 <sec id="optional-sections">
   <title>6 OPTIONAL SECTIONS</title>
@@ -583,7 +950,7 @@ etc.</bold></p>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
   years can be calculated.</p>
   <fig id="tbl-history">
-    <caption><p>Table 3: Recent historic eruptions on La
+    <caption><p>Table 4: Recent historic eruptions on La
     Palma</p></caption>
     <table-wrap>
       <table>
@@ -630,7 +997,7 @@ etc.</bold></p>
       </table>
     </table-wrap>
   </fig>
-  <p><xref alt="Table 3" rid="tbl-history">Table 3</xref> summarises the
+  <p><xref alt="Table 4" rid="tbl-history">Table 4</xref> summarises the
   eruptions recorded since the colonization of the islands by Europeans
   in the late 1400s.</p>
   <fig id="fig-map">
@@ -861,26 +1228,6 @@ etc.</bold></p>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-bellon-maurel2010">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Bellon-Maurel</surname><given-names>Véronique</given-names></name>
-        <name><surname>Fernandez-Ahumada</surname><given-names>Elvira</given-names></name>
-        <name><surname>Palagos</surname><given-names>Bernard</given-names></name>
-        <name><surname>Roger</surname><given-names>Jean-Michel</given-names></name>
-        <name><surname>McBratney</surname><given-names>Alex</given-names></name>
-      </person-group>
-      <article-title>Critical review of chemometric indicators commonly used for assessing the quality of the prediction of soil attributes by NIR spectroscopy</article-title>
-      <source>TrAC Trends in Analytical Chemistry</source>
-      <year iso-8601-date="2010-10-01">2010</year><month>10</month><day>01</day>
-      <volume>29</volume>
-      <issue>9</issue>
-      <uri>https://www.sciencedirect.com/science/article/pii/S0165993610001585</uri>
-      <pub-id pub-id-type="doi">10.1016/j.trac.2010.05.006</pub-id>
-      <fpage>1073</fpage>
-      <lpage>1081</lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-base">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -935,89 +1282,6 @@ etc.</bold></p>
       <uri>https://CRAN.R-project.org/package=emmeans</uri>
     </element-citation>
   </ref>
-  <ref id="ref-kableExtra">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Zhu</surname><given-names>Hao</given-names></name>
-      </person-group>
-      <source>kableExtra: Construct complex table with ‘kable’ and pipe syntax</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://CRAN.R-project.org/package=kableExtra</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2023">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <source>knitr: A general-purpose package for dynamic report generation in r</source>
-      <year iso-8601-date="2023">2023</year>
-      <uri>https://yihui.org/knitr/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2015">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <source>Dynamic documents with R and knitr</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2015">2015</year>
-      <edition>2nd</edition>
-      <uri>https://yihui.org/knitr/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2014">
-    <element-citation publication-type="chapter">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <article-title>knitr: A comprehensive tool for reproducible research in R</article-title>
-      <source>Implementing reproducible computational research</source>
-      <person-group person-group-type="editor">
-        <name><surname>Stodden</surname><given-names>Victoria</given-names></name>
-        <name><surname>Leisch</surname><given-names>Friedrich</given-names></name>
-        <name><surname>Peng</surname><given-names>Roger D.</given-names></name>
-      </person-group>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <year iso-8601-date="2014">2014</year>
-    </element-citation>
-  </ref>
-  <ref id="ref-lme4">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
-        <name><surname>Mächler</surname><given-names>Martin</given-names></name>
-        <name><surname>Bolker</surname><given-names>Ben</given-names></name>
-        <name><surname>Walker</surname><given-names>Steve</given-names></name>
-      </person-group>
-      <article-title>Fitting linear mixed-effects models using lme4</article-title>
-      <source>Journal of Statistical Software</source>
-      <year iso-8601-date="2015">2015</year>
-      <volume>67</volume>
-      <issue>1</issue>
-      <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
-      <fpage>1</fpage>
-      <lpage>48</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-multcomp">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Hothorn</surname><given-names>Torsten</given-names></name>
-        <name><surname>Bretz</surname><given-names>Frank</given-names></name>
-        <name><surname>Westfall</surname><given-names>Peter</given-names></name>
-      </person-group>
-      <article-title>Simultaneous inference in general parametric models</article-title>
-      <source>Biometrical Journal</source>
-      <year iso-8601-date="2008">2008</year>
-      <volume>50</volume>
-      <issue>3</issue>
-      <fpage>346</fpage>
-      <lpage>363</lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-nlme2023">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1063,72 +1327,6 @@ etc.</bold></p>
       </person-group>
       <source>An introduction to the prospectr package</source>
       <year iso-8601-date="2024">2024</year>
-    </element-citation>
-  </ref>
-  <ref id="ref-randomForest">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Liaw</surname><given-names>Andy</given-names></name>
-        <name><surname>Wiener</surname><given-names>Matthew</given-names></name>
-      </person-group>
-      <article-title>Classification and regression by randomForest</article-title>
-      <source>R News</source>
-      <year iso-8601-date="2002">2002</year>
-      <volume>2</volume>
-      <issue>3</issue>
-      <uri>https://CRAN.R-project.org/doc/Rnews/</uri>
-      <fpage>18</fpage>
-      <lpage>22</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2024">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Allaire</surname><given-names>JJ</given-names></name>
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
-        <name><surname>McPherson</surname><given-names>Jonathan</given-names></name>
-        <name><surname>Luraschi</surname><given-names>Javier</given-names></name>
-        <name><surname>Ushey</surname><given-names>Kevin</given-names></name>
-        <name><surname>Atkins</surname><given-names>Aron</given-names></name>
-        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
-        <name><surname>Cheng</surname><given-names>Joe</given-names></name>
-        <name><surname>Chang</surname><given-names>Winston</given-names></name>
-        <name><surname>Iannone</surname><given-names>Richard</given-names></name>
-      </person-group>
-      <source>rmarkdown: Dynamic documents for r</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://github.com/rstudio/rmarkdown</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2018">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Allaire</surname><given-names>J. J.</given-names></name>
-        <name><surname>Grolemund</surname><given-names>Garrett</given-names></name>
-      </person-group>
-      <source>R markdown: The definitive guide</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2018">2018</year>
-      <isbn>9781138359338</isbn>
-      <uri>https://bookdown.org/yihui/rmarkdown</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2020">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
-        <name><surname>Riederer</surname><given-names>Emily</given-names></name>
-      </person-group>
-      <source>R markdown cookbook</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2020">2020</year>
-      <isbn>9780367563837</isbn>
-      <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
     </element-citation>
   </ref>
   <ref id="ref-skimr">
@@ -1607,7 +1805,7 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
   <sec id="additional-software-used-nb-article">
     <title>2.5 Additional software used</title>
     <sec id="nb-code-cell-5-nb-article" specific-use="notebook-code">
-    <code language="r script">grateful::cite_packages(output = &quot;paragraph&quot;, out.dir = &quot;.&quot;)</code>
+    <code language="r script">grateful::cite_packages(output = &quot;paragraph&quot;, out.dir = &quot;.&quot;,pkgs = c(&quot;base&quot;, &quot;data.table&quot;, &quot;nlme&quot;, &quot;tidyverse&quot;, &quot;caret&quot;, &quot;pls&quot;, &quot;prospectr&quot;, &quot;tidymodels&quot;, &quot;emmeans&quot;, &quot;skimr&quot;))</code>
     <p>We used R version 4.3.3
     (<xref alt="R Core Team, 2024" rid="ref-base-nb-article" ref-type="bibr">R Core
     Team, 2024</xref>) and the following R packages: caret v. 6.0.94
@@ -1616,18 +1814,7 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     (<xref alt="Barrett et al., 2024" rid="ref-datatable-nb-article" ref-type="bibr">Barrett
     et al., 2024</xref>), emmeans v. 1.10.0
     (<xref alt="Lenth, 2024" rid="ref-emmeans-nb-article" ref-type="bibr">Lenth,
-    2024</xref>), kableExtra v. 1.4.0
-    (<xref alt="Zhu, 2024" rid="ref-kableExtra-nb-article" ref-type="bibr">Zhu,
-    2024</xref>), knitr v. 1.45
-    (<xref alt="Xie, 2014" rid="ref-knitr2014-nb-article" ref-type="bibr">Xie,
-    2014</xref>,
-    <xref alt="2015" rid="ref-knitr2015-nb-article" ref-type="bibr">2015</xref>,
-    <xref alt="2023" rid="ref-knitr2023-nb-article" ref-type="bibr">2023</xref>),
-    lme4 v. 1.1.35.1
-    (<xref alt="Bates et al., 2015" rid="ref-lme4-nb-article" ref-type="bibr">Bates
-    et al., 2015</xref>), multcomp v. 1.4.25
-    (<xref alt="Hothorn et al., 2008" rid="ref-multcomp-nb-article" ref-type="bibr">Hothorn
-    et al., 2008</xref>), nlme v. 3.1.163
+    2024</xref>), nlme v. 3.1.163
     (<xref alt="J. Pinheiro et al., 2023" rid="ref-nlme2023-nb-article" ref-type="bibr">J.
     Pinheiro et al., 2023</xref>;
     <xref alt="J. C. Pinheiro &amp; Bates, 2000" rid="ref-nlme2000-nb-article" ref-type="bibr">J.
@@ -1635,15 +1822,7 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     (<xref alt="Liland et al., 2023" rid="ref-pls-nb-article" ref-type="bibr">Liland
     et al., 2023</xref>), prospectr v. 0.2.7
     (<xref alt="Stevens &amp; Ramirez-Lopez, 2024" rid="ref-prospectr-nb-article" ref-type="bibr">Stevens
-    &amp; Ramirez-Lopez, 2024</xref>), randomForest v. 4.7.1.1
-    (<xref alt="Liaw &amp; Wiener, 2002" rid="ref-randomForest-nb-article" ref-type="bibr">Liaw
-    &amp; Wiener, 2002</xref>), rmarkdown v. 2.26
-    (<xref alt="Allaire et al., 2024" rid="ref-rmarkdown2024-nb-article" ref-type="bibr">Allaire
-    et al., 2024</xref>;
-    <xref alt="Xie et al., 2018" rid="ref-rmarkdown2018-nb-article" ref-type="bibr">Xie
-    et al., 2018</xref>,
-    <xref alt="2020" rid="ref-rmarkdown2020-nb-article" ref-type="bibr">2020</xref>),
-    skimr v. 2.1.5
+    &amp; Ramirez-Lopez, 2024</xref>), skimr v. 2.1.5
     (<xref alt="Waring et al., 2022" rid="ref-skimr-nb-article" ref-type="bibr">Waring
     et al., 2022</xref>), tidymodels v. 1.1.1
     (<xref alt="Kuhn &amp; Wickham, 2020" rid="ref-tidymodels-nb-article" ref-type="bibr">Kuhn
@@ -1826,11 +2005,11 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
     of data in skewed populations
-    (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr">Bellon-Maurel
-    et al., 2010</xref>) and thus offers a robust metric for model
-    assessment in this context, where the CP data are skewed. Therefore
-    the superiority of SNV-SG as measured via RPIQ made it the best
-    choice for the final model.</p>
+    (<xref alt="bellon-maurel2010?" rid="ref-bellon-maurel2010-nb-article" ref-type="bibr"><bold>bellon-maurel2010?</bold></xref>)
+    and thus offers a robust metric for model assessment in this
+    context, where the CP data are skewed. Therefore the superiority of
+    SNV-SG as measured via RPIQ made it the best choice for the final
+    model.</p>
     <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
     <code language="r script"># printable table of results
 
@@ -1976,7 +2155,8 @@ final_model_table &lt;- model_final_predictions |&gt;
     good model performance, a subset of poor models can be seen. For
     example,
     <xref alt="Figure 2" rid="fig-final-metric-boxplot-nb-article">Figure 2</xref>
-    shows 21 number of models with R<sup>2</sup> below 0.7.</p>
+    shows twenty-one models with R<sup>2</sup> below 0.7. <bold>more
+    comment on poor models?</bold></p>
     <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
     <code language="r script">skim_metrics &lt;- final_model_table |&gt; 
   group_by(.metric) |&gt; 
@@ -2017,6 +2197,41 @@ cutpoints2 &lt;- model_final_predictions |&gt;
   distinct(ith_in_data_set, crude_protein) |&gt; 
   mutate(cutpoints = cut(crude_protein, 3))</code>
     </sec>
+    <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
+    <code language="r script">data_sum_by_sample &lt;- model_final_predictions[,lapply(.SD, mean), .SDcols = c(&quot;crude_protein&quot;, &quot;difference&quot;), by = &quot;ith_in_data_set&quot;]
+setorder(data_sum_by_sample, crude_protein)
+temp_dat &lt;- copy(data_sum_by_sample)
+# create temporary ith
+temp_dat[,tmp_ith:= 1:.N]
+min_val &lt;- min(temp_dat$crude_protein)
+# center this
+temp_dat[,adj_cp:= crude_protein - min_val]
+lm_mod &lt;- lm(difference~adj_cp, data = temp_dat) 
+summary(lm_mod)</code>
+    <sec id="nb-code-cell-19-output-0-nb-article" specific-use="notebook-output">
+    <preformat>
+Call:
+lm(formula = difference ~ adj_cp, data = temp_dat)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-2.51794 -0.58132  0.06936  0.50754  2.74745 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  0.80412    0.17827   4.511 1.31e-05 ***
+adj_cp      -0.15334    0.03051  -5.026 1.44e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9138 on 147 degrees of freedom
+Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
+F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
+    </sec>
+    </sec>
+    <p>Finally, the pattern of errors was examined on a per-sample
+    basis.
+    <xref alt="Figure 3" rid="fig-validation_set_performance-nb-article">Figure 3</xref></p>
     <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-code">
     <code language="r script"># 
 # model_final_predictions |&gt; 
@@ -2055,8 +2270,9 @@ model_final_predictions |&gt;
     axis.title.x = element_blank(),
     axis.text.x = element_blank())</code>
     <fig id="fig-validation_set_performance-nb-article">
-      <caption><p>Figure 3: Test set predictions versus normalized
-      scores across hemp samples</p></caption>
+      <caption><p>Figure 3: Test set prediction errors on a per-sample
+      basis. Actual sample value set to 0, and samples ranked from least
+      to greatest.</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
     <sec id="cell-fig-validation_set_performance-output-0-nb-article" specific-use="notebook-output">
@@ -2068,8 +2284,8 @@ model_final_predictions |&gt;
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, even if the
     machines compared are of the same model
-    (<xref alt="reeves2012?" rid="ref-reeves2012-nb-article" ref-type="bibr"><bold>reeves2012?</bold></xref>).
-    As well, the calibration and validation sets are relatively
+    (<xref alt="Reeves_2012?" rid="ref-Reeves_2012-nb-article" ref-type="bibr"><bold>Reeves_2012?</bold></xref>)
+    . As well, the calibration and validation sets are relatively
     small.</p>
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
@@ -2083,6 +2299,376 @@ model_final_predictions |&gt;
 </sec>
 <sec id="supplemental-material-nb-article">
   <title>5 SUPPLEMENTAL MATERIAL</title>
+  <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
+  <code language="r script">supp_tab &lt;- fread(&quot;./input_data/final_data_set/cultivar_table_clean.csv&quot;)</code>
+  </sec>
+  <sec id="nb-code-cell-21-nb-article" specific-use="notebook-code">
+  <code language="r script">options(knitr.kable.NA = '')
+knitr::kable(supp_tab)</code>
+  <fig id="tbl-hemp_provenance-nb-article">
+    <caption><p>Table 3: Tally of hemp cultivars and locations. Private
+    cultivars are labeled “cultivar1”, “cultivar2”, etc.</p></caption>
+    <table-wrap>
+      <table>
+        <thead>
+          <tr>
+            <th align="left">cultivar2</th>
+            <th align="right">chazy</th>
+            <th align="right">freeville</th>
+            <th align="right">geneva</th>
+            <th align="right">ithaca</th>
+            <th align="right">willsboro</th>
+            <th align="right">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td align="left">altair</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">anka</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">5</td>
+            <td align="right">2</td>
+            <td align="right">11</td>
+          </tr>
+          <tr>
+            <td align="left">bialobrzeskie</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right">1</td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">canda</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">cfx-1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">cfx-2</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">7</td>
+          </tr>
+          <tr>
+            <td align="left">crs-1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar2</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar3</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">cultivar4</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">earlina 8</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">experimental1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">experimental2</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">felina 32</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">3</td>
+            <td align="right"></td>
+            <td align="right">6</td>
+          </tr>
+          <tr>
+            <td align="left">futura 75</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">grandi</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">10</td>
+          </tr>
+          <tr>
+            <td align="left">h-51</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">han-fn-h</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">han-nw</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">helena</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">henola</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">hlesia</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">3</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">hliana</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">joey</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">katani</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">nebraska (feral)</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+          </tr>
+          <tr>
+            <td align="left">pewter river</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">picolo</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">5</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">portugal</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">rocky hemp</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">sterling gold</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right"></td>
+            <td align="right">1</td>
+          </tr>
+          <tr>
+            <td align="left">swift</td>
+            <td align="right">1</td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">tygra</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">uso-31</td>
+            <td align="right">2</td>
+            <td align="right">1</td>
+            <td align="right">2</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">9</td>
+          </tr>
+          <tr>
+            <td align="left">wojko</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right">3</td>
+            <td align="right">4</td>
+            <td align="right"></td>
+            <td align="right">8</td>
+          </tr>
+          <tr>
+            <td align="left">x-59</td>
+            <td align="right"></td>
+            <td align="right">2</td>
+            <td align="right"></td>
+            <td align="right">1</td>
+            <td align="right"></td>
+            <td align="right">3</td>
+          </tr>
+          <tr>
+            <td align="left">Total</td>
+            <td align="right">5</td>
+            <td align="right">24</td>
+            <td align="right">41</td>
+            <td align="right">76</td>
+            <td align="right">3</td>
+            <td align="right">149</td>
+          </tr>
+        </tbody>
+      </table>
+    </table-wrap>
+  </fig>
+  </sec>
 </sec>
 <sec id="optional-sections-nb-article">
   <title>6 OPTIONAL SECTIONS</title>
@@ -2092,7 +2678,7 @@ model_final_predictions |&gt;
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>8 FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-22-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -2108,10 +2694,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-23-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-20-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-23-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -2149,7 +2735,7 @@ avg_years_between_eruptions</code>
   <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
   years can be calculated.</p>
   <fig id="tbl-history-nb-article">
-    <caption><p>Table 3: Recent historic eruptions on La
+    <caption><p>Table 4: Recent historic eruptions on La
     Palma</p></caption>
     <table-wrap>
       <table>
@@ -2196,7 +2782,7 @@ avg_years_between_eruptions</code>
       </table>
     </table-wrap>
   </fig>
-  <p><xref alt="Table 3" rid="tbl-history-nb-article">Table 3</xref> summarises the
+  <p><xref alt="Table 4" rid="tbl-history-nb-article">Table 4</xref> summarises the
   eruptions recorded since the colonization of the islands by Europeans
   in the late 1400s.</p>
   <fig id="fig-map-nb-article">
@@ -2439,26 +3025,6 @@ avg_years_between_eruptions</code>
       <lpage></lpage>
     </element-citation>
   </ref>
-  <ref id="ref-bellon-maurel2010-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Bellon-Maurel</surname><given-names>Véronique</given-names></name>
-        <name><surname>Fernandez-Ahumada</surname><given-names>Elvira</given-names></name>
-        <name><surname>Palagos</surname><given-names>Bernard</given-names></name>
-        <name><surname>Roger</surname><given-names>Jean-Michel</given-names></name>
-        <name><surname>McBratney</surname><given-names>Alex</given-names></name>
-      </person-group>
-      <article-title>Critical review of chemometric indicators commonly used for assessing the quality of the prediction of soil attributes by NIR spectroscopy</article-title>
-      <source>TrAC Trends in Analytical Chemistry</source>
-      <year iso-8601-date="2010-10-01">2010</year><month>10</month><day>01</day>
-      <volume>29</volume>
-      <issue>9</issue>
-      <uri>https://www.sciencedirect.com/science/article/pii/S0165993610001585</uri>
-      <pub-id pub-id-type="doi">10.1016/j.trac.2010.05.006</pub-id>
-      <fpage>1073</fpage>
-      <lpage>1081</lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-base-nb-article">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -2513,89 +3079,6 @@ avg_years_between_eruptions</code>
       <uri>https://CRAN.R-project.org/package=emmeans</uri>
     </element-citation>
   </ref>
-  <ref id="ref-kableExtra-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Zhu</surname><given-names>Hao</given-names></name>
-      </person-group>
-      <source>kableExtra: Construct complex table with ‘kable’ and pipe syntax</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://CRAN.R-project.org/package=kableExtra</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2023-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <source>knitr: A general-purpose package for dynamic report generation in r</source>
-      <year iso-8601-date="2023">2023</year>
-      <uri>https://yihui.org/knitr/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2015-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <source>Dynamic documents with R and knitr</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2015">2015</year>
-      <edition>2nd</edition>
-      <uri>https://yihui.org/knitr/</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-knitr2014-nb-article">
-    <element-citation publication-type="chapter">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-      </person-group>
-      <article-title>knitr: A comprehensive tool for reproducible research in R</article-title>
-      <source>Implementing reproducible computational research</source>
-      <person-group person-group-type="editor">
-        <name><surname>Stodden</surname><given-names>Victoria</given-names></name>
-        <name><surname>Leisch</surname><given-names>Friedrich</given-names></name>
-        <name><surname>Peng</surname><given-names>Roger D.</given-names></name>
-      </person-group>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <year iso-8601-date="2014">2014</year>
-    </element-citation>
-  </ref>
-  <ref id="ref-lme4-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Bates</surname><given-names>Douglas</given-names></name>
-        <name><surname>Mächler</surname><given-names>Martin</given-names></name>
-        <name><surname>Bolker</surname><given-names>Ben</given-names></name>
-        <name><surname>Walker</surname><given-names>Steve</given-names></name>
-      </person-group>
-      <article-title>Fitting linear mixed-effects models using lme4</article-title>
-      <source>Journal of Statistical Software</source>
-      <year iso-8601-date="2015">2015</year>
-      <volume>67</volume>
-      <issue>1</issue>
-      <pub-id pub-id-type="doi">10.18637/jss.v067.i01</pub-id>
-      <fpage>1</fpage>
-      <lpage>48</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-multcomp-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Hothorn</surname><given-names>Torsten</given-names></name>
-        <name><surname>Bretz</surname><given-names>Frank</given-names></name>
-        <name><surname>Westfall</surname><given-names>Peter</given-names></name>
-      </person-group>
-      <article-title>Simultaneous inference in general parametric models</article-title>
-      <source>Biometrical Journal</source>
-      <year iso-8601-date="2008">2008</year>
-      <volume>50</volume>
-      <issue>3</issue>
-      <fpage>346</fpage>
-      <lpage>363</lpage>
-    </element-citation>
-  </ref>
   <ref id="ref-nlme2023-nb-article">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -2641,72 +3124,6 @@ avg_years_between_eruptions</code>
       </person-group>
       <source>An introduction to the prospectr package</source>
       <year iso-8601-date="2024">2024</year>
-    </element-citation>
-  </ref>
-  <ref id="ref-randomForest-nb-article">
-    <element-citation publication-type="article-journal">
-      <person-group person-group-type="author">
-        <name><surname>Liaw</surname><given-names>Andy</given-names></name>
-        <name><surname>Wiener</surname><given-names>Matthew</given-names></name>
-      </person-group>
-      <article-title>Classification and regression by randomForest</article-title>
-      <source>R News</source>
-      <year iso-8601-date="2002">2002</year>
-      <volume>2</volume>
-      <issue>3</issue>
-      <uri>https://CRAN.R-project.org/doc/Rnews/</uri>
-      <fpage>18</fpage>
-      <lpage>22</lpage>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2024-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Allaire</surname><given-names>JJ</given-names></name>
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
-        <name><surname>McPherson</surname><given-names>Jonathan</given-names></name>
-        <name><surname>Luraschi</surname><given-names>Javier</given-names></name>
-        <name><surname>Ushey</surname><given-names>Kevin</given-names></name>
-        <name><surname>Atkins</surname><given-names>Aron</given-names></name>
-        <name><surname>Wickham</surname><given-names>Hadley</given-names></name>
-        <name><surname>Cheng</surname><given-names>Joe</given-names></name>
-        <name><surname>Chang</surname><given-names>Winston</given-names></name>
-        <name><surname>Iannone</surname><given-names>Richard</given-names></name>
-      </person-group>
-      <source>rmarkdown: Dynamic documents for r</source>
-      <year iso-8601-date="2024">2024</year>
-      <uri>https://github.com/rstudio/rmarkdown</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2018-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Allaire</surname><given-names>J. J.</given-names></name>
-        <name><surname>Grolemund</surname><given-names>Garrett</given-names></name>
-      </person-group>
-      <source>R markdown: The definitive guide</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2018">2018</year>
-      <isbn>9781138359338</isbn>
-      <uri>https://bookdown.org/yihui/rmarkdown</uri>
-    </element-citation>
-  </ref>
-  <ref id="ref-rmarkdown2020-nb-article">
-    <element-citation publication-type="book">
-      <person-group person-group-type="author">
-        <name><surname>Xie</surname><given-names>Yihui</given-names></name>
-        <name><surname>Dervieux</surname><given-names>Christophe</given-names></name>
-        <name><surname>Riederer</surname><given-names>Emily</given-names></name>
-      </person-group>
-      <source>R markdown cookbook</source>
-      <publisher-name>Chapman; Hall/CRC</publisher-name>
-      <publisher-loc>Boca Raton, Florida</publisher-loc>
-      <year iso-8601-date="2020">2020</year>
-      <isbn>9780367563837</isbn>
-      <uri>https://bookdown.org/yihui/rmarkdown-cookbook</uri>
     </element-citation>
   </ref>
   <ref id="ref-skimr-nb-article">

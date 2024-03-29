@@ -180,7 +180,7 @@ Once the most promising preprocessing method was identified, 1000 more data sets
 <!-- Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\]. -->
 
 ```{r}
-grateful::cite_packages(output = "paragraph", out.dir = ".")
+grateful::cite_packages(output = "paragraph", out.dir = ".",pkgs = c("base", "data.table", "nlme", "tidyverse", "caret", "pls", "prospectr", "tidymodels", "emmeans", "skimr"))
 ```
 
 ## RESULTS AND DISCUSSION
@@ -371,7 +371,7 @@ final_model_table <- model_final_predictions |>
 
 ```
 
-Final model performance was similar, but not identical to, that obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, and RPIQ was 3.89 (all calculated on the test sets). Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows 21 number of models with R^2^ below 0.7.
+Final model performance was similar, but not identical to, that obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, and RPIQ was 3.89 (all calculated on the test sets). Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows twenty-one models with R^2^ below 0.7. **more comment on poor models?**
 
 ```{r}
 skim_metrics <- final_model_table |> 
@@ -420,8 +420,23 @@ cutpoints2 <- model_final_predictions |>
 ```
 
 ```{r}
+data_sum_by_sample <- model_final_predictions[,lapply(.SD, mean), .SDcols = c("crude_protein", "difference"), by = "ith_in_data_set"]
+setorder(data_sum_by_sample, crude_protein)
+temp_dat <- copy(data_sum_by_sample)
+# create temporary ith
+temp_dat[,tmp_ith:= 1:.N]
+min_val <- min(temp_dat$crude_protein)
+# center this
+temp_dat[,adj_cp:= crude_protein - min_val]
+lm_mod <- lm(difference~adj_cp, data = temp_dat) 
+summary(lm_mod)
+```
+
+Finally, the pattern of errors was examined on a per-sample basis. @fig-validation_set_performance
+
+```{r}
 #| label: fig-validation_set_performance
-#| fig-cap: Test set predictions versus normalized scores across hemp samples
+#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest.
 # 
 # model_final_predictions |> 
 #   left_join(cut_dt) |> 
@@ -463,13 +478,26 @@ model_final_predictions |>
 
 Errors tend to be lower at higher levels of actual CP
 
-This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves2012]. As well, the calibration and validation sets are relatively small.
+This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@Reeves_2012] . As well, the calibration and validation sets are relatively small.
 
 This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine the model by including more samples or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
 
 ## SUPPLEMENTAL MATERIAL
+
+```{r}
+
+supp_tab <- fread("./input_data/final_data_set/cultivar_table_clean.csv")
+```
+
+```{r}
+#| label: tbl-hemp_provenance
+#| tbl-cap: Tally of hemp cultivars and locations. Private cultivars are labeled "cultivar1", "cultivar2", etc. 
+
+options(knitr.kable.NA = '')
+knitr::kable(supp_tab)
+```
 
 ## OPTIONAL SECTIONS
 
