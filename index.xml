@@ -265,21 +265,25 @@ etc.</bold></p>
     tested by creating 100 calibration and validation sets as described
     above. Spectral data from those data sets were transformed by each
     of the following methods: 1) first derivative, 2) Savitzky-Golay
-    (SG), 3) gap-segment derivative, 4) standard normal variate (SNV),
-    4) standard normal variate following Savitzky-Golay (SNV-SG), 5)
-    SNV-detrend, and 6) multiplicative scatter correction. For each of
-    these preprocessing methods, models were fit and predictions were
-    made on the corresponding validation set (since there were 8
-    preprocessing methods, 8 separate models were fit for each of the
-    100 sets. The relationship between the predicted and actual values
-    of the validation set were calculated via RMSE, R<sup>2</sup> and
-    Ratio of Performance to InterQuartile distance (RPIQ), three common
-    model assessment metrics. Larger R<sup>2</sup> and RPIQ, and smaller
-    RMSE values are superior. Analyses of variance (ANOVA) were
-    performed for each of these metrics in order to compare the
-    preprocessing methods. For each ANOVA, each data set was considered
-    as a subject and allowing different variances for each preprocessing
-    method.</p>
+    (SG) using the first derivative, third order polynomial, and a
+    window of size 5, 3) gap-segment derivative using the first
+    derivative, a gap of eleven, and a segment size of 5, 4) standard
+    normal variate (SNV), 4) standard normal variate following
+    Savitzky-Golay (SNV-SG) (same SG parameters as above), 5)
+    SNV-detrend with second order polynomial, and 6) multiplicative
+    scatter correction.</p>
+    <p>For each of these preprocessing methods, models were fit and
+    predictions were made on the corresponding validation set (since
+    there were 8 preprocessing methods, 8 separate models were fit for
+    each of the 100 sets. The relationship between the predicted and
+    actual values of the validation set were calculated via RMSE,
+    R<sup>2</sup> and Ratio of Performance to InterQuartile distance
+    (RPIQ), three common model assessment metrics. Larger R<sup>2</sup>
+    and RPIQ, and smaller RMSE values are superior. Analyses of variance
+    (ANOVA) were performed for each of these metrics in order to compare
+    the preprocessing methods. For each ANOVA, each data set was
+    considered as a subject and allowing different variances for each
+    preprocessing method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the validation sets was summarized with RMSE,
@@ -455,6 +459,14 @@ etc.</bold></p>
         </table>
       </table-wrap>
     </fig>
+    <p>SNV and SNV-detrend correct light scatter. SG is a smoothing
+    filter that regresses on the signal over a series of windows.
+    Derivatives remove noise, but not necessarily light scattering.
+    <bold>cite</bold></p>
+    <p><bold>cite:</bold> Barnes RJ, Dhanoa MS, Lister SJ. 1989.
+    Standard normal variate transformation and de-trending of
+    near-infrared diffuse reflectance spectra. Applied spectroscopy,
+    43(5): 772-777.</p>
     <p>The preprocessing methods examined represent a portion of those
     available. As well, preprocessing methods tend to have a number of
     user-adjustable parameters whose various permutations were not
@@ -1584,7 +1596,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
+• Use tidymodels_prefer() to resolve common conflicts.</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1782,21 +1794,25 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     tested by creating 100 calibration and validation sets as described
     above. Spectral data from those data sets were transformed by each
     of the following methods: 1) first derivative, 2) Savitzky-Golay
-    (SG), 3) gap-segment derivative, 4) standard normal variate (SNV),
-    4) standard normal variate following Savitzky-Golay (SNV-SG), 5)
-    SNV-detrend, and 6) multiplicative scatter correction. For each of
-    these preprocessing methods, models were fit and predictions were
-    made on the corresponding validation set (since there were 8
-    preprocessing methods, 8 separate models were fit for each of the
-    100 sets. The relationship between the predicted and actual values
-    of the validation set were calculated via RMSE, R<sup>2</sup> and
-    Ratio of Performance to InterQuartile distance (RPIQ), three common
-    model assessment metrics. Larger R<sup>2</sup> and RPIQ, and smaller
-    RMSE values are superior. Analyses of variance (ANOVA) were
-    performed for each of these metrics in order to compare the
-    preprocessing methods. For each ANOVA, each data set was considered
-    as a subject and allowing different variances for each preprocessing
-    method.</p>
+    (SG) using the first derivative, third order polynomial, and a
+    window of size 5, 3) gap-segment derivative using the first
+    derivative, a gap of eleven, and a segment size of 5, 4) standard
+    normal variate (SNV), 4) standard normal variate following
+    Savitzky-Golay (SNV-SG) (same SG parameters as above), 5)
+    SNV-detrend with second order polynomial, and 6) multiplicative
+    scatter correction.</p>
+    <p>For each of these preprocessing methods, models were fit and
+    predictions were made on the corresponding validation set (since
+    there were 8 preprocessing methods, 8 separate models were fit for
+    each of the 100 sets. The relationship between the predicted and
+    actual values of the validation set were calculated via RMSE,
+    R<sup>2</sup> and Ratio of Performance to InterQuartile distance
+    (RPIQ), three common model assessment metrics. Larger R<sup>2</sup>
+    and RPIQ, and smaller RMSE values are superior. Analyses of variance
+    (ANOVA) were performed for each of these metrics in order to compare
+    the preprocessing methods. For each ANOVA, each data set was
+    considered as a subject and allowing different variances for each
+    preprocessing method.</p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the validation sets was summarized with RMSE,
@@ -2097,6 +2113,14 @@ to_table2|&gt;
       </table-wrap>
     </fig>
     </sec>
+    <p>SNV and SNV-detrend correct light scatter. SG is a smoothing
+    filter that regresses on the signal over a series of windows.
+    Derivatives remove noise, but not necessarily light scattering.
+    <bold>cite</bold></p>
+    <p><bold>cite:</bold> Barnes RJ, Dhanoa MS, Lister SJ. 1989.
+    Standard normal variate transformation and de-trending of
+    near-infrared diffuse reflectance spectra. Applied spectroscopy,
+    43(5): 772-777.</p>
     <p>The preprocessing methods examined represent a portion of those
     available. As well, preprocessing methods tend to have a number of
     user-adjustable parameters whose various permutations were not
