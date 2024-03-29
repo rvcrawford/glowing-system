@@ -180,7 +180,7 @@ Once the most promising preprocessing method was identified, 1000 more data sets
 <!-- Additional analyses were performed using R Statistical Software [@r_core_team_r_2024]. Data were tabulated and summarized using the tidyverse and data.table \[@barrett_datatable_2024; @wickham_welcome_2019\]. PLSR models were constructed using the pls package and validated using caret \[@kuhn_building_2008; @liland_pls_2023\]. -->
 
 ```{r}
-grateful::cite_packages(output = "paragraph", out.dir = ".")
+grateful::cite_packages(output = "paragraph", out.dir = ".",pkgs = c("base", "data.table", "nlme", "tidyverse", "caret", "pls", "prospectr", "tidymodels", "emmeans", "skimr"))
 ```
 
 ## RESULTS AND DISCUSSION
@@ -485,6 +485,19 @@ This research showed the promise of the use of NIRS in order to make predictions
 ## ACKNOWLEDGMENTS
 
 ## SUPPLEMENTAL MATERIAL
+
+```{r}
+
+supp_tab <- fread("./input_data/final_data_set/cultivar_table_clean.csv")
+```
+
+```{r}
+#| label: tbl-hemp_provenance
+#| tbl-cap: Tally of hemp cultivars and locations. Private cultivars are labeled "cultivar1", "cultivar2", etc. 
+
+options(knitr.kable.NA = '')
+knitr::kable(supp_tab)
+```
 
 ## OPTIONAL SECTIONS
 
