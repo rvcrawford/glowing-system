@@ -421,7 +421,9 @@ model_final_predictions[,difference := predicted_crude_protein - crude_protein]
 # revised_model_cutpoints
 cutpoints2 <- model_final_predictions |> 
   distinct(ith_in_data_set, crude_protein) |> 
-  mutate(cutpoints = cut(crude_protein, 3))
+  mutate(cutpoints = cut(crude_protein, 3)) |> 
+  arrange(crude_protein) |> 
+  mutate(plot_order = 1:n())
 
 ```
 
@@ -436,6 +438,15 @@ min_val <- min(temp_dat$crude_protein)
 temp_dat[,adj_cp:= crude_protein - min_val]
 lm_mod <- lm(difference~adj_cp, data = temp_dat) 
 summary(lm_mod)
+
+coefs <- coef(lm_mod)
+
+preds <- predict(lm_mod, temp_dat)
+ds_preds <- temp_dat[,c("ith_in_data_set")] |> cbind(preds)
+
+ds_cutpoints <- merge(ds_preds, cutpoints2)
+setorder(ds_cutpoints, plot_order)
+ds_cutpoints
 ```
 
 Finally, the pattern of errors was examined on a per-sample basis. @fig-validation_set_performance
@@ -461,16 +472,14 @@ Finally, the pattern of errors was examined on a per-sample basis. @fig-validati
 #   theme(
 #     axis.title.x = element_blank(),
 #     axis.text.x = element_blank())
-
+# make a new model final cr
 model_final_predictions |> 
   left_join(cutpoints2) |> 
-  ggplot(aes(fct_reorder(
-    ith_in_data_set |> as.character(),
-    crude_protein), crude_protein))+
-  geom_point(aes(fct_reorder(
-    ith_in_data_set |> as.character(),
-    crude_protein), difference), alpha = 0.05, shape = 2) +
+  arrange(plot_order) |> 
+  ggplot(aes(plot_order, crude_protein))+
+  geom_point(aes(plot_order, difference), alpha = 0.05, shape = 2) +
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
+  geom_line(data = ds_cutpoints, aes(plot_order, preds))+
   facet_wrap( ~cutpoints, scales = "free_x",
               labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
                                        "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
