@@ -522,6 +522,19 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual standard error: 0.9138 on 147 degrees of freedom
 Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
 F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
+    <preformat>     ith_in_data_set      preds crude_protein   cutpoints plot_order
+               &lt;int&gt;      &lt;num&gt;         &lt;num&gt;      &lt;fctr&gt;      &lt;int&gt;
+  1:              50  0.8041160          20.8 (20.8,24.1]          1
+  2:              42  0.7274479          21.3 (20.8,24.1]          2
+  3:              52  0.6967806          21.5 (20.8,24.1]          3
+  4:              83  0.6814470          21.6 (20.8,24.1]          4
+  5:              85  0.6814470          21.6 (20.8,24.1]          5
+ ---                                                                
+145:              12 -0.6219116          30.1 (27.5,30.8]        145
+146:              55 -0.6219116          30.1 (27.5,30.8]        146
+147:             117 -0.6372452          30.2 (27.5,30.8]        147
+148:              63 -0.6679125          30.4 (27.5,30.8]        148
+149:             112 -0.7292470          30.8 (27.5,30.8]        149</preformat>
     <p>Finally, the pattern of errors was examined on a per-sample
     basis.
     <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref></p>
@@ -1596,7 +1609,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Learn how to get started at https://www.tidymodels.org/start/</preformat>
+• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -2219,7 +2232,9 @@ model_final_predictions[,difference := predicted_crude_protein - crude_protein]<
 # revised_model_cutpoints
 cutpoints2 &lt;- model_final_predictions |&gt; 
   distinct(ith_in_data_set, crude_protein) |&gt; 
-  mutate(cutpoints = cut(crude_protein, 3))</code>
+  mutate(cutpoints = cut(crude_protein, 3)) |&gt; 
+  arrange(crude_protein) |&gt; 
+  mutate(plot_order = 1:n())</code>
     </sec>
     <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
     <code language="r script">data_sum_by_sample &lt;- model_final_predictions[,lapply(.SD, mean), .SDcols = c(&quot;crude_protein&quot;, &quot;difference&quot;), by = &quot;ith_in_data_set&quot;]
@@ -2232,6 +2247,14 @@ min_val &lt;- min(temp_dat$crude_protein)
 temp_dat[,adj_cp:= crude_protein - min_val]
 lm_mod &lt;- lm(difference~adj_cp, data = temp_dat) 
 summary(lm_mod)</code>
+    <code language="r script">coefs &lt;- coef(lm_mod)
+
+preds &lt;- predict(lm_mod, temp_dat)
+ds_preds &lt;- temp_dat[,c(&quot;ith_in_data_set&quot;)] |&gt; cbind(preds)
+
+ds_cutpoints &lt;- merge(ds_preds, cutpoints2)
+setorder(ds_cutpoints, plot_order)
+ds_cutpoints</code>
     <sec id="nb-code-cell-19-output-0-nb-article" specific-use="notebook-output">
     <preformat>
 Call:
@@ -2251,6 +2274,21 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Residual standard error: 0.9138 on 147 degrees of freedom
 Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
 F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
+    </sec>
+    <sec id="nb-code-cell-19-output-1-nb-article" specific-use="notebook-output">
+    <preformat>     ith_in_data_set      preds crude_protein   cutpoints plot_order
+               &lt;int&gt;      &lt;num&gt;         &lt;num&gt;      &lt;fctr&gt;      &lt;int&gt;
+  1:              50  0.8041160          20.8 (20.8,24.1]          1
+  2:              42  0.7274479          21.3 (20.8,24.1]          2
+  3:              52  0.6967806          21.5 (20.8,24.1]          3
+  4:              83  0.6814470          21.6 (20.8,24.1]          4
+  5:              85  0.6814470          21.6 (20.8,24.1]          5
+ ---                                                                
+145:              12 -0.6219116          30.1 (27.5,30.8]        145
+146:              55 -0.6219116          30.1 (27.5,30.8]        146
+147:             117 -0.6372452          30.2 (27.5,30.8]        147
+148:              63 -0.6679125          30.4 (27.5,30.8]        148
+149:             112 -0.7292470          30.8 (27.5,30.8]        149</preformat>
     </sec>
     </sec>
     <p>Finally, the pattern of errors was examined on a per-sample
@@ -2275,16 +2313,14 @@ F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
 #   theme(
 #     axis.title.x = element_blank(),
 #     axis.text.x = element_blank())
-
+# make a new model final cr
 model_final_predictions |&gt; 
   left_join(cutpoints2) |&gt; 
-  ggplot(aes(fct_reorder(
-    ith_in_data_set |&gt; as.character(),
-    crude_protein), crude_protein))+
-  geom_point(aes(fct_reorder(
-    ith_in_data_set |&gt; as.character(),
-    crude_protein), difference), alpha = 0.05, shape = 2) +
+  arrange(plot_order) |&gt; 
+  ggplot(aes(plot_order, crude_protein))+
+  geom_point(aes(plot_order, difference), alpha = 0.05, shape = 2) +
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
+  geom_line(data = ds_cutpoints, aes(plot_order, preds))+
   facet_wrap( ~cutpoints, scales = &quot;free_x&quot;,
               labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low CP (20.8 - 24.1%)&quot;,
                                        &quot;(24.1,27.5]&quot;= &quot;Medium CP (24.2 - 27.5%)&quot;,
