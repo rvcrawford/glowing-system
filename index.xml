@@ -1596,7 +1596,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use tidymodels_prefer() to resolve common conflicts.</preformat>
+• Learn how to get started at https://www.tidymodels.org/start/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
