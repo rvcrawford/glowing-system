@@ -64,7 +64,7 @@ key-points:
   - A web scraping script was developed to pull data from the Instituto Geogràphico Nacional into a machine-readable form for analysis
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
 date: last-modified
-bibliography:
+bibliography: 
   - references.bib
   - grateful-refs.bib
 
@@ -91,11 +91,11 @@ library(kableExtra)
 
 ## INTRODUCTION
 
-Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes and a cultivar may be referred to as a grain, fiber, or dual-purpose type. Because of protein's nutritional importance, the protein content of a grain crop is an prime consideration for researchers, producers, and consumers. Whole hemp grain typically contains approximately 20-30% protein [@ely_industrial_2022; @barta_proteomic_2024; @callaway2004]. Crude protein (CP) is often used as a proxy for the direct measurement of protein concentration and consists of the multiplication of nitrogen concentration by a conversion factor because measuring nitrogen concentration is relatively easy and cheap via laboratory assay [@hayes_measuring_2020].
+Hemp (Cannabis sativa L.) is an annual crop with potential uses as a source of food or feed from grain, and bast fiber or hurd from the stalk. Hemp cultivars are commonly grown for one or both purposes and a cultivar may be referred to as a grain, fiber, or dual-purpose type. Because of protein's nutritional importance, the protein content of a grain crop is an prime consideration for researchers, producers, and consumers. Whole hemp grain typically contains approximately 20-30% protein [@ely_industrial_2022; @barta_proteomic_2024; @callaway_hempseed_2004]. Crude protein (CP) is often used as a proxy for the direct measurement of protein concentration and consists of the multiplication of nitrogen concentration by a conversion factor because measuring nitrogen concentration is relatively simple [@hayes_measuring_2020].
 
-Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap, and consists of the measurement of NIR radiation reflected from a sample [@roberts_near-infrared_2004]. NIR spectra from many samples are related to laboratory values for components such as moisture, protein, fat, or fiber [@roberts_near-infrared_2004]. NIRS technology has been used since the 1970's to assess forage CP [@reeves_potential_2012; @williams_application_1975]. A NIRS calibration set often consists of samples from one species grown in many environments encompassing the range of expected values from the analyte or analytes [@chadalavada_nir_2022]. Partial least squares regression (PLSR) is a typical method used in the agricultural and food sciences to relate spectra to analyte [@roberts_near-infrared_2004]. PLSR calculates principal components (PCs) which relate to the dependent variable and summarize the spectra and uses a subset of PCs in order to fit the regression model. PLSR is commonly used in spectroscopy because it tends to work well with highly-correlated spectral data. Typically the number of principal components is chosen via cross-validation to avoid overfitting. **CITES FOR ALL OF THIS**
+Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive, and cheap. It consists of the measurement of NIR radiation reflected and absorbed from a sample (the spectra) and the relation of the spectra to laboratory values for components such as moisture, protein, fat, or fiber [@roberts_near-infrared_2004]. NIRS technology has been used since the 1970's to assess forage CP [@reeves_potential_2012; @williams_application_1975]. A NIRS calibration set often consists of samples from one species grown in many environments encompassing the range of expected values from the analyte or analytes [@chadalavada_nir_2022]. Partial least squares regression (PLSR) is a typical method used in the agricultural and food sciences to relate spectra to analyte [@roberts_near-infrared_2004]. PLSR calculates components that maximize covariance between predictor and response variables. PLSR uses some number of components, often selected via cross-validation, in order to fit the regression model and is commonly used in spectroscopy because it tends to work well with highly-correlated, noisy spectral data [@wold_pls-regression_2001].
 
-A NIRS-scanned sample of undamaged grain may used for other purposes or it may planted as a seed. In wheat and corn, grain protein content has been shown to be heritable [@giancaspro_genetic_2019; @geyer_genetics_2022]. This suggests (at least potentially) that NIRS technology could serve as resource to more rapidly identify high CP hemp germplasm, enabling the delivery of higher CP hemp grain cultivars faster.
+A NIRS-scanned sample of undamaged grain may used for other purposes besides its scan or it may planted as a seed. In wheat and corn, grain protein content has been shown to be heritable [@giancaspro_genetic_2019; @geyer_genetics_2022]. This suggests (at least potentially) that NIRS technology could serve as resource to rapidly identify high CP hemp germplasm, enabling the screening of more germplam as grain, before planting to the field, and thus enabling the more efficient development of high CP hemp grain cultivars.
 
 For this study, a benchtop NIR spectrometer was used to develop a model to predict CP content based on a data set of hemp grain representing multiple years, locations, and cultivars from grain and dual-purpose hemp types using PLSR.
 
@@ -152,7 +152,7 @@ All cultivar trials were planted in randomized complete block design with each c
 
 ### Spectral Data Collection and Preprocessing
 
-A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded.
+A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded. A 1/4 rectangular sample cup (5.7 cm× 4.6 cm) was used.
 
 WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to average the spectra in 2017, as well as to select samples for laboratory assay. Samples were selected according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo_note_2019]. Prior to selection selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
 
@@ -162,7 +162,7 @@ Laboratory assays were performed by Dairy One Forage Laboratory (Ithaca, NY). Fo
 
 ### Model Development
 
-Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and validation sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the validation set. For each calibration set, models were developed in caret using PLSR. In fitting the model, the number of principal components was optimized over au grid search from 1-20. Model performance was evaluated with 25 iterations of bootstrapping and minimized root mean squared error (RMSE) in selecting the number of principal components in the final model .
+Calibration and validations sets were created by dividing the laboratory CP values into tertiles according to their percent CP in order to ensure that the range of CP values was present in both calibration and testing sets. Within each tertile, 75% of the samples were randomly assigned to the calibration set and the remaining 25% were assigned to the testing set. For each calibration set, models were developed in the caret package using PLSR. In fitting the model, the number of components was optimized over a grid search from 1-20. Model performance was evaluated with 25 iterations of bootstrapping and minimized root mean squared error (RMSE) in selecting the number of components in the final model .
 
 ```{r}
 preproc_key <- fread("./input_data/final_data_set/preprocessing_key.csv")
@@ -171,11 +171,11 @@ preproc_key[,full_name:= c("Raw Spectra", "First Derivative", "Second Derivative
                            "Standard Normal Variate", "Standard Normal Variate following Savitzky-Golay", "Standard Normal Variate-Detrend", "Multiplicative Scatter Correction")]
 ```
 
-Initially a number of common spectral preprocessing methods were tested by creating 100 calibration and validation sets as described above. Spectral data from those data sets were transformed by each of the following methods: 1) first derivative, 2) Savitzky-Golay (SG) using the first derivative, third order polynomial, and a window of size 5, 3) gap-segment derivative using the first derivative, a gap of eleven, and a segment size of 5, 4) standard normal variate (SNV), 4) standard normal variate following Savitzky-Golay (SNV-SG) (same SG parameters as above), 5) SNV-detrend with second order polynomial, and 6) multiplicative scatter correction.
+Initially a number of common spectral preprocessing methods were tested by creating 100 calibration and testing sets, as described above. Spectral data from those data sets were transformed by each of the following methods: 1) first derivative, 2) Savitzky-Golay (SG) using the first derivative, third order polynomial, and a window of size 5, 3) gap-segment derivative using the first derivative, a gap of eleven, and a segment size of 5, 4) standard normal variate (SNV), 5) standard normal variate following Savitzky-Golay (SNV-SG) (same SG parameters as above), 6) SNV-detrend with second order polynomial, and 7) multiplicative scatter correction. As a comparison, models were also developed using untransformed spectra.
 
-For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were `r (preproc_key$full_name) |> unique() |> length()-1` preprocessing methods, `r preproc_key$full_name |> unique() |> length()-1` separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of the validation set were calculated via RMSE, R^2^ and Ratio of Performance to InterQuartile distance (RPIQ), three common model assessment metrics. Larger R^2^ and RPIQ, and smaller RMSE values are superior. Analyses of variance (ANOVA) were performed for each of these metrics in order to compare the preprocessing methods. For each ANOVA, each data set was considered as a subject and allowing different variances for each preprocessing method.
+For each of these preprocessing methods, models were fit and predictions were made on the corresponding validation set (since there were `r (preproc_key$full_name) |> unique() |> length()-1` preprocessing methods, `r preproc_key$full_name |> unique() |> length()-1` separate models were fit for each of the 100 sets. The relationship between the predicted and actual values of the testing set were calculated via RMSE, R^2^ and Ratio of Performance to InterQuartile distance (RPIQ), three common model assessment metrics. Larger R^2^ and RPIQ, and smaller RMSE values are superior. Analyses of variance (ANOVA) were performed for each of these metrics in order to compare the preprocessing methods. For each ANOVA, each data set was considered as a subject and different variances were allowed for each preprocessing method.
 
-Once the most promising preprocessing method was identified, 1000 more data sets were created and analyzed via that method and performance on the validation sets was summarized with RMSE, R^2^, and RPIQ.
+Once the most promising preprocessing method was identified, 1000 more data sets were created and analyzed via that method and performance on the testing sets was summarized with RMSE, R^2^, and RPIQ.
 
 ### Additional software used
 
@@ -309,9 +309,9 @@ raw_contrast <- nlme_summaries_with_models_2 |> filter(preproc=="raw") |>
   mutate(percent_difference = estimated_diff/(emmean+estimated_diff))
 ```
 
-All preprocessing methods outperformed raw spectral data @tbl-preproc. Averaged together, all preprocessed spectra were superior to raw spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra.
+All preprocessing methods outperformed untransformed spectral data @tbl-preproc. Averaged together, all preprocessed spectra were superior to untransformed spectra, with lower RMSE, and higher R^2^ and RPIQ values (significant at $\alpha$ level \<0.001). Preprocessing methods had `r round(raw_contrast$percent_difference[[1]]*100,1)` % lower RMSE, and had `r round(raw_contrast$percent_difference[[2]] * 100,1)`% higher R^2^ `r round(raw_contrast$percent_difference[[3]] *100,1)`% higher RPIQ than unprocessed spectra.
 
-The SNV-SG method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R^2^ and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at $\alpha$ \<0.05 for RPIQ. RPIQ was devised to accurately reflect the spread of data in skewed populations [@bellon-maurel2010] and thus offers a robust metric for model assessment in this context, where the CP data are skewed. Therefore the superiority of SNV-SG as measured via RPIQ made it the best choice for the final model.
+The SNV-SG method had the lowest RMSE, highest R^2^, and highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4% lower, while R^2^ and RPIQ averaged 0.4% and 2.4% higher respectively than the next best preprocessing method (SG in both cases), but the difference between the best and second best method by metric were only statistically significant at $\alpha$ \<0.05 for RPIQ. RPIQ was devised to accurately reflect the spread of data in skewed populations [@bellon-maurel_critical_2010] and thus offers a robust metric for model assessment in this context, where the CP data are skewed. Therefore the superiority of SNV-SG as measured via RPIQ made it the best choice for the final model.
 
 ```{r}
 #| label: tbl-preproc
@@ -320,6 +320,11 @@ The SNV-SG method had the lowest RMSE, highest R^2^, and highest RPIQ averaging 
 # printable table of results
 
 to_table2 <- to_table |> 
+  mutate(`Preprocessing Method` = 
+           case_match(`Preprocessing Method`,
+             "Raw Spectra"~ "Untransformed Spectra",
+             .default=`Preprocessing Method`
+           )) |> 
   select(1:3) |> 
   pivot_wider(names_from = Metric, values_from = Estimate) |> 
   arrange(rmse) |> 
@@ -330,7 +335,9 @@ to_table2|>
 
 ```
 
-SNV and SNV-detrend correct light scatter. SG is a smoothing filter that regresses on the signal over a series of windows. Derivatives remove noise, but not necessarily light scattering. **cite**
+These results are not surprising. SNV and SNV-detrend both correct light scatter, which is often a function of differences in particle size and sample packing density, although SNV-detrend is often used for densely-packed, powdered samples [@barnes_standard_1989]. Here, hemp grain was neither powdered nor densely packed SG is a smoothing filter that regresses on the signal over a series of windows, removing noise while preserving the signal's shape and features.[@li_quantitative_2020; @luo_properties_2005]. Derivatives remove noise, but not necessarily light scatte
+
+\ring. **cite**
 
 **cite:** Barnes RJ, Dhanoa MS, Lister SJ. 1989. Standard normal variate transformation and de-trending of near-infrared diffuse reflectance spectra. Applied spectroscopy, 43(5): 772-777.
 
@@ -447,33 +454,28 @@ ds_preds <- temp_dat[,c("ith_in_data_set")] |> cbind(preds)
 
 ds_cutpoints <- merge(ds_preds, cutpoints2)
 setorder(ds_cutpoints, plot_order)
-ds_cutpoints
+```
+
+```{r}
+sd_mod <- model_final_predictions[,list(sd_diff = sd(difference), crude_protein = mean(crude_protein)), by = "ith_in_data_set"]
+setorder(sd_mod, crude_protein)
+temp_dat_sd <- copy(sd_mod)
+# create temporary ith
+temp_dat_sd[,tmp_ith:= 1:.N]
+min_val_sd <- min(temp_dat_sd$crude_protein)
+# center this
+temp_dat_sd[,adj_cp:= crude_protein - min_val]
+
+lm_mod_sd <- lm(sd_diff~adj_cp, data = temp_dat_sd) 
 ```
 
 Finally, the pattern of errors was examined on a per-sample basis. @fig-validation_set_performance
 
 ```{r}
 #| label: fig-validation_set_performance
-#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest.
+#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest actual % CP value 
 # 
-# model_final_predictions |> 
-#   left_join(cut_dt) |> 
-#   ggplot(aes(fct_reorder(
-#     ith_in_data_set |> as.character(),
-#     crude_protein), crude_protein))+
-#   geom_point(aes(fct_reorder(
-#     ith_in_data_set |> as.character(),
-#     crude_protein), difference), alpha = 0.05, shape = 2) +
-#     geom_hline(yintercept = 0, linewidth = 2, lty = 2)+
-#   facet_wrap( ~cutpoints, scales = "free_x",
-#           labeller = as_labeller(c("(20.8,24.1]" = "Low (20.8 - 24.1)",
-#                                    "(24.1,27.5]"= "Medium (24.2 - 27.5)",
-#                                    "(27.5,30.8]" ="High (27.6-30.8)"))) + 
-#     theme_classic()+
-#   theme(
-#     axis.title.x = element_blank(),
-#     axis.text.x = element_blank())
-# make a new model final cr
+
 model_final_predictions |> 
   left_join(cutpoints2) |> 
   arrange(plot_order) |> 
@@ -484,16 +486,23 @@ model_final_predictions |>
   facet_wrap( ~cutpoints, scales = "free_x",
               labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
                                        "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
-                                       "(27.5,30.8]" ="High CP (27.6-30.8%)"))) + 
+                                       "(27.5,30.8]" ="High CP (27.6-30.8%)")))+ 
+  ylab("Crude Protein Predicted Percent Difference\nfrom Assayed Value")+
   theme_classic()+
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
-    axis.ticks.x = element_blank())
+    axis.ticks.x = element_blank()) 
 
 ```
 
-Errors tend to be lower at higher levels of actual CP
+\
+
+```{r}
+cts <- ds_cutpoints[,mean(preds), by=cutpoints]
+```
+
+To assess the patterns of errors within the models, a linear model was fit considering the mean estimated error for each sample considering all models where that sample was in the test set when compared to the sample's actual value. The models overestimated %CP by approximately `r round(cts$V1[1],2)` % in the lowest tertile and underestimated %CP by `r round(cts$V1[2],2)` % and `r round(cts$V1[3],2)` % in the middle and highest tertile, respectively
 
 ```{r}
 # look
@@ -516,9 +525,9 @@ td4_bckgrd <- merge(td3, full_data[,1:7], all.x = T)
 merge( td4_bckgrd,locs2, by.y ="loc", by.x= 'loc', all.x = T)
 ```
 
-This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@Reeves_2012] . As well, the calibration and validation sets are relatively small.
+This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the calibration and validation sets are relatively small.
 
-This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine the model by including more samples or by examining other predictive methods.
+This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, identifying promising spectral regions, or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
 
