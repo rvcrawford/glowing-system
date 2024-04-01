@@ -227,37 +227,37 @@ cultivar may be referred to as a grain, fiber, or dual-purpose type.
 Because of protein's nutritional importance, the protein content of a
 grain crop is an prime consideration for researchers, producers, and
 consumers. Whole hemp grain typically contains approximately 20-30\%
-protein (Bárta et al., 2024; Ely \& Fike, 2022; \textbf{callaway2004?}).
-Crude protein (CP) is often used as a proxy for the direct measurement
-of protein concentration and consists of the multiplication of nitrogen
+protein (Bárta et al., 2024; Callaway, 2004; Ely \& Fike, 2022). Crude
+protein (CP) is often used as a proxy for the direct measurement of
+protein concentration and consists of the multiplication of nitrogen
 concentration by a conversion factor because measuring nitrogen
-concentration is relatively easy and cheap via laboratory assay (Hayes,
-2020).
+concentration is relatively simple (Hayes, 2020).
 
 Near-infrared spectroscopy (NIRS) technology is rapid, non-destructive,
-and cheap, and consists of the measurement of NIR radiation reflected
-from a sample (Roberts et al., 2004). NIR spectra from many samples are
-related to laboratory values for components such as moisture, protein,
-fat, or fiber (Roberts et al., 2004). NIRS technology has been used
-since the 1970's to assess forage CP (Reeves, 2012; Williams, 1975). A
-NIRS calibration set often consists of samples from one species grown in
-many environments encompassing the range of expected values from the
-analyte or analytes (Chadalavada et al., 2022). Partial least squares
-regression (PLSR) is a typical method used in the agricultural and food
-sciences to relate spectra to analyte (Roberts et al., 2004). PLSR
-calculates principal components (PCs) which relate to the dependent
-variable and summarize the spectra and uses a subset of PCs in order to
-fit the regression model. PLSR is commonly used in spectroscopy because
-it tends to work well with highly-correlated spectral data. Typically
-the number of principal components is chosen via cross-validation to
-avoid overfitting. \textbf{CITES FOR ALL OF THIS}
+and cheap. It consists of the measurement of NIR radiation reflected and
+absorbed from a sample (the spectra) and the relation of the spectra to
+laboratory values for components such as moisture, protein, fat, or
+fiber (Roberts et al., 2004). NIRS technology has been used since the
+1970's to assess forage CP (Reeves, 2012; Williams, 1975). A NIRS
+calibration set often consists of samples from one species grown in many
+environments encompassing the range of expected values from the analyte
+or analytes (Chadalavada et al., 2022). Partial least squares regression
+(PLSR) is a typical method used in the agricultural and food sciences to
+relate spectra to analyte (Roberts et al., 2004). PLSR calculates
+components that maximize covariance between predictor and response
+variables. PLSR uses some number of components, often selected via
+cross-validation, in order to fit the regression model and is commonly
+used in spectroscopy because it tends to work well with
+highly-correlated, noisy spectral data (Wold et al., 2001).
 
-A NIRS-scanned sample of undamaged grain may used for other purposes or
-it may planted as a seed. In wheat and corn, grain protein content has
-been shown to be heritable (Geyer et al., 2022; Giancaspro et al.,
-2019). This suggests (at least potentially) that NIRS technology could
-serve as resource to more rapidly identify high CP hemp germplasm,
-enabling the delivery of higher CP hemp grain cultivars faster.
+A NIRS-scanned sample of undamaged grain may used for other purposes
+besides its scan or it may planted as a seed. In wheat and corn, grain
+protein content has been shown to be heritable (Geyer et al., 2022;
+Giancaspro et al., 2019). This suggests (at least potentially) that NIRS
+technology could serve as resource to rapidly identify high CP hemp
+germplasm, enabling the screening of more germplam as grain, before
+planting to the field, and thus enabling the more efficient development
+of high CP hemp grain cultivars.
 
 For this study, a benchtop NIR spectrometer was used to develop a model
 to predict CP content based on a data set of hemp grain representing
@@ -303,7 +303,8 @@ Preprocessing}\label{spectral-data-collection-and-preprocessing}
 A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was
 used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA).
 Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of
-reciprocal reflectance was recorded.
+reciprocal reflectance was recorded. A 1/4 rectangular sample cup (5.7
+cm × 4.6 cm) was used.
 
 WINISI software version 1.02A (Infrasoft International, Port Matilda,
 PA, USA) was used to average the spectra in 2017, as well as to select
@@ -328,46 +329,46 @@ aggregated.
 
 Calibration and validations sets were created by dividing the laboratory
 CP values into tertiles according to their percent CP in order to ensure
-that the range of CP values was present in both calibration and
-validation sets. Within each tertile, 75\% of the samples were randomly
-assigned to the calibration set and the remaining 25\% were assigned to
-the validation set. For each calibration set, models were developed in
-caret using PLSR. In fitting the model, the number of principal
-components was optimized over au grid search from 1-20. Model
-performance was evaluated with 25 iterations of bootstrapping and
-minimized root mean squared error (RMSE) in selecting the number of
-principal components in the final model .
+that the range of CP values was present in both calibration and testing
+sets. Within each tertile, 75\% of the samples were randomly assigned to
+the calibration set and the remaining 25\% were assigned to the testing
+set. For each calibration set, models were developed in the caret
+package using PLSR. In fitting the model, the number of components was
+optimized over a grid search from 1-20. Model performance was evaluated
+with 25 iterations of bootstrapping and minimized root mean squared
+error (RMSE) in selecting the number of components in the final model .
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
 Initially a number of common spectral preprocessing methods were tested
-by creating 100 calibration and validation sets as described above.
+by creating 100 calibration and testing sets, as described above.
 Spectral data from those data sets were transformed by each of the
 following methods: 1) first derivative, 2) Savitzky-Golay (SG) using the
 first derivative, third order polynomial, and a window of size 5, 3)
 gap-segment derivative using the first derivative, a gap of eleven, and
-a segment size of 5, 4) standard normal variate (SNV), 4) standard
+a segment size of 5, 4) standard normal variate (SNV), 5) standard
 normal variate following Savitzky-Golay (SNV-SG) (same SG parameters as
-above), 5) SNV-detrend with second order polynomial, and 6)
-multiplicative scatter correction.
+above), 6) SNV-detrend with second order polynomial, and 7)
+multiplicative scatter correction. As a comparison, models were also
+developed using untransformed spectra.
 
 For each of these preprocessing methods, models were fit and predictions
 were made on the corresponding validation set (since there were 8
 preprocessing methods, 8 separate models were fit for each of the 100
 sets. The relationship between the predicted and actual values of the
-validation set were calculated via RMSE, R\textsuperscript{2} and Ratio
-of Performance to InterQuartile distance (RPIQ), three common model
+testing set were calculated via RMSE, R\textsuperscript{2} and Ratio of
+Performance to InterQuartile distance (RPIQ), three common model
 assessment metrics. Larger R\textsuperscript{2} and RPIQ, and smaller
 RMSE values are superior. Analyses of variance (ANOVA) were performed
 for each of these metrics in order to compare the preprocessing methods.
-For each ANOVA, each data set was considered as a subject and allowing
-different variances for each preprocessing method.
+For each ANOVA, each data set was considered as a subject and different
+variances were allowed for each preprocessing method.
 
 Once the most promising preprocessing method was identified, 1000 more
 data sets were created and analyzed via that method and performance on
-the validation sets was summarized with RMSE, R\textsuperscript{2}, and
+the testing sets was summarized with RMSE, R\textsuperscript{2}, and
 RPIQ.
 
 \subsubsection{Additional software used}\label{additional-software-used}
@@ -444,9 +445,9 @@ Notebook}}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-All preprocessing methods outperformed raw spectral data
+All preprocessing methods outperformed untransformed spectral data
 Table~\ref{tbl-preproc}. Averaged together, all preprocessed spectra
-were superior to raw spectra, with lower RMSE, and higher
+were superior to untransformed spectra, with lower RMSE, and higher
 R\textsuperscript{2} and RPIQ values (significant at \(\alpha\) level
 \textless0.001). Preprocessing methods had -11.6 \% lower RMSE, and had
 3.1\% higher R\textsuperscript{2} 7.4\% higher RPIQ than unprocessed
@@ -459,10 +460,10 @@ higher respectively than the next best preprocessing method (SG in both
 cases), but the difference between the best and second best method by
 metric were only statistically significant at \(\alpha\) \textless0.05
 for RPIQ. RPIQ was devised to accurately reflect the spread of data in
-skewed populations (\textbf{bellon-maurel2010?}) and thus offers a
-robust metric for model assessment in this context, where the CP data
-are skewed. Therefore the superiority of SNV-SG as measured via RPIQ
-made it the best choice for the final model.
+skewed populations (Bellon-Maurel et al., 2010) and thus offers a robust
+metric for model assessment in this context, where the CP data are
+skewed. Therefore the superiority of SNV-SG as measured via RPIQ made it
+the best choice for the final model.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5568}}
@@ -499,7 +500,7 @@ Standard Normal Variate-Detrend & 1.13 ± 0.015 & 0.80 ± 0.005 & 3.55 ±
 0.079 \\
 Multiplicative Scatter Correction & 1.17 ± 0.016 & 0.79 ± 0.006 & 3.47 ±
 0.080 \\
-Raw Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 3.42 ± 0.105 \\
+Untransformed Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 3.42 ± 0.105 \\
 
 \end{longtable}
 
@@ -507,9 +508,14 @@ Raw Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 3.42 ± 0.105 \\
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-SNV and SNV-detrend correct light scatter. SG is a smoothing filter that
-regresses on the signal over a series of windows. Derivatives remove
-noise, but not necessarily light scattering. \textbf{cite}
+These results are not surprising. SNV and SNV-detrend both correct light
+scatter, which is often a function of differences in particle size and
+sample packing density, although SNV-detrend is often used for
+densely-packed, powdered samples (Barnes et al., 1989). Here, hemp grain
+was neither powdered nor densely packed SG is a smoothing filter that
+regresses on the signal over a series of windows, removing noise while
+preserving the signal's shape and features.(Li et al., 2020; Luo et al.,
+2005). Derivatives remove noise, but not necessarily light scatte
 
 \textbf{cite:} Barnes RJ, Dhanoa MS, Lister SJ. 1989. Standard normal
 variate transformation and de-trending of near-infrared diffuse
@@ -618,21 +624,9 @@ Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408
 F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06
 \end{verbatim}
 
-\begin{verbatim}
-     ith_in_data_set      preds crude_protein   cutpoints plot_order
-               <int>      <num>         <num>      <fctr>      <int>
-  1:              50  0.8041160          20.8 (20.8,24.1]          1
-  2:              42  0.7274479          21.3 (20.8,24.1]          2
-  3:              52  0.6967806          21.5 (20.8,24.1]          3
-  4:              83  0.6814470          21.6 (20.8,24.1]          4
-  5:              85  0.6814470          21.6 (20.8,24.1]          5
- ---                                                                
-145:              12 -0.6219116          30.1 (27.5,30.8]        145
-146:              55 -0.6219116          30.1 (27.5,30.8]        146
-147:             117 -0.6372452          30.2 (27.5,30.8]        147
-148:              63 -0.6679125          30.4 (27.5,30.8]        148
-149:             112 -0.7292470          30.8 (27.5,30.8]        149
-\end{verbatim}
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
@@ -652,7 +646,7 @@ Figure~\ref{fig-validation_set_performance}
 
 \caption{\label{fig-validation_set_performance}Test set prediction
 errors on a per-sample basis. Actual sample value set to 0, and samples
-ranked from least to greatest.}
+ranked from least to greatest actual \% CP value}
 
 \end{figure}%
 
@@ -660,7 +654,18 @@ ranked from least to greatest.}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-Errors tend to be lower at higher levels of actual CP
+\hfill\break
+
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
+
+To assess the patterns of errors within the models, a linear model was
+fit considering the mean estimated error for each sample considering all
+models where that sample was in the test set when compared to the
+sample's actual value. The models overestimated \%CP by approximately
+0.5 \% in the lowest tertile and underestimated \%CP by -0.01 \% and
+-0.41 \% in the middle and highest tertile, respectively
 
 \begin{verbatim}
 Key: <loc>
@@ -772,14 +777,14 @@ Notebook}}
 This study is limited in that it represents the creation of one model
 based upon spectra collected from one machine. NIRS calibrations can be
 unique to a particular machine, even if the machines compared are of the
-same model (\textbf{Reeves\_2012?}) . As well, the calibration and
-validation sets are relatively small.
+same model (Reeves, 2012). As well, the calibration and validation sets
+are relatively small.
 
 This research showed the promise of the use of NIRS in order to make
 predictions concerning \%CP in hemp grain using PLS. Promising
 preprocessing methods were identified and a model was validated. Further
-research could refine the model by including more samples or by
-examining other predictive methods.
+research could refine a CP model by including more samples, identifying
+promising spectral regions, or by examining other predictive methods.
 
 \subsection{ACKNOWLEDGMENTS}\label{acknowledgments}
 
@@ -972,6 +977,12 @@ on La Palma.
 \begin{CSLReferences}{1}{0}
 \vspace{1em}
 
+\bibitem[\citeproctext]{ref-barnes_standard_1989}
+Barnes, R. J., Dhanoa, M. S., \& Lister, S. J. (1989). Standard {Normal}
+{Variate} {Transformation} and {De}-{Trending} of {Near}-{Infrared}
+{Diffuse} {Reflectance} {Spectra}. \emph{Applied Spectroscopy},
+\emph{43}(5), 772--777. \url{https://doi.org/10.1366/0003702894202201}
+
 \bibitem[\citeproctext]{ref-datatable}
 Barrett, T., Dowle, M., Srinivasan, A., Gorecki, J., Chirico, M., \&
 Hocking, T. (2024). \emph{{data.table}: Extension of
@@ -984,6 +995,19 @@ Bedrníček, J., \& Smetana, P. (2024). Proteomic {Profiles} of {Whole}
 {Seeds}, {Hulls}, and {Dehulled} {Seeds} of {Two} {Industrial} {Hemp}
 ({Cannabis} sativa {L}.) {Cultivars}. \emph{Plants}, \emph{13}(1), 111.
 \url{https://doi.org/10.3390/plants13010111}
+
+\bibitem[\citeproctext]{ref-bellon-maurel_critical_2010}
+Bellon-Maurel, V., Fernandez-Ahumada, E., Palagos, B., Roger, J.-M., \&
+McBratney, A. (2010). Critical review of chemometric indicators commonly
+used for assessing the quality of the prediction of soil attributes by
+{NIR} spectroscopy. \emph{TrAC Trends in Analytical Chemistry},
+\emph{29}(9), 1073--1081.
+\url{https://doi.org/10.1016/j.trac.2010.05.006}
+
+\bibitem[\citeproctext]{ref-callaway_hempseed_2004}
+Callaway, J. C. (2004). Hempseed as a nutritional resource: {An}
+overview. \emph{Euphytica}, \emph{140}(1), 65--72.
+\url{https://doi.org/10.1007/s10681-004-4811-6}
 
 \bibitem[\citeproctext]{ref-chadalavada_nir_2022}
 Chadalavada, K., Anbazhagan, K., Ndour, A., Choudhary, S., Palmer, W.,
@@ -1039,10 +1063,23 @@ package. \emph{Journal of Statistical Software}, \emph{28}(5), 1--26.
 Lenth, R. V. (2024). \emph{{emmeans}: Estimated marginal means, aka
 least-squares means}. \url{https://CRAN.R-project.org/package=emmeans}
 
+\bibitem[\citeproctext]{ref-li_quantitative_2020}
+Li, Y., Huang, Y., Xia, J., Xiong, Y., \& Min, S. (2020). Quantitative
+analysis of honey adulteration by spectrum analysis combined with
+several high-level data fusion strategies. \emph{Vibrational
+Spectroscopy}, \emph{108}, 103060.
+\url{https://doi.org/10.1016/j.vibspec.2020.103060}
+
 \bibitem[\citeproctext]{ref-pls}
 Liland, K. H., Mevik, B.-H., \& Wehrens, R. (2023). \emph{{pls}: Partial
 least squares and principal component regression}.
 \url{https://CRAN.R-project.org/package=pls}
+
+\bibitem[\citeproctext]{ref-luo_properties_2005}
+Luo, J., Ying, K., He, P., \& Bai, J. (2005). Properties of
+{Savitzky}--{Golay} digital differentiators. \emph{Digital Signal
+Processing}, \emph{15}(2), 122--136.
+\url{https://doi.org/10.1016/j.dsp.2004.09.008}
 
 \bibitem[\citeproctext]{ref-nlme2000}
 Pinheiro, J. C., \& Bates, D. M. (2000). \emph{Mixed-effects models in s
@@ -1090,6 +1127,12 @@ Welcome to the {tidyverse}. \emph{Journal of Open Source Software},
 Williams, P. C. (1975). Application of near infrared reflectance
 spectroscopy to analysis of cereal grains and oilseeds. \emph{Cereal
 Chemistry}, \emph{52}(4 p.561-576), 576--561.
+
+\bibitem[\citeproctext]{ref-wold_pls-regression_2001}
+Wold, S., Sjöström, M., \& Eriksson, L. (2001). {PLS}-regression: A
+basic tool of chemometrics. \emph{Chemometrics and Intelligent
+Laboratory Systems}, \emph{58}(2), 109--130.
+\url{https://doi.org/10.1016/S0169-7439(01)00155-1}
 
 \end{CSLReferences}
 
