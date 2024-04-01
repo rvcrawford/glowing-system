@@ -270,8 +270,8 @@ etc.</bold></p>
     normal variate (SNV), 5) standard normal variate following
     Savitzky-Golay (SNV-SG) (same SG parameters as above), 6)
     SNV-detrend with second order polynomial, and 7) multiplicative
-    scatter correction. As a comparison, models were also developed
-    using untransformed spectra.</p>
+    scatter correction. For comparison, models were also developed using
+    untransformed spectra.</p>
     <p>For each of these preprocessing methods, models were fit and
     predictions were made on the corresponding validation set (since
     there were 8 preprocessing methods, 8 separate models were fit for
@@ -287,7 +287,9 @@ etc.</bold></p>
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the testing sets was summarized with RMSE,
-    R<sup>2</sup>, and RPIQ.</p>
+    R<sup>2</sup>, and RPIQ. The pattern of errors, expressed as the
+    difference between the actual and predicted values for a given
+    sample, was examined.</p>
   </sec>
   <sec id="additional-software-used">
     <title>2.5 Additional software used</title>
@@ -367,7 +369,8 @@ etc.</bold></p>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
     had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
-    spectra.</p>
+    spectra. Preprocessed spectra also had lower standard errors than
+    untransformed spectra.</p>
     <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
     highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
     1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
@@ -381,9 +384,9 @@ etc.</bold></p>
     of data in skewed populations
     (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel_critical_2010" ref-type="bibr">Bellon-Maurel
     et al., 2010</xref>) and thus offers a robust metric for model
-    assessment in this context, where the CP data are skewed. Therefore
-    the superiority of SNV-SG as measured via RPIQ made it the best
-    choice for the final model.</p>
+    assessment where data may be skewed. Therefore the superiority of
+    SNV-SG as measured via RPIQ made it the best choice for the final
+    model.</p>
     <fig id="tbl-preproc">
       <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
       ± Standard Error</p></caption>
@@ -464,36 +467,37 @@ etc.</bold></p>
     particle size and sample packing density, although SNV-detrend is
     often used for densely-packed, powdered samples
     (<xref alt="Barnes et al., 1989" rid="ref-barnes_standard_1989" ref-type="bibr">Barnes
-    et al., 1989</xref>). Here, hemp grain was neither powdered nor
-    densely packed SG is a smoothing filter that regresses on the signal
-    over a series of windows, removing noise while preserving the
-    signal’s shape and
-    features.(<xref alt="Li et al., 2020" rid="ref-li_quantitative_2020" ref-type="bibr">Li
+    et al., 1989</xref>). SG is a smoothing filter that regresses on the
+    signal over a series of windows, removing noise while preserving the
+    signal’s shape and features
+    (<xref alt="Li et al., 2020" rid="ref-li_quantitative_2020" ref-type="bibr">Li
     et al., 2020</xref>;
     <xref alt="Luo et al., 2005" rid="ref-luo_properties_2005" ref-type="bibr">Luo
-    et al., 2005</xref>). Derivatives remove noise, but not necessarily
-    light scatte</p>
-    <p><bold>cite:</bold> Barnes RJ, Dhanoa MS, Lister SJ. 1989.
-    Standard normal variate transformation and de-trending of
-    near-infrared diffuse reflectance spectra. Applied spectroscopy,
-    43(5): 772-777.</p>
+    et al., 2005</xref>). Derivatives, here including SG, gap-segment,
+    and first derivatives pretreatments may remove additive and
+    multiplicative effects, but not necessarily light scatter; as well,
+    the derivatives can increase spectral noise if employed incorrectly
+    (<xref alt="Rinnan et al., 2009" rid="ref-rinnan_review_2009" ref-type="bibr">Rinnan
+    et al., 2009</xref>). Here, hemp grain was neither powdered nor
+    densely packed but samples were subject to light scatter and noise
+    due to differences in particle size in the grain.</p>
     <p>The preprocessing methods examined represent a portion of those
-    available. As well, preprocessing methods tend to have a number of
+    available. As well, these methods tend to have a number of
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance of the selection of an appropriate
-    preprocessing method.</p>
+    demonstrating the importance selecting an appropriate preprocessing
+    method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
     <title>3.3 Final model development and summary</title>
-    <p>The model improved most rapidly as the number of principal
-    components increased from 1 to 7, with the inclusion of each
-    additional PC being associated with a decrease in RMSE of 5-12% .
-    From 8 to 12 PCs, model performance continued to improve, although
+    <p>The model improved most rapidly as the number of components
+    increased from 1 to 7, with the inclusion of each additional
+    component being associated with a decrease in RMSE of 5-12% . From 8
+    to 12 componentss, model performance continued to improve, although
     gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
-    PCs, performance gains were minimal and the relative ranks of the
-    models tended to be stable
+    components, performance gains were minimal and the relative ranks of
+    the models tended to be stable
     <xref alt="Figure 1" rid="fig-model-calibration">Figure 1</xref>.</p>
     <fig id="fig-model-calibration">
       <caption><p>Figure 1: Decreasing RMSE with increasing number of
@@ -514,24 +518,6 @@ etc.</bold></p>
       iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
-    <preformat>
-Call:
-lm(formula = difference ~ adj_cp, data = temp_dat)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--2.51794 -0.58132  0.06936  0.50754  2.74745 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.80412    0.17827   4.511 1.31e-05 ***
-adj_cp      -0.15334    0.03051  -5.026 1.44e-06 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.9138 on 147 degrees of freedom
-Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
-F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
     <p>Finally, the pattern of errors was examined on a per-sample
     basis.
     <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref></p>
@@ -550,106 +536,6 @@ F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
     by approximately 0.5 % in the lowest tertile and underestimated %CP
     by -0.01 % and -0.41 % in the middle and highest tertile,
     respectively</p>
-    <preformat>Key: &lt;loc&gt;
-          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
-       &lt;char&gt;           &lt;int&gt;         &lt;num&gt;        &lt;num&gt;   &lt;int&gt;  &lt;num&gt;
- 1:     cnoll               4          27.1 -1.826000348      90    6.3
- 2:      free              91          23.1 -1.608410140      24    2.3
- 3:      free             100          27.5  0.008386084     100    6.7
- 4:      free             103          26.0 -0.095290561      64    5.2
- 5:     freev              66          28.3  0.156805468     117    7.5
- 6:     freev              69          28.7  0.115415937     128    7.9
- 7:     freev              70          27.3  0.123941888      93    6.5
- 8:    ithaca             123          25.9  0.137420230      60    5.1
- 9:    ithaca             124          23.2  2.325322409      27    2.4
-10:    ithaca             125          23.2  2.582685059      25    2.4
-11:    ithaca             140          23.5  1.597167816      30    2.7
-12:    ithaca             146          28.0 -1.965391942     110    7.2
-13:    ithaca             148          26.4  0.145123025      76    5.6
-14:       mcg              92          22.7 -0.110406545      20    1.9
-15:       mcg              94          28.1 -0.067559276     111    7.3
-16:       mcg             121          28.3 -2.434565554     115    7.5
-17:      mg4e              28          25.4  0.034158139      53    4.6
-18:      mg4e              39          26.1 -0.016921027      66    5.3
-19:      mg4l              41          26.4  0.118021909      74    5.6
-20: rn041_gen             108          27.0  2.600884960      86    6.2
-21: rn041_gen             109          23.7 -1.980462540      33    2.9
-22: rn041_gen             110          29.0 -2.495337360     135    8.2
-23: rn041_gen             111          29.6 -1.777305991     140    8.8
-24: rn041_gen             113          29.5  0.011781362     139    8.7
-25: rn041_gen             114          27.7  2.115039075     107    6.9
-26:     rnooa              14          29.1 -0.003578789     137    8.3
-27:     rnooa              18          23.1  2.020690041      22    2.3
-28:     rnooa              19          25.3 -0.110141285      52    4.5
-29:     rnooa              25          26.6 -2.603177621      78    5.8
-30:     rnooa              26          28.3 -2.034162792     114    7.5
-          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
-                  grouping temp_id harv_year         cultivar         type
-                    &lt;char&gt;   &lt;int&gt;     &lt;int&gt;           &lt;char&gt;       &lt;char&gt;
- 1: worst_predicted_10_pct      32      2017            cfx-1             
- 2: worst_predicted_10_pct     111      2018           grandi        grain
- 3:   best_predicted_10pct     128      2019            canda        grain
- 4:   best_predicted_10pct     131      2019        nwg-elite         dual
- 5:   best_predicted_10pct      94      2017           picolo             
- 6:   best_predicted_10pct      97      2017        futura 75             
- 7:   best_predicted_10pct      98      2017            cfx-1             
- 8:   best_predicted_10pct     155      2020         nwg-2730   multistate
- 9: worst_predicted_10_pct     152      2020        futura 75 dual_replant
-10: worst_predicted_10_pct     156      2020    bialobrzeskie   multistate
-11: worst_predicted_10_pct       9      2021         logan c2         exp.
-12: worst_predicted_10_pct       5      2021            crs-1   grain_dual
-13:   best_predicted_10pct      10      2021  logan x anka c2         exp.
-14:   best_predicted_10pct     115      2018 nebraska (feral)         dual
-15:   best_predicted_10pct     113      2018           picolo        grain
-16: worst_predicted_10_pct     149      2019             h-51   multistate
-17:   best_predicted_10pct      56      2017            cfx-2             
-18:   best_predicted_10pct      67      2017        futura 75             
-19:   best_predicted_10pct      69      2017             anka             
-20: worst_predicted_10_pct     136      2019        earlina 8        grain
-21: worst_predicted_10_pct     137      2019           katani        grain
-22: worst_predicted_10_pct     138      2019             joey        grain
-23: worst_predicted_10_pct     139      2019        futura 75         dual
-24:   best_predicted_10pct     141      2019             h-51         dual
-25: worst_predicted_10_pct     142      2019           hliana         dual
-26:   best_predicted_10pct      42      2017            tygra             
-27: worst_predicted_10_pct      46      2017           katani             
-28:   best_predicted_10pct      47      2017            cfx-2             
-29: worst_predicted_10_pct      53      2017            cfx-1             
-30: worst_predicted_10_pct      54      2017            wojko             
-                  grouping temp_id harv_year         cultivar         type
-     in_ny      loc2
-    &lt;lgcl&gt;    &lt;char&gt;
- 1:   TRUE    geneva
- 2:   TRUE freeville
- 3:   TRUE freeville
- 4:   TRUE freeville
- 5:   TRUE freeville
- 6:   TRUE freeville
- 7:   TRUE freeville
- 8:   TRUE    ithaca
- 9:   TRUE    ithaca
-10:   TRUE    ithaca
-11:   TRUE    ithaca
-12:   TRUE    ithaca
-13:   TRUE    ithaca
-14:   TRUE    ithaca
-15:   TRUE    ithaca
-16:   TRUE    ithaca
-17:   TRUE    ithaca
-18:   TRUE    ithaca
-19:   TRUE    ithaca
-20:   TRUE    geneva
-21:   TRUE    geneva
-22:   TRUE    geneva
-23:   TRUE    geneva
-24:   TRUE    geneva
-25:   TRUE    geneva
-26:   TRUE    geneva
-27:   TRUE    geneva
-28:   TRUE    geneva
-29:   TRUE    geneva
-30:   TRUE    geneva
-     in_ny      loc2</preformat>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, even if the
@@ -1479,6 +1365,26 @@ F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
       <lpage>136</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-rinnan_review_2009">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rinnan</surname><given-names>Åsmund</given-names></name>
+        <name><surname>Berg</surname><given-names>Frans van den</given-names></name>
+        <name><surname>Engelsen</surname><given-names>Søren Balling</given-names></name>
+      </person-group>
+      <article-title>Review of the most common pre-processing techniques for near-infrared spectra</article-title>
+      <source>TrAC Trends in Analytical Chemistry</source>
+      <year iso-8601-date="2009-11">2009</year><month>11</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-01">2024</year><month>04</month><day>01</day></date-in-citation>
+      <volume>28</volume>
+      <issue>10</issue>
+      <issn>0165-9936</issn>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0165993609001629</uri>
+      <pub-id pub-id-type="doi">10.1016/j.trac.2009.07.007</pub-id>
+      <fpage>1201</fpage>
+      <lpage>1222</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-base">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1835,7 +1741,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use tidymodels_prefer() to resolve common conflicts.</preformat>
+• Learn how to get started at https://www.tidymodels.org/start/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -2038,8 +1944,8 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     normal variate (SNV), 5) standard normal variate following
     Savitzky-Golay (SNV-SG) (same SG parameters as above), 6)
     SNV-detrend with second order polynomial, and 7) multiplicative
-    scatter correction. As a comparison, models were also developed
-    using untransformed spectra.</p>
+    scatter correction. For comparison, models were also developed using
+    untransformed spectra.</p>
     <p>For each of these preprocessing methods, models were fit and
     predictions were made on the corresponding validation set (since
     there were 8 preprocessing methods, 8 separate models were fit for
@@ -2055,7 +1961,9 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <p>Once the most promising preprocessing method was identified, 1000
     more data sets were created and analyzed via that method and
     performance on the testing sets was summarized with RMSE,
-    R<sup>2</sup>, and RPIQ.</p>
+    R<sup>2</sup>, and RPIQ. The pattern of errors, expressed as the
+    difference between the actual and predicted values for a given
+    sample, was examined.</p>
   </sec>
   <sec id="additional-software-used-nb-article">
     <title>2.5 Additional software used</title>
@@ -2248,7 +2156,8 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
     had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
-    spectra.</p>
+    spectra. Preprocessed spectra also had lower standard errors than
+    untransformed spectra.</p>
     <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
     highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
     1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
@@ -2262,9 +2171,9 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     of data in skewed populations
     (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel_critical_2010-nb-article" ref-type="bibr">Bellon-Maurel
     et al., 2010</xref>) and thus offers a robust metric for model
-    assessment in this context, where the CP data are skewed. Therefore
-    the superiority of SNV-SG as measured via RPIQ made it the best
-    choice for the final model.</p>
+    assessment where data may be skewed. Therefore the superiority of
+    SNV-SG as measured via RPIQ made it the best choice for the final
+    model.</p>
     <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
     <code language="r script"># printable table of results
 
@@ -2362,26 +2271,27 @@ to_table2|&gt;
     particle size and sample packing density, although SNV-detrend is
     often used for densely-packed, powdered samples
     (<xref alt="Barnes et al., 1989" rid="ref-barnes_standard_1989-nb-article" ref-type="bibr">Barnes
-    et al., 1989</xref>). Here, hemp grain was neither powdered nor
-    densely packed SG is a smoothing filter that regresses on the signal
-    over a series of windows, removing noise while preserving the
-    signal’s shape and
-    features.(<xref alt="Li et al., 2020" rid="ref-li_quantitative_2020-nb-article" ref-type="bibr">Li
+    et al., 1989</xref>). SG is a smoothing filter that regresses on the
+    signal over a series of windows, removing noise while preserving the
+    signal’s shape and features
+    (<xref alt="Li et al., 2020" rid="ref-li_quantitative_2020-nb-article" ref-type="bibr">Li
     et al., 2020</xref>;
     <xref alt="Luo et al., 2005" rid="ref-luo_properties_2005-nb-article" ref-type="bibr">Luo
-    et al., 2005</xref>). Derivatives remove noise, but not necessarily
-    light scatte</p>
-    <p><bold>cite:</bold> Barnes RJ, Dhanoa MS, Lister SJ. 1989.
-    Standard normal variate transformation and de-trending of
-    near-infrared diffuse reflectance spectra. Applied spectroscopy,
-    43(5): 772-777.</p>
+    et al., 2005</xref>). Derivatives, here including SG, gap-segment,
+    and first derivatives pretreatments may remove additive and
+    multiplicative effects, but not necessarily light scatter; as well,
+    the derivatives can increase spectral noise if employed incorrectly
+    (<xref alt="Rinnan et al., 2009" rid="ref-rinnan_review_2009-nb-article" ref-type="bibr">Rinnan
+    et al., 2009</xref>). Here, hemp grain was neither powdered nor
+    densely packed but samples were subject to light scatter and noise
+    due to differences in particle size in the grain.</p>
     <p>The preprocessing methods examined represent a portion of those
-    available. As well, preprocessing methods tend to have a number of
+    available. As well, these methods tend to have a number of
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance of the selection of an appropriate
-    preprocessing method.</p>
+    demonstrating the importance selecting an appropriate preprocessing
+    method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
     <title>3.3 Final model development and summary</title>
@@ -2398,20 +2308,20 @@ avg_change &lt;- model_n_comp_statistics[,lapply(.SD, mean),.SDcols = 3:8, by= n
 
 change_per_pc &lt;- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]</code>
     </sec>
-    <p>The model improved most rapidly as the number of principal
-    components increased from 1 to 7, with the inclusion of each
-    additional PC being associated with a decrease in RMSE of 5-12% .
-    From 8 to 12 PCs, model performance continued to improve, although
+    <p>The model improved most rapidly as the number of components
+    increased from 1 to 7, with the inclusion of each additional
+    component being associated with a decrease in RMSE of 5-12% . From 8
+    to 12 componentss, model performance continued to improve, although
     gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
-    PCs, performance gains were minimal and the relative ranks of the
-    models tended to be stable
+    components, performance gains were minimal and the relative ranks of
+    the models tended to be stable
     <xref alt="Figure 1" rid="fig-model-calibration-nb-article">Figure 1</xref>.</p>
     <sec id="cell-fig-model-calibration-nb-article" specific-use="notebook-code">
     <code language="r script">model_n_comp_statistics |&gt; 
   ggplot(aes(as.factor(ncomp), RMSE)) + 
   geom_line(aes(group = id), alpha = 0.03) + 
   theme_classic() + 
-  xlab(&quot;Crude Protein Model Number of Principal Components&quot;) + 
+  xlab(&quot;Crude Protein Model Number of Components&quot;) + 
   ylab(&quot;Crude Protein Model Root Mean Squared Error&quot;)</code>
     <fig id="fig-model-calibration-nb-article">
       <caption><p>Figure 1: Decreasing RMSE with increasing number of
@@ -2488,34 +2398,15 @@ min_val &lt;- min(temp_dat$crude_protein)
 temp_dat[,adj_cp:= crude_protein - min_val]
 
 lm_mod &lt;- lm(difference~adj_cp, data = temp_dat) 
-summary(lm_mod)</code>
-    <code language="r script">coefs &lt;- coef(lm_mod)
+lm_mod_sum &lt;- summary(lm_mod)
+
+coefs &lt;- coef(lm_mod)
 
 preds &lt;- predict(lm_mod, temp_dat)
 ds_preds &lt;- temp_dat[,c(&quot;ith_in_data_set&quot;)] |&gt; cbind(preds)
 
 ds_cutpoints &lt;- merge(ds_preds, cutpoints2)
 setorder(ds_cutpoints, plot_order)</code>
-    <sec id="nb-code-cell-19-output-0-nb-article" specific-use="notebook-output">
-    <preformat>
-Call:
-lm(formula = difference ~ adj_cp, data = temp_dat)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--2.51794 -0.58132  0.06936  0.50754  2.74745 
-
-Coefficients:
-            Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  0.80412    0.17827   4.511 1.31e-05 ***
-adj_cp      -0.15334    0.03051  -5.026 1.44e-06 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 0.9138 on 147 degrees of freedom
-Multiple R-squared:  0.1466,    Adjusted R-squared:  0.1408 
-F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</preformat>
-    </sec>
     </sec>
     <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
     <code language="r script">sd_mod &lt;- model_final_predictions[,list(sd_diff = sd(difference), crude_protein = mean(crude_protein)), by = &quot;ith_in_data_set&quot;]
@@ -2592,109 +2483,7 @@ td3 &lt;- td2[!c(16:134),][,grouping:=rep(c(&quot;best_predicted_10pct&quot;, &q
 
 td4_bckgrd &lt;- merge(td3, full_data[,1:7], all.x = T)
 
-merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = T)</code>
-    <sec id="nb-code-cell-22-output-0-nb-article" specific-use="notebook-output">
-    <preformat>Key: &lt;loc&gt;
-          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
-       &lt;char&gt;           &lt;int&gt;         &lt;num&gt;        &lt;num&gt;   &lt;int&gt;  &lt;num&gt;
- 1:     cnoll               4          27.1 -1.826000348      90    6.3
- 2:      free              91          23.1 -1.608410140      24    2.3
- 3:      free             100          27.5  0.008386084     100    6.7
- 4:      free             103          26.0 -0.095290561      64    5.2
- 5:     freev              66          28.3  0.156805468     117    7.5
- 6:     freev              69          28.7  0.115415937     128    7.9
- 7:     freev              70          27.3  0.123941888      93    6.5
- 8:    ithaca             123          25.9  0.137420230      60    5.1
- 9:    ithaca             124          23.2  2.325322409      27    2.4
-10:    ithaca             125          23.2  2.582685059      25    2.4
-11:    ithaca             140          23.5  1.597167816      30    2.7
-12:    ithaca             146          28.0 -1.965391942     110    7.2
-13:    ithaca             148          26.4  0.145123025      76    5.6
-14:       mcg              92          22.7 -0.110406545      20    1.9
-15:       mcg              94          28.1 -0.067559276     111    7.3
-16:       mcg             121          28.3 -2.434565554     115    7.5
-17:      mg4e              28          25.4  0.034158139      53    4.6
-18:      mg4e              39          26.1 -0.016921027      66    5.3
-19:      mg4l              41          26.4  0.118021909      74    5.6
-20: rn041_gen             108          27.0  2.600884960      86    6.2
-21: rn041_gen             109          23.7 -1.980462540      33    2.9
-22: rn041_gen             110          29.0 -2.495337360     135    8.2
-23: rn041_gen             111          29.6 -1.777305991     140    8.8
-24: rn041_gen             113          29.5  0.011781362     139    8.7
-25: rn041_gen             114          27.7  2.115039075     107    6.9
-26:     rnooa              14          29.1 -0.003578789     137    8.3
-27:     rnooa              18          23.1  2.020690041      22    2.3
-28:     rnooa              19          25.3 -0.110141285      52    4.5
-29:     rnooa              25          26.6 -2.603177621      78    5.8
-30:     rnooa              26          28.3 -2.034162792     114    7.5
-          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
-                  grouping temp_id harv_year         cultivar         type
-                    &lt;char&gt;   &lt;int&gt;     &lt;int&gt;           &lt;char&gt;       &lt;char&gt;
- 1: worst_predicted_10_pct      32      2017            cfx-1             
- 2: worst_predicted_10_pct     111      2018           grandi        grain
- 3:   best_predicted_10pct     128      2019            canda        grain
- 4:   best_predicted_10pct     131      2019        nwg-elite         dual
- 5:   best_predicted_10pct      94      2017           picolo             
- 6:   best_predicted_10pct      97      2017        futura 75             
- 7:   best_predicted_10pct      98      2017            cfx-1             
- 8:   best_predicted_10pct     155      2020         nwg-2730   multistate
- 9: worst_predicted_10_pct     152      2020        futura 75 dual_replant
-10: worst_predicted_10_pct     156      2020    bialobrzeskie   multistate
-11: worst_predicted_10_pct       9      2021         logan c2         exp.
-12: worst_predicted_10_pct       5      2021            crs-1   grain_dual
-13:   best_predicted_10pct      10      2021  logan x anka c2         exp.
-14:   best_predicted_10pct     115      2018 nebraska (feral)         dual
-15:   best_predicted_10pct     113      2018           picolo        grain
-16: worst_predicted_10_pct     149      2019             h-51   multistate
-17:   best_predicted_10pct      56      2017            cfx-2             
-18:   best_predicted_10pct      67      2017        futura 75             
-19:   best_predicted_10pct      69      2017             anka             
-20: worst_predicted_10_pct     136      2019        earlina 8        grain
-21: worst_predicted_10_pct     137      2019           katani        grain
-22: worst_predicted_10_pct     138      2019             joey        grain
-23: worst_predicted_10_pct     139      2019        futura 75         dual
-24:   best_predicted_10pct     141      2019             h-51         dual
-25: worst_predicted_10_pct     142      2019           hliana         dual
-26:   best_predicted_10pct      42      2017            tygra             
-27: worst_predicted_10_pct      46      2017           katani             
-28:   best_predicted_10pct      47      2017            cfx-2             
-29: worst_predicted_10_pct      53      2017            cfx-1             
-30: worst_predicted_10_pct      54      2017            wojko             
-                  grouping temp_id harv_year         cultivar         type
-     in_ny      loc2
-    &lt;lgcl&gt;    &lt;char&gt;
- 1:   TRUE    geneva
- 2:   TRUE freeville
- 3:   TRUE freeville
- 4:   TRUE freeville
- 5:   TRUE freeville
- 6:   TRUE freeville
- 7:   TRUE freeville
- 8:   TRUE    ithaca
- 9:   TRUE    ithaca
-10:   TRUE    ithaca
-11:   TRUE    ithaca
-12:   TRUE    ithaca
-13:   TRUE    ithaca
-14:   TRUE    ithaca
-15:   TRUE    ithaca
-16:   TRUE    ithaca
-17:   TRUE    ithaca
-18:   TRUE    ithaca
-19:   TRUE    ithaca
-20:   TRUE    geneva
-21:   TRUE    geneva
-22:   TRUE    geneva
-23:   TRUE    geneva
-24:   TRUE    geneva
-25:   TRUE    geneva
-26:   TRUE    geneva
-27:   TRUE    geneva
-28:   TRUE    geneva
-29:   TRUE    geneva
-30:   TRUE    geneva
-     in_ny      loc2</preformat>
-    </sec>
+td_5 &lt;- merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = T)</code>
     </sec>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
@@ -3557,6 +3346,26 @@ avg_years_between_eruptions</code>
       <pub-id pub-id-type="doi">10.1016/j.dsp.2004.09.008</pub-id>
       <fpage>122</fpage>
       <lpage>136</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rinnan_review_2009-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rinnan</surname><given-names>Åsmund</given-names></name>
+        <name><surname>Berg</surname><given-names>Frans van den</given-names></name>
+        <name><surname>Engelsen</surname><given-names>Søren Balling</given-names></name>
+      </person-group>
+      <article-title>Review of the most common pre-processing techniques for near-infrared spectra</article-title>
+      <source>TrAC Trends in Analytical Chemistry</source>
+      <year iso-8601-date="2009-11">2009</year><month>11</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-01">2024</year><month>04</month><day>01</day></date-in-citation>
+      <volume>28</volume>
+      <issue>10</issue>
+      <issn>0165-9936</issn>
+      <uri>https://www.sciencedirect.com/science/article/pii/S0165993609001629</uri>
+      <pub-id pub-id-type="doi">10.1016/j.trac.2009.07.007</pub-id>
+      <fpage>1201</fpage>
+      <lpage>1222</lpage>
     </element-citation>
   </ref>
   <ref id="ref-base-nb-article">
