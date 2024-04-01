@@ -55,7 +55,6 @@ next_set <- merge(loc2, cp2)
 
 my_cultivar_table <- next_set[, c("loc2", "cultivar2")][,.N, by = .(loc2,cultivar2)] |> 
   dcast(cultivar2~loc2, value.var = "N")
-library(gt)
 
 my_cultivar_table[,Total:=rowSums(.SD, na.rm = T), .SDcols = 2:6]
 nms <- names(my_cultivar_table)[2:7]

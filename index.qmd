@@ -436,6 +436,7 @@ temp_dat[,tmp_ith:= 1:.N]
 min_val <- min(temp_dat$crude_protein)
 # center this
 temp_dat[,adj_cp:= crude_protein - min_val]
+
 lm_mod <- lm(difference~adj_cp, data = temp_dat) 
 summary(lm_mod)
 
@@ -479,7 +480,7 @@ model_final_predictions |>
   ggplot(aes(plot_order, crude_protein))+
   geom_point(aes(plot_order, difference), alpha = 0.05, shape = 2) +
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
-  geom_line(data = ds_cutpoints, aes(plot_order, preds))+
+  geom_point(data = ds_cutpoints, aes(plot_order, preds), shape = 3)+
   facet_wrap( ~cutpoints, scales = "free_x",
               labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
                                        "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
@@ -487,11 +488,33 @@ model_final_predictions |>
   theme_classic()+
   theme(
     axis.title.x = element_blank(),
-    axis.text.x = element_blank())
+    axis.text.x = element_blank(),
+    axis.ticks.x = element_blank())
 
 ```
 
 Errors tend to be lower at higher levels of actual CP
+
+```{r}
+# look
+# read in stuff for supplemental table first
+supp_tab <- fread("./input_data/final_data_set/cultivar_table_clean.csv")
+
+# read in correct location key
+locs2 <- fread("./input_data/final_data_set/corrected_location_key.csv")
+
+# sort highest and lowest samples...
+td2 <- temp_dat[order(abs(difference))]
+
+# sort highest and lowest
+td3 <- td2[!c(16:134),][,grouping:=rep(c("best_predicted_10pct", "worst_predicted_10_pct"), each = 15)]
+
+# incorporate background
+
+td4_bckgrd <- merge(td3, full_data[,1:7], all.x = T)
+
+merge( td4_bckgrd,locs2, by.y ="loc", by.x= 'loc', all.x = T)
+```
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@Reeves_2012] . As well, the calibration and validation sets are relatively small.
 
@@ -500,11 +523,6 @@ This research showed the promise of the use of NIRS in order to make predictions
 ## ACKNOWLEDGMENTS
 
 ## SUPPLEMENTAL MATERIAL
-
-```{r}
-
-supp_tab <- fread("./input_data/final_data_set/cultivar_table_clean.csv")
-```
 
 ```{r}
 #| label: tbl-hemp_provenance
