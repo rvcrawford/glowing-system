@@ -457,7 +457,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -913,8 +913,9 @@ Figure&nbsp;2: Final model validation set performance (1000 iterations)
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>min_val <span class="ot">&lt;-</span> <span class="fu">min</span>(temp_dat<span class="sc">$</span>crude_protein)</span>
 <span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># center this</span></span>
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>temp_dat[,adj_cp<span class="sc">:</span><span class="er">=</span> crude_protein <span class="sc">-</span> min_val]</span>
-<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a>lm_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(difference<span class="sc">~</span>adj_cp, <span class="at">data =</span> temp_dat) </span>
-<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-9"><a href="#cb38-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-10"><a href="#cb38-10" aria-hidden="true" tabindex="-1"></a>lm_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(difference<span class="sc">~</span>adj_cp, <span class="at">data =</span> temp_dat) </span>
+<span id="cb38-11"><a href="#cb38-11" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -986,7 +987,7 @@ F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</code></pre>
 <span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(plot_order, crude_protein))<span class="sc">+</span></span>
 <span id="cb42-24"><a href="#cb42-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(plot_order, difference), <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">shape =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
 <span id="cb42-25"><a href="#cb42-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> ds_cutpoints, <span class="fu">aes</span>(plot_order, preds))<span class="sc">+</span></span>
+<span id="cb42-26"><a href="#cb42-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> ds_cutpoints, <span class="fu">aes</span>(plot_order, preds), <span class="at">shape =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
 <span id="cb42-27"><a href="#cb42-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span>cutpoints, <span class="at">scales =</span> <span class="st">"free_x"</span>,</span>
 <span id="cb42-28"><a href="#cb42-28" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"(20.8,24.1]"</span> <span class="ot">=</span> <span class="st">"Low CP (20.8 - 24.1%)"</span>,</span>
 <span id="cb42-29"><a href="#cb42-29" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(24.1,27.5]"</span><span class="ot">=</span> <span class="st">"Medium CP (24.2 - 27.5%)"</span>,</span>
@@ -994,7 +995,8 @@ F-statistic: 25.26 on 1 and 147 DF,  p-value: 1.438e-06</code></pre>
 <span id="cb42-31"><a href="#cb42-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
 <span id="cb42-32"><a href="#cb42-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb42-33"><a href="#cb42-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-34"><a href="#cb42-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb42-35"><a href="#cb42-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(crude_protein, ith_in_data_set)`</code></pre>
 </div>
@@ -1012,6 +1014,128 @@ Figure&nbsp;3: Test set prediction errors on a per-sample basis. Actual sample v
 </div>
 </div></div>
 <p>Errors tend to be lower at higher levels of actual CP</p>
+<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read in stuff for supplemental table first</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>supp_tab <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/cultivar_table_clean.csv"</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read in correct location key</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>locs2 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/corrected_location_key.csv"</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest samples...</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>td2 <span class="ot">&lt;-</span> temp_dat[<span class="fu">order</span>(<span class="fu">abs</span>(difference))]</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>td3 <span class="ot">&lt;-</span> td2[<span class="sc">!</span><span class="fu">c</span>(<span class="dv">16</span><span class="sc">:</span><span class="dv">134</span>),][,grouping<span class="sc">:</span><span class="er">=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"best_predicted_10pct"</span>, <span class="st">"worst_predicted_10_pct"</span>), <span class="at">each =</span> <span class="dv">15</span>)]</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a><span class="co"># incorporate background</span></span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>td4_bckgrd <span class="ot">&lt;-</span> <span class="fu">merge</span>(td3, full_data[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">all.x =</span> T)</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a><span class="fu">merge</span>( td4_bckgrd,locs2, <span class="at">by.y =</span><span class="st">"loc"</span>, <span class="at">by.x=</span> <span class="st">'loc'</span>, <span class="at">all.x =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Key: &lt;loc&gt;
+          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
+       &lt;char&gt;           &lt;int&gt;         &lt;num&gt;        &lt;num&gt;   &lt;int&gt;  &lt;num&gt;
+ 1:     cnoll               4          27.1 -1.826000348      90    6.3
+ 2:      free              91          23.1 -1.608410140      24    2.3
+ 3:      free             100          27.5  0.008386084     100    6.7
+ 4:      free             103          26.0 -0.095290561      64    5.2
+ 5:     freev              66          28.3  0.156805468     117    7.5
+ 6:     freev              69          28.7  0.115415937     128    7.9
+ 7:     freev              70          27.3  0.123941888      93    6.5
+ 8:    ithaca             123          25.9  0.137420230      60    5.1
+ 9:    ithaca             124          23.2  2.325322409      27    2.4
+10:    ithaca             125          23.2  2.582685059      25    2.4
+11:    ithaca             140          23.5  1.597167816      30    2.7
+12:    ithaca             146          28.0 -1.965391942     110    7.2
+13:    ithaca             148          26.4  0.145123025      76    5.6
+14:       mcg              92          22.7 -0.110406545      20    1.9
+15:       mcg              94          28.1 -0.067559276     111    7.3
+16:       mcg             121          28.3 -2.434565554     115    7.5
+17:      mg4e              28          25.4  0.034158139      53    4.6
+18:      mg4e              39          26.1 -0.016921027      66    5.3
+19:      mg4l              41          26.4  0.118021909      74    5.6
+20: rn041_gen             108          27.0  2.600884960      86    6.2
+21: rn041_gen             109          23.7 -1.980462540      33    2.9
+22: rn041_gen             110          29.0 -2.495337360     135    8.2
+23: rn041_gen             111          29.6 -1.777305991     140    8.8
+24: rn041_gen             113          29.5  0.011781362     139    8.7
+25: rn041_gen             114          27.7  2.115039075     107    6.9
+26:     rnooa              14          29.1 -0.003578789     137    8.3
+27:     rnooa              18          23.1  2.020690041      22    2.3
+28:     rnooa              19          25.3 -0.110141285      52    4.5
+29:     rnooa              25          26.6 -2.603177621      78    5.8
+30:     rnooa              26          28.3 -2.034162792     114    7.5
+          loc ith_in_data_set crude_protein   difference tmp_ith adj_cp
+                  grouping temp_id harv_year         cultivar         type
+                    &lt;char&gt;   &lt;int&gt;     &lt;int&gt;           &lt;char&gt;       &lt;char&gt;
+ 1: worst_predicted_10_pct      32      2017            cfx-1             
+ 2: worst_predicted_10_pct     111      2018           grandi        grain
+ 3:   best_predicted_10pct     128      2019            canda        grain
+ 4:   best_predicted_10pct     131      2019        nwg-elite         dual
+ 5:   best_predicted_10pct      94      2017           picolo             
+ 6:   best_predicted_10pct      97      2017        futura 75             
+ 7:   best_predicted_10pct      98      2017            cfx-1             
+ 8:   best_predicted_10pct     155      2020         nwg-2730   multistate
+ 9: worst_predicted_10_pct     152      2020        futura 75 dual_replant
+10: worst_predicted_10_pct     156      2020    bialobrzeskie   multistate
+11: worst_predicted_10_pct       9      2021         logan c2         exp.
+12: worst_predicted_10_pct       5      2021            crs-1   grain_dual
+13:   best_predicted_10pct      10      2021  logan x anka c2         exp.
+14:   best_predicted_10pct     115      2018 nebraska (feral)         dual
+15:   best_predicted_10pct     113      2018           picolo        grain
+16: worst_predicted_10_pct     149      2019             h-51   multistate
+17:   best_predicted_10pct      56      2017            cfx-2             
+18:   best_predicted_10pct      67      2017        futura 75             
+19:   best_predicted_10pct      69      2017             anka             
+20: worst_predicted_10_pct     136      2019        earlina 8        grain
+21: worst_predicted_10_pct     137      2019           katani        grain
+22: worst_predicted_10_pct     138      2019             joey        grain
+23: worst_predicted_10_pct     139      2019        futura 75         dual
+24:   best_predicted_10pct     141      2019             h-51         dual
+25: worst_predicted_10_pct     142      2019           hliana         dual
+26:   best_predicted_10pct      42      2017            tygra             
+27: worst_predicted_10_pct      46      2017           katani             
+28:   best_predicted_10pct      47      2017            cfx-2             
+29: worst_predicted_10_pct      53      2017            cfx-1             
+30: worst_predicted_10_pct      54      2017            wojko             
+                  grouping temp_id harv_year         cultivar         type
+     in_ny      loc2
+    &lt;lgcl&gt;    &lt;char&gt;
+ 1:   TRUE    geneva
+ 2:   TRUE freeville
+ 3:   TRUE freeville
+ 4:   TRUE freeville
+ 5:   TRUE freeville
+ 6:   TRUE freeville
+ 7:   TRUE freeville
+ 8:   TRUE    ithaca
+ 9:   TRUE    ithaca
+10:   TRUE    ithaca
+11:   TRUE    ithaca
+12:   TRUE    ithaca
+13:   TRUE    ithaca
+14:   TRUE    ithaca
+15:   TRUE    ithaca
+16:   TRUE    ithaca
+17:   TRUE    ithaca
+18:   TRUE    ithaca
+19:   TRUE    ithaca
+20:   TRUE    geneva
+21:   TRUE    geneva
+22:   TRUE    geneva
+23:   TRUE    geneva
+24:   TRUE    geneva
+25:   TRUE    geneva
+26:   TRUE    geneva
+27:   TRUE    geneva
+28:   TRUE    geneva
+29:   TRUE    geneva
+30:   TRUE    geneva
+     in_ny      loc2</code></pre>
+</div>
+</div></div>
 <p>This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model <span class="citation" data-cites="Reeves_2012">(<a href="#ref-Reeves_2012" role="doc-biblioref"><strong>Reeves_2012?</strong></a>)</span> . As well, the calibration and validation sets are relatively small.</p>
 <p>This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine the model by including more samples or by examining other predictive methods.</p>
 </section>
@@ -1021,13 +1145,10 @@ Figure&nbsp;3: Test set prediction errors on a per-sample basis. Actual sample v
 </section>
 <section id="supplemental-material" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="supplemental-material"><span class="header-section-number">5</span> SUPPLEMENTAL MATERIAL</h2>
-<div class="cell-container"><div class="cell-decorator"><pre>In [25]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>supp_tab <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/cultivar_table_clean.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [26]:</pre></div><div class="cell">
 
-<div class="cell-container"><div class="cell-decorator"><pre>In [27]:</pre></div><div><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">''</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(supp_tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-hemp_provenance" class="cell quarto-float anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [27]:</pre></div><div><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">''</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(supp_tab)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-hemp_provenance" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hemp_provenance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Tally of hemp cultivars and locations. Private cultivars are labeled “cultivar1”, “cultivar2”, etc.
@@ -1406,15 +1527,15 @@ Table&nbsp;3: Tally of hemp cultivars and locations. Private cultivars are label
 <section id="figures-and-tables" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="figures-and-tables"><span class="header-section-number">8</span> FIGURES AND TABLES</h2>
 <div class="cell-container"><div class="cell-decorator"><pre>In [28]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>eruptions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1492</span>, <span class="dv">1585</span>, <span class="dv">1646</span>, <span class="dv">1677</span>, <span class="dv">1712</span>, <span class="dv">1949</span>, <span class="dv">1971</span>, <span class="dv">2021</span>)</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>n_eruptions <span class="ot">&lt;-</span> <span class="fu">length</span>(eruptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>eruptions <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1492</span>, <span class="dv">1585</span>, <span class="dv">1646</span>, <span class="dv">1677</span>, <span class="dv">1712</span>, <span class="dv">1949</span>, <span class="dv">1971</span>, <span class="dv">2021</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>n_eruptions <span class="ot">&lt;-</span> <span class="fu">length</span>(eruptions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [29]:</pre></div><div id="cell-fig-timeline" class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eruptions, <span class="fu">rep</span>(<span class="dv">0</span>, n_eruptions), </span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="st">"|"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>) <span class="sc">+</span> <span class="fl">0.1</span>)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(eruptions, <span class="fu">rep</span>(<span class="dv">0</span>, n_eruptions), </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pch =</span> <span class="st">"|"</span>, <span class="at">axes =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>)</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="fu">box</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div id="fig-timeline" class="quarto-figure quarto-figure-center quarto-float anchored" alt="An event plot of the years of the last 8 eruptions on La Palma.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -1429,8 +1550,8 @@ Figure&nbsp;4: Timeline of recent earthquakes on La Palma
 </div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [30]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">diff</span>(eruptions[<span class="sc">-</span>n_eruptions]))</span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions <span class="ot">&lt;-</span> <span class="fu">mean</span>(<span class="fu">diff</span>(eruptions[<span class="sc">-</span>n_eruptions]))</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>avg_years_between_eruptions</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 79.83333</code></pre>
 </div>
@@ -1509,12 +1630,12 @@ Figure&nbsp;5: Map of La Palma
 <p>La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (<a href="#fig-map" class="quarto-xref">Figure&nbsp;5</a>).</p>
 <div class="quarto-embed-nb-cell" data-notebook="/media/ryan/1A5D5B8E14C0A870/R Work/2024/glowing-system/notebooks/explore-earthquakes.qmd" data-notebook-title="Explore Earthquakes" data-notebook-cellid="cell-fig-spatial-plot">
 <div class="cell-container"><div class="cell-decorator"><pre>In [31]:</pre></div><div id="cell-fig-spatial-plot" class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>la_palma <span class="op">|&gt;</span> </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(Longitude, Latitude)) <span class="op">+</span></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(color <span class="op">=</span> Magnitude, size <span class="op">=</span> <span class="dv">40</span><span class="op">-</span>`Depth(km)`)) <span class="op">+</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  scale_color_viridis_c(direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> </span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>  scale_size(<span class="bu">range</span> <span class="op">=</span> c(<span class="fl">0.5</span>, <span class="dv">2</span>), guide <span class="op">=</span> <span class="st">"none"</span>) <span class="op">+</span></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>la_palma <span class="op">|&gt;</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  ggplot(aes(Longitude, Latitude)) <span class="op">+</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>  geom_point(aes(color <span class="op">=</span> Magnitude, size <span class="op">=</span> <span class="dv">40</span><span class="op">-</span>`Depth(km)`)) <span class="op">+</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  scale_color_viridis_c(direction <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>) <span class="op">+</span> </span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  scale_size(<span class="bu">range</span> <span class="op">=</span> c(<span class="fl">0.5</span>, <span class="dv">2</span>), guide <span class="op">=</span> <span class="st">"none"</span>) <span class="op">+</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  theme_bw()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
 <div id="fig-spatial-plot" class="quarto-figure quarto-figure-center quarto-float anchored" alt="A scatterplot of earthquake locations plotting latitude against longitude.">
 <figure class="quarto-float quarto-float-fig figure">
@@ -2022,7 +2143,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","openEffect":"zoom","loop":false});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom","loop":false,"openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;
