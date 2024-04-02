@@ -11,8 +11,8 @@ and Interchange DTD v1.2 20190208//EN" "JATS-archivearticle1.dtd">
 
 
 <title-group>
-<article-title>Near Infra-Red Spectroscopy Predicts Crude Protein in
-Hemp Grain</article-title>
+<article-title>Near Infrared Spectroscopy Predicts Percentage Crude
+Protein in Hemp Grain</article-title>
 </title-group>
 
 <contrib-group>
@@ -20,9 +20,9 @@ Hemp Grain</article-title>
 <contrib-id contrib-id-type="orcid">0009-0006-3052-3269</contrib-id>
 <name>
 <surname>Crawford</surname>
-<given-names>Ryan</given-names>
+<given-names>Ryan V.</given-names>
 </name>
-<string-name>Ryan Crawford</string-name>
+<string-name>Ryan V. Crawford</string-name>
 
 <email>rvc3@cornell.edu</email>
 <xref ref-type="aff" rid="aff-1">a</xref>
@@ -34,6 +34,15 @@ Hemp Grain</article-title>
 <given-names>Jamie</given-names>
 </name>
 <string-name>Jamie Crawford</string-name>
+
+<xref ref-type="aff" rid="aff-1">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hansen</surname>
+<given-names>Julie L.</given-names>
+</name>
+<string-name>Julie L. Hansen</string-name>
 
 <xref ref-type="aff" rid="aff-1">a</xref>
 </contrib>
@@ -555,24 +564,38 @@ etc.</bold></p>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     <p>Finally, the pattern of test set errors was examined on a
-    per-sample basis
+    per-sample basis by calculating the difference between the actual
+    and predicted values for the samples in the test sets
     <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref>
-    .</p>
+    . A linear model was fit considering the mean estimated error for
+    each sample where that sample was in the test set as compared to the
+    sample’s actual value. The models overestimated %CP by approximately
+    0.5 % in the lowest tertile and underestimated %CP by -0.01 % and
+    -0.41 % in the middle and highest tertile, respectively. The
+    variance of the errors did not increase appreciably as %CP
+    increased.</p>
     <fig id="fig-validation_set_performance">
       <caption><p>Figure 3: Test set prediction errors on a per-sample
       basis. Actual sample value set to 0, and samples ranked from least
       to greatest actual % CP value</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
-    <p>
-    </p>
-    <p>To assess the patterns of errors within the models, a linear
-    model was fit considering the mean estimated error for each sample
-    considering all models where that sample was in the test set when
-    compared to the sample’s actual value. The models overestimated %CP
-    by approximately 0.5 % in the lowest tertile and underestimated %CP
-    by -0.01 % and -0.41 % in the middle and highest tertile,
-    respectively</p>
+    <preformat>                        loc2
+grouping                 freeville geneva ithaca
+  best_predicted_10pct           5      3      7
+  worst_predicted_10_pct         1      9      5</preformat>
+    <p>The 15 (~10%) best and worst predicted samples as measured by the
+    mean absolute error of prediction were identified and their
+    backgrounds examined. Overall, half of the samples in the data set
+    came from Ithaca, NY (“Ithaca”), while 28% were collected from
+    Geneva, NY (“Geneva”)
+    <xref alt="Table 3" rid="tbl-hemp_provenance">Table 3</xref>.
+    However, of the 15 worst-predicted samples, 9 were from Geneva,
+    while 3 of the 15 best-predicted samples were from Geneva (by
+    contrast, 7 of the best predicted and 5 of the worst predicted
+    samples came from Ithaca). Overall, samples from Geneva had the
+    highest mean absolute error of prediction, 38% greater than samples
+    from Ithaca.</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, even if the
@@ -584,8 +607,9 @@ etc.</bold></p>
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
     Further research could refine a CP model by including more samples,
-    identifying promising spectral regions, or by examining other
-    predictive methods.</p>
+    particularly by rectifying the class imbalance between Geneva and
+    Ithaca, identifying promising spectral regions, or by examining
+    other predictive methods.</p>
   </sec>
 </sec>
 <sec id="acknowledgments">
@@ -1637,17 +1661,17 @@ etc.</bold></p>
 <sub-article article-type="notebook" id="nb-8-nb-article">
 <front-stub>
 <title-group>
-<article-title>Near Infra-Red Spectroscopy Predicts Crude Protein in
-Hemp Grain</article-title>
+<article-title>Near Infrared Spectroscopy Predicts Percentage Crude
+Protein in Hemp Grain</article-title>
 </title-group>
 <contrib-group>
 <contrib contrib-type="author" corresp="yes">
 <contrib-id contrib-id-type="orcid">0009-0006-3052-3269</contrib-id>
 <name>
 <surname>Crawford</surname>
-<given-names>Ryan</given-names>
+<given-names>Ryan V.</given-names>
 </name>
-<string-name>Ryan Crawford</string-name>
+<string-name>Ryan V. Crawford</string-name>
 
 <email>rvc3@cornell.edu</email>
 <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
@@ -1659,6 +1683,15 @@ Hemp Grain</article-title>
 <given-names>Jamie</given-names>
 </name>
 <string-name>Jamie Crawford</string-name>
+
+<xref ref-type="aff" rid="aff-1-nb-article">a</xref>
+</contrib>
+<contrib contrib-type="author">
+<name>
+<surname>Hansen</surname>
+<given-names>Julie L.</given-names>
+</name>
+<string-name>Julie L. Hansen</string-name>
 
 <xref ref-type="aff" rid="aff-1-nb-article">a</xref>
 </contrib>
@@ -2570,10 +2603,20 @@ worst &lt;- worst_preds[,.N, by = ith_in_data_set][order(N, decreasing = T)][N&g
 
 troubles &lt;- merge(worst, full_data[,1:7], all.x = T)</code>
     </sec>
+    <sec id="nb-code-cell-23-nb-article" specific-use="notebook-code">
+    <code language="r script">cts &lt;- ds_cutpoints[,mean(preds), by=cutpoints]</code>
+    </sec>
     <p>Finally, the pattern of test set errors was examined on a
-    per-sample basis
+    per-sample basis by calculating the difference between the actual
+    and predicted values for the samples in the test sets
     <xref alt="Figure 3" rid="fig-validation_set_performance-nb-article">Figure 3</xref>
-    .</p>
+    . A linear model was fit considering the mean estimated error for
+    each sample where that sample was in the test set as compared to the
+    sample’s actual value. The models overestimated %CP by approximately
+    0.5 % in the lowest tertile and underestimated %CP by -0.01 % and
+    -0.41 % in the middle and highest tertile, respectively. The
+    variance of the errors did not increase appreciably as %CP
+    increased.</p>
     <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-code">
     <code language="r script"># 
 
@@ -2604,18 +2647,6 @@ model_final_predictions |&gt;
     <preformat>Joining with `by = join_by(crude_protein, ith_in_data_set)`</preformat>
     </sec>
     </sec>
-    <p>
-    </p>
-    <sec id="nb-code-cell-23-nb-article" specific-use="notebook-code">
-    <code language="r script">cts &lt;- ds_cutpoints[,mean(preds), by=cutpoints]</code>
-    </sec>
-    <p>To assess the patterns of errors within the models, a linear
-    model was fit considering the mean estimated error for each sample
-    considering all models where that sample was in the test set when
-    compared to the sample’s actual value. The models overestimated %CP
-    by approximately 0.5 % in the lowest tertile and underestimated %CP
-    by -0.01 % and -0.41 % in the middle and highest tertile,
-    respectively</p>
     <sec id="nb-code-cell-24-nb-article" specific-use="notebook-code">
     <code language="r script"># look
 # read in stuff for supplemental table first
@@ -2634,8 +2665,35 @@ td3 &lt;- td2[!c(16:134),][,grouping:=rep(c(&quot;best_predicted_10pct&quot;, &q
 
 td4_bckgrd &lt;- merge(td3, full_data[,1:7], all.x = T)
 
-td_5 &lt;- merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = T)</code>
+td_5 &lt;- merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = T)
+
+
+# make a prop table.
+with(td_5, table(grouping, loc2))</code>
+    <code language="r script">test_for_errors &lt;- merge( merge(td2, full_data[,1:7], all.x = T),locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = T)
+
+error_mod &lt;- lm(abs(difference)~loc2, data = test_for_errors)
+
+error_by_loc &lt;- emmeans::emmeans(error_mod, &quot;loc2&quot;) |&gt; multcomp::cld()</code>
+    <sec id="nb-code-cell-24-output-0-nb-article" specific-use="notebook-output">
+    <preformat>                        loc2
+grouping                 freeville geneva ithaca
+  best_predicted_10pct           5      3      7
+  worst_predicted_10_pct         1      9      5</preformat>
     </sec>
+    </sec>
+    <p>The 15 (~10%) best and worst predicted samples as measured by the
+    mean absolute error of prediction were identified and their
+    backgrounds examined. Overall, half of the samples in the data set
+    came from Ithaca, NY (“Ithaca”), while 28% were collected from
+    Geneva, NY (“Geneva”)
+    <xref alt="Table 3" rid="tbl-hemp_provenance-nb-article">Table 3</xref>.
+    However, of the 15 worst-predicted samples, 9 were from Geneva,
+    while 3 of the 15 best-predicted samples were from Geneva (by
+    contrast, 7 of the best predicted and 5 of the worst predicted
+    samples came from Ithaca). Overall, samples from Geneva had the
+    highest mean absolute error of prediction, 38% greater than samples
+    from Ithaca.</p>
     <p>This study is limited in that it represents the creation of one
     model based upon spectra collected from one machine. NIRS
     calibrations can be unique to a particular machine, even if the
@@ -2647,8 +2705,9 @@ td_5 &lt;- merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = 
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
     Further research could refine a CP model by including more samples,
-    identifying promising spectral regions, or by examining other
-    predictive methods.</p>
+    particularly by rectifying the class imbalance between Geneva and
+    Ithaca, identifying promising spectral regions, or by examining
+    other predictive methods.</p>
   </sec>
 </sec>
 <sec id="acknowledgments-nb-article">

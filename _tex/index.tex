@@ -177,8 +177,8 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same} % disable monospaced font for URLs
 \hypersetup{
-  pdftitle={Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain},
-  pdfauthor={Ryan Crawford; Jamie Crawford; Lawrence B. Smart; Virginia Moore},
+  pdftitle={Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain},
+  pdfauthor={Ryan V. Crawford; Jamie Crawford; Julie L. Hansen; Lawrence B. Smart; Virginia Moore},
   pdfkeywords={Hemp, Grain, Spectroscopy},
   colorlinks=true,
   linkcolor={blue},
@@ -191,13 +191,14 @@
 \draftfalse
 
 \begin{document}
-\title{Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain}
+\title{Near Infrared Spectroscopy Predicts Percentage Crude Protein in
+Hemp Grain}
 
-\authors{Ryan Crawford\affil{1}, Jamie Crawford\affil{1}, Lawrence B.
-Smart\affil{2}, Virginia Moore\affil{3}}
+\authors{Ryan V. Crawford\affil{1}, Jamie Crawford\affil{1}, Julie L.
+Hansen\affil{1}, Lawrence B. Smart\affil{2}, Virginia Moore\affil{3}}
 \affiliation{1}{Cornell University, Ithaca, NY, }\affiliation{2}{Cornell
 AgriTech, Geneva, NY, }\affiliation{3}{Cornell University, Ithaca, NY, }
-\correspondingauthor{Ryan Crawford}{rvc3@cornell.edu}
+\correspondingauthor{Ryan V. Crawford}{rvc3@cornell.edu}
 
 
 \begin{abstract}
@@ -652,8 +653,20 @@ Notebook}}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
+
 Finally, the pattern of test set errors was examined on a per-sample
-basis Figure~\ref{fig-validation_set_performance} .
+basis by calculating the difference between the actual and predicted
+values for the samples in the test sets
+Figure~\ref{fig-validation_set_performance} . A linear model was fit
+considering the mean estimated error for each sample where that sample
+was in the test set as compared to the sample's actual value. The models
+overestimated \%CP by approximately 0.5 \% in the lowest tertile and
+underestimated \%CP by -0.01 \% and -0.41 \% in the middle and highest
+tertile, respectively. The variance of the errors did not increase
+appreciably as \%CP increased.
 
 \phantomsection\label{cell-fig-validation_set_performance}
 \begin{figure}[H]
@@ -674,22 +687,27 @@ ranked from least to greatest actual \% CP value}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-\hfill\break
+\begin{verbatim}
+                        loc2
+grouping                 freeville geneva ithaca
+  best_predicted_10pct           5      3      7
+  worst_predicted_10_pct         1      9      5
+\end{verbatim}
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-To assess the patterns of errors within the models, a linear model was
-fit considering the mean estimated error for each sample considering all
-models where that sample was in the test set when compared to the
-sample's actual value. The models overestimated \%CP by approximately
-0.5 \% in the lowest tertile and underestimated \%CP by -0.01 \% and
--0.41 \% in the middle and highest tertile, respectively
-
-\textsubscript{Source:
-\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
-Notebook}}
+The 15 (\textasciitilde10\%) best and worst predicted samples as
+measured by the mean absolute error of prediction were identified and
+their backgrounds examined. Overall, half of the samples in the data set
+came from Ithaca, NY (``Ithaca''), while 28\% were collected from
+Geneva, NY (``Geneva'') Table~\ref{tbl-hemp_provenance}. However, of the
+15 worst-predicted samples, 9 were from Geneva, while 3 of the 15
+best-predicted samples were from Geneva (by contrast, 7 of the best
+predicted and 5 of the worst predicted samples came from Ithaca).
+Overall, samples from Geneva had the highest mean absolute error of
+prediction, 38\% greater than samples from Ithaca.
 
 This study is limited in that it represents the creation of one model
 based upon spectra collected from one machine. NIRS calibrations can be
@@ -700,7 +718,8 @@ are relatively small.
 This research showed the promise of the use of NIRS in order to make
 predictions concerning \%CP in hemp grain using PLS. Promising
 preprocessing methods were identified and a model was validated. Further
-research could refine a CP model by including more samples, identifying
+research could refine a CP model by including more samples, particularly
+by rectifying the class imbalance between Geneva and Ithaca, identifying
 promising spectral regions, or by examining other predictive methods.
 
 \subsection{ACKNOWLEDGMENTS}\label{acknowledgments}

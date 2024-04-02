@@ -6,14 +6,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Ryan Crawford">
+<meta name="author" content="Ryan V. Crawford">
 <meta name="author" content="Jamie Crawford">
+<meta name="author" content="Julie L. Hansen">
 <meta name="author" content="Lawrence B. Smart">
 <meta name="author" content="Virginia Moore">
 <meta name="dcterms.date" content="2024-04-02">
 <meta name="keywords" content="Hemp, Grain, Spectroscopy">
 
-<title>Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain</title>
+<title>Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -99,12 +100,13 @@ window.Quarto = {
 };
 </script>
 
-<meta name="citation_title" content="Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain">
+<meta name="citation_title" content="Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain">
 <meta name="citation_abstract" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 ">
 <meta name="citation_keywords" content="Hemp,Grain,Spectroscopy">
-<meta name="citation_author" content="Ryan Crawford">
+<meta name="citation_author" content="Ryan V. Crawford">
 <meta name="citation_author" content="Jamie Crawford">
+<meta name="citation_author" content="Julie L. Hansen">
 <meta name="citation_author" content="Lawrence B. Smart">
 <meta name="citation_author" content="Virginia Moore">
 <meta name="citation_publication_date" content="2024-04-02">
@@ -174,7 +176,7 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain</h1>
+      <h1 class="title">Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain</h1>
           </div>
 
     
@@ -185,7 +187,7 @@ window.Quarto = {
           <div class="quarto-title-meta-heading">Affiliations</div>
           
                 <div class="quarto-title-meta-contents">
-            <p class="author">Ryan Crawford <a href="mailto:rvc3@cornell.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0006-3052-3269" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+            <p class="author">Ryan V. Crawford <a href="mailto:rvc3@cornell.edu" class="quarto-title-author-email"><i class="bi bi-envelope"></i></a> <a href="https://orcid.org/0009-0006-3052-3269" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
                 <div class="quarto-title-meta-contents">
                     <p class="affiliation">
@@ -194,6 +196,14 @@ window.Quarto = {
                   </div>
                       <div class="quarto-title-meta-contents">
             <p class="author">Jamie Crawford </p>
+          </div>
+                <div class="quarto-title-meta-contents">
+                    <p class="affiliation">
+                        Cornell University
+                      </p>
+                  </div>
+                      <div class="quarto-title-meta-contents">
+            <p class="author">Julie L. Hansen </p>
           </div>
                 <div class="quarto-title-meta-contents">
                     <p class="affiliation">
@@ -503,7 +513,7 @@ Figure&nbsp;2: Final model test set performance (1000 iterations)
 </div>
 </div>
 </div>
-<p>Finally, the pattern of test set errors was examined on a per-sample basis <a href="#fig-validation_set_performance" class="quarto-xref">Figure&nbsp;3</a> .</p>
+<p>Finally, the pattern of test set errors was examined on a per-sample basis by calculating the difference between the actual and predicted values for the samples in the test sets <a href="#fig-validation_set_performance" class="quarto-xref">Figure&nbsp;3</a> . A linear model was fit considering the mean estimated error for each sample where that sample was in the test set as compared to the sample’s actual value. The models overestimated %CP by approximately 0.5 % in the lowest tertile and underestimated %CP by -0.01 % and -0.41 % in the middle and highest tertile, respectively. The variance of the errors did not increase appreciably as %CP increased.</p>
 <div id="cell-fig-validation_set_performance" class="cell">
 <div class="cell-output-display">
 <div id="fig-validation_set_performance" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -518,11 +528,17 @@ Figure&nbsp;3: Test set prediction errors on a per-sample basis. Actual sample v
 </div>
 </div>
 </div>
-<p><br>
-</p>
-<p>To assess the patterns of errors within the models, a linear model was fit considering the mean estimated error for each sample considering all models where that sample was in the test set when compared to the sample’s actual value. The models overestimated %CP by approximately 0.5 % in the lowest tertile and underestimated %CP by -0.01 % and -0.41 % in the middle and highest tertile, respectively</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>                        loc2
+grouping                 freeville geneva ithaca
+  best_predicted_10pct           5      3      7
+  worst_predicted_10_pct         1      9      5</code></pre>
+</div>
+</div>
+<p>The 15 (~10%) best and worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY (“Ithaca”), while 28% were collected from Geneva, NY (“Geneva”) <a href="#tbl-hemp_provenance" class="quarto-xref">Table&nbsp;3</a>. However, of the 15 worst-predicted samples, 9 were from Geneva, while 3 of the 15 best-predicted samples were from Geneva (by contrast, 7 of the best predicted and 5 of the worst predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction, 38% greater than samples from Ithaca.</p>
 <p>This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model <span class="citation" data-cites="reeves_potential_2012">(<a href="#ref-reeves_potential_2012" role="doc-biblioref">Reeves, 2012</a>)</span>. As well, the calibration and validation sets are relatively small.</p>
-<p>This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, identifying promising spectral regions, or by examining other predictive methods.</p>
+<p>This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.</p>
 </section>
 </section>
 <section id="acknowledgments" class="level2" data-number="4">
@@ -1538,7 +1554,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","openEffect":"zoom","loop":false,"descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","loop":false,"descPosition":"bottom","openEffect":"zoom","closeEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

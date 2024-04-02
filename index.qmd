@@ -1,9 +1,9 @@
 ---
-title: Near Infra-Red Spectroscopy Predicts Crude Protein in Hemp Grain
+title: Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain
 execute:
   echo: false
 author:
-  - name: Ryan Crawford
+  - name: Ryan V. Crawford
     orcid: 0009-0006-3052-3269
     corresponding: true
     email: rvc3@cornell.edu
@@ -19,6 +19,20 @@ author:
         state: NY
         postal-code: 14853
   - name: Jamie Crawford
+    # orcid: 0000-0002-0760-5497
+    corresponding: false
+    # roles:
+    #   - Investigation
+    #   - Project administration
+    #   - Software
+    #   - Visualization
+    affiliations:
+      - name: Cornell University
+        address: 126 Medicago Drive
+        city: Ithaca
+        state: NY
+        postal-code: 14853
+  - name: Julie L. Hansen
     # orcid: 0000-0002-0760-5497
     corresponding: false
     # roles:
@@ -488,6 +502,7 @@ temp_dat_sd[,adj_cp:= crude_protein - min_val]
 lm_mod_sd <- lm(sd_diff~adj_cp, data = temp_dat_sd) 
 ```
 
+
 ```{r}
 # look at worst samples info...
 
@@ -498,7 +513,13 @@ worst <- worst_preds[,.N, by = ith_in_data_set][order(N, decreasing = T)][N>8]
 troubles <- merge(worst, full_data[,1:7], all.x = T)
 ```
 
-Finally, the pattern of test set errors was examined on a per-sample basis @fig-validation_set_performance .
+```{r}
+cts <- ds_cutpoints[,mean(preds), by=cutpoints]
+```
+
+Finally, the pattern of test set errors was examined on a per-sample basis by calculating the difference between the actual and predicted values for the samples in the test sets @fig-validation_set_performance . A linear model was fit considering the mean estimated error for each sample where that sample was in the test set as compared to the sample's actual value. The models overestimated %CP by approximately `r round(cts$V1[1],2)` % in the lowest tertile and underestimated %CP by `r round(cts$V1[2],2)` % and `r round(cts$V1[3],2)` % in the middle and highest tertile, respectively. The variance of the errors did not increase appreciably as %CP increased.
+
+
 
 ```{r}
 #| label: fig-validation_set_performance
@@ -525,13 +546,7 @@ model_final_predictions |>
 
 ```
 
-\
 
-```{r}
-cts <- ds_cutpoints[,mean(preds), by=cutpoints]
-```
-
-To assess the patterns of errors within the models, a linear model was fit considering the mean estimated error for each sample considering all models where that sample was in the test set when compared to the sample's actual value. The models overestimated %CP by approximately `r round(cts$V1[1],2)` % in the lowest tertile and underestimated %CP by `r round(cts$V1[2],2)` % and `r round(cts$V1[3],2)` % in the middle and highest tertile, respectively
 
 ```{r}
 # look
@@ -552,11 +567,23 @@ td3 <- td2[!c(16:134),][,grouping:=rep(c("best_predicted_10pct", "worst_predicte
 td4_bckgrd <- merge(td3, full_data[,1:7], all.x = T)
 
 td_5 <- merge( td4_bckgrd,locs2, by.y ="loc", by.x= 'loc', all.x = T)
+
+
+# make a prop table.
+with(td_5, table(grouping, loc2))
+
+test_for_errors <- merge( merge(td2, full_data[,1:7], all.x = T),locs2, by.y ="loc", by.x= 'loc', all.x = T)
+
+error_mod <- lm(abs(difference)~loc2, data = test_for_errors)
+
+error_by_loc <- emmeans::emmeans(error_mod, "loc2") |> multcomp::cld()
 ```
+
+The 15 (~10%) best and worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY ("Ithaca"), while 28% were collected from Geneva, NY ("Geneva") @tbl-hemp_provenance. However, of the 15 worst-predicted samples, 9 were from Geneva, while 3 of the 15 best-predicted samples were from Geneva (by contrast, 7 of the best predicted and 5 of the worst predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction, 38% greater than samples from Ithaca.
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the calibration and validation sets are relatively small.
 
-This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, identifying promising spectral regions, or by examining other predictive methods.
+This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
 
