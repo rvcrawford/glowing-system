@@ -17,6 +17,7 @@ Hemp Grain</article-title>
 
 <contrib-group>
 <contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">0009-0006-3052-3269</contrib-id>
 <name>
 <surname>Crawford</surname>
 <given-names>Ryan</given-names>
@@ -46,6 +47,7 @@ Hemp Grain</article-title>
 <xref ref-type="aff" rid="aff-2">b</xref>
 </contrib>
 <contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">0000-0001-7888-3366</contrib-id>
 <name>
 <surname>Moore</surname>
 <given-names>Virginia</given-names>
@@ -258,8 +260,7 @@ etc.</bold></p>
     fitting the model, the number of components was optimized over a
     grid search from 1-20. Model performance was evaluated with 25
     iterations of bootstrapping and minimized root mean squared error
-    (RMSE) in selecting the number of components in the final model
-    .</p>
+    (RMSE) in selecting the number of components in the final model.</p>
     <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 calibration and testing sets, as described
     above. Spectral data from those data sets were transformed by each
@@ -276,20 +277,32 @@ etc.</bold></p>
     predictions were made on the corresponding validation set (since
     there were 8 preprocessing methods, 8 separate models were fit for
     each of the 100 sets. The relationship between the predicted and
-    actual values of the testing set were calculated via RMSE,
-    R<sup>2</sup> and Ratio of Performance to InterQuartile distance
-    (RPIQ), three common model assessment metrics. Larger R<sup>2</sup>
-    and RPIQ, and smaller RMSE values are superior. Analyses of variance
-    (ANOVA) were performed for each of these metrics in order to compare
-    the preprocessing methods. For each ANOVA, each data set was
-    considered as a subject and different variances were allowed for
-    each preprocessing method.</p>
-    <p>Once the most promising preprocessing method was identified, 1000
-    more data sets were created and analyzed via that method and
-    performance on the testing sets was summarized with RMSE,
-    R<sup>2</sup>, and RPIQ. The pattern of errors, expressed as the
-    difference between the actual and predicted values for a given
-    sample, was examined.</p>
+    actual values of the test set were calculated via RMSE, coefficient
+    of determination (R<sup>2</sup>), relative predicted deviation
+    (RPD), and Ratio of Performance to InterQuartile distance (RPIQ),
+    four common model assessment metrics. Larger R<sup>2</sup>, RPD and
+    RPIQ values and smaller RMSE values are best. The answer to the
+    question of exactly which values constitute a “good” model varies
+    depending upon the reference consulted, but for simplicity’s sake we
+    searched for a model with R<sup>2</sup> &gt; 0.80, an RPD greater
+    than 2.5 and ideally greater than 3 (“good” to “excellent”
+    quantitative prediction), and an RPIQ greater than 2.3 but ideally
+    greater than 4.1.
+    (<xref alt="Chadalavada et al., 2022" rid="ref-chadalavada_nir_2022" ref-type="bibr">Chadalavada
+    et al., 2022</xref>;
+    <xref alt="Luce et al., 2017" rid="ref-luce_prediction_2017" ref-type="bibr">Luce
+    et al., 2017</xref>;
+    <xref alt="Rawal et al., 2024" rid="ref-rawal_visible_2024" ref-type="bibr">Rawal
+    et al., 2024</xref>).</p>
+    <p>Analyses of variance (ANOVA) were performed for each of these
+    metrics in order to compare the preprocessing methods. For each
+    ANOVA, each data set was considered as a subject and different
+    variances were allowed for each preprocessing method. Once the most
+    promising preprocessing method was identified, 1000 more data sets
+    were created and analyzed via that method and performance on the
+    testing sets was summarized with RMSE, R<sup>2</sup>, RPD, and RPIQ.
+    The pattern of errors, expressed as the difference between the
+    actual and predicted values for a given sample, was examined.</p>
   </sec>
   <sec id="additional-software-used">
     <title>2.5 Additional software used</title>
@@ -363,29 +376,32 @@ etc.</bold></p>
     <p>All preprocessing methods outperformed untransformed spectral
     data <xref alt="Table 2" rid="tbl-preproc">Table 2</xref>. Averaged
     together, all preprocessed spectra were superior to untransformed
-    spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ values
-    (significant at <inline-formula><alternatives>
+    spectra, with lower RMSE, and higher R<sup>2</sup>, RPD and RPIQ
+    values (significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
-    had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
-    spectra. Preprocessed spectra also had lower standard errors than
-    untransformed spectra.</p>
-    <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
-    highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
-    1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
-    higher respectively than the next best preprocessing method (SG in
-    both cases), but the difference between the best and second best
-    method by metric were only statistically significant at
-    <inline-formula><alternatives>
+    had 3.1% higher R<sup>2</sup>, 6.3% higher RPD and7.4% higher RPIQ
+    than unprocessed spectra. Preprocessed spectra also had lower
+    standard errors than untransformed spectra.</p>
+    <p>The SNV-SG method had the lowest RMSE and the highest
+    R<sup>2</sup>, RPD and RPIQ averaging over all iterations. SNV-SG
+    RMSE averaged 1.4% lower, while R<sup>2</sup>, RPD, and RPIQ
+    averaged 0.4%, 2.1%, and 2.4% higher respectively than the next best
+    preprocessing method (SG in both cases), but the differences between
+    the best and second best methods by metric were only statistically
+    significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
-    of data in skewed populations
+    &lt;0.05 for RPD andRPIQ. There is a long history of using RPD to
+    evaluate chemometric models although the statistic has been
+    criticized as inadequately reflecting the distribution of skewed
+    populations, a situation for which RPIQ was the more modern
+    successor
     (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel_critical_2010" ref-type="bibr">Bellon-Maurel
-    et al., 2010</xref>) and thus offers a robust metric for model
-    assessment where data may be skewed. Therefore the superiority of
-    SNV-SG as measured via RPIQ made it the best choice for the final
+    et al., 2010</xref>). Here the data were somewhat but not heavily
+    skewed and RPD and RPIQ metrics were in agreement. The superiority
+    of SNV-SG by these metrics made it the best choice for the final
     model.</p>
     <fig id="tbl-preproc">
       <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
@@ -393,10 +409,11 @@ etc.</bold></p>
       <table-wrap>
         <table>
           <colgroup>
-            <col width="56%" />
-            <col width="15%" />
-            <col width="15%" />
-            <col width="15%" />
+            <col width="49%" />
+            <col width="13%" />
+            <col width="13%" />
+            <col width="13%" />
+            <col width="13%" />
           </colgroup>
           <thead>
             <tr>
@@ -405,6 +422,7 @@ etc.</bold></p>
               <th align="left"><inline-formula><alternatives>
               <tex-math><![CDATA[R^{2}]]></tex-math>
               <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></alternatives></inline-formula></th>
+              <th align="left">RPD</th>
               <th align="left">RPIQ</th>
             </tr>
           </thead>
@@ -414,48 +432,56 @@ etc.</bold></p>
               Savitzky-Golay</td>
               <td align="left">1.02 ± 0.012</td>
               <td align="left">0.84 ± 0.004</td>
+              <td align="left">2.49 ± 0.032</td>
               <td align="left">3.97 ± 0.076</td>
             </tr>
             <tr>
               <td align="left">Savitzky-Golay</td>
               <td align="left">1.03 ± 0.012</td>
               <td align="left">0.83 ± 0.004</td>
+              <td align="left">2.44 ± 0.029</td>
               <td align="left">3.88 ± 0.072</td>
             </tr>
             <tr>
               <td align="left">First Derivative</td>
               <td align="left">1.07 ± 0.013</td>
               <td align="left">0.82 ± 0.004</td>
+              <td align="left">2.36 ± 0.032</td>
               <td align="left">3.77 ± 0.075</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate</td>
               <td align="left">1.12 ± 0.016</td>
               <td align="left">0.80 ± 0.005</td>
+              <td align="left">2.26 ± 0.036</td>
               <td align="left">3.61 ± 0.081</td>
             </tr>
             <tr>
               <td align="left">Gap-segment Derivative</td>
               <td align="left">1.12 ± 0.018</td>
               <td align="left">0.81 ± 0.006</td>
+              <td align="left">2.26 ± 0.040</td>
               <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate-Detrend</td>
               <td align="left">1.13 ± 0.015</td>
               <td align="left">0.80 ± 0.005</td>
+              <td align="left">2.22 ± 0.035</td>
               <td align="left">3.55 ± 0.079</td>
             </tr>
             <tr>
               <td align="left">Multiplicative Scatter Correction</td>
               <td align="left">1.17 ± 0.016</td>
               <td align="left">0.79 ± 0.006</td>
+              <td align="left">2.17 ± 0.035</td>
               <td align="left">3.47 ± 0.080</td>
             </tr>
             <tr>
               <td align="left">Untransformed Spectra</td>
               <td align="left">1.22 ± 0.044</td>
               <td align="left">0.79 ± 0.009</td>
+              <td align="left">2.17 ± 0.052</td>
               <td align="left">3.42 ± 0.105</td>
             </tr>
           </tbody>
@@ -476,7 +502,7 @@ etc.</bold></p>
     et al., 2005</xref>). Derivatives, here including SG, gap-segment,
     and first derivatives pretreatments may remove additive and
     multiplicative effects, but not necessarily light scatter; as well,
-    the derivatives can increase spectral noise if employed incorrectly
+    derivatives may increase spectral noise
     (<xref alt="Rinnan et al., 2009" rid="ref-rinnan_review_2009" ref-type="bibr">Rinnan
     et al., 2009</xref>). Here, hemp grain was neither powdered nor
     densely packed but samples were subject to light scatter and noise
@@ -486,16 +512,17 @@ etc.</bold></p>
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance selecting an appropriate preprocessing
-    method.</p>
+    demonstrating the importance of selecting an appropriate
+    preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary">
     <title>3.3 Final model development and summary</title>
     <p>The model improved most rapidly as the number of components
     increased from 1 to 7, with the inclusion of each additional
     component being associated with a decrease in RMSE of 5-12% . From 8
-    to 12 componentss, model performance continued to improve, although
-    gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
+    to 12 components, model performance continued to improve, although
+    gains were more modest (there was a decrease in RMSE of 0.7-3% with
+    the inclusion of each additional component). With 13 or more
     components, performance gains were minimal and the relative ranks of
     the models tended to be stable
     <xref alt="Figure 1" rid="fig-model-calibration">Figure 1</xref>.</p>
@@ -504,23 +531,33 @@ etc.</bold></p>
       PCs</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
-    <p>Final model performance was similar, but not identical to, that
-    obtained during the initial comparison of preprocessing methods. The
-    final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, and RPIQ
-    was 3.89 (all calculated on the test sets). Despite the generally
-    good model performance, a subset of poor models can be seen. For
-    example,
+    <p>Final models performances on the test sets were similar, but not
+    identical to, that obtained during the initial comparison of
+    preprocessing methods. The final models’ mean RMSE was 1.03,
+    R<sup>2</sup> was 0.83, RPD was 2.44, and RPIQ was 3.89. Five
+    percent of the models were excellent by both metrics, with RPD &gt;
+    3 and RPIQ &gt; 4.1, while an additional 11% of the models were
+    “good” by both metrics (RPD range from 2.5 - 3.0, RPIQ range from
+    2.3 - 4.1). Forty-nine percent of the models had the ability to
+    approximate quantitative prediction (RPD range from 2.0 - 2.5), and
+    9% of the models were able to distinguish between higher and lower
+    CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
+    generated here had, at minimum, the ability to distinguish between
+    high and low values with with two thirds of them having, at minimum,
+    the ability to approximate quantitative prediction. Despite the
+    generally good model performance, a subset of poor models can be
+    seen. For example,
     <xref alt="Figure 2" rid="fig-final-metric-boxplot">Figure 2</xref>
-    shows twenty-one models with R<sup>2</sup> below 0.7. <bold>more
-    comment on poor models?</bold></p>
+    shows twenty-one models with R<sup>2</sup> below 0.7.</p>
     <fig id="fig-final-metric-boxplot">
-      <caption><p>Figure 2: Final model validation set performance (1000
+      <caption><p>Figure 2: Final model test set performance (1000
       iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
-    <p>Finally, the pattern of errors was examined on a per-sample
-    basis.
-    <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref></p>
+    <p>Finally, the pattern of test set errors was examined on a
+    per-sample basis
+    <xref alt="Figure 3" rid="fig-validation_set_performance">Figure 3</xref>
+    .</p>
     <fig id="fig-validation_set_performance">
       <caption><p>Figure 3: Test set prediction errors on a per-sample
       basis. Actual sample value set to 0, and samples ranked from least
@@ -1385,6 +1422,50 @@ etc.</bold></p>
       <lpage>1222</lpage>
     </element-citation>
   </ref>
+  <ref id="ref-rawal_visible_2024">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rawal</surname><given-names>Ashmita</given-names></name>
+        <name><surname>Hartemink</surname><given-names>Alfred</given-names></name>
+        <name><surname>Zhang</surname><given-names>Yakun</given-names></name>
+        <name><surname>Wang</surname><given-names>Yi</given-names></name>
+        <name><surname>Lankau</surname><given-names>Richard A.</given-names></name>
+        <name><surname>Ruark</surname><given-names>Matthew D.</given-names></name>
+      </person-group>
+      <article-title>Visible and near-infrared spectroscopy predicted leaf nitrogen contents of potato varieties under different growth and management conditions</article-title>
+      <source>Precision Agriculture</source>
+      <year iso-8601-date="2024-04">2024</year><month>04</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-02">2024</year><month>04</month><day>02</day></date-in-citation>
+      <volume>25</volume>
+      <issue>2</issue>
+      <issn>1573-1618</issn>
+      <uri>https://doi.org/10.1007/s11119-023-10091-z</uri>
+      <pub-id pub-id-type="doi">10.1007/s11119-023-10091-z</pub-id>
+      <fpage>751</fpage>
+      <lpage>770</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-luce_prediction_2017">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Luce</surname><given-names>Mervin St</given-names></name>
+        <name><surname>Ziadi</surname><given-names>Noura</given-names></name>
+        <name><surname>Gagnon</surname><given-names>Bernard</given-names></name>
+        <name><surname>Lévesque</surname><given-names>Vicky</given-names></name>
+      </person-group>
+      <article-title>Prediction of total carbon, total nitrogen, and pH of organic materials using visible near-infrared reflectance spectroscopy</article-title>
+      <source>Canadian Journal of Soil Science</source>
+      <year iso-8601-date="2017-12">2017</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-02">2024</year><month>04</month><day>02</day></date-in-citation>
+      <volume>98</volume>
+      <issue>1</issue>
+      <issn>0008-4271, 1918-1841</issn>
+      <uri>https://bioone.org/journals/canadian-journal-of-soil-science/volume-98/issue-1/cjss-2017-0109/Prediction-of-total-carbon-total-nitrogen-and-pH-of-organic/10.1139/cjss-2017-0109.full</uri>
+      <pub-id pub-id-type="doi">10.1139/cjss-2017-0109</pub-id>
+      <fpage>175</fpage>
+      <lpage>179</lpage>
+    </element-citation>
+  </ref>
   <ref id="ref-base">
     <element-citation publication-type="book">
       <person-group person-group-type="author">
@@ -1561,6 +1642,7 @@ Hemp Grain</article-title>
 </title-group>
 <contrib-group>
 <contrib contrib-type="author" corresp="yes">
+<contrib-id contrib-id-type="orcid">0009-0006-3052-3269</contrib-id>
 <name>
 <surname>Crawford</surname>
 <given-names>Ryan</given-names>
@@ -1590,6 +1672,7 @@ Hemp Grain</article-title>
 <xref ref-type="aff" rid="aff-2-nb-article">b</xref>
 </contrib>
 <contrib contrib-type="author">
+<contrib-id contrib-id-type="orcid">0000-0001-7888-3366</contrib-id>
 <name>
 <surname>Moore</surname>
 <given-names>Virginia</given-names>
@@ -1741,7 +1824,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Learn how to get started at https://www.tidymodels.org/start/</preformat>
+• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1926,8 +2009,7 @@ tab &lt;-  table(full_data$in_ny)</code>
     fitting the model, the number of components was optimized over a
     grid search from 1-20. Model performance was evaluated with 25
     iterations of bootstrapping and minimized root mean squared error
-    (RMSE) in selecting the number of components in the final model
-    .</p>
+    (RMSE) in selecting the number of components in the final model.</p>
     <sec id="nb-code-cell-4-nb-article" specific-use="notebook-code">
     <code language="r script">preproc_key &lt;- fread(&quot;./input_data/final_data_set/preprocessing_key.csv&quot;)
 
@@ -1950,20 +2032,32 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     predictions were made on the corresponding validation set (since
     there were 8 preprocessing methods, 8 separate models were fit for
     each of the 100 sets. The relationship between the predicted and
-    actual values of the testing set were calculated via RMSE,
-    R<sup>2</sup> and Ratio of Performance to InterQuartile distance
-    (RPIQ), three common model assessment metrics. Larger R<sup>2</sup>
-    and RPIQ, and smaller RMSE values are superior. Analyses of variance
-    (ANOVA) were performed for each of these metrics in order to compare
-    the preprocessing methods. For each ANOVA, each data set was
-    considered as a subject and different variances were allowed for
-    each preprocessing method.</p>
-    <p>Once the most promising preprocessing method was identified, 1000
-    more data sets were created and analyzed via that method and
-    performance on the testing sets was summarized with RMSE,
-    R<sup>2</sup>, and RPIQ. The pattern of errors, expressed as the
-    difference between the actual and predicted values for a given
-    sample, was examined.</p>
+    actual values of the test set were calculated via RMSE, coefficient
+    of determination (R<sup>2</sup>), relative predicted deviation
+    (RPD), and Ratio of Performance to InterQuartile distance (RPIQ),
+    four common model assessment metrics. Larger R<sup>2</sup>, RPD and
+    RPIQ values and smaller RMSE values are best. The answer to the
+    question of exactly which values constitute a “good” model varies
+    depending upon the reference consulted, but for simplicity’s sake we
+    searched for a model with R<sup>2</sup> &gt; 0.80, an RPD greater
+    than 2.5 and ideally greater than 3 (“good” to “excellent”
+    quantitative prediction), and an RPIQ greater than 2.3 but ideally
+    greater than 4.1.
+    (<xref alt="Chadalavada et al., 2022" rid="ref-chadalavada_nir_2022-nb-article" ref-type="bibr">Chadalavada
+    et al., 2022</xref>;
+    <xref alt="Luce et al., 2017" rid="ref-luce_prediction_2017-nb-article" ref-type="bibr">Luce
+    et al., 2017</xref>;
+    <xref alt="Rawal et al., 2024" rid="ref-rawal_visible_2024-nb-article" ref-type="bibr">Rawal
+    et al., 2024</xref>).</p>
+    <p>Analyses of variance (ANOVA) were performed for each of these
+    metrics in order to compare the preprocessing methods. For each
+    ANOVA, each data set was considered as a subject and different
+    variances were allowed for each preprocessing method. Once the most
+    promising preprocessing method was identified, 1000 more data sets
+    were created and analyzed via that method and performance on the
+    testing sets was summarized with RMSE, R<sup>2</sup>, RPD, and RPIQ.
+    The pattern of errors, expressed as the difference between the
+    actual and predicted values for a given sample, was examined.</p>
   </sec>
   <sec id="additional-software-used-nb-article">
     <title>2.5 Additional software used</title>
@@ -2046,7 +2140,7 @@ knitr::kable(my_summary)</code>
     <title>3.2 Preprocessing methods comparison</title>
     <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
     <code language="r script"># 
-multi_metric &lt;- metric_set(rmse, rsq, rpiq)
+multi_metric &lt;- metric_set(rmse, rsq, rpiq, rpd)
 
 
 # read data back in to work with it
@@ -2150,29 +2244,32 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     <p>All preprocessing methods outperformed untransformed spectral
     data <xref alt="Table 2" rid="tbl-preproc-nb-article">Table 2</xref>. Averaged
     together, all preprocessed spectra were superior to untransformed
-    spectra, with lower RMSE, and higher R<sup>2</sup> and RPIQ values
-    (significant at <inline-formula><alternatives>
+    spectra, with lower RMSE, and higher R<sup>2</sup>, RPD and RPIQ
+    values (significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
     level &lt;0.001). Preprocessing methods had -11.6 % lower RMSE, and
-    had 3.1% higher R<sup>2</sup> 7.4% higher RPIQ than unprocessed
-    spectra. Preprocessed spectra also had lower standard errors than
-    untransformed spectra.</p>
-    <p>The SNV-SG method had the lowest RMSE, highest R<sup>2</sup>, and
-    highest RPIQ averaging over all iterations. SNV-SG RMSE averaged
-    1.4% lower, while R<sup>2</sup> and RPIQ averaged 0.4% and 2.4%
-    higher respectively than the next best preprocessing method (SG in
-    both cases), but the difference between the best and second best
-    method by metric were only statistically significant at
-    <inline-formula><alternatives>
+    had 3.1% higher R<sup>2</sup>, 6.3% higher RPD and7.4% higher RPIQ
+    than unprocessed spectra. Preprocessed spectra also had lower
+    standard errors than untransformed spectra.</p>
+    <p>The SNV-SG method had the lowest RMSE and the highest
+    R<sup>2</sup>, RPD and RPIQ averaging over all iterations. SNV-SG
+    RMSE averaged 1.4% lower, while R<sup>2</sup>, RPD, and RPIQ
+    averaged 0.4%, 2.1%, and 2.4% higher respectively than the next best
+    preprocessing method (SG in both cases), but the differences between
+    the best and second best methods by metric were only statistically
+    significant at <inline-formula><alternatives>
     <tex-math><![CDATA[\alpha]]></tex-math>
     <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>α</mml:mi></mml:math></alternatives></inline-formula>
-    &lt;0.05 for RPIQ. RPIQ was devised to accurately reflect the spread
-    of data in skewed populations
+    &lt;0.05 for RPD andRPIQ. There is a long history of using RPD to
+    evaluate chemometric models although the statistic has been
+    criticized as inadequately reflecting the distribution of skewed
+    populations, a situation for which RPIQ was the more modern
+    successor
     (<xref alt="Bellon-Maurel et al., 2010" rid="ref-bellon-maurel_critical_2010-nb-article" ref-type="bibr">Bellon-Maurel
-    et al., 2010</xref>) and thus offers a robust metric for model
-    assessment where data may be skewed. Therefore the superiority of
-    SNV-SG as measured via RPIQ made it the best choice for the final
+    et al., 2010</xref>). Here the data were somewhat but not heavily
+    skewed and RPD and RPIQ metrics were in agreement. The superiority
+    of SNV-SG by these metrics made it the best choice for the final
     model.</p>
     <sec id="nb-code-cell-13-nb-article" specific-use="notebook-code">
     <code language="r script"># printable table of results
@@ -2186,20 +2283,22 @@ to_table2 &lt;- to_table |&gt;
   select(1:3) |&gt; 
   pivot_wider(names_from = Metric, values_from = Estimate) |&gt; 
   arrange(rmse) |&gt; 
-  rename(RMSE = rmse, RPIQ = rpiq ) 
+  rename(RMSE = rmse, RPIQ = rpiq ) |&gt; 
+  select(1,2,3,5,4)
 # names(to_table2)[3] &lt;- &quot;$^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;
 to_table2|&gt; 
-  knitr::kable(col.names = c(&quot;Preprocessing Method&quot;, &quot;RMSE&quot;, &quot;$R^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;, &quot;RPIQ&quot;))</code>
+  knitr::kable(col.names = c(&quot;Preprocessing Method&quot;, &quot;RMSE&quot;,  &quot;$R^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;,&quot;RPD&quot;, &quot;RPIQ&quot;))</code>
     <fig id="tbl-preproc-nb-article">
       <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
       ± Standard Error</p></caption>
       <table-wrap>
         <table>
           <colgroup>
-            <col width="56%" />
-            <col width="15%" />
-            <col width="15%" />
-            <col width="15%" />
+            <col width="49%" />
+            <col width="13%" />
+            <col width="13%" />
+            <col width="13%" />
+            <col width="13%" />
           </colgroup>
           <thead>
             <tr>
@@ -2208,6 +2307,7 @@ to_table2|&gt;
               <th align="left"><inline-formula><alternatives>
               <tex-math><![CDATA[R^{2}]]></tex-math>
               <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></alternatives></inline-formula></th>
+              <th align="left">RPD</th>
               <th align="left">RPIQ</th>
             </tr>
           </thead>
@@ -2217,48 +2317,56 @@ to_table2|&gt;
               Savitzky-Golay</td>
               <td align="left">1.02 ± 0.012</td>
               <td align="left">0.84 ± 0.004</td>
+              <td align="left">2.49 ± 0.032</td>
               <td align="left">3.97 ± 0.076</td>
             </tr>
             <tr>
               <td align="left">Savitzky-Golay</td>
               <td align="left">1.03 ± 0.012</td>
               <td align="left">0.83 ± 0.004</td>
+              <td align="left">2.44 ± 0.029</td>
               <td align="left">3.88 ± 0.072</td>
             </tr>
             <tr>
               <td align="left">First Derivative</td>
               <td align="left">1.07 ± 0.013</td>
               <td align="left">0.82 ± 0.004</td>
+              <td align="left">2.36 ± 0.032</td>
               <td align="left">3.77 ± 0.075</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate</td>
               <td align="left">1.12 ± 0.016</td>
               <td align="left">0.80 ± 0.005</td>
+              <td align="left">2.26 ± 0.036</td>
               <td align="left">3.61 ± 0.081</td>
             </tr>
             <tr>
               <td align="left">Gap-segment Derivative</td>
               <td align="left">1.12 ± 0.018</td>
               <td align="left">0.81 ± 0.006</td>
+              <td align="left">2.26 ± 0.040</td>
               <td align="left">3.60 ± 0.086</td>
             </tr>
             <tr>
               <td align="left">Standard Normal Variate-Detrend</td>
               <td align="left">1.13 ± 0.015</td>
               <td align="left">0.80 ± 0.005</td>
+              <td align="left">2.22 ± 0.035</td>
               <td align="left">3.55 ± 0.079</td>
             </tr>
             <tr>
               <td align="left">Multiplicative Scatter Correction</td>
               <td align="left">1.17 ± 0.016</td>
               <td align="left">0.79 ± 0.006</td>
+              <td align="left">2.17 ± 0.035</td>
               <td align="left">3.47 ± 0.080</td>
             </tr>
             <tr>
               <td align="left">Untransformed Spectra</td>
               <td align="left">1.22 ± 0.044</td>
               <td align="left">0.79 ± 0.009</td>
+              <td align="left">2.17 ± 0.052</td>
               <td align="left">3.42 ± 0.105</td>
             </tr>
           </tbody>
@@ -2280,7 +2388,7 @@ to_table2|&gt;
     et al., 2005</xref>). Derivatives, here including SG, gap-segment,
     and first derivatives pretreatments may remove additive and
     multiplicative effects, but not necessarily light scatter; as well,
-    the derivatives can increase spectral noise if employed incorrectly
+    derivatives may increase spectral noise
     (<xref alt="Rinnan et al., 2009" rid="ref-rinnan_review_2009-nb-article" ref-type="bibr">Rinnan
     et al., 2009</xref>). Here, hemp grain was neither powdered nor
     densely packed but samples were subject to light scatter and noise
@@ -2290,8 +2398,8 @@ to_table2|&gt;
     user-adjustable parameters whose various permutations were not
     tested. This subset of preprocessing methods and parameters
     nonetheless contained substantial variations in model quality,
-    demonstrating the importance selecting an appropriate preprocessing
-    method.</p>
+    demonstrating the importance of selecting an appropriate
+    preprocessing method.</p>
   </sec>
   <sec id="final-model-development-and-summary-nb-article">
     <title>3.3 Final model development and summary</title>
@@ -2311,8 +2419,9 @@ change_per_pc &lt;- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]</code>
     <p>The model improved most rapidly as the number of components
     increased from 1 to 7, with the inclusion of each additional
     component being associated with a decrease in RMSE of 5-12% . From 8
-    to 12 componentss, model performance continued to improve, although
-    gains were more modest (decrease in RMSE of 0.7-3%). With 13 or more
+    to 12 components, model performance continued to improve, although
+    gains were more modest (there was a decrease in RMSE of 0.7-3% with
+    the inclusion of each additional component). With 13 or more
     components, performance gains were minimal and the relative ranks of
     the models tended to be stable
     <xref alt="Figure 1" rid="fig-model-calibration-nb-article">Figure 1</xref>.</p>
@@ -2336,16 +2445,48 @@ final_model_table &lt;- model_final_predictions |&gt;
   group_by(id) |&gt; 
   multi_metric(crude_protein, predicted_crude_protein) |&gt; setDT()</code>
     </sec>
-    <p>Final model performance was similar, but not identical to, that
-    obtained during the initial comparison of preprocessing methods. The
-    final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, and RPIQ
-    was 3.89 (all calculated on the test sets). Despite the generally
-    good model performance, a subset of poor models can be seen. For
-    example,
-    <xref alt="Figure 2" rid="fig-final-metric-boxplot-nb-article">Figure 2</xref>
-    shows twenty-one models with R<sup>2</sup> below 0.7. <bold>more
-    comment on poor models?</bold></p>
     <sec id="nb-code-cell-16-nb-article" specific-use="notebook-code">
+    <code language="r script"># make a final model table that spreads wide
+
+ft2 &lt;- final_model_table[,.estimator:=NULL] |&gt; dcast(id~.metric, value.var = &quot;.estimate&quot;)
+
+corr_coeffs &lt;- cor(ft2[,2:5])
+
+# id the very worst fits.
+low_cor_ids &lt;- ft2[rsq&lt;0.7,]$id
+
+
+great_mods &lt;- ft2[rpd&gt;3&amp;rpiq&gt;4.1&amp;rsq&gt;0.8,]
+
+good_mods &lt;- ft2[rpd&gt;2.5&amp;rpd&lt;3&amp;rpiq&lt;4.1&amp;rpiq&gt;2.3&amp;rsq&gt;0.8,]
+
+ok_mods &lt;- ft2[rpd&gt;2.0&amp;rpd&lt;2.5&amp;rpiq&gt;2.3,]
+
+poor_but_functional &lt;-  ft2[rpd&gt;1.5&amp;rpd&lt;2,]
+
+all_mods &lt;- list(great_mods, good_mods, ok_mods, poor_but_functional)
+
+full_sum &lt;- lapply(all_mods, nrow)</code>
+    </sec>
+    <p>Final models performances on the test sets were similar, but not
+    identical to, that obtained during the initial comparison of
+    preprocessing methods. The final models’ mean RMSE was 1.03,
+    R<sup>2</sup> was 0.83, RPD was 2.44, and RPIQ was 3.89. Five
+    percent of the models were excellent by both metrics, with RPD &gt;
+    3 and RPIQ &gt; 4.1, while an additional 11% of the models were
+    “good” by both metrics (RPD range from 2.5 - 3.0, RPIQ range from
+    2.3 - 4.1). Forty-nine percent of the models had the ability to
+    approximate quantitative prediction (RPD range from 2.0 - 2.5), and
+    9% of the models were able to distinguish between higher and lower
+    CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
+    generated here had, at minimum, the ability to distinguish between
+    high and low values with with two thirds of them having, at minimum,
+    the ability to approximate quantitative prediction. Despite the
+    generally good model performance, a subset of poor models can be
+    seen. For example,
+    <xref alt="Figure 2" rid="fig-final-metric-boxplot-nb-article">Figure 2</xref>
+    shows twenty-one models with R<sup>2</sup> below 0.7.</p>
+    <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
     <code language="r script">skim_metrics &lt;- final_model_table |&gt; 
   group_by(.metric) |&gt; 
   skimr::skim()</code>
@@ -2359,23 +2500,23 @@ final_model_table |&gt;
   mutate(metric2 = toupper(.metric)) |&gt; 
   ggplot(aes(x = .metric, y = .estimate)) + 
   theme_classic() + geom_boxplot() + 
-  facet_wrap(vars(metric2), scales = &quot;free&quot;) +
+  facet_wrap(nrow = 1,vars(factor(metric2, levels = c(&quot;RMSE&quot;, &quot;RSQ&quot;,&quot;RPD&quot;, &quot;RPIQ&quot;))), scales = &quot;free&quot;) +
   xlab(&quot;Metric&quot;) + ylab(&quot;Estimate&quot;)+
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank())</code>
     <fig id="fig-final-metric-boxplot-nb-article">
-      <caption><p>Figure 2: Final model validation set performance (1000
+      <caption><p>Figure 2: Final model test set performance (1000
       iterations)</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     </sec>
-    <sec id="nb-code-cell-17-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
     <code language="r script"># add difference calculation between predicted and observed...
 model_final_predictions[,difference := predicted_crude_protein - crude_protein]</code>
     </sec>
-    <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
     <code language="r script"># my_cut &lt;- cut(spectra_2$crude_protein, 3)
 # cut_dt &lt;- data.table(ith_in_data_set = 1:149, cutpoints = my_cut)
 
@@ -2387,7 +2528,7 @@ cutpoints2 &lt;- model_final_predictions |&gt;
   arrange(crude_protein) |&gt; 
   mutate(plot_order = 1:n())</code>
     </sec>
-    <sec id="nb-code-cell-19-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
     <code language="r script">data_sum_by_sample &lt;- model_final_predictions[,lapply(.SD, mean), .SDcols = c(&quot;crude_protein&quot;, &quot;difference&quot;), by = &quot;ith_in_data_set&quot;]
 setorder(data_sum_by_sample, crude_protein)
 temp_dat &lt;- copy(data_sum_by_sample)
@@ -2408,7 +2549,7 @@ ds_preds &lt;- temp_dat[,c(&quot;ith_in_data_set&quot;)] |&gt; cbind(preds)
 ds_cutpoints &lt;- merge(ds_preds, cutpoints2)
 setorder(ds_cutpoints, plot_order)</code>
     </sec>
-    <sec id="nb-code-cell-20-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-21-nb-article" specific-use="notebook-code">
     <code language="r script">sd_mod &lt;- model_final_predictions[,list(sd_diff = sd(difference), crude_protein = mean(crude_protein)), by = &quot;ith_in_data_set&quot;]
 setorder(sd_mod, crude_protein)
 temp_dat_sd &lt;- copy(sd_mod)
@@ -2420,9 +2561,19 @@ temp_dat_sd[,adj_cp:= crude_protein - min_val]
 
 lm_mod_sd &lt;- lm(sd_diff~adj_cp, data = temp_dat_sd) </code>
     </sec>
-    <p>Finally, the pattern of errors was examined on a per-sample
-    basis.
-    <xref alt="Figure 3" rid="fig-validation_set_performance-nb-article">Figure 3</xref></p>
+    <sec id="nb-code-cell-22-nb-article" specific-use="notebook-code">
+    <code language="r script"># look at worst samples info...
+
+worst_preds &lt;- model_final_predictions[id%in%low_cor_ids]
+
+worst &lt;- worst_preds[,.N, by = ith_in_data_set][order(N, decreasing = T)][N&gt;8]
+
+troubles &lt;- merge(worst, full_data[,1:7], all.x = T)</code>
+    </sec>
+    <p>Finally, the pattern of test set errors was examined on a
+    per-sample basis
+    <xref alt="Figure 3" rid="fig-validation_set_performance-nb-article">Figure 3</xref>
+    .</p>
     <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-code">
     <code language="r script"># 
 
@@ -2455,7 +2606,7 @@ model_final_predictions |&gt;
     </sec>
     <p>
     </p>
-    <sec id="nb-code-cell-21-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-23-nb-article" specific-use="notebook-code">
     <code language="r script">cts &lt;- ds_cutpoints[,mean(preds), by=cutpoints]</code>
     </sec>
     <p>To assess the patterns of errors within the models, a linear
@@ -2465,7 +2616,7 @@ model_final_predictions |&gt;
     by approximately 0.5 % in the lowest tertile and underestimated %CP
     by -0.01 % and -0.41 % in the middle and highest tertile,
     respectively</p>
-    <sec id="nb-code-cell-22-nb-article" specific-use="notebook-code">
+    <sec id="nb-code-cell-24-nb-article" specific-use="notebook-code">
     <code language="r script"># look
 # read in stuff for supplemental table first
 supp_tab &lt;- fread(&quot;./input_data/final_data_set/cultivar_table_clean.csv&quot;)
@@ -2505,7 +2656,7 @@ td_5 &lt;- merge( td4_bckgrd,locs2, by.y =&quot;loc&quot;, by.x= 'loc', all.x = 
 </sec>
 <sec id="supplemental-material-nb-article">
   <title>5 SUPPLEMENTAL MATERIAL</title>
-  <sec id="nb-code-cell-23-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-25-nb-article" specific-use="notebook-code">
   <code language="r script">options(knitr.kable.NA = '')
 knitr::kable(supp_tab)</code>
   <fig id="tbl-hemp_provenance-nb-article">
@@ -2881,7 +3032,7 @@ knitr::kable(supp_tab)</code>
 </sec>
 <sec id="figures-and-tables-nb-article">
   <title>8 FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-24-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-26-nb-article" specific-use="notebook-code">
   <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
 n_eruptions &lt;- length(eruptions)</code>
   </sec>
@@ -2897,10 +3048,10 @@ box()</code>
     <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
   </fig>
   </sec>
-  <sec id="nb-code-cell-25-nb-article" specific-use="notebook-code">
+  <sec id="nb-code-cell-27-nb-article" specific-use="notebook-code">
   <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
 avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-25-output-0-nb-article" specific-use="notebook-output">
+  <sec id="nb-code-cell-27-output-0-nb-article" specific-use="notebook-output">
   <preformat>[1] 79.83333</preformat>
   </sec>
   </sec>
@@ -3366,6 +3517,50 @@ avg_years_between_eruptions</code>
       <pub-id pub-id-type="doi">10.1016/j.trac.2009.07.007</pub-id>
       <fpage>1201</fpage>
       <lpage>1222</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-rawal_visible_2024-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Rawal</surname><given-names>Ashmita</given-names></name>
+        <name><surname>Hartemink</surname><given-names>Alfred</given-names></name>
+        <name><surname>Zhang</surname><given-names>Yakun</given-names></name>
+        <name><surname>Wang</surname><given-names>Yi</given-names></name>
+        <name><surname>Lankau</surname><given-names>Richard A.</given-names></name>
+        <name><surname>Ruark</surname><given-names>Matthew D.</given-names></name>
+      </person-group>
+      <article-title>Visible and near-infrared spectroscopy predicted leaf nitrogen contents of potato varieties under different growth and management conditions</article-title>
+      <source>Precision Agriculture</source>
+      <year iso-8601-date="2024-04">2024</year><month>04</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-02">2024</year><month>04</month><day>02</day></date-in-citation>
+      <volume>25</volume>
+      <issue>2</issue>
+      <issn>1573-1618</issn>
+      <uri>https://doi.org/10.1007/s11119-023-10091-z</uri>
+      <pub-id pub-id-type="doi">10.1007/s11119-023-10091-z</pub-id>
+      <fpage>751</fpage>
+      <lpage>770</lpage>
+    </element-citation>
+  </ref>
+  <ref id="ref-luce_prediction_2017-nb-article">
+    <element-citation publication-type="article-journal">
+      <person-group person-group-type="author">
+        <name><surname>Luce</surname><given-names>Mervin St</given-names></name>
+        <name><surname>Ziadi</surname><given-names>Noura</given-names></name>
+        <name><surname>Gagnon</surname><given-names>Bernard</given-names></name>
+        <name><surname>Lévesque</surname><given-names>Vicky</given-names></name>
+      </person-group>
+      <article-title>Prediction of total carbon, total nitrogen, and pH of organic materials using visible near-infrared reflectance spectroscopy</article-title>
+      <source>Canadian Journal of Soil Science</source>
+      <year iso-8601-date="2017-12">2017</year><month>12</month>
+      <date-in-citation content-type="access-date"><year iso-8601-date="2024-04-02">2024</year><month>04</month><day>02</day></date-in-citation>
+      <volume>98</volume>
+      <issue>1</issue>
+      <issn>0008-4271, 1918-1841</issn>
+      <uri>https://bioone.org/journals/canadian-journal-of-soil-science/volume-98/issue-1/cjss-2017-0109/Prediction-of-total-carbon-total-nitrogen-and-pH-of-organic/10.1139/cjss-2017-0109.full</uri>
+      <pub-id pub-id-type="doi">10.1139/cjss-2017-0109</pub-id>
+      <fpage>175</fpage>
+      <lpage>179</lpage>
     </element-citation>
   </ref>
   <ref id="ref-base-nb-article">

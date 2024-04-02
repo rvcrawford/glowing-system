@@ -336,7 +336,7 @@ set. For each calibration set, models were developed in the caret
 package using PLSR. In fitting the model, the number of components was
 optimized over a grid search from 1-20. Model performance was evaluated
 with 25 iterations of bootstrapping and minimized root mean squared
-error (RMSE) in selecting the number of components in the final model .
+error (RMSE) in selecting the number of components in the final model.
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
@@ -358,19 +358,27 @@ For each of these preprocessing methods, models were fit and predictions
 were made on the corresponding validation set (since there were 8
 preprocessing methods, 8 separate models were fit for each of the 100
 sets. The relationship between the predicted and actual values of the
-testing set were calculated via RMSE, R\textsuperscript{2} and Ratio of
-Performance to InterQuartile distance (RPIQ), three common model
-assessment metrics. Larger R\textsuperscript{2} and RPIQ, and smaller
-RMSE values are superior. Analyses of variance (ANOVA) were performed
-for each of these metrics in order to compare the preprocessing methods.
-For each ANOVA, each data set was considered as a subject and different
-variances were allowed for each preprocessing method.
+test set were calculated via RMSE, coefficient of determination
+(R\textsuperscript{2}), relative predicted deviation (RPD), and Ratio of
+Performance to InterQuartile distance (RPIQ), four common model
+assessment metrics. Larger R\textsuperscript{2}, RPD and RPIQ values and
+smaller RMSE values are best. The answer to the question of exactly
+which values constitute a ``good'' model varies depending upon the
+reference consulted, but for simplicity's sake we searched for a model
+with R\textsuperscript{2} \textgreater{} 0.80, an RPD greater than 2.5
+and ideally greater than 3 (``good'' to ``excellent'' quantitative
+prediction), and an RPIQ greater than 2.3 but ideally greater than 4.1.
+(Chadalavada et al., 2022; Luce et al., 2017; Rawal et al., 2024).
 
-Once the most promising preprocessing method was identified, 1000 more
-data sets were created and analyzed via that method and performance on
-the testing sets was summarized with RMSE, R\textsuperscript{2}, and
-RPIQ. The pattern of errors, expressed as the difference between the
-actual and predicted values for a given sample, was examined.
+Analyses of variance (ANOVA) were performed for each of these metrics in
+order to compare the preprocessing methods. For each ANOVA, each data
+set was considered as a subject and different variances were allowed for
+each preprocessing method. Once the most promising preprocessing method
+was identified, 1000 more data sets were created and analyzed via that
+method and performance on the testing sets was summarized with RMSE,
+R\textsuperscript{2}, RPD, and RPIQ. The pattern of errors, expressed as
+the difference between the actual and predicted values for a given
+sample, was examined.
 
 \subsubsection{Additional software used}\label{additional-software-used}
 
@@ -449,29 +457,33 @@ Notebook}}
 All preprocessing methods outperformed untransformed spectral data
 Table~\ref{tbl-preproc}. Averaged together, all preprocessed spectra
 were superior to untransformed spectra, with lower RMSE, and higher
-R\textsuperscript{2} and RPIQ values (significant at \(\alpha\) level
-\textless0.001). Preprocessing methods had -11.6 \% lower RMSE, and had
-3.1\% higher R\textsuperscript{2} 7.4\% higher RPIQ than unprocessed
-spectra. Preprocessed spectra also had lower standard errors than
-untransformed spectra.
+R\textsuperscript{2}, RPD and RPIQ values (significant at \(\alpha\)
+level \textless0.001). Preprocessing methods had -11.6 \% lower RMSE,
+and had 3.1\% higher R\textsuperscript{2}, 6.3\% higher RPD and7.4\%
+higher RPIQ than unprocessed spectra. Preprocessed spectra also had
+lower standard errors than untransformed spectra.
 
-The SNV-SG method had the lowest RMSE, highest R\textsuperscript{2}, and
-highest RPIQ averaging over all iterations. SNV-SG RMSE averaged 1.4\%
-lower, while R\textsuperscript{2} and RPIQ averaged 0.4\% and 2.4\%
-higher respectively than the next best preprocessing method (SG in both
-cases), but the difference between the best and second best method by
-metric were only statistically significant at \(\alpha\) \textless0.05
-for RPIQ. RPIQ was devised to accurately reflect the spread of data in
-skewed populations (Bellon-Maurel et al., 2010) and thus offers a robust
-metric for model assessment where data may be skewed. Therefore the
-superiority of SNV-SG as measured via RPIQ made it the best choice for
-the final model.
+The SNV-SG method had the lowest RMSE and the highest
+R\textsuperscript{2}, RPD and RPIQ averaging over all iterations. SNV-SG
+RMSE averaged 1.4\% lower, while R\textsuperscript{2}, RPD, and RPIQ
+averaged 0.4\%, 2.1\%, and 2.4\% higher respectively than the next best
+preprocessing method (SG in both cases), but the differences between the
+best and second best methods by metric were only statistically
+significant at \(\alpha\) \textless0.05 for RPD andRPIQ. There is a long
+history of using RPD to evaluate chemometric models although the
+statistic has been criticized as inadequately reflecting the
+distribution of skewed populations, a situation for which RPIQ was the
+more modern successor (Bellon-Maurel et al., 2010). Here the data were
+somewhat but not heavily skewed and RPD and RPIQ metrics were in
+agreement. The superiority of SNV-SG by these metrics made it the best
+choice for the final model.
 
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.5568}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1477}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1477}}
-  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1477}}@{}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.4851}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1287}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1287}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1287}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1287}}@{}}
 
 \caption{\label{tbl-preproc}Evaluation of Preprocessing Methods by
 Metric ± Standard Error}
@@ -486,6 +498,8 @@ RMSE
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 \(R^{2}\)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+RPD
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 RPIQ
 \end{minipage} \\
 \midrule\noalign{}
@@ -493,16 +507,21 @@ RPIQ
 \bottomrule\noalign{}
 \endlastfoot
 Standard Normal Variate following Savitzky-Golay & 1.02 ± 0.012 & 0.84 ±
-0.004 & 3.97 ± 0.076 \\
-Savitzky-Golay & 1.03 ± 0.012 & 0.83 ± 0.004 & 3.88 ± 0.072 \\
-First Derivative & 1.07 ± 0.013 & 0.82 ± 0.004 & 3.77 ± 0.075 \\
-Standard Normal Variate & 1.12 ± 0.016 & 0.80 ± 0.005 & 3.61 ± 0.081 \\
-Gap-segment Derivative & 1.12 ± 0.018 & 0.81 ± 0.006 & 3.60 ± 0.086 \\
-Standard Normal Variate-Detrend & 1.13 ± 0.015 & 0.80 ± 0.005 & 3.55 ±
-0.079 \\
-Multiplicative Scatter Correction & 1.17 ± 0.016 & 0.79 ± 0.006 & 3.47 ±
-0.080 \\
-Untransformed Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 3.42 ± 0.105 \\
+0.004 & 2.49 ± 0.032 & 3.97 ± 0.076 \\
+Savitzky-Golay & 1.03 ± 0.012 & 0.83 ± 0.004 & 2.44 ± 0.029 & 3.88 ±
+0.072 \\
+First Derivative & 1.07 ± 0.013 & 0.82 ± 0.004 & 2.36 ± 0.032 & 3.77 ±
+0.075 \\
+Standard Normal Variate & 1.12 ± 0.016 & 0.80 ± 0.005 & 2.26 ± 0.036 &
+3.61 ± 0.081 \\
+Gap-segment Derivative & 1.12 ± 0.018 & 0.81 ± 0.006 & 2.26 ± 0.040 &
+3.60 ± 0.086 \\
+Standard Normal Variate-Detrend & 1.13 ± 0.015 & 0.80 ± 0.005 & 2.22 ±
+0.035 & 3.55 ± 0.079 \\
+Multiplicative Scatter Correction & 1.17 ± 0.016 & 0.79 ± 0.006 & 2.17 ±
+0.035 & 3.47 ± 0.080 \\
+Untransformed Spectra & 1.22 ± 0.044 & 0.79 ± 0.009 & 2.17 ± 0.052 &
+3.42 ± 0.105 \\
 
 \end{longtable}
 
@@ -518,18 +537,18 @@ smoothing filter that regresses on the signal over a series of windows,
 removing noise while preserving the signal's shape and features (Li et
 al., 2020; Luo et al., 2005). Derivatives, here including SG,
 gap-segment, and first derivatives pretreatments may remove additive and
-multiplicative effects, but not necessarily light scatter; as well, the
-derivatives can increase spectral noise if employed incorrectly (Rinnan
-et al., 2009). Here, hemp grain was neither powdered nor densely packed
-but samples were subject to light scatter and noise due to differences
-in particle size in the grain.
+multiplicative effects, but not necessarily light scatter; as well,
+derivatives may increase spectral noise (Rinnan et al., 2009). Here,
+hemp grain was neither powdered nor densely packed but samples were
+subject to light scatter and noise due to differences in particle size
+in the grain.
 
 The preprocessing methods examined represent a portion of those
 available. As well, these methods tend to have a number of
 user-adjustable parameters whose various permutations were not tested.
 This subset of preprocessing methods and parameters nonetheless
 contained substantial variations in model quality, demonstrating the
-importance selecting an appropriate preprocessing method.
+importance of selecting an appropriate preprocessing method.
 
 \subsubsection{Final model development and
 summary}\label{final-model-development-and-summary}
@@ -540,11 +559,12 @@ Notebook}}
 
 The model improved most rapidly as the number of components increased
 from 1 to 7, with the inclusion of each additional component being
-associated with a decrease in RMSE of 5-12\% . From 8 to 12 componentss,
+associated with a decrease in RMSE of 5-12\% . From 8 to 12 components,
 model performance continued to improve, although gains were more modest
-(decrease in RMSE of 0.7-3\%). With 13 or more components, performance
-gains were minimal and the relative ranks of the models tended to be
-stable Figure~\ref{fig-model-calibration}.
+(there was a decrease in RMSE of 0.7-3\% with the inclusion of each
+additional component). With 13 or more components, performance gains
+were minimal and the relative ranks of the models tended to be stable
+Figure~\ref{fig-model-calibration}.
 
 \phantomsection\label{cell-fig-model-calibration}
 \begin{figure}[H]
@@ -568,13 +588,27 @@ Notebook}}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-Final model performance was similar, but not identical to, that obtained
-during the initial comparison of preprocessing methods. The final
-models' mean RMSE was 1.03, R\textsuperscript{2} was 0.83, and RPIQ was
-3.89 (all calculated on the test sets). Despite the generally good model
-performance, a subset of poor models can be seen. For example,
-Figure~\ref{fig-final-metric-boxplot} shows twenty-one models with
-R\textsuperscript{2} below 0.7. \textbf{more comment on poor models?}
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
+
+Final models performances on the test sets were similar, but not
+identical to, that obtained during the initial comparison of
+preprocessing methods. The final models' mean RMSE was 1.03,
+R\textsuperscript{2} was 0.83, RPD was 2.44, and RPIQ was 3.89. Five
+percent of the models were excellent by both metrics, with RPD
+\textgreater{} 3 and RPIQ \textgreater{} 4.1, while an additional 11\%
+of the models were ``good'' by both metrics (RPD range from 2.5 - 3.0,
+RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the
+ability to approximate quantitative prediction (RPD range from 2.0 -
+2.5), and 9\% of the models were able to distinguish between higher and
+lower CP values (RPD range from 1.5 - 2.0). Therefore, 74\% of the
+models generated here had, at minimum, the ability to distinguish
+between high and low values with with two thirds of them having, at
+minimum, the ability to approximate quantitative prediction. Despite the
+generally good model performance, a subset of poor models can be seen.
+For example, Figure~\ref{fig-final-metric-boxplot} shows twenty-one
+models with R\textsuperscript{2} below 0.7.
 
 \textsubscript{Source:
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
@@ -589,7 +623,7 @@ Notebook}}
 
 }
 
-\caption{\label{fig-final-metric-boxplot}Final model validation set
+\caption{\label{fig-final-metric-boxplot}Final model test set
 performance (1000 iterations)}
 
 \end{figure}%
@@ -614,8 +648,12 @@ Notebook}}
 \href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
 Notebook}}
 
-Finally, the pattern of errors was examined on a per-sample basis.
-Figure~\ref{fig-validation_set_performance}
+\textsubscript{Source:
+\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
+Notebook}}
+
+Finally, the pattern of test set errors was examined on a per-sample
+basis Figure~\ref{fig-validation_set_performance} .
 
 \phantomsection\label{cell-fig-validation_set_performance}
 \begin{figure}[H]
@@ -954,6 +992,13 @@ Liland, K. H., Mevik, B.-H., \& Wehrens, R. (2023). \emph{{pls}: Partial
 least squares and principal component regression}.
 \url{https://CRAN.R-project.org/package=pls}
 
+\bibitem[\citeproctext]{ref-luce_prediction_2017}
+Luce, M. S., Ziadi, N., Gagnon, B., \& Lévesque, V. (2017). Prediction
+of total carbon, total nitrogen, and {pH} of organic materials using
+visible near-infrared reflectance spectroscopy. \emph{Canadian Journal
+of Soil Science}, \emph{98}(1), 175--179.
+\url{https://doi.org/10.1139/cjss-2017-0109}
+
 \bibitem[\citeproctext]{ref-luo_properties_2005}
 Luo, J., Ying, K., He, P., \& Bai, J. (2005). Properties of
 {Savitzky}--{Golay} digital differentiators. \emph{Digital Signal
@@ -973,6 +1018,13 @@ and nonlinear mixed effects models}.
 R Core Team. (2024). \emph{{R}: A language and environment for
 statistical computing}. R Foundation for Statistical Computing.
 \url{https://www.R-project.org/}
+
+\bibitem[\citeproctext]{ref-rawal_visible_2024}
+Rawal, A., Hartemink, A., Zhang, Y., Wang, Y., Lankau, R. A., \& Ruark,
+M. D. (2024). Visible and near-infrared spectroscopy predicted leaf
+nitrogen contents of potato varieties under different growth and
+management conditions. \emph{Precision Agriculture}, \emph{25}(2),
+751--770. \url{https://doi.org/10.1007/s11119-023-10091-z}
 
 \bibitem[\citeproctext]{ref-reeves_potential_2012}
 Reeves, J. B. (2012). Potential of {Near}- and {Mid}-infrared
