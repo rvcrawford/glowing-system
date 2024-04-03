@@ -212,12 +212,12 @@ mollit anim id est laborum.
 \end{abstract}
 
 \section*{Plain Language Summary}
-Earthquake data for the island of La Palma from the September 2021
-eruption is found \ldots{}
+A model was developed to predict percent crude protein in hemp grain
+using near infrared spectroscopy.
 
 
 
-\textbf{incomplete: may contain errors, run-ons, half-thoughts, etc.}
+\textbf{first draft}
 
 \subsection{INTRODUCTION}\label{introduction}
 
@@ -399,7 +399,7 @@ Notebook}}
 
 \subsection{RESULTS AND DISCUSSION}\label{results-and-discussion}
 
-\subsubsection{Laboratory assay CP
+\subsubsection{Laboratory assay \%CP
 values}\label{laboratory-assay-cp-values}
 
 \textsubscript{Source:
@@ -609,7 +609,7 @@ of the models were ``good'' by both metrics (RPD range from 2.5 - 3.0,
 RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the
 ability to approximate quantitative prediction (RPD range from 2.0 -
 2.5), and 9\% of the models were able to distinguish between higher and
-lower CP values (RPD range from 1.5 - 2.0). Therefore, 74\% of the
+lower \%CP values (RPD range from 1.5 - 2.0). Therefore, 74\% of the
 models generated here had, at minimum, the ability to distinguish
 between high and low values with with two thirds of them having, at
 minimum, the ability to approximate quantitative prediction. Despite the
@@ -718,11 +718,22 @@ are relatively small.
 This research showed the promise of the use of NIRS in order to make
 predictions concerning \%CP in hemp grain using PLS. Promising
 preprocessing methods were identified and a model was validated. Further
-research could refine a CP model by including more samples, particularly
-by rectifying the class imbalance between Geneva and Ithaca, identifying
-promising spectral regions, or by examining other predictive methods.
+research could refine a \%CP model by including more samples,
+particularly by rectifying the class imbalance between Geneva and
+Ithaca, identifying promising spectral regions, or by examining other
+predictive methods.
 
 \subsection{ACKNOWLEDGMENTS}\label{acknowledgments}
+
+This work would not have been possible without the efforts of the field
+staff, undergraduate, and graduate students who planted, maintained,
+monitored and harvested these trials.
+
+\subsection{CONFLICT OF INTEREST}\label{conflict-of-interest}
+
+The authors declare no conflict of interest.
+
+\subsection{ORCID}\label{orcid}
 
 \subsection{SUPPLEMENTAL MATERIAL}\label{supplemental-material}
 
@@ -790,130 +801,11 @@ Notebook}}
 
 \subsection{REFERENCES}\label{references}
 
-\subsection{FIGURES AND TABLES}\label{figures-and-tables}
-
-\textsubscript{Source:
-\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
-Notebook}}
-
-\phantomsection\label{cell-fig-timeline}
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{index_files/figure-pdf/fig-timeline-1.pdf}
-
-}
-
-\caption{\label{fig-timeline}Timeline of recent earthquakes on La Palma}
-
-\end{figure}%
-
-\textsubscript{Source:
-\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
-Notebook}}
-
-\textsubscript{Source:
-\href{https://rvcrawford.github.io/glowing-system/index.qmd.html}{Article
-Notebook}}
-
-Based on data up to and including 1971, eruptions on La Palma happen
-every 79.8 years on average.
-
-Studies of the magma systems feeding the volcano, such as
-(\textbf{marrero2019?}), have proposed that there are two main magma
-reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km
-depth) which charges and in turn feeds a shallower crustal reservoir
-(10-20km depth).
-
-Eight eruptions have been recorded since the late 1400s
-(Figure~\ref{fig-timeline}).
-
-Data and methods are discussed in Section~\ref{sec-data-methods}.
-
-Let \(x\) denote the number of eruptions in a year. Then, \(x\) can be
-modeled by a Poisson distribution
-
-\begin{equation}\phantomsection\label{eq-poisson}{
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-}\end{equation}
-
-where \(\lambda\) is the rate of eruptions per year. Using
-Equation~\ref{eq-poisson}, the probability of an eruption in the next
-\(t\) years can be calculated.
-
-\begin{longtable}[]{@{}ll@{}}
-\caption{Recent historic eruptions on La
-Palma}\label{tbl-history}\tabularnewline
-\toprule\noalign{}
-Name & Year \\
-\midrule\noalign{}
-\endfirsthead
-\toprule\noalign{}
-Name & Year \\
-\midrule\noalign{}
-\endhead
-\bottomrule\noalign{}
-\endlastfoot
-Current & 2021 \\
-Teneguía & 1971 \\
-Nambroque & 1949 \\
-El Charco & 1712 \\
-Volcán San Antonio & 1677 \\
-Volcán San Martin & 1646 \\
-Tajuya near El Paso & 1585 \\
-Montaña Quemada & 1492 \\
-\end{longtable}
-
-Table~\ref{tbl-history} summarises the eruptions recorded since the
-colonization of the islands by Europeans in the late 1400s.
-
-\begin{figure}
-
-\centering{
-
-\includegraphics{images/la-palma-map.png}
-
-}
-
-\caption{\label{fig-map}Map of La Palma}
-
-\end{figure}%
-
-La Palma is one of the west most islands in the Volcanic Archipelago of
-the Canary Islands (Figure~\ref{fig-map}).
-
-\begin{figure}[H]
-
-\centering{
-
-\includegraphics{index_files/figure-latex/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png}
-
-}
-
-\caption{\label{fig-spatial-plot}Locations of earthquakes on La Palma
-since 2017}
-
-\end{figure}%
-
-\textsubscript{Source:
-\href{https://rvcrawford.github.io/glowing-system/notebooks/explore-earthquakes-preview.html\#cell-fig-spatial-plot}{Explore
-Earthquakes}}
-
-Figure~\ref{fig-spatial-plot} shows the location of recent Earthquakes
-on La Palma.
-
-\subsection{Data \& Methods}\label{sec-data-methods}
-
-\subsection{Conclusion}\label{conclusion}
-
-\subsection*{References}\label{references-1}
-\addcontentsline{toc}{subsection}{References}
+\subsection*{FIGURES AND TABLES}\label{figures-and-tables}
+\addcontentsline{toc}{subsection}{FIGURES AND TABLES}
 
 \phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\vspace{1em}
-
 \bibitem[\citeproctext]{ref-barnes_standard_1989}
 Barnes, R. J., Dhanoa, M. S., \& Lister, S. J. (1989). Standard {Normal}
 {Variate} {Transformation} and {De}-{Trending} of {Near}-{Infrared}

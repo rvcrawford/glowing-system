@@ -142,8 +142,7 @@ mollit anim id est laborum.</p>
 </front>
 
 <body>
-<p><bold>incomplete: may contain errors, run-ons, half-thoughts,
-etc.</bold></p>
+<p><bold>first draft</bold></p>
 <sec id="introduction">
   <title>1 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
@@ -348,7 +347,7 @@ etc.</bold></p>
 <sec id="results-and-discussion">
   <title>3 RESULTS AND DISCUSSION</title>
   <sec id="laboratory-assay-cp-values">
-    <title>3.1 Laboratory assay CP values</title>
+    <title>3.1 Laboratory assay %CP values</title>
     <p>Laboratory assay %CP values are summarized in the following
     table. These are similar to the range of %CP values observed in the
     literature, indicating an reasonable basis for a chemometric model.
@@ -554,7 +553,7 @@ etc.</bold></p>
     2.3 - 4.1). Forty-nine percent of the models had the ability to
     approximate quantitative prediction (RPD range from 2.0 - 2.5), and
     9% of the models were able to distinguish between higher and lower
-    CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
+    %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
     generated here had, at minimum, the ability to distinguish between
     high and low values with with two thirds of them having, at minimum,
     the ability to approximate quantitative prediction. Despite the
@@ -607,7 +606,7 @@ etc.</bold></p>
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
-    Further research could refine a CP model by including more samples,
+    Further research could refine a %CP model by including more samples,
     particularly by rectifying the class imbalance between Geneva and
     Ithaca, identifying promising spectral regions, or by examining
     other predictive methods.</p>
@@ -615,9 +614,19 @@ etc.</bold></p>
 </sec>
 <sec id="acknowledgments">
   <title>4 ACKNOWLEDGMENTS</title>
+  <p>This work would not have been possible without the efforts of the
+  field staff, undergraduate, and graduate students who planted,
+  maintained, monitored and harvested these trials.</p>
+</sec>
+<sec id="conflict-of-interest">
+  <title>5 CONFLICT OF INTEREST</title>
+  <p>The authors declare no conflict of interest.</p>
+</sec>
+<sec id="orcid">
+  <title>6 ORCID</title>
 </sec>
 <sec id="supplemental-material">
-  <title>5 SUPPLEMENTAL MATERIAL</title>
+  <title>7 SUPPLEMENTAL MATERIAL</title>
   <fig id="tbl-hemp_provenance">
     <caption><p>Table 3: Tally of hemp cultivars and locations. Private
     cultivars are labeled “Cultivar1”, “Cultivar2”, etc., while
@@ -985,128 +994,16 @@ etc.</bold></p>
   </fig>
 </sec>
 <sec id="optional-sections">
-  <title>6 OPTIONAL SECTIONS</title>
+  <title>8 OPTIONAL SECTIONS</title>
 </sec>
 <sec id="references">
-  <title>7 REFERENCES</title>
-</sec>
-<sec id="figures-and-tables">
-  <title>8 FIGURES AND TABLES</title>
-  <fig id="fig-timeline">
-    <caption><p>Figure 4: Timeline of recent earthquakes on La
-    Palma</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
-  </fig>
-  <p>Based on data up to and including 1971, eruptions on La Palma
-  happen every 79.8 years on average.</p>
-  <p>Studies of the magma systems feeding the volcano, such as
-  (<xref alt="marrero2019?" rid="ref-marrero2019" ref-type="bibr"><bold>marrero2019?</bold></xref>),
-  have proposed that there are two main magma reservoirs feeding the
-  Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
-  and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
-  <p>Eight eruptions have been recorded since the late 1400s
-  (<xref alt="Figure 4" rid="fig-timeline">Figure 4</xref>).</p>
-  <p>Data and methods are discussed in
-  <xref alt="Section 9" rid="sec-data-methods">Section 9</xref>.</p>
-  <p>Let <inline-formula><alternatives>
-  <tex-math><![CDATA[x]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  denote the number of eruptions in a year. Then,
-  <inline-formula><alternatives>
-  <tex-math><![CDATA[x]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  can be modeled by a Poisson distribution</p>
-  <p><styled-content id="eq-poisson"><disp-formula><alternatives>
-  <tex-math><![CDATA[
-  p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-   \qquad(1)]]></tex-math>
-  <mml:math display="block" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>p</mml:mi><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mi>e</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>λ</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mi>λ</mml:mi><mml:mi>x</mml:mi></mml:msup></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mi>!</mml:mi></mml:mrow></mml:mfrac><mml:mspace width="2.0em"></mml:mspace><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></styled-content></p>
-  <p>where <inline-formula><alternatives>
-  <tex-math><![CDATA[\lambda]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>λ</mml:mi></mml:math></alternatives></inline-formula>
-  is the rate of eruptions per year. Using
-  <xref alt="Equation 1" rid="eq-poisson">Equation 1</xref>, the
-  probability of an eruption in the next <inline-formula><alternatives>
-  <tex-math><![CDATA[t]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
-  years can be calculated.</p>
-  <fig id="tbl-history">
-    <caption><p>Table 4: Recent historic eruptions on La
-    Palma</p></caption>
-    <table-wrap>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Current</td>
-            <td>2021</td>
-          </tr>
-          <tr>
-            <td>Teneguía</td>
-            <td>1971</td>
-          </tr>
-          <tr>
-            <td>Nambroque</td>
-            <td>1949</td>
-          </tr>
-          <tr>
-            <td>El Charco</td>
-            <td>1712</td>
-          </tr>
-          <tr>
-            <td>Volcán San Antonio</td>
-            <td>1677</td>
-          </tr>
-          <tr>
-            <td>Volcán San Martin</td>
-            <td>1646</td>
-          </tr>
-          <tr>
-            <td>Tajuya near El Paso</td>
-            <td>1585</td>
-          </tr>
-          <tr>
-            <td>Montaña Quemada</td>
-            <td>1492</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
-  </fig>
-  <p><xref alt="Table 4" rid="tbl-history">Table 4</xref> summarises the
-  eruptions recorded since the colonization of the islands by Europeans
-  in the late 1400s.</p>
-  <fig id="fig-map">
-    <caption><p>Figure 5: Map of La Palma</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="images/la-palma-map.png" />
-  </fig>
-  <p>La Palma is one of the west most islands in the Volcanic
-  Archipelago of the Canary Islands
-  (<xref alt="Figure 5" rid="fig-map">Figure 5</xref>).</p>
-  <fig id="fig-spatial-plot">
-    <caption><p>Figure 6: Locations of earthquakes on La Palma since
-    2017</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png" />
-  </fig>
-  <p><xref alt="Figure 6" rid="fig-spatial-plot">Figure 6</xref> shows
-  the location of recent Earthquakes on La Palma.</p>
-</sec>
-<sec id="sec-data-methods">
-  <title>9 Data &amp; Methods</title>
-</sec>
-<sec id="conclusion">
-  <title>10 Conclusion</title>
+  <title>9 REFERENCES</title>
 </sec>
 </body>
 
 <back>
 <ref-list>
-  <title>References</title>
+  <title>10 FIGURES AND TABLES</title>
   <ref id="ref-chadalavada_nir_2022">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
@@ -1862,7 +1759,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Search for functions across packages at https://www.tidymodels.org/find/</preformat>
+• Use suppressPackageStartupMessages() to eliminate package startup messages</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -1881,8 +1778,7 @@ The following object is masked from 'package:dplyr':
     group_rows</preformat>
 </sec>
 </sec>
-<p><bold>incomplete: may contain errors, run-ons, half-thoughts,
-etc.</bold></p>
+<p><bold>first draft</bold></p>
 <sec id="introduction-nb-article">
   <title>1 INTRODUCTION</title>
   <p>Hemp (Cannabis sativa L.) is an annual crop with potential uses as
@@ -2133,7 +2029,7 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
 <sec id="results-and-discussion-nb-article">
   <title>3 RESULTS AND DISCUSSION</title>
   <sec id="laboratory-assay-cp-values-nb-article">
-    <title>3.1 Laboratory assay CP values</title>
+    <title>3.1 Laboratory assay %CP values</title>
     <sec id="nb-code-cell-6-nb-article" specific-use="notebook-code">
     <code language="r script">skewness &lt;- function(x) {
 
@@ -2540,7 +2436,7 @@ full_sum &lt;- lapply(all_mods, nrow)</code>
     2.3 - 4.1). Forty-nine percent of the models had the ability to
     approximate quantitative prediction (RPD range from 2.0 - 2.5), and
     9% of the models were able to distinguish between higher and lower
-    CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
+    %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
     generated here had, at minimum, the ability to distinguish between
     high and low values with with two thirds of them having, at minimum,
     the ability to approximate quantitative prediction. Despite the
@@ -2729,7 +2625,7 @@ error_by_loc &lt;- emmeans::emmeans(error_mod, &quot;loc2&quot;) |&gt; multcomp:
     <p>This research showed the promise of the use of NIRS in order to
     make predictions concerning %CP in hemp grain using PLS. Promising
     preprocessing methods were identified and a model was validated.
-    Further research could refine a CP model by including more samples,
+    Further research could refine a %CP model by including more samples,
     particularly by rectifying the class imbalance between Geneva and
     Ithaca, identifying promising spectral regions, or by examining
     other predictive methods.</p>
@@ -2737,9 +2633,19 @@ error_by_loc &lt;- emmeans::emmeans(error_mod, &quot;loc2&quot;) |&gt; multcomp:
 </sec>
 <sec id="acknowledgments-nb-article">
   <title>4 ACKNOWLEDGMENTS</title>
+  <p>This work would not have been possible without the efforts of the
+  field staff, undergraduate, and graduate students who planted,
+  maintained, monitored and harvested these trials.</p>
+</sec>
+<sec id="conflict-of-interest-nb-article">
+  <title>5 CONFLICT OF INTEREST</title>
+  <p>The authors declare no conflict of interest.</p>
+</sec>
+<sec id="orcid-nb-article">
+  <title>6 ORCID</title>
 </sec>
 <sec id="supplemental-material-nb-article">
-  <title>5 SUPPLEMENTAL MATERIAL</title>
+  <title>7 SUPPLEMENTAL MATERIAL</title>
   <sec id="nb-code-cell-26-nb-article" specific-use="notebook-code">
   <code language="r script">supp_tab2 &lt;- copy(supp_tab)
 
@@ -3117,150 +3023,10 @@ knitr::kable(st3)</code>
   </sec>
 </sec>
 <sec id="optional-sections-nb-article">
-  <title>6 OPTIONAL SECTIONS</title>
+  <title>8 OPTIONAL SECTIONS</title>
 </sec>
 <sec id="references-nb-article">
-  <title>7 REFERENCES</title>
-</sec>
-<sec id="figures-and-tables-nb-article">
-  <title>8 FIGURES AND TABLES</title>
-  <sec id="nb-code-cell-27-nb-article" specific-use="notebook-code">
-  <code language="r script">eruptions &lt;- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
-n_eruptions &lt;- length(eruptions)</code>
-  </sec>
-  <sec id="cell-fig-timeline-nb-article" specific-use="notebook-code">
-  <code language="r script">par(mar = c(3, 1, 1, 1) + 0.1)
-plot(eruptions, rep(0, n_eruptions), 
-  pch = &quot;|&quot;, axes = FALSE)
-axis(1)
-box()</code>
-  <fig id="fig-timeline-nb-article">
-    <caption><p>Figure 4: Timeline of recent earthquakes on La
-    Palma</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-timeline-1.png" />
-  </fig>
-  </sec>
-  <sec id="nb-code-cell-28-nb-article" specific-use="notebook-code">
-  <code language="r script">avg_years_between_eruptions &lt;- mean(diff(eruptions[-n_eruptions]))
-avg_years_between_eruptions</code>
-  <sec id="nb-code-cell-28-output-0-nb-article" specific-use="notebook-output">
-  <preformat>[1] 79.83333</preformat>
-  </sec>
-  </sec>
-  <p>Based on data up to and including 1971, eruptions on La Palma
-  happen every 79.8 years on average.</p>
-  <p>Studies of the magma systems feeding the volcano, such as
-  (<xref alt="marrero2019?" rid="ref-marrero2019-nb-article" ref-type="bibr"><bold>marrero2019?</bold></xref>),
-  have proposed that there are two main magma reservoirs feeding the
-  Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges
-  and in turn feeds a shallower crustal reservoir (10-20km depth).</p>
-  <p>Eight eruptions have been recorded since the late 1400s
-  (<xref alt="Figure 4" rid="fig-timeline-nb-article">Figure 4</xref>).</p>
-  <p>Data and methods are discussed in
-  <xref alt="Section 9" rid="sec-data-methods-nb-article">Section 9</xref>.</p>
-  <p>Let <inline-formula><alternatives>
-  <tex-math><![CDATA[x]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  denote the number of eruptions in a year. Then,
-  <inline-formula><alternatives>
-  <tex-math><![CDATA[x]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>x</mml:mi></mml:math></alternatives></inline-formula>
-  can be modeled by a Poisson distribution</p>
-  <p><styled-content id="eq-poisson-nb-article"><disp-formula><alternatives>
-  <tex-math><![CDATA[
-  p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-   \qquad(1)]]></tex-math>
-  <mml:math display="block" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mrow><mml:mi>p</mml:mi><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mi>x</mml:mi><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mi>e</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>λ</mml:mi></mml:mrow></mml:msup><mml:msup><mml:mi>λ</mml:mi><mml:mi>x</mml:mi></mml:msup></mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mi>!</mml:mi></mml:mrow></mml:mfrac><mml:mspace width="2.0em"></mml:mspace><mml:mrow><mml:mo stretchy="true" form="prefix">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="true" form="postfix">)</mml:mo></mml:mrow></mml:mrow></mml:math></alternatives></disp-formula></styled-content></p>
-  <p>where <inline-formula><alternatives>
-  <tex-math><![CDATA[\lambda]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>λ</mml:mi></mml:math></alternatives></inline-formula>
-  is the rate of eruptions per year. Using
-  <xref alt="Equation 1" rid="eq-poisson-nb-article">Equation 1</xref>, the
-  probability of an eruption in the next <inline-formula><alternatives>
-  <tex-math><![CDATA[t]]></tex-math>
-  <mml:math display="inline" xmlns:mml="http://www.w3.org/1998/Math/MathML"><mml:mi>t</mml:mi></mml:math></alternatives></inline-formula>
-  years can be calculated.</p>
-  <fig id="tbl-history-nb-article">
-    <caption><p>Table 4: Recent historic eruptions on La
-    Palma</p></caption>
-    <table-wrap>
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Year</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Current</td>
-            <td>2021</td>
-          </tr>
-          <tr>
-            <td>Teneguía</td>
-            <td>1971</td>
-          </tr>
-          <tr>
-            <td>Nambroque</td>
-            <td>1949</td>
-          </tr>
-          <tr>
-            <td>El Charco</td>
-            <td>1712</td>
-          </tr>
-          <tr>
-            <td>Volcán San Antonio</td>
-            <td>1677</td>
-          </tr>
-          <tr>
-            <td>Volcán San Martin</td>
-            <td>1646</td>
-          </tr>
-          <tr>
-            <td>Tajuya near El Paso</td>
-            <td>1585</td>
-          </tr>
-          <tr>
-            <td>Montaña Quemada</td>
-            <td>1492</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
-  </fig>
-  <p><xref alt="Table 4" rid="tbl-history-nb-article">Table 4</xref> summarises the
-  eruptions recorded since the colonization of the islands by Europeans
-  in the late 1400s.</p>
-  <fig id="fig-map-nb-article">
-    <caption><p>Figure 5: Map of La Palma</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="images/la-palma-map.png" />
-  </fig>
-  <p>La Palma is one of the west most islands in the Volcanic
-  Archipelago of the Canary Islands
-  (<xref alt="Figure 5" rid="fig-map-nb-article">Figure 5</xref>).</p>
-  <sec id="cell-fig-spatial-plot-nb-article" specific-use="notebook-code">
-  <code language="python">la_palma |&gt; 
-  ggplot(aes(Longitude, Latitude)) +
-  geom_point(aes(color = Magnitude, size = 40-`Depth(km)`)) +
-  scale_color_viridis_c(direction = -1) + 
-  scale_size(range = c(0.5, 2), guide = &quot;none&quot;) +
-  theme_bw()</code>
-  <sec id="cell-fig-spatial-plot-output-0-nb-article" specific-use="notebook-output">
-  <fig id="fig-spatial-plot-nb-article">
-    <caption><p>Figure 6: Locations of earthquakes on La Palma since
-    2017</p></caption>
-    <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/notebooks-explore-earthquakes-fig-spatial-plot-output-1.png" />
-  </fig>
-  </sec>
-  </sec>
-  <p><xref alt="Figure 6" rid="fig-spatial-plot-nb-article">Figure 6</xref> shows
-  the location of recent Earthquakes on La Palma.</p>
-</sec>
-<sec id="sec-data-methods-nb-article">
-  <title>9 Data &amp; Methods</title>
-</sec>
-<sec id="conclusion-nb-article">
-  <title>10 Conclusion</title>
+  <title>9 REFERENCES</title>
 </sec>
 </body>
 
@@ -3268,7 +3034,7 @@ avg_years_between_eruptions</code>
 
 <back>
 <ref-list>
-  <title>References</title>
+  <title>10 FIGURES AND TABLES</title>
   <ref id="ref-chadalavada_nir_2022-nb-article">
     <element-citation publication-type="article-journal">
       <person-group person-group-type="author">
