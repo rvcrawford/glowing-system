@@ -1,6 +1,7 @@
 ---
 title: Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain
 execute:
+  freeze: auto
   echo: false
 author:
   - name: Ryan V. Crawford
