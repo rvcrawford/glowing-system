@@ -18,7 +18,7 @@ author:
         city: Ithaca
         state: NY
         postal-code: 14853
-  - name: Jamie Crawford
+  - name: Jamie L. Crawford
     # orcid: 0000-0002-0760-5497
     corresponding: false
     # roles:
@@ -56,7 +56,7 @@ author:
         city: Geneva
         state: NY
         postal-code: 14456
-  - name: Virginia Moore
+  - name: Virginia M. Moore
     orcid: 0000-0001-7888-3366
     corresponding: false
     roles: []
