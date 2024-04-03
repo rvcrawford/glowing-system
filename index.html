@@ -345,7 +345,7 @@ window.Quarto = {
 <h2 data-number="3" class="anchored" data-anchor-id="results-and-discussion"><span class="header-section-number">3</span> RESULTS AND DISCUSSION</h2>
 <section id="laboratory-assay-cp-values" class="level3" data-number="3.1">
 <h3 data-number="3.1" class="anchored" data-anchor-id="laboratory-assay-cp-values"><span class="header-section-number">3.1</span> Laboratory assay %CP values</h3>
-<p>Laboratory assay %CP values are summarized in the following table. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The %CP values are left-skewed (skewness of -0.29) and two thirds of the samples contained more than 25% CP.</p>
+<p>Laboratory assay %CP values are summarized in the following table. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The %CP values were left-skewed (skewness of -0.29) and two thirds of the samples contained more than 25% CP.</p>
 <div class="cell">
 <div id="tbl-lab-protein-vals" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
@@ -497,7 +497,7 @@ Figure&nbsp;1: Decreasing RMSE with increasing number of PCs
 </div>
 </div>
 </div>
-<p>The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD &gt; 3 and RPIQ &gt; 4.1, while an additional 11% of the models were “good” by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models generated here had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, <a href="#fig-final-metric-boxplot" class="quarto-xref">Figure&nbsp;2</a> shows twenty-one models with R<sup>2</sup> below 0.7.</p>
+<p>The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models’ mean RMSE was 1.03, R<sup>2</sup> was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD &gt; 3 and RPIQ &gt; 4.1, while an additional 11% of the models were “good” by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, <a href="#fig-final-metric-boxplot" class="quarto-xref">Figure&nbsp;2</a> shows twenty-one models with R<sup>2</sup> below 0.7.</p>
 <div id="cell-fig-final-metric-boxplot" class="cell">
 <div class="cell-output-display">
 <div id="fig-final-metric-boxplot" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1441,7 +1441,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","openEffect":"zoom","loop":false,"selector":".lightbox","descPosition":"bottom"});
+<script>var lightboxQuarto = GLightbox({"selector":".lightbox","openEffect":"zoom","loop":false,"closeEffect":"zoom","descPosition":"bottom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

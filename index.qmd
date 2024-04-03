@@ -223,7 +223,7 @@ skewness <- function(x) {
 }
 ```
 
-Laboratory assay %CP values are summarized in the following table. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The %CP values are left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 25% CP.
+Laboratory assay %CP values are summarized in the following table. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The %CP values were left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 25% CP.
 
 ```{r}
 #| label: tbl-lab-protein-vals
@@ -439,7 +439,7 @@ all_mods <- list(great_mods, good_mods, ok_mods, poor_but_functional)
 full_sum <- lapply(all_mods, nrow)
 ```
 
-The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models generated here had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows twenty-one models with R^2^ below 0.7.
+The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows twenty-one models with R^2^ below 0.7.
 
 ```{r}
 skim_metrics <- final_model_table |> 

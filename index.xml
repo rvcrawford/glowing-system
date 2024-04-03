@@ -351,8 +351,8 @@ mollit anim id est laborum.</p>
     <p>Laboratory assay %CP values are summarized in the following
     table. These are similar to the range of %CP values observed in the
     literature, indicating an reasonable basis for a chemometric model.
-    The %CP values are left-skewed (skewness of -0.29) and two thirds of
-    the samples contained more than 25% CP.</p>
+    The %CP values were left-skewed (skewness of -0.29) and two thirds
+    of the samples contained more than 25% CP.</p>
     <fig id="tbl-lab-protein-vals">
       <caption><p>Table 1: Summary of Laboratory Assayed CP Values
       (Percent Dry Matter)</p></caption>
@@ -554,11 +554,10 @@ mollit anim id est laborum.</p>
     approximate quantitative prediction (RPD range from 2.0 - 2.5), and
     9% of the models were able to distinguish between higher and lower
     %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
-    generated here had, at minimum, the ability to distinguish between
-    high and low values with with two thirds of them having, at minimum,
-    the ability to approximate quantitative prediction. Despite the
-    generally good model performance, a subset of poor models can be
-    seen. For example,
+    had, at minimum, the ability to distinguish between high and low
+    values with with two thirds of them having, at minimum, the ability
+    to approximate quantitative prediction. Despite the generally good
+    model performance, a subset of poor models can be seen. For example,
     <xref alt="Figure 2" rid="fig-final-metric-boxplot">Figure 2</xref>
     shows twenty-one models with R<sup>2</sup> below 0.7.</p>
     <fig id="fig-final-metric-boxplot">
@@ -2055,8 +2054,8 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <p>Laboratory assay %CP values are summarized in the following
     table. These are similar to the range of %CP values observed in the
     literature, indicating an reasonable basis for a chemometric model.
-    The %CP values are left-skewed (skewness of -0.29) and two thirds of
-    the samples contained more than 25% CP.</p>
+    The %CP values were left-skewed (skewness of -0.29) and two thirds
+    of the samples contained more than 25% CP.</p>
     <sec id="nb-code-cell-7-nb-article" specific-use="notebook-code">
     <code language="r script">my_summary &lt;- full_data$crude_protein |&gt; skimr::skim()|&gt; select(c(5:11)) |&gt; 
   mutate_all(round, 1)
@@ -2437,11 +2436,10 @@ full_sum &lt;- lapply(all_mods, nrow)</code>
     approximate quantitative prediction (RPD range from 2.0 - 2.5), and
     9% of the models were able to distinguish between higher and lower
     %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models
-    generated here had, at minimum, the ability to distinguish between
-    high and low values with with two thirds of them having, at minimum,
-    the ability to approximate quantitative prediction. Despite the
-    generally good model performance, a subset of poor models can be
-    seen. For example,
+    had, at minimum, the ability to distinguish between high and low
+    values with with two thirds of them having, at minimum, the ability
+    to approximate quantitative prediction. Despite the generally good
+    model performance, a subset of poor models can be seen. For example,
     <xref alt="Figure 2" rid="fig-final-metric-boxplot-nb-article">Figure 2</xref>
     shows twenty-one models with R<sup>2</sup> below 0.7.</p>
     <sec id="nb-code-cell-18-nb-article" specific-use="notebook-code">
