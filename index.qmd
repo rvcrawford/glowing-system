@@ -73,9 +73,9 @@ keywords:
 abstract: |
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 plain-language-summary: |
-  Earthquake data for the island of La Palma from the September 2021 eruption is found ...
+  A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy.
 key-points:
-  - A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy
+  - A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy.
 date: last-modified
 bibliography: 
   - references.bib
@@ -100,7 +100,7 @@ library(nlme)
 library(kableExtra)
 ```
 
-**incomplete: may contain errors, run-ons, half-thoughts, etc.**
+**first draft**
 
 ## INTRODUCTION
 
@@ -198,7 +198,7 @@ grateful::cite_packages(output = "paragraph", out.dir = ".",pkgs = c("base", "da
 
 ## RESULTS AND DISCUSSION
 
-### Laboratory assay CP values
+### Laboratory assay %CP values
 
 ```{r}
 skewness <- function(x) {
@@ -603,6 +603,8 @@ This study is limited in that it represents the creation of one model based upon
 This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a %CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
+
+This work would not have been possible without the efforts of the field staff, undergraduate, and graduate students who planted, maintained, monitored and harvested these trials.
 
 ## CONFLICT OF INTEREST
 
