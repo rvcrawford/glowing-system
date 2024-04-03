@@ -394,7 +394,7 @@ The model improved most rapidly as the number of components increased from 1 to 
 
 ```{r}
 #| label: fig-model-calibration
-#| fig-cap: Decreasing RMSE with increasing number of PCs
+#| fig-cap: Decreasing RMSE with increasing number of components
 
 
 model_n_comp_statistics |> 
