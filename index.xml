@@ -540,7 +540,7 @@ mollit anim id est laborum.</p>
     <xref alt="Figure 1" rid="fig-model-calibration">Figure 1</xref>.</p>
     <fig id="fig-model-calibration">
       <caption><p>Figure 1: Decreasing RMSE with increasing number of
-      PCs</p></caption>
+      components</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
     <p>The final models performances on the test sets were similar, but
@@ -1758,7 +1758,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use suppressPackageStartupMessages() to eliminate package startup messages</preformat>
+• Use tidymodels_prefer() to resolve common conflicts.</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -2391,7 +2391,7 @@ change_per_pc &lt;- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]</code>
   ylab(&quot;Crude Protein Model Root Mean Squared Error&quot;)</code>
     <fig id="fig-model-calibration-nb-article">
       <caption><p>Figure 1: Decreasing RMSE with increasing number of
-      PCs</p></caption>
+      components</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-model-calibration-1.png" />
     </fig>
     </sec>
