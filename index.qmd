@@ -1,6 +1,7 @@
 ---
 title: Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain
 execute:
+  freeze: auto
   echo: false
 author:
   - name: Ryan V. Crawford
@@ -547,11 +548,13 @@ Finally, the pattern of test set errors was examined on a per-sample basis by ca
 
 model_final_predictions |> 
   left_join(cutpoints2) |> 
+  mutate(type = "Actual") |> 
   arrange(plot_order) |> 
   ggplot(aes(plot_order, crude_protein))+
-  geom_point(aes(plot_order, difference), alpha = 0.05, shape = 2) +
+  geom_point(aes(plot_order, difference, shape = type), alpha = 0.05) +
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
-  geom_point(data = ds_cutpoints, aes(plot_order, preds), shape = 3)+
+  geom_point(data = ds_cutpoints |> mutate(type = "Predicted"), aes(plot_order, preds, shape = type))+
+  scale_shape_manual("Error Type", values=c(2,3)) +
   facet_wrap( ~cutpoints, scales = "free_x",
               labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
                                        "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
@@ -561,7 +564,9 @@ model_final_predictions |>
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
-    axis.ticks.x = element_blank()) 
+    axis.ticks.x = element_blank(), 
+    legend.position=c(0.9, 0.8)) + 
+  guides(shape= guide_legend(override.aes = list(alpha = 1)))
 
 ```
 

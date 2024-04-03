@@ -484,7 +484,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Search for functions across packages at https://www.tidymodels.org/find/</code></pre>
+• Dig deeper into tidy modeling with R at https://www.tmwr.org</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1041,23 +1041,32 @@ Figure&nbsp;2: Final model test set performance (1000 iterations)
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>model_final_predictions <span class="sc">|&gt;</span> </span>
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(cutpoints2) <span class="sc">|&gt;</span> </span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(plot_order) <span class="sc">|&gt;</span> </span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(plot_order, crude_protein))<span class="sc">+</span></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(plot_order, difference), <span class="at">alpha =</span> <span class="fl">0.05</span>, <span class="at">shape =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> ds_cutpoints, <span class="fu">aes</span>(plot_order, preds), <span class="at">shape =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span>cutpoints, <span class="at">scales =</span> <span class="st">"free_x"</span>,</span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"(20.8,24.1]"</span> <span class="ot">=</span> <span class="st">"Low CP (20.8 - 24.1%)"</span>,</span>
-<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(24.1,27.5]"</span><span class="ot">=</span> <span class="st">"Medium CP (24.2 - 27.5%)"</span>,</span>
-<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(27.5,30.8]"</span> <span class="ot">=</span><span class="st">"High CP (27.6-30.8%)"</span>)))<span class="sc">+</span> </span>
-<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Crude Protein Predicted Percent Difference</span><span class="sc">\n</span><span class="st">from Assayed Value"</span>)<span class="sc">+</span></span>
-<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
-<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>()) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"Actual"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(plot_order) <span class="sc">|&gt;</span> </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(plot_order, crude_protein))<span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(plot_order, difference, <span class="at">shape =</span> type), <span class="at">alpha =</span> <span class="fl">0.05</span>) <span class="sc">+</span></span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linewidth =</span> <span class="dv">2</span>, <span class="at">lty =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> ds_cutpoints <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">type =</span> <span class="st">"Predicted"</span>), <span class="fu">aes</span>(plot_order, preds, <span class="at">shape =</span> type))<span class="sc">+</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="st">"Error Type"</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>( <span class="sc">~</span>cutpoints, <span class="at">scales =</span> <span class="st">"free_x"</span>,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">labeller =</span> <span class="fu">as_labeller</span>(<span class="fu">c</span>(<span class="st">"(20.8,24.1]"</span> <span class="ot">=</span> <span class="st">"Low CP (20.8 - 24.1%)"</span>,</span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(24.1,27.5]"</span><span class="ot">=</span> <span class="st">"Medium CP (24.2 - 27.5%)"</span>,</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>                                       <span class="st">"(27.5,30.8]"</span> <span class="ot">=</span><span class="st">"High CP (27.6-30.8%)"</span>)))<span class="sc">+</span> </span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Crude Protein Predicted Percent Difference</span><span class="sc">\n</span><span class="st">from Assayed Value"</span>)<span class="sc">+</span></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_classic</span>()<span class="sc">+</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.ticks.x =</span> <span class="fu">element_blank</span>(), </span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position=</span><span class="fu">c</span>(<span class="fl">0.9</span>, <span class="fl">0.8</span>)) <span class="sc">+</span> </span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">shape=</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">alpha =</span> <span class="dv">1</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(crude_protein, ith_in_data_set)`</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.</code></pre>
 </div>
 <div class="cell-output-display">
 <div id="fig-validation_set_performance" class="quarto-figure quarto-figure-center quarto-float anchored">
@@ -1073,34 +1082,34 @@ Figure&nbsp;3: Test set prediction errors on a per-sample basis. Actual sample v
 </div>
 </div></div>
 <div class="cell-container"><div class="cell-decorator"><pre>In [30]:</pre></div><div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look</span></span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read in stuff for supplemental table first</span></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>supp_tab <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/cultivar_table_clean.csv"</span>)</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read in correct location key</span></span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>locs2 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/corrected_location_key.csv"</span>)</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest samples...</span></span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>td2 <span class="ot">&lt;-</span> temp_dat[<span class="fu">order</span>(<span class="fu">abs</span>(difference))]</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest</span></span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>td3 <span class="ot">&lt;-</span> td2[<span class="sc">!</span><span class="fu">c</span>(<span class="dv">16</span><span class="sc">:</span><span class="dv">134</span>),][,grouping<span class="sc">:</span><span class="er">=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"best_predicted_10pct"</span>, <span class="st">"worst_predicted_10_pct"</span>), <span class="at">each =</span> <span class="dv">15</span>)]</span>
-<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a><span class="co"># incorporate background</span></span>
-<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>td4_bckgrd <span class="ot">&lt;-</span> <span class="fu">merge</span>(td3, full_data[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">all.x =</span> T)</span>
-<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>td_5 <span class="ot">&lt;-</span> <span class="fu">merge</span>( td4_bckgrd,locs2, <span class="at">by.y =</span><span class="st">"loc"</span>, <span class="at">by.x=</span> <span class="st">'loc'</span>, <span class="at">all.x =</span> T)</span>
-<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a><span class="co"># make a prop table.</span></span>
-<span id="cb46-22"><a href="#cb46-22" aria-hidden="true" tabindex="-1"></a>td_5_table <span class="ot">&lt;-</span>  <span class="fu">with</span>(td_5, <span class="fu">table</span>(grouping, loc2))</span>
-<span id="cb46-23"><a href="#cb46-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-24"><a href="#cb46-24" aria-hidden="true" tabindex="-1"></a>test_for_errors <span class="ot">&lt;-</span> <span class="fu">merge</span>( <span class="fu">merge</span>(td2, full_data[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">all.x =</span> T),locs2, <span class="at">by.y =</span><span class="st">"loc"</span>, <span class="at">by.x=</span> <span class="st">'loc'</span>, <span class="at">all.x =</span> T)</span>
-<span id="cb46-25"><a href="#cb46-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-26"><a href="#cb46-26" aria-hidden="true" tabindex="-1"></a>error_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">abs</span>(difference)<span class="sc">~</span>loc2, <span class="at">data =</span> test_for_errors)</span>
-<span id="cb46-27"><a href="#cb46-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-28"><a href="#cb46-28" aria-hidden="true" tabindex="-1"></a>error_by_loc <span class="ot">&lt;-</span> emmeans<span class="sc">::</span><span class="fu">emmeans</span>(error_mod, <span class="st">"loc2"</span>) <span class="sc">|&gt;</span> multcomp<span class="sc">::</span><span class="fu">cld</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="co"># read in stuff for supplemental table first</span></span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>supp_tab <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/cultivar_table_clean.csv"</span>)</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># read in correct location key</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>locs2 <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">"./input_data/final_data_set/corrected_location_key.csv"</span>)</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest samples...</span></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>td2 <span class="ot">&lt;-</span> temp_dat[<span class="fu">order</span>(<span class="fu">abs</span>(difference))]</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a><span class="co"># sort highest and lowest</span></span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>td3 <span class="ot">&lt;-</span> td2[<span class="sc">!</span><span class="fu">c</span>(<span class="dv">16</span><span class="sc">:</span><span class="dv">134</span>),][,grouping<span class="sc">:</span><span class="er">=</span><span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"best_predicted_10pct"</span>, <span class="st">"worst_predicted_10_pct"</span>), <span class="at">each =</span> <span class="dv">15</span>)]</span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a><span class="co"># incorporate background</span></span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>td4_bckgrd <span class="ot">&lt;-</span> <span class="fu">merge</span>(td3, full_data[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">all.x =</span> T)</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>td_5 <span class="ot">&lt;-</span> <span class="fu">merge</span>( td4_bckgrd,locs2, <span class="at">by.y =</span><span class="st">"loc"</span>, <span class="at">by.x=</span> <span class="st">'loc'</span>, <span class="at">all.x =</span> T)</span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co"># make a prop table.</span></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>td_5_table <span class="ot">&lt;-</span>  <span class="fu">with</span>(td_5, <span class="fu">table</span>(grouping, loc2))</span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>test_for_errors <span class="ot">&lt;-</span> <span class="fu">merge</span>( <span class="fu">merge</span>(td2, full_data[,<span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>], <span class="at">all.x =</span> T),locs2, <span class="at">by.y =</span><span class="st">"loc"</span>, <span class="at">by.x=</span> <span class="st">'loc'</span>, <span class="at">all.x =</span> T)</span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>error_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="fu">abs</span>(difference)<span class="sc">~</span>loc2, <span class="at">data =</span> test_for_errors)</span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a>error_by_loc <span class="ot">&lt;-</span> emmeans<span class="sc">::</span><span class="fu">emmeans</span>(error_mod, <span class="st">"loc2"</span>) <span class="sc">|&gt;</span> multcomp<span class="sc">::</span><span class="fu">cld</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div>
 <p>The 15 (10%) best and 15 worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY (“Ithaca”), while 28% were collected from Geneva, NY (“Geneva”) <a href="#tbl-hemp_provenance" class="quarto-xref">Table&nbsp;3</a>. However, of the 15 worst-predicted samples, 9 were from Geneva, while 3 of the 15 best-predicted samples were from Geneva (by contrast, 7 of the best-predicted and 5 of the worst-predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction among locations, 61% greater than samples from Ithaca and 155% greater than samples from Freeville, NY (the only locations with more than 20 samples).</p>
 <p>This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model <span class="citation" data-cites="reeves_potential_2012">(<a href="#ref-reeves_potential_2012" role="doc-biblioref">Reeves, 2012</a>)</span>. As well, the calibration and validation sets are relatively small.</p>
@@ -1122,14 +1131,14 @@ Figure&nbsp;3: Test set prediction errors on a per-sample basis. Actual sample v
 <h2 data-number="7" class="anchored" data-anchor-id="supplemental-material"><span class="header-section-number">7</span> SUPPLEMENTAL MATERIAL</h2>
 <div class="cell-container"><div class="cell-decorator"><pre>In [31]:</pre></div><div class="cell">
 
-<div class="cell-container"><div class="cell-decorator"><pre>In [32]:</pre></div><div><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>supp_tab2 <span class="ot">&lt;-</span> <span class="fu">copy</span>(supp_tab)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>supp_tab2[,Cultivar<span class="sc">:</span><span class="er">=</span><span class="fu">toupper</span>(cultivar2)]</span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(supp_tab2) <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(<span class="fu">names</span>(supp_tab2))</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get one that's sortable</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>st3 <span class="ot">&lt;-</span> supp_tab2[,<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>)]</span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">''</span>)</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(st3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-hemp_provenance" class="cell quarto-float anchored">
+<div class="cell-container"><div class="cell-decorator"><pre>In [32]:</pre></div><div><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>supp_tab2 <span class="ot">&lt;-</span> <span class="fu">copy</span>(supp_tab)</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>supp_tab2[,Cultivar<span class="sc">:</span><span class="er">=</span><span class="fu">toupper</span>(cultivar2)]</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(supp_tab2) <span class="ot">&lt;-</span> <span class="fu">str_to_title</span>(<span class="fu">names</span>(supp_tab2))</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a><span class="co"># get one that's sortable</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>st3 <span class="ot">&lt;-</span> supp_tab2[,<span class="fu">c</span>(<span class="dv">8</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>)]</span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">knitr.kable.NA =</span> <span class="st">''</span>)</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(st3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div><div id="tbl-hemp_provenance" class="cell quarto-float anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-hemp_provenance-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Tally of hemp cultivars and locations. Private cultivars are labeled “Cultivar1”, “Cultivar2”, etc., while experimental cultivars are labeled “Experimental1”, “Experimental2”, etc.
@@ -2020,7 +2029,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":false,"closeEffect":"zoom","openEffect":"zoom"});
+</script>  </div> <!-- /content -->  <script>var lightboxQuarto = GLightbox({"selector":".lightbox","closeEffect":"zoom","loop":false,"descPosition":"bottom","openEffect":"zoom"});
 window.onload = () => {
   lightboxQuarto.on('slide_before_load', (data) => {
     const { slideIndex, slideNode, slideConfig, player, trigger } = data;

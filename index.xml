@@ -1753,7 +1753,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Use tidymodels_prefer() to resolve common conflicts.</preformat>
+• Learn how to get started at https://www.tidymodels.org/start/</preformat>
 </sec>
 <sec id="nb-code-cell-1-output-6-nb-article" specific-use="notebook-output">
 <preformat>
@@ -2533,11 +2533,13 @@ troubles &lt;- merge(worst, full_data[,1:7], all.x = T)</code>
 
 model_final_predictions |&gt; 
   left_join(cutpoints2) |&gt; 
+  mutate(type = &quot;Actual&quot;) |&gt; 
   arrange(plot_order) |&gt; 
   ggplot(aes(plot_order, crude_protein))+
-  geom_point(aes(plot_order, difference), alpha = 0.05, shape = 2) +
+  geom_point(aes(plot_order, difference, shape = type), alpha = 0.05) +
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
-  geom_point(data = ds_cutpoints, aes(plot_order, preds), shape = 3)+
+  geom_point(data = ds_cutpoints |&gt; mutate(type = &quot;Predicted&quot;), aes(plot_order, preds, shape = type))+
+  scale_shape_manual(&quot;Error Type&quot;, values=c(2,3)) +
   facet_wrap( ~cutpoints, scales = &quot;free_x&quot;,
               labeller = as_labeller(c(&quot;(20.8,24.1]&quot; = &quot;Low CP (20.8 - 24.1%)&quot;,
                                        &quot;(24.1,27.5]&quot;= &quot;Medium CP (24.2 - 27.5%)&quot;,
@@ -2547,7 +2549,9 @@ model_final_predictions |&gt;
   theme(
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
-    axis.ticks.x = element_blank()) </code>
+    axis.ticks.x = element_blank(), 
+    legend.position=c(0.9, 0.8)) + 
+  guides(shape= guide_legend(override.aes = list(alpha = 1)))</code>
     <fig id="fig-validation_set_performance-nb-article">
       <caption><p>Figure 3: Test set prediction errors on a per-sample
       basis. Actual sample value set to 0, and samples ranked from least
@@ -2556,6 +2560,11 @@ model_final_predictions |&gt;
     </fig>
     <sec id="cell-fig-validation_set_performance-output-0-nb-article" specific-use="notebook-output">
     <preformat>Joining with `by = join_by(crude_protein, ith_in_data_set)`</preformat>
+    </sec>
+    <sec id="cell-fig-validation_set_performance-output-1-nb-article" specific-use="notebook-output">
+    <preformat>Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.</preformat>
     </sec>
     </sec>
     <sec id="nb-code-cell-25-nb-article" specific-use="notebook-code">
