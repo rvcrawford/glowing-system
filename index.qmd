@@ -439,7 +439,7 @@ all_mods <- list(great_mods, good_mods, ok_mods, poor_but_functional)
 full_sum <- lapply(all_mods, nrow)
 ```
 
-The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models generated here had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows twenty-one models with R^2^ below 0.7.
+The final models performances on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The final models' mean RMSE was 1.03, R^2^ was 0.83, RPD was 2.44, and RPIQ was 3.89. Five percent of the models were excellent by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5 - 3.0, RPIQ range from 2.3 - 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0 - 2.5), and 9% of the models were able to distinguish between higher and lower %CP values (RPD range from 1.5 - 2.0). Therefore, 74% of the models generated here had, at minimum, the ability to distinguish between high and low values with with two thirds of them having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows twenty-one models with R^2^ below 0.7.
 
 ```{r}
 skim_metrics <- final_model_table |> 
@@ -600,9 +600,15 @@ The 15 (10%) best and 15 worst predicted samples as measured by the mean absolut
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the calibration and validation sets are relatively small.
 
-This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
+This research showed the promise of the use of NIRS in order to make predictions concerning %CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a %CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
+
+## CONFLICT OF INTEREST
+
+The authors declare no conflict of interest.
+
+## ORCID
 
 ## SUPPLEMENTAL MATERIAL
 
@@ -625,75 +631,3 @@ knitr::kable(st3)
 ## REFERENCES
 
 ## FIGURES AND TABLES
-
-```{r}
-eruptions <- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
-n_eruptions <- length(eruptions)
-```
-
-```{r}
-#| label: fig-timeline
-#| fig-cap: Timeline of recent earthquakes on La Palma
-#| fig-alt: An event plot of the years of the last 8 eruptions on La Palma.
-#| fig-height: 1.5
-#| fig-width: 6
-par(mar = c(3, 1, 1, 1) + 0.1)
-plot(eruptions, rep(0, n_eruptions), 
-  pch = "|", axes = FALSE)
-axis(1)
-box()
-```
-
-```{r}
-#| output: false
-avg_years_between_eruptions <- mean(diff(eruptions[-n_eruptions]))
-avg_years_between_eruptions
-```
-
-Based on data up to and including 1971, eruptions on La Palma happen every `r round(avg_years_between_eruptions, 1)` years on average.
-
-Studies of the magma systems feeding the volcano, such as @marrero2019, have proposed that there are two main magma reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges and in turn feeds a shallower crustal reservoir (10-20km depth).
-
-Eight eruptions have been recorded since the late 1400s (@fig-timeline).
-
-Data and methods are discussed in @sec-data-methods.
-
-Let $x$ denote the number of eruptions in a year. Then, $x$ can be modeled by a Poisson distribution
-
-$$
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-$$ {#eq-poisson}
-
-where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
-
-| Name                | Year |
-|---------------------|------|
-| Current             | 2021 |
-| Teneguía            | 1971 |
-| Nambroque           | 1949 |
-| El Charco           | 1712 |
-| Volcán San Antonio  | 1677 |
-| Volcán San Martin   | 1646 |
-| Tajuya near El Paso | 1585 |
-| Montaña Quemada     | 1492 |
-
-: Recent historic eruptions on La Palma {#tbl-history}
-
-@tbl-history summarises the eruptions recorded since the colonization of the islands by Europeans in the late 1400s.
-
-![Map of La Palma](images/la-palma-map.png){#fig-map}
-
-La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map).
-
-{{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}}
-
-@fig-spatial-plot shows the location of recent Earthquakes on La Palma.
-
-## Data & Methods {#sec-data-methods}
-
-## Conclusion
-
-## References {.unnumbered}
-
-::: {#refs}
-:::
