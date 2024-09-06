@@ -491,7 +491,11 @@ model_final_predictions[,difference := predicted_crude_protein - crude_protein]
 # revised_model_cutpoints
 cutpoints2 <- model_final_predictions |> 
   distinct(ith_in_data_set, crude_protein) |> 
-  mutate(cutpoints = cut(crude_protein, 3)) |> 
+  mutate(cutpoints = cut(crude_protein, 3, labels = c(
+                           "Low~CP~(208-241~g~kg^{-1})",
+                         "Medium~CP~(242-275~g~kg^{-1})",
+                         "High~CP~(276-308~g~kg^{-1})")
+         ))|> 
   arrange(crude_protein) |> 
   mutate(plot_order = 1:n())
 
@@ -515,7 +519,8 @@ coefs <- coef(lm_mod)
 preds <- predict(lm_mod, temp_dat)
 ds_preds <- temp_dat[,c("ith_in_data_set")] |> cbind(preds)
 
-ds_cutpoints <- merge(ds_preds, cutpoints2)
+ds_cutpoints <- merge(ds_preds, cutpoints2)|> 
+  mutate(ct2 = factor(cutpoints, labels = c("AAA", "bold(BBB)", "italic(CCC)"))) |> setDT()
 setorder(ds_cutpoints, plot_order)
 ```
 
@@ -553,6 +558,9 @@ Finally, the pattern of test set errors was examined on a per-sample basis by ca
 #| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest actual % CP value 
 # 
 
+cutpoints2 <- cutpoints2 |> 
+  mutate(ct2 = factor(cutpoints, labels = c("AAA", "bold(BBB)", "italic(CCC)")))
+
 model_final_predictions |> 
   left_join(cutpoints2) |> 
   mutate(type = "Actual") |> 
@@ -562,10 +570,16 @@ model_final_predictions |>
   geom_hline(yintercept = 0, linewidth = 2, lty = 2) +
   geom_point(data = ds_cutpoints |> mutate(type = "Predicted"), aes(plot_order, preds, shape = type))+
   scale_shape_manual("Error Type", values=c(2,3)) +
-  facet_wrap( ~cutpoints, scales = "free_x",
-              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (208-241 g kg ^-1^)",
-                                       "(24.1,27.5]"= "Medium CP (242-275 g kg ^-1^)",
-                                       "(27.5,30.8]" ="High CP (276-308 g kg ^-1^)")))+ 
+  facet_wrap( ~cutpoints,
+              labeller =  label_parsed, scales = "free_x")+
+              # labeller = as_labeller(
+              #   c("(20.8,24.1]" = "Low CP (208-241 g kg ^-1)",
+              # "(24.1,27.5]"= "Medium CP (242-275 g kg ^-1^)",
+              #  "(27.5,30.8]" ="High CP (276-308 g kg ^-1^)")
+              # ), scales = "free_x"
+              # )+
+              
+      
   ylab("Crude Protein Predicted Percent Difference\nfrom Assayed Value")+
   theme_classic()+
   theme(
