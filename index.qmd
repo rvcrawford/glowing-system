@@ -447,7 +447,7 @@ all_mods <- list(great_mods, good_mods, ok_mods, poor_but_functional)
 full_sum <- lapply(all_mods, nrow)
 ```
 
-The performance of the final models on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The means of the final models were: RMSE = 1.03, R^2^ = 0.83, RPD = 2.44, and RPIQ = 3.89. Five percent of the models were "excellent" for quantitative prediction by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5--3.0, RPIQ range from 2.3-- 4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0--2.5), and nine percent of the models were able to distinguish between higher and lower percentage CP values (RPD range from 1.5--2.0). Therefore, 74% of the models had, at minimum, the ability to distinguish between high and low values with 65% having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows 21 models with R^2^ below 0.7.
+The performance of the final models on the test sets were similar, but not identical to, those obtained during the initial comparison of preprocessing methods. The means of the final models were: RMSE = 1.03, R^2^ = 0.83, RPD = 2.44, and RPIQ = 3.89. Five percent of the models were "excellent" for quantitative prediction by both metrics, with RPD \> 3 and RPIQ \> 4.1, while an additional 11% of the models were "good" by both metrics (RPD range from 2.5--3.0, RPIQ range from 2.3--4.1). Forty-nine percent of the models had the ability to approximate quantitative prediction (RPD range from 2.0--2.5), and nine percent of the models were able to distinguish between higher and lower percentage CP values (RPD range from 1.5--2.0). Therefore, 74% of the models had, at minimum, the ability to distinguish between high and low values with 65% having, at minimum, the ability to approximate quantitative prediction. Despite the generally good model performance, a subset of poor models can be seen. For example, @fig-final-metric-boxplot shows 21 models with R^2^ below 0.7.
 
 ```{r}
 skim_metrics <- final_model_table |> 
@@ -563,9 +563,9 @@ model_final_predictions |>
   geom_point(data = ds_cutpoints |> mutate(type = "Predicted"), aes(plot_order, preds, shape = type))+
   scale_shape_manual("Error Type", values=c(2,3)) +
   facet_wrap( ~cutpoints, scales = "free_x",
-              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (20.8 - 24.1%)",
-                                       "(24.1,27.5]"= "Medium CP (24.2 - 27.5%)",
-                                       "(27.5,30.8]" ="High CP (27.6-30.8%)")))+ 
+              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (208--241)",
+                                       "(24.1,27.5]"= "Medium CP (242--275)",
+                                       "(27.5,30.8]" ="High CP (276--308)")))+ 
   ylab("Crude Protein Predicted Percent Difference\nfrom Assayed Value")+
   theme_classic()+
   theme(
