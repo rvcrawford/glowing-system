@@ -102,7 +102,7 @@ library(nlme)
 library(kableExtra)
 ```
 
-**draft incorporates changes from Ginny and Julie**
+**draft incorporates changes from Ginny, Larry, and Julie**
 
 ## INTRODUCTION
 
@@ -235,10 +235,10 @@ Laboratory assay percentage CP values are summarized in @tbl-lab-protein-vals. T
 
 ```{r}
 #| label: tbl-lab-protein-vals
-#| tbl-cap: Summary of Laboratory Assayed CP Values (Percent Dry Matter)
+#| tbl-cap: Summary of Laboratory Assayed CP Values (g kg ^-1^)
 
 my_summary <- full_data$crude_protein |> skimr::skim()|> select(c(5:11)) |> 
-  mutate_all(round, 1)
+  mutate_all(function(x) round(x, 1)*10)
 names(my_summary) <- c("mean", "sd", "minimum", "first quartile", "median", "third quartile", "maximum") |> str_to_title()
 
 knitr::kable(my_summary)
@@ -398,7 +398,7 @@ avg_change <- model_n_comp_statistics[,lapply(.SD, mean),.SDcols = 3:8, by= ncom
 change_per_pc <- avg_change[, lapply(.SD, pct_lower), .SDcols = 2:7]
 ```
 
-The model improved most rapidly as the number of components increased from one to seven, with the inclusion of each additional component being associated with a decrease in RMSE of 5%-12%. From eight to 12 components, model performance continued to improve, although gains were more modest (there was a decrease in RMSE of 0.7%-3% with the inclusion of each additional component). With 13 or more components, performance gains were minimal and the relative ranks of the models tended to be stable (@fig-model-calibration).
+The model improved most rapidly as the number of components increased from one to seven, with the inclusion of each additional component being associated with a decrease in RMSE of 5%-12%. From eight to 12 components, model performance continued to improve, although gains were more modest: there was a decrease in RMSE of 0.7%-3% with the inclusion of each additional component. With 13 or more components, performance gains were minimal and the relative ranks of the models tended to be stable (@fig-model-calibration).
 
 ```{r}
 #| label: fig-model-calibration
