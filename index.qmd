@@ -563,9 +563,9 @@ model_final_predictions |>
   geom_point(data = ds_cutpoints |> mutate(type = "Predicted"), aes(plot_order, preds, shape = type))+
   scale_shape_manual("Error Type", values=c(2,3)) +
   facet_wrap( ~cutpoints, scales = "free_x",
-              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (208--241)",
-                                       "(24.1,27.5]"= "Medium CP (242--275)",
-                                       "(27.5,30.8]" ="High CP (276--308)")))+ 
+              labeller = as_labeller(c("(20.8,24.1]" = "Low CP (208-241 g kg ^-1^)",
+                                       "(24.1,27.5]"= "Medium CP (242-275 g kg ^-1^)",
+                                       "(27.5,30.8]" ="High CP (276-308 g kg ^-1^)")))+ 
   ylab("Crude Protein Predicted Percent Difference\nfrom Assayed Value")+
   theme_classic()+
   theme(
