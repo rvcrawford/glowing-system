@@ -169,7 +169,7 @@ All cultivar trials were planted in randomized complete block design with each c
 
 A benchtop NIR spectrometer (FOSS/ NIR FOSS/ NIR Systems model 5000) was used to obtain the spectra (FOSS North America, Eden Prairie, MN, USA). Spectra were collected every 2 nm from 1100-2498 nm and the logarithm of reciprocal reflectance was recorded. A 1/4 rectangular sample cup (5.7 cm × 4.6 cm) was used to scan the samples.
 
-WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to calculate the mean spectra in 2017 and to select samples for laboratory assay in all years. Samples were selected according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo_note_2019]. Prior to selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth 2 settings respectively.
+WINISI software version 1.02A (Infrasoft International, Port Matilda, PA, USA) was used to calculate the mean spectra in 2017 and to select samples for laboratory assay in all years. Samples were selected according to their spectral distance from their nearest neighbor within the calibration data set with a cutoff of a distance of 0.6 H, where H is approximately equal to the squared Mahalanobis distance divided by the number of principal components used in the calculation [@garrido-varo_note_2019]. Prior to selection, spectra were preprocessed using SNV-detrend with settings 1,4,4,1 for the derivative, gap, smooth, and smooth-two settings respectively.
 
 ### Laboratory Validation
 
@@ -206,7 +206,7 @@ Analyses of variance (ANOVA) were performed for each of these metrics in order t
 
 ## RESULTS AND DISCUSSION
 
-### Laboratory assay percentageCP values
+### Laboratory assay CP values
 
 ```{r}
 skewness <- function(x) {
@@ -231,7 +231,7 @@ skewness <- function(x) {
 }
 ```
 
-Laboratory assay percentage CP values are summarized in @tbl-lab-protein-vals. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The percentage CP values were left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 250 g kg ^-1^ CP. **possibly reformat this**
+Laboratory assay percentage CP values are summarized in @tbl-lab-protein-vals. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The percentage CP values were left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 250 g kg ^-1^ CP.
 
 ```{r}
 #| label: tbl-lab-protein-vals
@@ -622,7 +622,7 @@ error_mod <- lm(abs(difference)~loc2, data = test_for_errors)
 error_by_loc <- emmeans::emmeans(error_mod, "loc2") |> multcomp::cld()
 ```
 
-The 15 (10%) best and 15 worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY ("Ithaca"), while 28% were collected from Geneva, NY ("Geneva") @tbl-hemp_provenance. However, of the 15 worst-predicted samples, 9 were from Geneva, while 3 of the 15 best-predicted samples were from Geneva (by contrast, 7 of the best-predicted and 5 of the worst-predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction among locations, 61% greater than samples from Ithaca and 155% greater than samples from Freeville, NY (the only locations where more than 20 samples were assayed).
+The 15 (10%) best and 15 worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY ("Ithaca"), while 28% were collected from Geneva, NY ("Geneva") @tbl-hemp_provenance. However, of the 15 worst-predicted samples, nine were from Geneva, while three of the 15 best-predicted samples were from Geneva (by contrast, seven of the best-predicted and five of the worst-predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction among locations, 61% greater than samples from Ithaca and 155% greater than samples from Freeville, NY (the only locations where more than 20 samples were assayed).
 
 This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the calibration and validation sets are relatively small.
 
