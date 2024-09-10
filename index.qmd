@@ -1,5 +1,5 @@
 ---
-title: Near Infrared Spectroscopy Predicts Percentage Crude Protein in Hemp Grain
+title: Near Infrared Spectroscopy Predicts Crude Protein Percentage in Hemp Grain
 execute:
   freeze: auto
   echo: false
