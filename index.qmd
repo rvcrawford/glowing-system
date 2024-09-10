@@ -1,5 +1,5 @@
 ---
-title: Near Infrared Spectroscopy Predicts Crude Protein Percentage in Hemp Grain
+title: Near Infrared Spectroscopy Predicts Crude Protein Concentration in Hemp Grain
 execute:
   freeze: auto
   echo: false
@@ -119,9 +119,9 @@ Hemp (*Cannabis sativa* L.) is an annual crop with potential uses as a source of
 
 Near-infrared (NIR) spectroscopy (NIRS) technology is rapid, non-destructive, and inexpensive. It consists of the measurement of NIR radiation reflected and absorbed from a sample (the spectra) and the relation of the spectra to primary analytical values, typically obtained using wet chemistry assays, for components such as moisture, protein, fat, or fiber [@roberts_near-infrared_2004]. NIRS technology has been used since the 1970's to assess forage percentage CP [@reeves_potential_2012; @williams_application_1975]. A NIRS calibration set often consists of samples from diverse genotypes of one species grown in many environments encompassing the range of expected values from the analyte or analytes [@chadalavada_nir_2022]. Partial least squares regression (PLSR) is a typical method used in the agricultural and food sciences to relate spectra to analyte [@roberts_near-infrared_2004]. Partial least squares regression calculates components that maximize covariance between predictor and response variables. Partial least squares regression uses some number of components, often selected via cross-validation, to fit the regression model and is commonly used in spectroscopy because it tends to work well with highly correlated, noisy spectral data [@wold_pls-regression_2001].
 
-A NIRS-scanned sample of whole grain may be used for other purposes besides the scan, including planting as a seed. In wheat and corn, grain protein content has been shown to be heritable [@giancaspro_genetic_2019; @geyer_genetics_2022]. This suggests that NIRS technology could serve as a resource to rapidly identify high percentage CP hemp germplasm, enabling the screening of germplasm as seed, before planting to the field, and facilitating the efficient development of high percentage CP hemp populations.
+A NIRS-scanned sample of whole grain may be used for other purposes besides the scan, including planting as a seed. In wheat and corn, grain protein content has been shown to be heritable [@giancaspro_genetic_2019; @geyer_genetics_2022]. This suggests that NIRS technology could serve as a resource to rapidly identify high percentage CP hemp germplasm, enabling the screening of germplasm as seed, before planting to the field, and facilitating the efficient development of high cocentration CP hemp populations.
 
-For this study, a benchtop NIR spectrometer was used to develop a model to predict percentage CP content based on a data set of hemp grain representing multiple years, locations, and cultivars from grain and dual-purpose hemp types using PLSR.
+For this study, a benchtop NIR spectrometer was used to develop a model to predict CP concentration based on a data set of hemp grain representing multiple years, locations, and cultivars from grain and dual-purpose hemp types using PLSR.
 
 ## MATERIALS AND METHODS
 
@@ -170,7 +170,7 @@ tab <-  table(full_data$in_ny)
 
 ### Hemp Grain Sample Background
 
-Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017--2021 from `r nrow(distinct(full_data |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[[1]]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. All CP values were expressed as percentage dry matter. In total, `r nrow(full_data)` samples from `r full_data$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material. Seventy-eight samples were scanned and assayed in 2017, 19 in 2018, 24 in 2019, and 28 in 2021. More information about hemp cultivars and locations is available in @tbl-hemp_provenance.
+Spectral data were obtained from whole (unground) hemp grain samples, harvested at maturity, collected from 2017--2021 from `r nrow(distinct(full_data |> filter(loc!= "kentucky"), harv_year, loc))` cultivar trials in New York (NY) (`r tab[[1]]` samples). Grain samples were obtained by hand sampling or mechanical harvest and were cleaned of chaff and dried at 30 C for six days in a forced-air dryer. All CP values were expressed as concentration dry matter. In total, `r nrow(full_data)` samples from `r full_data$cultivar |> unique() |> length()` cultivars were represented in the data set. Cultivars were grain or dual-purpose types and included both commercially available and experimental material. Seventy-eight samples were scanned and assayed in 2017, 19 in 2018, 24 in 2019, and 28 in 2021. More information about hemp cultivars and locations is available in @tbl-hemp_provenance.
 
 All cultivar trials were planted in randomized complete block design with each cultivar replicated four times. The 2017 data were comprised of samples from the same 13 cultivars sampled from six NY locations. For those trials, grain was harvested from each plot individually and aggregated by cultivar within each trial. Four subsamples were drawn from each aggregated sample and scanned separately. These spectra were averaged at each 2 nm increment. All remaining samples from 2018-2021 were collected on a per-plot basis. All cultivars and locations were represented in 2017, but only a selected subset of cultivar-location combinations were represented in 2018-2021 because not all cultivars were planted everywhere and only a portion of these cultivar-location combinations were sampled, scanned, and assayed due to logistical constraints.
 
@@ -240,7 +240,7 @@ skewness <- function(x) {
 }
 ```
 
-Laboratory assay percentage CP values are summarized in @tbl-lab-protein-vals. These are similar to the range of %CP values observed in the literature, indicating an reasonable basis for a chemometric model. The percentage CP values were left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 250 g kg ^-1^ CP.
+Laboratory assay CP concentration values are summarized in @tbl-lab-protein-vals. These are similar to the range of values observed in the literature, indicating an reasonable basis for a chemometric model. The values were left-skewed (skewness of `r  round(skewness(full_data$crude_protein),2)`) and two thirds of the samples contained more than 250 g kg ^-1^ CP.
 
 ```{r}
 #| label: tbl-lab-protein-vals
@@ -564,7 +564,7 @@ Finally, the pattern of test set errors was examined on a per-sample basis by ca
 
 ```{r}
 #| label: fig-validation_set_performance
-#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest actual % CP value 
+#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest actual CP concentration value 
 # 
 
 cutpoints2 <- cutpoints2 |> 
@@ -633,9 +633,9 @@ error_by_loc <- emmeans::emmeans(error_mod, "loc2") |> multcomp::cld()
 
 The 15 (10%) best and 15 worst predicted samples as measured by the mean absolute error of prediction were identified and their backgrounds examined. Overall, half of the samples in the data set came from Ithaca, NY ("Ithaca"), while 28% were collected from Geneva, NY ("Geneva") @tbl-hemp_provenance. However, of the 15 worst-predicted samples, nine were from Geneva, while three of the 15 best-predicted samples were from Geneva (by contrast, seven of the best-predicted and five of the worst-predicted samples came from Ithaca). Overall, samples from Geneva had the highest mean absolute error of prediction among locations, 61% greater than samples from Ithaca and 155% greater than samples from Freeville, NY (the only locations where more than 20 samples were assayed).
 
-This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the calibration and validation sets are relatively small.
+This study is limited in that it represents the creation of one model based upon spectra collected from one machine. NIRS calibrations can be unique to a particular machine, even if the machines compared are of the same model [@reeves_potential_2012]. As well, the testing and training sets are relatively small.
 
-This research showed the promise of the use of NIRS in order to make predictions concerning percentage CP in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine a percentage CP model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
+This research showed the promise of the use of NIRS in order to make predictions concerning CP concentration in hemp grain using PLS. Promising preprocessing methods were identified and a model was validated. Further research could refine the model by including more samples, particularly by rectifying the class imbalance between Geneva and Ithaca, identifying promising spectral regions, or by examining other predictive methods.
 
 ## ACKNOWLEDGMENTS
 
