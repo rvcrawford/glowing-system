@@ -72,6 +72,18 @@ keywords:
   - Grain
   - Spectroscopy
 abstract: |
+
+  Rationale: 
+      The protein content percentage of hemp (*Cannabis sativa* L.) grain is of interest to researchers, producers, and consumers.
+  Objectives or
+  hypothesis
+    This study was conducted to determine whether hemp grain can be non-destructively assayed for crude protein percentage using spectra obtained from near-infrared spectroscopy (NIRS) to build a prediction model for percentage crude protein using partial least squares regression. 
+  Methods
+  One hundred and fourty-nine whole hemp grain samples were obtained from 18 cultivar trials in New York from 2017-2021. The samples' NIRS spectra were collected and the samples were ground and assayed by combustion. A preprocessing method was selected based upon 100 training and testing set splits of the data set and susequently applied to 1000 additional splits of the data set for each of seven preprocessing methods, as well as untranformed spectra. Model fits were evaluated using root mean squared error (RMSE), coefficient of determination (R^2^), relative predicted deviation (RPD), and Ratio of Performance to InterQuartile distance (RPIQ).
+  Results
+  A preprocessing method consisting of the standard normal variate transformation following a Savitzky-Golay filter had the lowest RMSE and the highest R^2^, RPD and RPIQ, with RPD and RPIQ 2.1%, and 2.4% higher than a Savitzky-Golay filter by itself (significant at $\alpha$ \<0.05). All preprocessing methods outperformed untransformed spectra.
+  Conclusions
+
   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 plain-language-summary: |
   A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy.
