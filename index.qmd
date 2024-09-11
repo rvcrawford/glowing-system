@@ -558,7 +558,7 @@ Finally, the pattern of test set errors was examined on a per-sample basis by ca
 
 ```{r}
 #| label: fig-validation_set_performance
-#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to 0, and samples ranked from least to greatest actual CP concentration value 
+#| fig-cap: Test set prediction errors on a per-sample basis. Actual sample value set to zero and samples ranked from least to greatest actual CP concentration value 
 # 
 
 cutpoints2 <- cutpoints2 |> 
