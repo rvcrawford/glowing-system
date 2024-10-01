@@ -157,7 +157,7 @@ tertile of samples. The worst-predicted samples tended to come from
 Geneva, NY, possibly as a result of the models’ class imbalance (half of
 the samples were from Ithaca, NY while 28% were from Geneva). The
 research shows the promise that NIRS offers in the non-desctructive
-assay of CP concentration in hemp grain</p>
+assay of CP concentration in hemp grain.</p>
 </abstract>
 <kwd-group kwd-group-type="author">
 <kwd>Hemp</kwd>
@@ -1752,7 +1752,7 @@ tertile of samples. The worst-predicted samples tended to come from
 Geneva, NY, possibly as a result of the models’ class imbalance (half of
 the samples were from Ithaca, NY while 28% were from Geneva). The
 research shows the promise that NIRS offers in the non-desctructive
-assay of CP concentration in hemp grain</p>
+assay of CP concentration in hemp grain.</p>
 </abstract>
 </front-stub>
 
@@ -1846,7 +1846,7 @@ The following object is masked from 'package:stats':
 ✖ yardstick::specificity() masks caret::specificity()
 ✖ recipes::step()          masks stats::step()
 ✖ data.table::transpose()  masks purrr::transpose()
-• Learn how to get started at https://www.tidymodels.org/start/</preformat>
+• Use tidymodels_prefer() to resolve common conflicts.</preformat>
 </boxed-text>
 <code language="r script">library(nlme)</code>
 <boxed-text>
