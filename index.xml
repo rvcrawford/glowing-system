@@ -210,7 +210,7 @@ standard normal variate following Savitzky-Golay</p>
   protein, fat, or fiber
   (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004" ref-type="bibr">Roberts
   et al., 2004</xref>). NIRS technology has been used since the 1970’s
-  to assess forage percentage CP
+  to assess forage CP concentration
   (<xref alt="Reeves, 2012" rid="ref-reeves_potential_2012" ref-type="bibr">Reeves,
   2012</xref>;
   <xref alt="Williams, 1975" rid="ref-williams_application_1975" ref-type="bibr">Williams,
@@ -261,8 +261,372 @@ standard normal variate following Savitzky-Golay</p>
     commercially available and experimental material. Seventy-eight
     samples were scanned and assayed in 2017, 19 in 2018, 24 in 2019,
     and 28 in 2021. More information about hemp cultivars and locations
-    is available in
-    <xref alt="Table 3" rid="tbl-hemp_provenance">Table 3</xref>.</p>
+    is available in Supplemental Table S1.</p>
+    <fig id="tbl-hemp_provenance">
+      <caption><p>Table 1: Tally of hemp cultivars and locations.
+      Private cultivars are labeled “Cultivar1”, “Cultivar2”, etc.,
+      while experimental cultivars are labeled “Experimental1”,
+      “Experimental2”, etc.</p></caption>
+      <table-wrap>
+        <table>
+          <thead>
+            <tr>
+              <th align="left">Cultivar</th>
+              <th align="right">Chazy</th>
+              <th align="right">Freeville</th>
+              <th align="right">Geneva</th>
+              <th align="right">Ithaca</th>
+              <th align="right">Willsboro</th>
+              <th align="right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">ALTAIR</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">ANKA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">5</td>
+              <td align="right">2</td>
+              <td align="right">11</td>
+            </tr>
+            <tr>
+              <td align="left">BIALOBRZESKIE</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right">1</td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">CANDA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">CFX-1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">CFX-2</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">7</td>
+            </tr>
+            <tr>
+              <td align="left">CRS-1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR2</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR3</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR4</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EARLINA 8</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EXPERIMENTAL1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EXPERIMENTAL2</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">FELINA 32</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">3</td>
+              <td align="right"></td>
+              <td align="right">6</td>
+            </tr>
+            <tr>
+              <td align="left">FUTURA 75</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">GRANDI</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">10</td>
+            </tr>
+            <tr>
+              <td align="left">H-51</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">HAN-FN-H</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HAN-NW</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HELENA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HENOLA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">HLESIA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">3</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">HLIANA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">JOEY</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">KATANI</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">NEBRASKA (FERAL)</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">PEWTER RIVER</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">PICOLO</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">PORTUGAL</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">ROCKY HEMP</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">STERLING GOLD</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">SWIFT</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">TYGRA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">USO-31</td>
+              <td align="right">2</td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">WOJKO</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">X-59</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">TOTAL</td>
+              <td align="right">5</td>
+              <td align="right">24</td>
+              <td align="right">41</td>
+              <td align="right">76</td>
+              <td align="right">3</td>
+              <td align="right">149</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
     <p>All cultivar trials were planted in randomized complete block
     design with each cultivar replicated four times. The 2017 data were
     comprised of samples from the same 13 cultivars sampled from six NY
@@ -349,12 +713,12 @@ standard normal variate following Savitzky-Golay</p>
     <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 training and testing sets, as described
     above. Spectral data were transformed by each of the following
-    methods: 1) first derivative, 2) Savitzky-Golay (SG) using the first
-    derivative, third order polynomial, and a window of size five, 3)
+    methods: 1) first derivative; 2) Savitzky-Golay (SG) using the first
+    derivative, third order polynomial, and a window of size five; 3)
     gap-segment derivative using the first derivative, a gap of 11, and
-    a segment size of five, 4) SNV, 5) standard normal variate following
-    Savitzky-Golay (SNV-SG) using the same SG parameters as above, 6)
-    SNV-detrend with second order polynomial, and 7) multiplicative
+    a segment size of five; 4) SNV; 5) standard normal variate following
+    Savitzky-Golay (SNV-SG) using the same SG parameters as above; 6)
+    SNV-detrend with second order polynomial; and 7) multiplicative
     scatter correction. For comparison, models were also developed using
     untransformed spectra.</p>
     <p>For each of these preprocessing methods, models were fit and
@@ -395,13 +759,13 @@ standard normal variate following Savitzky-Golay</p>
   <sec id="laboratory-assay-cp-values">
     <title>3.1 Laboratory assay CP values</title>
     <p>Laboratory assay CP concentration values are summarized in
-    <xref alt="Table 1" rid="tbl-lab-protein-vals">Table 1</xref>. These
+    <xref alt="Table 2" rid="tbl-lab-protein-vals">Table 2</xref>. These
     are similar to the range of values observed in the literature,
     indicating an reasonable basis for a chemometric model. The values
     were left-skewed (skewness of -0.29) and two thirds of the samples
     contained more than 250 g kg <sup>-1</sup> CP.</p>
     <fig id="tbl-lab-protein-vals">
-      <caption><p>Table 1: Summary of Laboratory Assayed CP Values (g kg
+      <caption><p>Table 2: Summary of Laboratory Assayed CP Values (g kg
       <sup>-1</sup>)</p></caption>
       <table-wrap>
         <table>
@@ -435,7 +799,7 @@ standard normal variate following Savitzky-Golay</p>
     <title>3.2 Preprocessing methods comparison</title>
     <p>All preprocessing methods outperformed untransformed spectral
     data, as shown in
-    <xref alt="Table 2" rid="tbl-preproc">Table 2</xref>. Averaged
+    <xref alt="Table 3" rid="tbl-preproc">Table 3</xref>. Averaged
     together, all preprocessed spectra were superior to untransformed
     spectra, with lower RMSE and higher R<sup>2</sup>, RPD and RPIQ
     values (significant at <inline-formula><alternatives>
@@ -464,7 +828,7 @@ standard normal variate following Savitzky-Golay</p>
     SNV-SG by these metrics made it the best choice for the final
     model.</p>
     <fig id="tbl-preproc">
-      <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
+      <caption><p>Table 3: Evaluation of Preprocessing Methods by Metric
       ± Standard Error</p></caption>
       <table-wrap>
         <table>
@@ -580,7 +944,7 @@ standard normal variate following Savitzky-Golay</p>
     more components, performance gains were minimal and the relative
     ranks of the models tended to be stable
     (<bold>?@fig-model-calibration</bold>).</p>
-    <p>The performance of the final models on the test sets were
+    <p>The performance of the final models on the testing sets were
     similar, but not identical to, those obtained during the initial
     comparison of preprocessing methods. The means of the final models
     were: RMSE = 1.03, R<sup>2</sup> = 0.83, RPD = 2.44, and RPIQ =
@@ -590,7 +954,7 @@ standard normal variate following Savitzky-Golay</p>
     range from 2.5–3.0, RPIQ range from 2.3–4.1). Forty-nine percent of
     the models had the ability to approximate quantitative prediction
     (RPD range from 2.0–2.5), and nine percent of the models were able
-    to distinguish between higher and lower percentage CP values (RPD
+    to distinguish between higher and lower concentration CP values (RPD
     range from 1.5–2.0). Therefore, 74% of the models had, at minimum,
     the ability to distinguish between high and low values with 65%
     having, at minimum, the ability to approximate quantitative
@@ -599,8 +963,8 @@ standard normal variate following Savitzky-Golay</p>
     <xref alt="Figure 1" rid="fig-final-metric-boxplot">Figure 1</xref>
     shows 21 models with R<sup>2</sup> below 0.7.</p>
     <fig id="fig-final-metric-boxplot">
-      <caption><p>Figure 1: Final model test set performance (1000
-      iterations)</p></caption>
+      <caption><p>Figure 1: Final model testing set performance over
+      1000 iterations</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     <p>Finally, the pattern of test set errors was examined on a
@@ -609,15 +973,16 @@ standard normal variate following Savitzky-Golay</p>
     <xref alt="Figure 2" rid="fig-validation_set_performance">Figure 2</xref>.
     A linear model was fit considering the mean estimated error for each
     sample where that sample was in the test set as compared to the
-    sample’s actual value. The models overestimated percentage CP by
-    approximately 0.5% in the lowest tertile and underestimated
-    percentage CP by -0.01% and -0.41% in the middle and highest
+    sample’s actual value. The models overestimated CP concentration by
+    approximately 0.5% in the lowest tertile and underestimated CP
+    concentration by -0.01% and -0.41% in the middle and highest
     tertile, respectively. The variance of the errors did not increase
-    appreciably as percentage CP increased.</p>
+    appreciably as CP concentration increased.</p>
     <fig id="fig-validation_set_performance">
-      <caption><p>Figure 2: Test set prediction errors on a per-sample
-      basis. Actual sample value set to zero and samples ranked from
-      least to greatest actual CP concentration value</p></caption>
+      <caption><p>Figure 2: Testing set prediction errors on a
+      per-sample basis. Actual sample value set to zero and samples
+      ranked from least to greatest actual CP concentration
+      value</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
     <p>The 15 (10%) best and 15 worst predicted samples as measured by
@@ -625,7 +990,7 @@ standard normal variate following Savitzky-Golay</p>
     backgrounds examined. Overall, half of the samples in the data set
     came from Ithaca, NY (“Ithaca”), while 28% were collected from
     Geneva, NY (“Geneva”)
-    <xref alt="Table 3" rid="tbl-hemp_provenance">Table 3</xref>.
+    <xref alt="Table 1" rid="tbl-hemp_provenance">Table 1</xref>.
     However, of the 15 worst-predicted samples, nine were from Geneva,
     while three of the 15 best-predicted samples were from Geneva (by
     contrast, seven of the best-predicted and five of the
@@ -669,371 +1034,6 @@ standard normal variate following Savitzky-Golay</p>
 </sec>
 <sec id="supplemental-material">
   <title>7 SUPPLEMENTAL MATERIAL</title>
-  <fig id="tbl-hemp_provenance">
-    <caption><p>Table 3: Tally of hemp cultivars and locations. Private
-    cultivars are labeled “Cultivar1”, “Cultivar2”, etc., while
-    experimental cultivars are labeled “Experimental1”, “Experimental2”,
-    etc.</p></caption>
-    <table-wrap>
-      <table>
-        <thead>
-          <tr>
-            <th align="left">Cultivar</th>
-            <th align="right">Chazy</th>
-            <th align="right">Freeville</th>
-            <th align="right">Geneva</th>
-            <th align="right">Ithaca</th>
-            <th align="right">Willsboro</th>
-            <th align="right">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="left">ALTAIR</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">ANKA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">5</td>
-            <td align="right">2</td>
-            <td align="right">11</td>
-          </tr>
-          <tr>
-            <td align="left">BIALOBRZESKIE</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right">1</td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">CANDA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">CFX-1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">CFX-2</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">7</td>
-          </tr>
-          <tr>
-            <td align="left">CRS-1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR2</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR3</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR4</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EARLINA 8</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EXPERIMENTAL1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EXPERIMENTAL2</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">FELINA 32</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">3</td>
-            <td align="right"></td>
-            <td align="right">6</td>
-          </tr>
-          <tr>
-            <td align="left">FUTURA 75</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">GRANDI</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">10</td>
-          </tr>
-          <tr>
-            <td align="left">H-51</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">HAN-FN-H</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HAN-NW</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HELENA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HENOLA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">HLESIA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">3</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">HLIANA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">JOEY</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">KATANI</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">NEBRASKA (FERAL)</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">PEWTER RIVER</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">PICOLO</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">PORTUGAL</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">ROCKY HEMP</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">STERLING GOLD</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">SWIFT</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">TYGRA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">USO-31</td>
-            <td align="right">2</td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">WOJKO</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">X-59</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">TOTAL</td>
-            <td align="right">5</td>
-            <td align="right">24</td>
-            <td align="right">41</td>
-            <td align="right">76</td>
-            <td align="right">3</td>
-            <td align="right">149</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
-  </fig>
 </sec>
 <sec id="optional-sections">
   <title>8 OPTIONAL SECTIONS</title>
@@ -1901,7 +1901,7 @@ standard normal variate following Savitzky-Golay</p>
   protein, fat, or fiber
   (<xref alt="Roberts et al., 2004" rid="ref-roberts_near-infrared_2004-nb-article" ref-type="bibr">Roberts
   et al., 2004</xref>). NIRS technology has been used since the 1970’s
-  to assess forage percentage CP
+  to assess forage CP concentration
   (<xref alt="Reeves, 2012" rid="ref-reeves_potential_2012-nb-article" ref-type="bibr">Reeves,
   2012</xref>;
   <xref alt="Williams, 1975" rid="ref-williams_application_1975-nb-article" ref-type="bibr">Williams,
@@ -1974,7 +1974,11 @@ standard normal variate following Savitzky-Golay</p>
 
 full_data &lt;- fread(&quot;./input_data/final_data_set/full_hemp_data.csv&quot;)
 
-tab &lt;-  table(full_data$in_ny)</code>
+tab &lt;-  table(full_data$in_ny)
+
+
+# read in stuff for supplemental table 
+supp_tab &lt;- fread(&quot;./input_data/final_data_set/cultivar_table_clean.csv&quot;)</code>
   </sec>
   <sec id="hemp-grain-sample-background-nb-article">
     <title>2.1 Hemp Grain Sample Background</title>
@@ -1989,8 +1993,383 @@ tab &lt;-  table(full_data$in_ny)</code>
     commercially available and experimental material. Seventy-eight
     samples were scanned and assayed in 2017, 19 in 2018, 24 in 2019,
     and 28 in 2021. More information about hemp cultivars and locations
-    is available in
-    <xref alt="Table 3" rid="tbl-hemp_provenance-nb-article">Table 3</xref>.</p>
+    is available in Supplemental Table S1.</p>
+    <sec specific-use="notebook-content">
+    <code language="r script">supp_tab2 &lt;- copy(supp_tab)
+
+supp_tab2[,Cultivar:=toupper(cultivar2)]
+names(supp_tab2) &lt;- str_to_title(names(supp_tab2))
+# get one that's sortable
+st3 &lt;- supp_tab2[,c(8,2:7)]
+options(knitr.kable.NA = '')
+knitr::kable(st3)
+fwrite(st3, &quot;./pastable_figures/supplemental_tableS1.csv&quot;)</code>
+    <fig id="tbl-hemp_provenance-nb-article">
+      <caption><p>Table 1: Tally of hemp cultivars and locations.
+      Private cultivars are labeled “Cultivar1”, “Cultivar2”, etc.,
+      while experimental cultivars are labeled “Experimental1”,
+      “Experimental2”, etc.</p></caption>
+      <table-wrap>
+        <table>
+          <thead>
+            <tr>
+              <th align="left">Cultivar</th>
+              <th align="right">Chazy</th>
+              <th align="right">Freeville</th>
+              <th align="right">Geneva</th>
+              <th align="right">Ithaca</th>
+              <th align="right">Willsboro</th>
+              <th align="right">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td align="left">ALTAIR</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">ANKA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">5</td>
+              <td align="right">2</td>
+              <td align="right">11</td>
+            </tr>
+            <tr>
+              <td align="left">BIALOBRZESKIE</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right">1</td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">CANDA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">CFX-1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">CFX-2</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">7</td>
+            </tr>
+            <tr>
+              <td align="left">CRS-1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR2</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR3</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">CULTIVAR4</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EARLINA 8</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EXPERIMENTAL1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">EXPERIMENTAL2</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">FELINA 32</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">3</td>
+              <td align="right"></td>
+              <td align="right">6</td>
+            </tr>
+            <tr>
+              <td align="left">FUTURA 75</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">GRANDI</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">10</td>
+            </tr>
+            <tr>
+              <td align="left">H-51</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">HAN-FN-H</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HAN-NW</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HELENA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">HENOLA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">HLESIA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">3</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">HLIANA</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">JOEY</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">KATANI</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">NEBRASKA (FERAL)</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+            </tr>
+            <tr>
+              <td align="left">PEWTER RIVER</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">PICOLO</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">5</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">PORTUGAL</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">ROCKY HEMP</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">STERLING GOLD</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right"></td>
+              <td align="right">1</td>
+            </tr>
+            <tr>
+              <td align="left">SWIFT</td>
+              <td align="right">1</td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">TYGRA</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">USO-31</td>
+              <td align="right">2</td>
+              <td align="right">1</td>
+              <td align="right">2</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">9</td>
+            </tr>
+            <tr>
+              <td align="left">WOJKO</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right">3</td>
+              <td align="right">4</td>
+              <td align="right"></td>
+              <td align="right">8</td>
+            </tr>
+            <tr>
+              <td align="left">X-59</td>
+              <td align="right"></td>
+              <td align="right">2</td>
+              <td align="right"></td>
+              <td align="right">1</td>
+              <td align="right"></td>
+              <td align="right">3</td>
+            </tr>
+            <tr>
+              <td align="left">TOTAL</td>
+              <td align="right">5</td>
+              <td align="right">24</td>
+              <td align="right">41</td>
+              <td align="right">76</td>
+              <td align="right">3</td>
+              <td align="right">149</td>
+            </tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </fig>
+    </sec>
     <p>All cultivar trials were planted in randomized complete block
     design with each cultivar replicated four times. The 2017 data were
     comprised of samples from the same 13 cultivars sampled from six NY
@@ -2086,12 +2465,12 @@ preproc_key[,full_name:= c(&quot;Raw Spectra&quot;, &quot;First Derivative&quot;
     <p>Initially a number of common spectral preprocessing methods were
     tested by creating 100 training and testing sets, as described
     above. Spectral data were transformed by each of the following
-    methods: 1) first derivative, 2) Savitzky-Golay (SG) using the first
-    derivative, third order polynomial, and a window of size five, 3)
+    methods: 1) first derivative; 2) Savitzky-Golay (SG) using the first
+    derivative, third order polynomial, and a window of size five; 3)
     gap-segment derivative using the first derivative, a gap of 11, and
-    a segment size of five, 4) SNV, 5) standard normal variate following
-    Savitzky-Golay (SNV-SG) using the same SG parameters as above, 6)
-    SNV-detrend with second order polynomial, and 7) multiplicative
+    a segment size of five; 4) SNV; 5) standard normal variate following
+    Savitzky-Golay (SNV-SG) using the same SG parameters as above; 6)
+    SNV-detrend with second order polynomial; and 7) multiplicative
     scatter correction. For comparison, models were also developed using
     untransformed spectra.</p>
     <sec specific-use="notebook-content">
@@ -2159,7 +2538,7 @@ n_models_fit &lt;- preproc_key$full_name |&gt; unique() |&gt; length()-1</code>
 }</code>
     </sec>
     <p>Laboratory assay CP concentration values are summarized in
-    <xref alt="Table 1" rid="tbl-lab-protein-vals-nb-article">Table 1</xref>. These
+    <xref alt="Table 2" rid="tbl-lab-protein-vals-nb-article">Table 2</xref>. These
     are similar to the range of values observed in the literature,
     indicating an reasonable basis for a chemometric model. The values
     were left-skewed (skewness of -0.29) and two thirds of the samples
@@ -2171,7 +2550,7 @@ names(my_summary) &lt;- c(&quot;mean&quot;, &quot;sd&quot;, &quot;minimum&quot;,
 
 knitr::kable(my_summary)</code>
     <fig id="tbl-lab-protein-vals-nb-article">
-      <caption><p>Table 1: Summary of Laboratory Assayed CP Values (g kg
+      <caption><p>Table 2: Summary of Laboratory Assayed CP Values (g kg
       <sup>-1</sup>)</p></caption>
       <table-wrap>
         <table>
@@ -2309,7 +2688,7 @@ raw_contrast &lt;- nlme_summaries_with_models_2 |&gt; filter(preproc==&quot;raw&
     </sec>
     <p>All preprocessing methods outperformed untransformed spectral
     data, as shown in
-    <xref alt="Table 2" rid="tbl-preproc-nb-article">Table 2</xref>. Averaged
+    <xref alt="Table 3" rid="tbl-preproc-nb-article">Table 3</xref>. Averaged
     together, all preprocessed spectra were superior to untransformed
     spectra, with lower RMSE and higher R<sup>2</sup>, RPD and RPIQ
     values (significant at <inline-formula><alternatives>
@@ -2355,7 +2734,7 @@ to_table2 &lt;- to_table |&gt;
 to_table2|&gt; 
   knitr::kable(col.names = c(&quot;Preprocessing Method&quot;, &quot;RMSE&quot;,  &quot;$R^{2}<!-- (F2ED4C6E)[nb-article]:/home/runner/work/glowing-system/glowing-system/index.qmd -->quot;,&quot;RPD&quot;, &quot;RPIQ&quot;))</code>
     <fig id="tbl-preproc-nb-article">
-      <caption><p>Table 2: Evaluation of Preprocessing Methods by Metric
+      <caption><p>Table 3: Evaluation of Preprocessing Methods by Metric
       ± Standard Error</p></caption>
       <table-wrap>
         <table>
@@ -2528,7 +2907,7 @@ all_mods &lt;- list(great_mods, good_mods, ok_mods, poor_but_functional)
 
 full_sum &lt;- lapply(all_mods, nrow)</code>
     </sec>
-    <p>The performance of the final models on the test sets were
+    <p>The performance of the final models on the testing sets were
     similar, but not identical to, those obtained during the initial
     comparison of preprocessing methods. The means of the final models
     were: RMSE = 1.03, R<sup>2</sup> = 0.83, RPD = 2.44, and RPIQ =
@@ -2538,7 +2917,7 @@ full_sum &lt;- lapply(all_mods, nrow)</code>
     range from 2.5–3.0, RPIQ range from 2.3–4.1). Forty-nine percent of
     the models had the ability to approximate quantitative prediction
     (RPD range from 2.0–2.5), and nine percent of the models were able
-    to distinguish between higher and lower percentage CP values (RPD
+    to distinguish between higher and lower concentration CP values (RPD
     range from 1.5–2.0). Therefore, 74% of the models had, at minimum,
     the ability to distinguish between high and low values with 65%
     having, at minimum, the ability to approximate quantitative
@@ -2572,8 +2951,8 @@ ggsave(&quot;./pastable_figures/figure2.tiff&quot;) </code>
       <preformat>Saving 7 x 5 in image</preformat>
     </boxed-text>
     <fig id="fig-final-metric-boxplot-nb-article">
-      <caption><p>Figure 1: Final model test set performance (1000
-      iterations)</p></caption>
+      <caption><p>Figure 1: Final model testing set performance over
+      1000 iterations</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-final-metric-boxplot-1.png" />
     </fig>
     </sec>
@@ -2649,11 +3028,11 @@ troubles &lt;- merge(worst, full_data[,1:7], all.x = T)</code>
     <xref alt="Figure 2" rid="fig-validation_set_performance-nb-article">Figure 2</xref>.
     A linear model was fit considering the mean estimated error for each
     sample where that sample was in the test set as compared to the
-    sample’s actual value. The models overestimated percentage CP by
-    approximately 0.5% in the lowest tertile and underestimated
-    percentage CP by -0.01% and -0.41% in the middle and highest
+    sample’s actual value. The models overestimated CP concentration by
+    approximately 0.5% in the lowest tertile and underestimated CP
+    concentration by -0.01% and -0.41% in the middle and highest
     tertile, respectively. The variance of the errors did not increase
-    appreciably as percentage CP increased.</p>
+    appreciably as CP concentration increased.</p>
     <sec id="cell-fig-validation_set_performance-nb-article" specific-use="notebook-content">
     <code language="r script"># 
 
@@ -2700,16 +3079,16 @@ model_final_predictions |&gt;
       <preformat>Saving 7 x 5 in image</preformat>
     </boxed-text>
     <fig id="fig-validation_set_performance-nb-article">
-      <caption><p>Figure 2: Test set prediction errors on a per-sample
-      basis. Actual sample value set to zero and samples ranked from
-      least to greatest actual CP concentration value</p></caption>
+      <caption><p>Figure 2: Testing set prediction errors on a
+      per-sample basis. Actual sample value set to zero and samples
+      ranked from least to greatest actual CP concentration
+      value</p></caption>
       <graphic mimetype="image" mime-subtype="png" xlink:href="index_files/figure-jats/fig-validation_set_performance-1.png" />
     </fig>
     </sec>
     <sec specific-use="notebook-content">
     <code language="r script"># look
-# read in stuff for supplemental table first
-supp_tab &lt;- fread(&quot;./input_data/final_data_set/cultivar_table_clean.csv&quot;)
+
 
 # read in correct location key
 locs2 &lt;- fread(&quot;./input_data/final_data_set/corrected_location_key.csv&quot;)
@@ -2741,7 +3120,7 @@ error_by_loc &lt;- emmeans::emmeans(error_mod, &quot;loc2&quot;) |&gt; multcomp:
     backgrounds examined. Overall, half of the samples in the data set
     came from Ithaca, NY (“Ithaca”), while 28% were collected from
     Geneva, NY (“Geneva”)
-    <xref alt="Table 3" rid="tbl-hemp_provenance-nb-article">Table 3</xref>.
+    <xref alt="Table 1" rid="tbl-hemp_provenance-nb-article">Table 1</xref>.
     However, of the 15 worst-predicted samples, nine were from Geneva,
     while three of the 15 best-predicted samples were from Geneva (by
     contrast, seven of the best-predicted and five of the
@@ -2785,381 +3164,6 @@ error_by_loc &lt;- emmeans::emmeans(error_mod, &quot;loc2&quot;) |&gt; multcomp:
 </sec>
 <sec id="supplemental-material-nb-article">
   <title>7 SUPPLEMENTAL MATERIAL</title>
-  <sec specific-use="notebook-content">
-  <code language="r script">supp_tab2 &lt;- copy(supp_tab)
-
-supp_tab2[,Cultivar:=toupper(cultivar2)]
-names(supp_tab2) &lt;- str_to_title(names(supp_tab2))
-# get one that's sortable
-st3 &lt;- supp_tab2[,c(8,2:7)]
-options(knitr.kable.NA = '')
-knitr::kable(st3)</code>
-  <fig id="tbl-hemp_provenance-nb-article">
-    <caption><p>Table 3: Tally of hemp cultivars and locations. Private
-    cultivars are labeled “Cultivar1”, “Cultivar2”, etc., while
-    experimental cultivars are labeled “Experimental1”, “Experimental2”,
-    etc.</p></caption>
-    <table-wrap>
-      <table>
-        <thead>
-          <tr>
-            <th align="left">Cultivar</th>
-            <th align="right">Chazy</th>
-            <th align="right">Freeville</th>
-            <th align="right">Geneva</th>
-            <th align="right">Ithaca</th>
-            <th align="right">Willsboro</th>
-            <th align="right">Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td align="left">ALTAIR</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">ANKA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">5</td>
-            <td align="right">2</td>
-            <td align="right">11</td>
-          </tr>
-          <tr>
-            <td align="left">BIALOBRZESKIE</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right">1</td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">CANDA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">CFX-1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">CFX-2</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">7</td>
-          </tr>
-          <tr>
-            <td align="left">CRS-1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR2</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR3</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">CULTIVAR4</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EARLINA 8</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EXPERIMENTAL1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">EXPERIMENTAL2</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">FELINA 32</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">3</td>
-            <td align="right"></td>
-            <td align="right">6</td>
-          </tr>
-          <tr>
-            <td align="left">FUTURA 75</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">GRANDI</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">10</td>
-          </tr>
-          <tr>
-            <td align="left">H-51</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">HAN-FN-H</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HAN-NW</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HELENA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">HENOLA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">HLESIA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">3</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">HLIANA</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">JOEY</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">KATANI</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">NEBRASKA (FERAL)</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-          </tr>
-          <tr>
-            <td align="left">PEWTER RIVER</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">PICOLO</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">5</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">PORTUGAL</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">ROCKY HEMP</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">STERLING GOLD</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right"></td>
-            <td align="right">1</td>
-          </tr>
-          <tr>
-            <td align="left">SWIFT</td>
-            <td align="right">1</td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">TYGRA</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">USO-31</td>
-            <td align="right">2</td>
-            <td align="right">1</td>
-            <td align="right">2</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">9</td>
-          </tr>
-          <tr>
-            <td align="left">WOJKO</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right">3</td>
-            <td align="right">4</td>
-            <td align="right"></td>
-            <td align="right">8</td>
-          </tr>
-          <tr>
-            <td align="left">X-59</td>
-            <td align="right"></td>
-            <td align="right">2</td>
-            <td align="right"></td>
-            <td align="right">1</td>
-            <td align="right"></td>
-            <td align="right">3</td>
-          </tr>
-          <tr>
-            <td align="left">TOTAL</td>
-            <td align="right">5</td>
-            <td align="right">24</td>
-            <td align="right">41</td>
-            <td align="right">76</td>
-            <td align="right">3</td>
-            <td align="right">149</td>
-          </tr>
-        </tbody>
-      </table>
-    </table-wrap>
-  </fig>
-  </sec>
 </sec>
 <sec id="optional-sections-nb-article">
   <title>8 OPTIONAL SECTIONS</title>
