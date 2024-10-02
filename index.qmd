@@ -79,7 +79,9 @@ abstract: |
 plain-language-summary: |
   A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy.
 key-points:
-  - A model was developed to predict percent crude protein in hemp grain using near infrared spectroscopy.
+  - Models were developed to predict crude protein concentration in hemp grain using near infrared spectroscopy.
+  - Most models were able to at minimum distinguish between high and lower concentrations of crude protein. 
+  - Models could be further optimized by including more samples and rectifying class imbalances between environments.
 date: last-modified
 bibliography: 
   - references.bib
@@ -415,7 +417,7 @@ saveable_model <- model_n_comp_statistics |>
   xlab("Crude Protein Model Number of Components") + 
   ylab("Crude Protein Model Root Mean Squared Error")
 
-ggsave("./pastable_figures/figure1.eps") 
+ggsave("./pastable_figures/figure1.tiff") 
 
 ```
 
@@ -478,6 +480,9 @@ final_model_table |>
     axis.title.x = element_blank(),
     axis.text.x = element_blank(),
     axis.ticks.x = element_blank())
+
+ggsave("./pastable_figures/figure2.tiff") 
+
 ```
 
 ```{r}
@@ -594,6 +599,7 @@ model_final_predictions |>
     legend.position=c(0.9, 0.8)) + 
   guides(shape= guide_legend(override.aes = list(alpha = 1)))
 
+ggsave("./pastable_figures/figure3.tiff") 
 ```
 
 ```{r}
