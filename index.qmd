@@ -35,7 +35,7 @@ author:
         postal-code: 14853
   - name: Julie L. Hansen
     orcid: 0000-0001-7247-9186
-    corresponding: false
+    corresponding: falsec
     # roles:
     #   - Investigation
     #   - Project administration
@@ -446,6 +446,7 @@ saveable_model <- model_n_comp_statistics |>
   ylab("Crude Protein Model Root Mean Squared Error")
 
 ggsave("./pastable_figures/figure1.tiff") 
+ggsave("./pastable_figures/figure1.png", dpi = 400) 
 
 ```
 
@@ -495,14 +496,16 @@ skim_metrics <- final_model_table |>
 #| fig-cap: Final model testing set performance over 1000 iterations
 
 # setnames(model_final_predictions, "V1", "crude_protein")
-
+my_labeller <- as_labeller(c(RMSE="RMSE", RSQ="R^2", RPIQ="RPIQ", RPD = "RPD"),     default = label_parsed)
 
 
 final_model_table |>
   mutate(metric2 = toupper(.metric)) |> 
   ggplot(aes(x = .metric, y = .estimate)) + 
   theme_classic() + geom_boxplot() + 
-  facet_wrap(nrow = 1,vars(factor(metric2, levels = c("RMSE", "RSQ","RPD", "RPIQ"))), scales = "free") +
+  facet_wrap(nrow = 1,
+             vars(factor(metric2, levels = c("RMSE", "RSQ","RPD", "RPIQ"))),
+             scales = "free", labeller = my_labeller) +
   xlab("Metric") + ylab("Estimate")+
   theme(
     axis.title.x = element_blank(),
@@ -510,6 +513,7 @@ final_model_table |>
     axis.ticks.x = element_blank())
 
 ggsave("./pastable_figures/figure2.tiff") 
+ggsave("./pastable_figures/figure2.png", dpi = 400) 
 
 ```
 
@@ -628,6 +632,7 @@ model_final_predictions |>
   guides(shape= guide_legend(override.aes = list(alpha = 1)))
 
 ggsave("./pastable_figures/figure3.tiff") 
+ggsave("./pastable_figures/figure3.png", dpi = 400) 
 ```
 
 ```{r}
