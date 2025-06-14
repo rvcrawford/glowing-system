@@ -67,6 +67,7 @@ author:
         city: Ithaca
         state: NY
         postal-code: 14853    
+title-block-style: none
 keywords:
   - Hemp
   - Grain
